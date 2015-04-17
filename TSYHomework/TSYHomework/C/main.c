@@ -1,8 +1,8 @@
 //
 //  main.c
-//  TSYHomework
+//  C
 //
-//  Created by Admin on 24.02.15.
+//  Created by Admin on 17.04.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
@@ -20,7 +20,7 @@
 #include "TSYLinkedListTest.h"
 
 int main(int argc, const char * argv[]) {
-    TSYLinkedListPerformTest();
+//    TSYLinkedListPerformTest();
     
     TSYLinkedListEnumeratorPerformTest();
     
@@ -28,19 +28,18 @@ int main(int argc, const char * argv[]) {
     
     TSYAutoreleasingStackPerformTest();
     
-//    TSYHumanTest();
+    //    TSYHumanTest();
     
-//    TSYStringTest();
+    //    TSYStringTest();
     
-//    TSYArrayPerformTests();
+    //    TSYArrayPerformTests();
     
-//    TSYStructureOutputTests();
-//    
-//    TSYOutputParentTest();
-//    
-//    TSYMacrosTest();
-   
-//    TSYBitOutputTest();
+    //    TSYStructureOutputTests();
+    //
+    //    TSYOutputParentTest();
+    //
+    //    TSYMacrosTest();
     
+    //    TSYBitOutputTest();
     return 0;
 }
