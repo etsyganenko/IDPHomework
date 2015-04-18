@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		849F79581AE2803B0039EBAE /* TSYCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F79571AE2803B0039EBAE /* TSYCreatureTest.m */; };
+		849F795C1AE284930039EBAE /* TSYBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F795B1AE284930039EBAE /* TSYBuilding.m */; };
+		849F795F1AE2CD7C0039EBAE /* TSYCarwash.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F795E1AE2CD7C0039EBAE /* TSYCarwash.m */; };
+		849F79621AE2CE350039EBAE /* TSYEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F79611AE2CE350039EBAE /* TSYEmployee.m */; };
+		849F79651AE2CE7F0039EBAE /* TSYAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F79641AE2CE7F0039EBAE /* TSYAccountant.m */; };
+		849F79681AE2CEA70039EBAE /* TSYWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F79671AE2CEA70039EBAE /* TSYWasher.m */; };
+		849F796B1AE2CEB80039EBAE /* TSYDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F796A1AE2CEB80039EBAE /* TSYDirector.m */; };
+		849F796E1AE2D0100039EBAE /* TSYCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F796D1AE2D0100039EBAE /* TSYCar.m */; };
+		849F79711AE2D1F10039EBAE /* TSYCarwashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F79701AE2D1F10039EBAE /* TSYCarwashTest.m */; };
 		84ECC9371AE13C2B00178C76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC92A1AE13C2B00178C76 /* main.m */; };
 		84ECC9381AE13C2B00178C76 /* NSObject+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC92E1AE13C2B00178C76 /* NSObject+TSYCategory.m */; };
 		84ECC9391AE13C2B00178C76 /* TSYCreature2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC9301AE13C2B00178C76 /* TSYCreature2.m */; };
@@ -66,6 +74,22 @@
 /* Begin PBXFileReference section */
 		849F79561AE2803B0039EBAE /* TSYCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCreatureTest.h; sourceTree = "<group>"; };
 		849F79571AE2803B0039EBAE /* TSYCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCreatureTest.m; sourceTree = "<group>"; };
+		849F795A1AE284930039EBAE /* TSYBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYBuilding.h; sourceTree = "<group>"; };
+		849F795B1AE284930039EBAE /* TSYBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYBuilding.m; sourceTree = "<group>"; };
+		849F795D1AE2CD7C0039EBAE /* TSYCarwash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCarwash.h; sourceTree = "<group>"; };
+		849F795E1AE2CD7C0039EBAE /* TSYCarwash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCarwash.m; sourceTree = "<group>"; };
+		849F79601AE2CE350039EBAE /* TSYEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYEmployee.h; sourceTree = "<group>"; };
+		849F79611AE2CE350039EBAE /* TSYEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYEmployee.m; sourceTree = "<group>"; };
+		849F79631AE2CE7F0039EBAE /* TSYAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAccountant.h; sourceTree = "<group>"; };
+		849F79641AE2CE7F0039EBAE /* TSYAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAccountant.m; sourceTree = "<group>"; };
+		849F79661AE2CEA70039EBAE /* TSYWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYWasher.h; sourceTree = "<group>"; };
+		849F79671AE2CEA70039EBAE /* TSYWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYWasher.m; sourceTree = "<group>"; };
+		849F79691AE2CEB80039EBAE /* TSYDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYDirector.h; sourceTree = "<group>"; };
+		849F796A1AE2CEB80039EBAE /* TSYDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYDirector.m; sourceTree = "<group>"; };
+		849F796C1AE2D0100039EBAE /* TSYCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCar.h; sourceTree = "<group>"; };
+		849F796D1AE2D0100039EBAE /* TSYCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCar.m; sourceTree = "<group>"; };
+		849F796F1AE2D1F10039EBAE /* TSYCarwashTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCarwashTest.h; sourceTree = "<group>"; };
+		849F79701AE2D1F10039EBAE /* TSYCarwashTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCarwashTest.m; sourceTree = "<group>"; };
 		84ECC8C21AE13AA200178C76 /* TSYHomework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TSYHomework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84ECC8CF1AE13C0500178C76 /* TSYArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TSYArray.c; sourceTree = "<group>"; };
 		84ECC8D01AE13C0500178C76 /* TSYArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYArray.h; sourceTree = "<group>"; };
@@ -152,6 +176,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		849F79591AE283F30039EBAE /* TSYCarwash */ = {
+			isa = PBXGroup;
+			children = (
+				849F795A1AE284930039EBAE /* TSYBuilding.h */,
+				849F795B1AE284930039EBAE /* TSYBuilding.m */,
+				849F795D1AE2CD7C0039EBAE /* TSYCarwash.h */,
+				849F795E1AE2CD7C0039EBAE /* TSYCarwash.m */,
+				849F796C1AE2D0100039EBAE /* TSYCar.h */,
+				849F796D1AE2D0100039EBAE /* TSYCar.m */,
+				849F79601AE2CE350039EBAE /* TSYEmployee.h */,
+				849F79611AE2CE350039EBAE /* TSYEmployee.m */,
+				849F79631AE2CE7F0039EBAE /* TSYAccountant.h */,
+				849F79641AE2CE7F0039EBAE /* TSYAccountant.m */,
+				849F79661AE2CEA70039EBAE /* TSYWasher.h */,
+				849F79671AE2CEA70039EBAE /* TSYWasher.m */,
+				849F79691AE2CEB80039EBAE /* TSYDirector.h */,
+				849F796A1AE2CEB80039EBAE /* TSYDirector.m */,
+				849F796F1AE2D1F10039EBAE /* TSYCarwashTest.h */,
+				849F79701AE2D1F10039EBAE /* TSYCarwashTest.m */,
+			);
+			name = TSYCarwash;
+			sourceTree = "<group>";
+		};
 		84ECC8B91AE13AA200178C76 = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				84ECC92A1AE13C2B00178C76 /* main.m */,
+				849F79591AE283F30039EBAE /* TSYCarwash */,
 				84ECC92B1AE13C2B00178C76 /* TSYCreature */,
 				84ECC92C1AE13C2B00178C76 /* TSYCreature2 */,
 			);
@@ -470,13 +518,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849F796E1AE2D0100039EBAE /* TSYCar.m in Sources */,
 				84ECC93B1AE13C2B00178C76 /* TSYCreatureMale.m in Sources */,
 				84ECC93C1AE13C2B00178C76 /* TSYCreature2Test.m in Sources */,
+				849F79651AE2CE7F0039EBAE /* TSYAccountant.m in Sources */,
+				849F79711AE2D1F10039EBAE /* TSYCarwashTest.m in Sources */,
 				84ECC9391AE13C2B00178C76 /* TSYCreature2.m in Sources */,
 				84ECC9631AE1628F00178C76 /* TSYCreature.m in Sources */,
+				849F795F1AE2CD7C0039EBAE /* TSYCarwash.m in Sources */,
+				849F79681AE2CEA70039EBAE /* TSYWasher.m in Sources */,
 				84ECC9381AE13C2B00178C76 /* NSObject+TSYCategory.m in Sources */,
 				84ECC9371AE13C2B00178C76 /* main.m in Sources */,
 				84ECC93A1AE13C2B00178C76 /* TSYCreatureFemale.m in Sources */,
+				849F796B1AE2CEB80039EBAE /* TSYDirector.m in Sources */,
+				849F795C1AE284930039EBAE /* TSYBuilding.m in Sources */,
+				849F79621AE2CE350039EBAE /* TSYEmployee.m in Sources */,
 				849F79581AE2803B0039EBAE /* TSYCreatureTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
