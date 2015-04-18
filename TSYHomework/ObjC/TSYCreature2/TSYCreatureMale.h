@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "TSYCreature.h"
+#import "TSYCreature2.h"
 
-@interface TSYCreatureMale : TSYCreature
+@interface TSYCreatureMale : TSYCreature2
 
 - (void)fight;
 

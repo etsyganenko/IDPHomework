@@ -1,20 +1,20 @@
 //
-//  TSYCreature.m
+//  TSYCreature2.m
 //  TSYHomework
 //
 //  Created by Admin on 12.04.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYCreature.h"
+#import "TSYCreature2.h"
 #import "NSObject+TSYCategory.h"
 
-@interface TSYCreature ()
+@interface TSYCreature2 ()
 @property (nonatomic, retain) NSMutableArray *mutableChildren;
 
 @end
 
-@implementation TSYCreature
+@implementation TSYCreature2
 
 @dynamic children;
 
@@ -26,7 +26,7 @@
 }
 
 + (instancetype)creatureWithName:(NSString *)name {
-    TSYCreature *creature = [self object];
+    TSYCreature2 *creature = [self object];
     creature.name = name;
     
     return creature;
@@ -66,7 +66,7 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addChild:(TSYCreature *)child {
+- (void)addChild:(TSYCreature2 *)child {
     if (nil == child) {
         return;
     }
@@ -78,7 +78,7 @@
     }
 }
 
-- (void)removeChild:(TSYCreature *)child {
+- (void)removeChild:(TSYCreature2 *)child {
     NSMutableArray *array = self.mutableChildren;
     
     [array removeObject:child];
@@ -87,7 +87,7 @@
 - (void)sayHi {
     NSLog(@"Hi! My name is %@\n", self.name);
     
-    for (TSYCreature *creature in self.mutableChildren) {
+    for (TSYCreature2 *creature in self.mutableChildren) {
         [creature sayHi];
     }
 }

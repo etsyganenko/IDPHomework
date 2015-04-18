@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "TSYCreature.h"
+#import "TSYCreature2.h"
 
-@interface TSYCreatureFemale : TSYCreature
+@interface TSYCreatureFemale : TSYCreature2
 
-- (TSYCreature *)giveBirth;
+- (TSYCreature2 *)giveBirth;
 
 @end

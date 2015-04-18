@@ -1,5 +1,5 @@
 //
-//  TSYCreature.h
+//  TSYCreature2.h
 //  TSYHomework
 //
 //  Created by Admin on 12.04.15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TSYCreature : NSObject
+@interface TSYCreature2 : NSObject
 @property (nonatomic, copy)     NSString    *name;
 @property (nonatomic, assign)   NSUInteger  age;
 @property (nonatomic, assign)   NSUInteger  weight;
@@ -17,8 +17,8 @@
 + (instancetype)creature;
 + (instancetype)creatureWithName:(NSString *)name;
 
-- (void)addChild:(TSYCreature *)child;
-- (void)removeChild:(TSYCreature *)child;
+- (void)addChild:(TSYCreature2 *)child;
+- (void)removeChild:(TSYCreature2 *)child;
 
 - (void)performGenderSpecificOperation;
 

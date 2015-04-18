@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		849F79581AE2803B0039EBAE /* TSYCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F79571AE2803B0039EBAE /* TSYCreatureTest.m */; };
 		84ECC9371AE13C2B00178C76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC92A1AE13C2B00178C76 /* main.m */; };
 		84ECC9381AE13C2B00178C76 /* NSObject+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC92E1AE13C2B00178C76 /* NSObject+TSYCategory.m */; };
-		84ECC9391AE13C2B00178C76 /* TSYCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC9301AE13C2B00178C76 /* TSYCreature.m */; };
+		84ECC9391AE13C2B00178C76 /* TSYCreature2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC9301AE13C2B00178C76 /* TSYCreature2.m */; };
 		84ECC93A1AE13C2B00178C76 /* TSYCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC9321AE13C2B00178C76 /* TSYCreatureFemale.m */; };
 		84ECC93B1AE13C2B00178C76 /* TSYCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC9341AE13C2B00178C76 /* TSYCreatureMale.m */; };
-		84ECC93C1AE13C2B00178C76 /* TSYCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC9361AE13C2B00178C76 /* TSYCreatureTest.m */; };
+		84ECC93C1AE13C2B00178C76 /* TSYCreature2Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC9361AE13C2B00178C76 /* TSYCreature2Test.m */; };
 		84ECC9441AE13ED100178C76 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC9431AE13ED100178C76 /* main.c */; };
 		84ECC9491AE13EF000178C76 /* TSYArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC8CF1AE13C0500178C76 /* TSYArray.c */; };
 		84ECC94A1AE13EF700178C76 /* TSYArrayTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC8D11AE13C0500178C76 /* TSYArrayTest.c */; };
@@ -38,6 +39,7 @@
 		84ECC95E1AE13F5100178C76 /* TSYStringTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC9071AE13C0500178C76 /* TSYStringTest.c */; };
 		84ECC95F1AE13F5600178C76 /* TSYStructure.c in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC90A1AE13C0500178C76 /* TSYStructure.c */; };
 		84ECC9601AE13F5900178C76 /* TSYStructureOutputTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC90C1AE13C0500178C76 /* TSYStructureOutputTest.c */; };
+		84ECC9631AE1628F00178C76 /* TSYCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC9621AE1628F00178C76 /* TSYCreature.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +64,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		849F79561AE2803B0039EBAE /* TSYCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCreatureTest.h; sourceTree = "<group>"; };
+		849F79571AE2803B0039EBAE /* TSYCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCreatureTest.m; sourceTree = "<group>"; };
 		84ECC8C21AE13AA200178C76 /* TSYHomework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TSYHomework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84ECC8CF1AE13C0500178C76 /* TSYArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TSYArray.c; sourceTree = "<group>"; };
 		84ECC8D01AE13C0500178C76 /* TSYArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYArray.h; sourceTree = "<group>"; };
@@ -116,16 +120,18 @@
 		84ECC92A1AE13C2B00178C76 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84ECC92D1AE13C2B00178C76 /* NSObject+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TSYCategory.h"; sourceTree = "<group>"; };
 		84ECC92E1AE13C2B00178C76 /* NSObject+TSYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TSYCategory.m"; sourceTree = "<group>"; };
-		84ECC92F1AE13C2B00178C76 /* TSYCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCreature.h; sourceTree = "<group>"; };
-		84ECC9301AE13C2B00178C76 /* TSYCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCreature.m; sourceTree = "<group>"; };
+		84ECC92F1AE13C2B00178C76 /* TSYCreature2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCreature2.h; sourceTree = "<group>"; };
+		84ECC9301AE13C2B00178C76 /* TSYCreature2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCreature2.m; sourceTree = "<group>"; };
 		84ECC9311AE13C2B00178C76 /* TSYCreatureFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCreatureFemale.h; sourceTree = "<group>"; };
 		84ECC9321AE13C2B00178C76 /* TSYCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCreatureFemale.m; sourceTree = "<group>"; };
 		84ECC9331AE13C2B00178C76 /* TSYCreatureMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCreatureMale.h; sourceTree = "<group>"; };
 		84ECC9341AE13C2B00178C76 /* TSYCreatureMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCreatureMale.m; sourceTree = "<group>"; };
-		84ECC9351AE13C2B00178C76 /* TSYCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCreatureTest.h; sourceTree = "<group>"; };
-		84ECC9361AE13C2B00178C76 /* TSYCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCreatureTest.m; sourceTree = "<group>"; };
+		84ECC9351AE13C2B00178C76 /* TSYCreature2Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCreature2Test.h; sourceTree = "<group>"; };
+		84ECC9361AE13C2B00178C76 /* TSYCreature2Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCreature2Test.m; sourceTree = "<group>"; };
 		84ECC9411AE13ED100178C76 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
 		84ECC9431AE13ED100178C76 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		84ECC9611AE1628F00178C76 /* TSYCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCreature.h; sourceTree = "<group>"; };
+		84ECC9621AE1628F00178C76 /* TSYCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCreature.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +345,10 @@
 		84ECC92B1AE13C2B00178C76 /* TSYCreature */ = {
 			isa = PBXGroup;
 			children = (
+				84ECC9611AE1628F00178C76 /* TSYCreature.h */,
+				84ECC9621AE1628F00178C76 /* TSYCreature.m */,
+				849F79561AE2803B0039EBAE /* TSYCreatureTest.h */,
+				849F79571AE2803B0039EBAE /* TSYCreatureTest.m */,
 			);
 			path = TSYCreature;
 			sourceTree = "<group>";
@@ -348,14 +358,14 @@
 			children = (
 				84ECC92D1AE13C2B00178C76 /* NSObject+TSYCategory.h */,
 				84ECC92E1AE13C2B00178C76 /* NSObject+TSYCategory.m */,
-				84ECC92F1AE13C2B00178C76 /* TSYCreature.h */,
-				84ECC9301AE13C2B00178C76 /* TSYCreature.m */,
+				84ECC92F1AE13C2B00178C76 /* TSYCreature2.h */,
+				84ECC9301AE13C2B00178C76 /* TSYCreature2.m */,
 				84ECC9311AE13C2B00178C76 /* TSYCreatureFemale.h */,
 				84ECC9321AE13C2B00178C76 /* TSYCreatureFemale.m */,
 				84ECC9331AE13C2B00178C76 /* TSYCreatureMale.h */,
 				84ECC9341AE13C2B00178C76 /* TSYCreatureMale.m */,
-				84ECC9351AE13C2B00178C76 /* TSYCreatureTest.h */,
-				84ECC9361AE13C2B00178C76 /* TSYCreatureTest.m */,
+				84ECC9351AE13C2B00178C76 /* TSYCreature2Test.h */,
+				84ECC9361AE13C2B00178C76 /* TSYCreature2Test.m */,
 			);
 			path = TSYCreature2;
 			sourceTree = "<group>";
@@ -461,11 +471,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				84ECC93B1AE13C2B00178C76 /* TSYCreatureMale.m in Sources */,
-				84ECC93C1AE13C2B00178C76 /* TSYCreatureTest.m in Sources */,
-				84ECC9391AE13C2B00178C76 /* TSYCreature.m in Sources */,
+				84ECC93C1AE13C2B00178C76 /* TSYCreature2Test.m in Sources */,
+				84ECC9391AE13C2B00178C76 /* TSYCreature2.m in Sources */,
+				84ECC9631AE1628F00178C76 /* TSYCreature.m in Sources */,
 				84ECC9381AE13C2B00178C76 /* NSObject+TSYCategory.m in Sources */,
 				84ECC9371AE13C2B00178C76 /* main.m in Sources */,
 				84ECC93A1AE13C2B00178C76 /* TSYCreatureFemale.m in Sources */,
+				849F79581AE2803B0039EBAE /* TSYCreatureTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +645,7 @@
 				84ECC8CB1AE13AA200178C76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84ECC9451AE13ED100178C76 /* Build configuration list for PBXNativeTarget "C" */ = {
 			isa = XCConfigurationList;
@@ -641,6 +654,7 @@
 				84ECC9471AE13ED100178C76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

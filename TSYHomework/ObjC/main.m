@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "TSYCreatureMale.h"
-#import "TSYCreatureFemale.h"
 #import "TSYCreatureTest.h"
+#import "TSYCreature2Test.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {        
         TSYCreaturePerformTest();
+        
+        TSYCreature2PerformTest();
     }
     
     return 0;

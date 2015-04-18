@@ -13,8 +13,8 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (TSYCreature *)giveBirth {
-    TSYCreature *child = [TSYCreature creature];
+- (TSYCreature2 *)giveBirth {
+    TSYCreature2 *child = [TSYCreature2 creature];
     
     NSLog(@"New creature was born by %@", self.name);
     
