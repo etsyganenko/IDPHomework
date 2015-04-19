@@ -7,6 +7,7 @@
 //
 
 #import "TSYWasher.h"
+#import "TSYAccountant.h"
 
 @implementation TSYWasher
 
@@ -15,15 +16,25 @@
         return;
     }
     
-    if (car.money < self.price) {
-        NSLog(@"Not enough money!");
+    if (![car payWithPrice:self.price]) {
         return;
     }
     
-    car.money -= self.price;
+    [self takeMoneyForWashing:self.price];
+    
     car.clean = true;
     
     NSLog(@"%@ is washing %@", self.name, car.model);
+}
+
+- (void)takeMoneyForWashing:(NSUInteger)money {
+    self.money += money;
+}
+
+- (void)giveMoneyToAccountant:(NSUInteger)money {
+    self.money -= money;
+    
+    [self.accountant takeMoneyFromWasher:money];
 }
 
 @end

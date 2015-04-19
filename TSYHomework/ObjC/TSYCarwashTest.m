@@ -16,7 +16,7 @@ void TSYCarwashPerformTest() {
         TSYCar *car = [TSYCar carWithModel:@"VW" money:60];
         TSYWasher *washer = [TSYWasher employeeWithName:@"Ivan" salary:5000];
         
-        [washer setPrice:50];
+        [washer setPrice:70];
         [washer wash:car];
     }
 }

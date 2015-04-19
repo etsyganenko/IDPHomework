@@ -16,4 +16,6 @@
 + (instancetype)carWithModel: (NSString *)model
                        money:(NSUInteger)money;
 
+- (BOOL)payWithPrice: (NSUInteger)price;
+
 @end

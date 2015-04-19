@@ -9,9 +9,14 @@
 #import "TSYEmployee.h"
 #import "TSYCar.h"
 
+@class TSYAccountant;
+
 @interface TSYWasher : TSYEmployee
-@property (nonatomic, assign) NSUInteger price;
+@property (nonatomic, assign) NSUInteger    price;
+@property (nonatomic, assign) TSYAccountant *accountant;
 
 - (void)wash:(TSYCar *)car;
+- (void)takeMoneyForWashing:(NSUInteger)money;
+- (void)giveMoneyToAccountant:(NSUInteger)money;
 
 @end

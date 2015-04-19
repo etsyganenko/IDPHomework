@@ -8,8 +8,13 @@
 
 #import "TSYEmployee.h"
 
-@interface TSYAccountant : TSYEmployee
+@class TSYDirector;
 
-- (void)Calculate;
+@interface TSYAccountant : TSYEmployee
+@property (nonatomic, assign) TSYDirector *director;
+
+- (void)calculate:(NSUInteger)money;
+- (void)takeMoneyFromWasher:(NSUInteger)money;
+- (void)giveMoneyToDirector:(NSUInteger)money;
 
 @end

@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TSYEmployee : NSObject
-@property (nonatomic, copy)     NSString    *name;
+#import "TSYCreature.h"
+
+@interface TSYEmployee : TSYCreature
 @property (nonatomic, assign)   NSUInteger  salary;
+@property (nonatomic, assign)   NSUInteger  experience;
+@property (nonatomic, assign)   NSUInteger  money;
 
 + (instancetype)employeeWithName:(NSString *)name
-                           salary:(NSUInteger)salary;
+                          salary:(NSUInteger)salary;
 
 @end

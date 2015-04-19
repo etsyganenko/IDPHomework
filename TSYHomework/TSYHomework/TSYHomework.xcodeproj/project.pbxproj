@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		849F03791AE3DC8D00BE280E /* TSYRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F03781AE3DC8D00BE280E /* TSYRoom.m */; };
+		849F037C1AE3E03D00BE280E /* TSYCarwashRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F037B1AE3E03D00BE280E /* TSYCarwashRoom.m */; };
 		849F79581AE2803B0039EBAE /* TSYCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F79571AE2803B0039EBAE /* TSYCreatureTest.m */; };
 		849F795C1AE284930039EBAE /* TSYBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F795B1AE284930039EBAE /* TSYBuilding.m */; };
 		849F795F1AE2CD7C0039EBAE /* TSYCarwash.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F795E1AE2CD7C0039EBAE /* TSYCarwash.m */; };
@@ -72,6 +74,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		849F03771AE3DC8D00BE280E /* TSYRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYRoom.h; sourceTree = "<group>"; };
+		849F03781AE3DC8D00BE280E /* TSYRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYRoom.m; sourceTree = "<group>"; };
+		849F037A1AE3E03D00BE280E /* TSYCarwashRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCarwashRoom.h; sourceTree = "<group>"; };
+		849F037B1AE3E03D00BE280E /* TSYCarwashRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCarwashRoom.m; sourceTree = "<group>"; };
 		849F79561AE2803B0039EBAE /* TSYCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCreatureTest.h; sourceTree = "<group>"; };
 		849F79571AE2803B0039EBAE /* TSYCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCreatureTest.m; sourceTree = "<group>"; };
 		849F795A1AE284930039EBAE /* TSYBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYBuilding.h; sourceTree = "<group>"; };
@@ -183,6 +189,10 @@
 				849F795B1AE284930039EBAE /* TSYBuilding.m */,
 				849F795D1AE2CD7C0039EBAE /* TSYCarwash.h */,
 				849F795E1AE2CD7C0039EBAE /* TSYCarwash.m */,
+				849F03771AE3DC8D00BE280E /* TSYRoom.h */,
+				849F03781AE3DC8D00BE280E /* TSYRoom.m */,
+				849F037A1AE3E03D00BE280E /* TSYCarwashRoom.h */,
+				849F037B1AE3E03D00BE280E /* TSYCarwashRoom.m */,
 				849F796C1AE2D0100039EBAE /* TSYCar.h */,
 				849F796D1AE2D0100039EBAE /* TSYCar.m */,
 				849F79601AE2CE350039EBAE /* TSYEmployee.h */,
@@ -521,7 +531,9 @@
 				849F796E1AE2D0100039EBAE /* TSYCar.m in Sources */,
 				84ECC93B1AE13C2B00178C76 /* TSYCreatureMale.m in Sources */,
 				84ECC93C1AE13C2B00178C76 /* TSYCreature2Test.m in Sources */,
+				849F03791AE3DC8D00BE280E /* TSYRoom.m in Sources */,
 				849F79651AE2CE7F0039EBAE /* TSYAccountant.m in Sources */,
+				849F037C1AE3E03D00BE280E /* TSYCarwashRoom.m in Sources */,
 				849F79711AE2D1F10039EBAE /* TSYCarwashTest.m in Sources */,
 				84ECC9391AE13C2B00178C76 /* TSYCreature2.m in Sources */,
 				84ECC9631AE1628F00178C76 /* TSYCreature.m in Sources */,

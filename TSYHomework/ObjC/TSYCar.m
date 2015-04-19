@@ -24,4 +24,14 @@
     [super dealloc];
 }
 
+- (BOOL)payWithPrice: (NSUInteger)price {
+    if (self.money < price) {
+        NSLog(@"Ooops...");
+        return false;
+    } else {
+        self.money -= price;
+        return true;
+    }
+}
+
 @end
