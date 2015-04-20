@@ -10,6 +10,9 @@
 
 @implementation TSYCar
 
+#pragma mark -
+#pragma mark Class Methods
+
 + (instancetype)carWithModel: (NSString *)model
                        money:(NSUInteger)money {
     TSYCar *car = [[[self alloc] init] autorelease];
@@ -20,9 +23,17 @@
     return car;
 }
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
 - (void)dealloc {
+    self.model = nil;
+    
     [super dealloc];
 }
+
+#pragma mark -
+#pragma mark Public Methods
 
 - (BOOL)payWithPrice: (NSUInteger)price {
     if (self.money < price) {

@@ -11,6 +11,18 @@
 
 @implementation TSYAccountant
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.director = nil;
+    
+    [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
 - (void)calculate:(NSUInteger)money {
     NSLog(@"Calculating...");
 }

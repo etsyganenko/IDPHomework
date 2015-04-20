@@ -6,10 +6,15 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import "TSYBuilding.h"
 
 @interface TSYCarwash : TSYBuilding
+@property (nonatomic, readonly) NSArray     *carRooms;
+@property (nonatomic, readonly) NSUInteger  carRoomsAmount;
+
++ (instancetype)carwashWithRoomsAmount: (NSUInteger)roomsAmount
+                        carRoomsAmount: (NSUInteger)carRoomsAmount;
+
+- (NSArray *)carRooms;
 
 @end

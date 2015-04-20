@@ -10,6 +10,9 @@
 
 @implementation TSYEmployee
 
+#pragma mark -
+#pragma mark Class Methods
+
 + (instancetype)employeeWithName:(NSString *)name
                            salary:(NSUInteger)salary
 {
@@ -20,6 +23,9 @@
     
     return employee;
 }
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
 
 - (void)dealloc {
     self.name = nil;

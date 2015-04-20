@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import "TSYCreature.h"
 
 @interface TSYRoom : NSObject

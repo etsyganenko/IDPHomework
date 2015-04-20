@@ -17,15 +17,22 @@
 
 @dynamic cars;
 
+#pragma mark -
+#pragma mark Class Methods
+
 + (instancetype)carwashRoomWithCarsCapacity:(NSUInteger)carsCapacity
                              peopleCapacity:(NSUInteger)peopleCapacity
 {
-    TSYCarwashRoom *carwashRoom = [TSYRoom roomWithPeopleCapacity:peopleCapacity];
+//    TSYCarwashRoom *carwashRoom = [TSYRoom roomWithPeopleCapacity:peopleCapacity];
+    TSYCarwashRoom *carwashRoom = [super roomWithPeopleCapacity:peopleCapacity];
     
     carwashRoom.carsCapacity = carsCapacity;
     
     return carwashRoom;
 }
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
 
 - (void)dealloc {
     self.mutableCars = nil;
@@ -42,6 +49,16 @@
     
     return  self;
 }
+
+#pragma mark -
+#pragma mark Accessors Methods
+
+- (NSArray *)cars {
+    return [[self.mutableCars copy] autorelease];
+}
+
+#pragma mark -
+#pragma mark Public Methods
 
 - (void)addCar:(TSYCar *)car {
     if (![self.mutableCars containsObject:car] && self.carsCount < self.carsCapacity) {

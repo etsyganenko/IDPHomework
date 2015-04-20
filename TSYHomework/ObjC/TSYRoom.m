@@ -19,6 +19,9 @@
 
 @dynamic people;
 
+#pragma mark -
+#pragma mark Class Methods
+
 + (instancetype)roomWithPeopleCapacity:(NSUInteger)peopleCapacity {
     TSYRoom *room = [[[self alloc] init] autorelease];
     
@@ -26,6 +29,9 @@
     
     return room;
 }
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
 
 - (void)dealloc {
     self.mutablePeople = nil;
@@ -43,9 +49,15 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Accessors Methods
+
 - (NSArray *)people {
     return [[self.mutablePeople copy] autorelease];
 }
+
+#pragma mark -
+#pragma mark Public Methods
 
 - (void)addPerson:(TSYCreature *)person {
     if (![self.mutablePeople containsObject:person] && self.peopleCount < self.peopleCapacity) {

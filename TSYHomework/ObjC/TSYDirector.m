@@ -10,6 +10,9 @@
 
 @implementation TSYDirector
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (void)earnProfit {
     NSLog(@"Earning profit...");
 }

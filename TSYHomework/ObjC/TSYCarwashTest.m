@@ -18,6 +18,11 @@ void TSYCarwashPerformTest() {
         
         [washer setPrice:70];
         [washer wash:car];
+        
+        [washer setPrice:60];
+        [washer wash:car];
+        
+        
     }
 }
 

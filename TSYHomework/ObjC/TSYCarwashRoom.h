@@ -17,6 +17,7 @@
 + (instancetype)carwashRoomWithCarsCapacity:(NSUInteger)carsCapacity
                              peopleCapacity:(NSUInteger)peopleCapacity;
 
+- (NSArray *)cars;
 - (void)addCar:(TSYCar *)car;
 - (void)removeCar:(TSYCar *)car;
 

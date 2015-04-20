@@ -11,6 +11,18 @@
 
 @implementation TSYWasher
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.accountant = nil;
+    
+    [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
 - (void)wash:(TSYCar *)car {
     if (nil == car) {
         return;
