@@ -12,6 +12,6 @@
 
 @interface TSYEnterprise : NSObject
 
-void TSYCarwashBusinessFlow();
+void TSYCarwashEnterprise();
 
 @end
