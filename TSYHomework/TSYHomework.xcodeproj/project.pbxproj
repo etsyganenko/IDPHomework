@@ -26,7 +26,7 @@
 		84A337BD1AE64A92001145F3 /* TSYWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A337661AE646F5001145F3 /* TSYWasher.m */; };
 		84A337BE1AE64A95001145F3 /* TSYCarwashRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A337691AE646F5001145F3 /* TSYCarwashRoom.m */; };
 		84A337BF1AE64A98001145F3 /* TSYRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3376B1AE646F5001145F3 /* TSYRoom.m */; };
-		84A337C01AE64A9A001145F3 /* TSYCarwashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3375D1AE646F5001145F3 /* TSYCarwashTest.m */; };
+		84A337C01AE64A9A001145F3 /* TSYEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3375D1AE646F5001145F3 /* TSYEnterprise.m */; };
 		84A337C11AE64AB0001145F3 /* TSYArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A3376E1AE647C6001145F3 /* TSYArray.c */; };
 		84A337C21AE64AB3001145F3 /* TSYArrayTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A337701AE647C7001145F3 /* TSYArrayTest.c */; };
 		84A337C31AE64AB6001145F3 /* TSYAutoreleasePool.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A337731AE647C7001145F3 /* TSYAutoreleasePool.c */; };
@@ -98,8 +98,8 @@
 		84A337581AE646F5001145F3 /* TSYCarwash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYCarwash.m; sourceTree = "<group>"; };
 		84A3375A1AE646F5001145F3 /* TSYCar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSYCar.h; sourceTree = "<group>"; };
 		84A3375B1AE646F5001145F3 /* TSYCar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYCar.m; sourceTree = "<group>"; };
-		84A3375C1AE646F5001145F3 /* TSYCarwashTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSYCarwashTest.h; sourceTree = "<group>"; };
-		84A3375D1AE646F5001145F3 /* TSYCarwashTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYCarwashTest.m; sourceTree = "<group>"; };
+		84A3375C1AE646F5001145F3 /* TSYEnterprise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSYEnterprise.h; sourceTree = "<group>"; };
+		84A3375D1AE646F5001145F3 /* TSYEnterprise.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYEnterprise.m; sourceTree = "<group>"; };
 		84A3375F1AE646F5001145F3 /* TSYAccountant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSYAccountant.h; sourceTree = "<group>"; };
 		84A337601AE646F5001145F3 /* TSYAccountant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYAccountant.m; sourceTree = "<group>"; };
 		84A337611AE646F5001145F3 /* TSYDirector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSYDirector.h; sourceTree = "<group>"; };
@@ -222,8 +222,8 @@
 				84A337591AE646F5001145F3 /* TSYCar */,
 				84A3375E1AE646F5001145F3 /* TSYEmployee */,
 				84A337671AE646F5001145F3 /* TSYRoom */,
-				84A3375C1AE646F5001145F3 /* TSYCarwashTest.h */,
-				84A3375D1AE646F5001145F3 /* TSYCarwashTest.m */,
+				84A3375C1AE646F5001145F3 /* TSYEnterprise.h */,
+				84A3375D1AE646F5001145F3 /* TSYEnterprise.m */,
 			);
 			name = TSYCarwash;
 			path = ObjC/TSYCarwash;
@@ -571,7 +571,7 @@
 				84A337B91AE64A8A001145F3 /* TSYCar.m in Sources */,
 				84A337B51AE64A74001145F3 /* TSYCreatureMale.m in Sources */,
 				84A337AE1AE64A5E001145F3 /* TSYCreature.m in Sources */,
-				84A337C01AE64A9A001145F3 /* TSYCarwashTest.m in Sources */,
+				84A337C01AE64A9A001145F3 /* TSYEnterprise.m in Sources */,
 				84A337BC1AE64A90001145F3 /* TSYEmployee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

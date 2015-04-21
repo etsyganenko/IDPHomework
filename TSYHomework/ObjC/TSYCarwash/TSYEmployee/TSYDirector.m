@@ -17,10 +17,4 @@
     NSLog(@"Earning profit...");
 }
 
-- (void)takeMoneyFromAccountant:(NSUInteger)money {
-    self.money += money;
-    
-    [self earnProfit];
-}
-
 @end

@@ -10,6 +10,8 @@
 
 #import "TSYCreature.h"
 
+@class TSYCar;
+
 @interface TSYEmployee : TSYCreature
 @property (nonatomic, assign)   NSUInteger  salary;
 @property (nonatomic, assign)   NSUInteger  experience;
@@ -17,5 +19,8 @@
 
 + (instancetype)employeeWithName:(NSString *)name
                           salary:(NSUInteger)salary;
+
+- (void)takeMoneyFromCar:(NSUInteger)money car:(TSYCar *)car;
+- (void)takeMoneyFromEmployee:(NSUInteger)money employee:(TSYEmployee *)employee;
 
 @end

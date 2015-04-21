@@ -9,12 +9,10 @@
 #import "TSYEmployee.h"
 
 @class TSYDirector;
+@class TSYWasher;
 
 @interface TSYAccountant : TSYEmployee
-@property (nonatomic, assign) TSYDirector *director;
 
 - (void)calculateMoney:(NSUInteger)money;
-- (void)takeMoneyFromWasher:(NSUInteger)money;
-- (void)giveMoneyToDirector:(NSUInteger)money;
 
 @end

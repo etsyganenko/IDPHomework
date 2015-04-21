@@ -7,16 +7,17 @@
 //
 
 #import "TSYCarwash.h"
+#import "TSYCarwashRoom.h"
 
 @interface TSYCarwash ()
-@property (nonatomic, retain) NSMutableArray    *mutableCarRooms;
-@property (nonatomic, assign) NSUInteger        carRoomsAmount;
+@property (nonatomic, retain) NSMutableArray    *mutableCarwashRooms;
+@property (nonatomic, assign) NSUInteger        carwashRoomsAmount;
 
 @end
 
 @implementation TSYCarwash
 
-@dynamic carRooms;
+@dynamic carwashRooms;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -26,7 +27,7 @@
 {
     TSYCarwash *carwash = [self buildingWithRoomsAmount:roomsAmount];
     
-    carwash.carRoomsAmount = carRoomsAmount;
+    carwash.carwashRoomsAmount = carRoomsAmount;
     
     return carwash;
 }
@@ -35,7 +36,7 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.mutableCarRooms = nil;
+    self.mutableCarwashRooms = nil;
     
     [super dealloc];
 }
@@ -44,7 +45,7 @@
     self = [super init];
     
     if (self) {
-        self.mutableCarRooms = [NSMutableArray array];
+        self.mutableCarwashRooms = [NSMutableArray array];
     }
     
     return self;
@@ -53,8 +54,23 @@
 #pragma mark -
 #pragma mark Accessors Methods
 
-- (NSArray *)carRooms {
-    return [[self.mutableCarRooms copy] autorelease];
+- (NSArray *)carwashRooms {
+    return [[self.mutableCarwashRooms copy] autorelease];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)addCarwashRoom:(TSYCarwashRoom *)carwashRoom {
+    if ([self.mutableCarwashRooms containsObject:carwashRoom]) {
+        return;
+    }
+    
+    [self.mutableCarwashRooms addObject:carwashRoom];
+}
+
+- (void)removeCarwashRoom:(TSYCarwashRoom *)carwashRoom {
+    [self.mutableCarwashRooms removeObject:carwashRoom];
 }
 
 @end

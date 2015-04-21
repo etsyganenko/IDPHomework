@@ -8,11 +8,16 @@
 
 #import "TSYBuilding.h"
 
+@class TSYCarwashRoom;
+
 @interface TSYCarwash : TSYBuilding
-@property (nonatomic, readonly) NSArray     *carRooms;
-@property (nonatomic, readonly) NSUInteger  carRoomsAmount;
+@property (nonatomic, readonly) NSArray     *carwashRooms;
+@property (nonatomic, readonly) NSUInteger  carwashRoomsAmount;
 
 + (instancetype)carwashWithRoomsAmount:(NSUInteger)roomsAmount
                         carRoomsAmount:(NSUInteger)carRoomsAmount;
+
+- (void)addCarwashRoom:(TSYCarwashRoom *)carwashRoom;
+- (void)removeCarwashRoom:(TSYCarwashRoom *)carwashRoom;
 
 @end

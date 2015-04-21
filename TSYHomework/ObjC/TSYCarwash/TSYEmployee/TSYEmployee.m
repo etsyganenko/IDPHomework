@@ -8,6 +8,8 @@
 
 #import "TSYEmployee.h"
 
+#import "TSYCar.h"
+
 @implementation TSYEmployee
 
 #pragma mark -
@@ -31,6 +33,29 @@
     self.name = nil;
     
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)takeMoneyFromCar:(NSUInteger)money car:(TSYCar *)car {
+    if (car.money < money) {
+        NSLog(@"Not enough money!");
+        return;
+    }
+    
+    self.money += money;
+    car.money -= money;
+}
+
+- (void)takeMoneyFromEmployee:(NSUInteger)money employee:(TSYEmployee *)employee {
+    if (employee.money < money) {
+        NSLog(@"Not enough money!");
+        return;
+    }
+    
+    self.money += money;
+    employee.money -= money;
 }
 
 @end

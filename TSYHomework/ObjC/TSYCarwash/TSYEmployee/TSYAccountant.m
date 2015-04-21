@@ -8,15 +8,14 @@
 
 #import "TSYAccountant.h"
 #import "TSYDirector.h"
+#import "TSYWasher.h"
 
 @implementation TSYAccountant
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (void)dealloc {
-    self.director = nil;
-    
+- (void)dealloc {    
     [super dealloc];
 }
 
@@ -25,18 +24,6 @@
 
 - (void)calculateMoney:(NSUInteger)money {
     NSLog(@"Calculating...");
-}
-
-- (void)takeMoneyFromWasher:(NSUInteger)money {
-    self.money += money;
-    
-    [self calculateMoney:money];
-}
-
-- (void)giveMoneyToDirector:(NSUInteger)money {
-    self.money -= money;
-    
-    [self.director takeMoneyFromAccountant:money];
 }
 
 @end

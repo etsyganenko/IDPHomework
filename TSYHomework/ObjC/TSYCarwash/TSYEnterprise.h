@@ -1,5 +1,5 @@
 //
-//  TSYCarwashTest.h
+//  TSYEnterprise.h
 //  TSYHomework
 //
 //  Created by Admin on 18.04.15.
@@ -10,8 +10,8 @@
 
 #import "TSYCar.h"
 
-@interface TSYCarwashTest : NSObject
+@interface TSYEnterprise : NSObject
 
-void TSYCarwashPerformTest();
+void TSYCarwashBusinessFlow();
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "TSYWasher.h"
-#import "TSYAccountant.h"
+#import "TSYCar.h"
 
 @implementation TSYWasher
 
@@ -15,8 +15,6 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.accountant = nil;
-    
     [super dealloc];
 }
 
@@ -28,25 +26,9 @@
         return;
     }
     
-    if (![car payWithPrice:self.price]) {
-        return;
-    }
-    
-    [self takeMoneyForWashing:self.price];
-    
     car.clean = true;
     
     NSLog(@"%@ is washing %@", self.name, car.model);
-}
-
-- (void)takeMoneyForWashing:(NSUInteger)money {
-    self.money += money;
-}
-
-- (void)giveMoneyToAccountant:(NSUInteger)money {
-    self.money -= money;
-    
-    [self.accountant takeMoneyFromWasher:money];
 }
 
 @end

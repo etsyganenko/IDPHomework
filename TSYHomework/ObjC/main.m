@@ -10,11 +10,11 @@
 
 #import "TSYCreatureTest.h"
 #import "TSYCreature2Test.h"
-#import "TSYCarwashTest.h"
+#import "TSYEnterprise.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        TSYCarwashPerformTest();
+        TSYCarwashBusinessFlow();
         
 //        TSYCreaturePerformTest();
 

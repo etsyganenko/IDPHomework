@@ -11,6 +11,5 @@
 @interface TSYDirector : TSYEmployee
 
 - (void)earnProfit;
-- (void)takeMoneyFromAccountant:(NSUInteger)money;
 
 @end
