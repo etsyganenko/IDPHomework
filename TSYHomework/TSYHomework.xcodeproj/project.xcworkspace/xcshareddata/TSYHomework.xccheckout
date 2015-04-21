@@ -14,11 +14,11 @@
 		<string>https://github.com/etsyganenko/IDPHomework.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TSYHomework/TSYHomework/TSYHomework.xcodeproj</string>
+	<string>TSYHomework/TSYHomework.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>66A8E78EED4796D211B1142BA668FEFC8F3067BB</key>
-		<string>../../../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/etsyganenko/IDPHomework.git</string>
