@@ -13,7 +13,7 @@
 @interface TSYAccountant : TSYEmployee
 @property (nonatomic, assign) TSYDirector *director;
 
-- (void)calculate:(NSUInteger)money;
+- (void)calculateMoney:(NSUInteger)money;
 - (void)takeMoneyFromWasher:(NSUInteger)money;
 - (void)giveMoneyToDirector:(NSUInteger)money;
 

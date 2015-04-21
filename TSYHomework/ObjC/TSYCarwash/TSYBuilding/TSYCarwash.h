@@ -12,9 +12,7 @@
 @property (nonatomic, readonly) NSArray     *carRooms;
 @property (nonatomic, readonly) NSUInteger  carRoomsAmount;
 
-+ (instancetype)carwashWithRoomsAmount: (NSUInteger)roomsAmount
-                        carRoomsAmount: (NSUInteger)carRoomsAmount;
-
-- (NSArray *)carRooms;
++ (instancetype)carwashWithRoomsAmount:(NSUInteger)roomsAmount
+                        carRoomsAmount:(NSUInteger)carRoomsAmount;
 
 @end

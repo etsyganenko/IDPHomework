@@ -23,8 +23,7 @@
 + (instancetype)carwashRoomWithCarsCapacity:(NSUInteger)carsCapacity
                              peopleCapacity:(NSUInteger)peopleCapacity
 {
-//    TSYCarwashRoom *carwashRoom = [TSYRoom roomWithPeopleCapacity:peopleCapacity];
-    TSYCarwashRoom *carwashRoom = [super roomWithPeopleCapacity:peopleCapacity];
+    TSYCarwashRoom *carwashRoom = [self roomWithPeopleCapacity:peopleCapacity];
     
     carwashRoom.carsCapacity = carsCapacity;
     

@@ -232,10 +232,10 @@
 		84A337521AE646F5001145F3 /* TSYBuilding */ = {
 			isa = PBXGroup;
 			children = (
-				84A337531AE646F5001145F3 /* TSYAdministration.h */,
-				84A337541AE646F5001145F3 /* TSYAdministration.m */,
 				84A337551AE646F5001145F3 /* TSYBuilding.h */,
 				84A337561AE646F5001145F3 /* TSYBuilding.m */,
+				84A337531AE646F5001145F3 /* TSYAdministration.h */,
+				84A337541AE646F5001145F3 /* TSYAdministration.m */,
 				84A337571AE646F5001145F3 /* TSYCarwash.h */,
 				84A337581AE646F5001145F3 /* TSYCarwash.m */,
 			);
@@ -254,14 +254,14 @@
 		84A3375E1AE646F5001145F3 /* TSYEmployee */ = {
 			isa = PBXGroup;
 			children = (
-				84A3375F1AE646F5001145F3 /* TSYAccountant.h */,
-				84A337601AE646F5001145F3 /* TSYAccountant.m */,
-				84A337611AE646F5001145F3 /* TSYDirector.h */,
-				84A337621AE646F5001145F3 /* TSYDirector.m */,
 				84A337631AE646F5001145F3 /* TSYEmployee.h */,
 				84A337641AE646F5001145F3 /* TSYEmployee.m */,
 				84A337651AE646F5001145F3 /* TSYWasher.h */,
 				84A337661AE646F5001145F3 /* TSYWasher.m */,
+				84A3375F1AE646F5001145F3 /* TSYAccountant.h */,
+				84A337601AE646F5001145F3 /* TSYAccountant.m */,
+				84A337611AE646F5001145F3 /* TSYDirector.h */,
+				84A337621AE646F5001145F3 /* TSYDirector.m */,
 			);
 			path = TSYEmployee;
 			sourceTree = "<group>";
@@ -269,10 +269,10 @@
 		84A337671AE646F5001145F3 /* TSYRoom */ = {
 			isa = PBXGroup;
 			children = (
-				84A337681AE646F5001145F3 /* TSYCarwashRoom.h */,
-				84A337691AE646F5001145F3 /* TSYCarwashRoom.m */,
 				84A3376A1AE646F5001145F3 /* TSYRoom.h */,
 				84A3376B1AE646F5001145F3 /* TSYRoom.m */,
+				84A337681AE646F5001145F3 /* TSYCarwashRoom.h */,
+				84A337691AE646F5001145F3 /* TSYCarwashRoom.m */,
 			);
 			path = TSYRoom;
 			sourceTree = "<group>";

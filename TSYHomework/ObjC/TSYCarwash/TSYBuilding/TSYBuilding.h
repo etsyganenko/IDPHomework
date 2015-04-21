@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class TSYRoom;
+
 @interface TSYBuilding : NSObject
 @property (nonatomic, readonly) NSArray     *rooms;
 @property (nonatomic, readonly) NSUInteger  roomsAmount;
 
-+ (instancetype)buildingWithRoomsAmount: (NSUInteger)roomsAmount;
++ (instancetype)buildingWithRoomsAmount:(NSUInteger)roomsAmount;
 
-- (NSArray *)rooms;
+- (void)addRoom:(TSYRoom *)room;
+- (void)removeRoom:(TSYRoom *)room;
 
 @end

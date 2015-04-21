@@ -24,8 +24,7 @@
 + (instancetype)carwashWithRoomsAmount: (NSUInteger)roomsAmount
                         carRoomsAmount: (NSUInteger)carRoomsAmount
 {
-//    TSYCarwash *carwash = [TSYBuilding buildingWithRoomsAmount:roomsAmount];
-    TSYCarwash *carwash = [super buildingWithRoomsAmount:roomsAmount];
+    TSYCarwash *carwash = [self buildingWithRoomsAmount:roomsAmount];
     
     carwash.carRoomsAmount = carRoomsAmount;
     
@@ -54,7 +53,7 @@
 #pragma mark -
 #pragma mark Accessors Methods
 
-- (NSArray *)rooms {
+- (NSArray *)carRooms {
     return [[self.mutableCarRooms copy] autorelease];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "TSYBuilding.h"
+#import "TSYRoom.h"
 
 @interface TSYBuilding ()
 @property (nonatomic, retain) NSMutableArray    *mutableRooms;
@@ -53,6 +54,21 @@
 
 - (NSArray *)rooms {
     return [[self.mutableRooms copy] autorelease];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)addRoom:(TSYRoom *)room {
+    if ([self.mutableRooms containsObject:room]) {
+        return;
+    }
+    
+    [self.mutableRooms addObject:room];
+}
+
+- (void)removeRoom:(TSYRoom *)room {
+    [self.mutableRooms removeObject:room];    
 }
 
 @end

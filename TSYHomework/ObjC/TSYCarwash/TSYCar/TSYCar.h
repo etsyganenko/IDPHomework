@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface TSYCar : NSObject
-@property (nonatomic, copy)     NSString    *model;
-@property (nonatomic, assign)   NSUInteger  money;
-@property (nonatomic, assign)   BOOL        clean;
+@property (nonatomic, copy, readonly)   NSString    *model;
+@property (nonatomic, assign)           NSUInteger  money;
+@property (nonatomic, assign)           BOOL        clean;
 
-+ (instancetype)carWithModel: (NSString *)model
++ (instancetype)carWithModel:(NSString *)model
                        money:(NSUInteger)money;
 
 - (BOOL)payWithPrice: (NSUInteger)price;

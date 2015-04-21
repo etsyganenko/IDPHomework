@@ -23,14 +23,14 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)calculate:(NSUInteger)money {
+- (void)calculateMoney:(NSUInteger)money {
     NSLog(@"Calculating...");
 }
 
 - (void)takeMoneyFromWasher:(NSUInteger)money {
     self.money += money;
     
-    [self calculate:money];
+    [self calculateMoney:money];
 }
 
 - (void)giveMoneyToDirector:(NSUInteger)money {

@@ -8,6 +8,11 @@
 
 #import "TSYCar.h"
 
+@interface TSYCar ()
+@property (nonatomic, copy, readwrite)   NSString    *model;
+
+@end
+
 @implementation TSYCar
 
 #pragma mark -
