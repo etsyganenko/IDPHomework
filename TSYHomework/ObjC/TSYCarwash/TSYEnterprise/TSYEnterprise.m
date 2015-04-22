@@ -30,6 +30,15 @@
     [super dealloc];
 }
 
+- (instancetype)init {
+    self = [super init];
+    
+    [self organizeStaff];
+    [self organizeBuildings];
+    
+    return self;
+}
+
 - (void)organizeStaff {
     self.director = [TSYDirector employeeWithName:@"Mihal Mihalych" salary:10000];
     self.accountant = [TSYAccountant employeeWithName:@"Anton" salary:7000];
@@ -49,9 +58,6 @@
 }
 
 - (void)runCarwash:(TSYCar *)car {
-    [self organizeStaff];
-    [self organizeBuildings];
-    
     [self.carwashRoom addCar:car];
     
     NSUInteger price = 60;

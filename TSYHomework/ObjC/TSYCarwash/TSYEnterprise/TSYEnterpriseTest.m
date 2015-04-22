@@ -15,9 +15,18 @@
 void TSYEnterprisePerformTest() {
     @autoreleasepool {
         TSYEnterprise *enterprise = [TSYEnterprise enterprise];
-        TSYCar *car = [TSYCar carWithModel:@"VW" money:100];
         
-        [enterprise runCarwash:car];
+        NSMutableArray *cars = [NSMutableArray array];
+        NSUInteger carsAmount = 10;
+        
+        for (NSUInteger index = 0; index < carsAmount; index++) {
+            TSYCar *car = [TSYCar carWithModel:@"VW" money:100];
+            [cars addObject:car];
+        }
+        
+        for (NSUInteger index = 0; index < carsAmount; index++) {
+            [enterprise runCarwash:cars[index]];
+        }
     }
 }
 

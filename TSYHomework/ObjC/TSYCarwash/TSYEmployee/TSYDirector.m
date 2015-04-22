@@ -14,7 +14,7 @@
 #pragma mark Public Methods
 
 - (void)earnProfit {
-    NSLog(@"My profit equals %lu", self.money);
+    NSLog(@"Profit equals %lu", self.money);
 }
 
 @end
