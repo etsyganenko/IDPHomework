@@ -8,19 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-#import "TSYCreature.h"
+#import "NSObject+TSYCategory.h"
+#import "TSYGiveMoney.h"
 
 @class TSYCar;
 
-@interface TSYEmployee : TSYCreature
+@interface TSYEmployee : NSObject<TSYGiveMoney>
+@property (nonatomic, copy)     NSString    *name;
 @property (nonatomic, assign)   NSUInteger  salary;
 @property (nonatomic, assign)   NSUInteger  experience;
 @property (nonatomic, assign)   NSUInteger  money;
 
 + (instancetype)employeeWithName:(NSString *)name
                           salary:(NSUInteger)salary;
-
-- (void)takeMoneyFromCar:(NSUInteger)money car:(TSYCar *)car;
-- (void)takeMoneyFromEmployee:(NSUInteger)money employee:(TSYEmployee *)employee;
 
 @end

@@ -12,13 +12,6 @@
 @implementation TSYWasher
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (void)dealloc {
-    [super dealloc];
-}
-
-#pragma mark -
 #pragma mark Public Methods
 
 - (void)wash:(TSYCar *)car {

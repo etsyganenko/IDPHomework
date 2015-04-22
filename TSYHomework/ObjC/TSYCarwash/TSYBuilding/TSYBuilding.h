@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "NSObject+TSYCategory.h"
+
 @class TSYRoom;
 
 @interface TSYBuilding : NSObject

@@ -7,6 +7,7 @@
 //
 
 #import "TSYRoom.h"
+#import "TSYEmployee.h"
 
 @interface TSYRoom ()
 @property (nonatomic, retain) NSMutableArray    *mutablePeople;
@@ -23,7 +24,7 @@
 #pragma mark Class Methods
 
 + (instancetype)roomWithPeopleCapacity:(NSUInteger)peopleCapacity {
-    TSYRoom *room = [[[self alloc] init] autorelease];
+    TSYRoom *room = [self object];
     
     room.peopleCapacity = peopleCapacity;
     
@@ -41,7 +42,6 @@
 
 - (instancetype)init {
     self = [super init];
-    
     if (self) {
         self.mutablePeople = [NSMutableArray array];
     }
@@ -59,14 +59,16 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addPerson:(TSYCreature *)person {
+- (void)addPerson:(TSYEmployee *)person {
     if (![self.mutablePeople containsObject:person] && self.peopleCount < self.peopleCapacity) {
         [self.mutablePeople addObject:person];
+        self.peopleCount++;
     }
 }
 
-- (void)removePerson:(TSYCreature *)person {
+- (void)removePerson:(TSYEmployee *)person {
     [self.mutablePeople removeObject:person];
+    self.peopleCount--;
 }
 
 @end

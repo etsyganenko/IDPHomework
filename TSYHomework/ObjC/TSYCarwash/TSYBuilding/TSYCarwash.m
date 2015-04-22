@@ -41,9 +41,8 @@
     [super dealloc];
 }
 
-- (instancetype)initWithcarRooms {
+- (instancetype)init {
     self = [super init];
-    
     if (self) {
         self.mutableCarwashRooms = [NSMutableArray array];
     }

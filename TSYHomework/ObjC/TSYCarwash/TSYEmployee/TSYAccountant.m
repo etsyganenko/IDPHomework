@@ -13,13 +13,6 @@
 @implementation TSYAccountant
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (void)dealloc {    
-    [super dealloc];
-}
-
-#pragma mark -
 #pragma mark Public Methods
 
 - (void)calculateMoney:(NSUInteger)money {

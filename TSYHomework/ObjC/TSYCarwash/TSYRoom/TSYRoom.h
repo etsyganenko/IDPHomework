@@ -6,7 +6,11 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYCreature.h"
+#import <Foundation/Foundation.h>
+
+#import "NSObject+TSYCategory.h"
+
+@class TSYEmployee;
 
 @interface TSYRoom : NSObject
 @property (nonatomic, readonly) NSArray     *people;
@@ -15,7 +19,7 @@
 
 + (instancetype)roomWithPeopleCapacity:(NSUInteger)peopleCapacity;
 
-- (void)addPerson:(TSYCreature *)person;
-- (void)removePerson:(TSYCreature *)person;
+- (void)addPerson:(TSYEmployee *)person;
+- (void)removePerson:(TSYEmployee *)person;
 
 @end

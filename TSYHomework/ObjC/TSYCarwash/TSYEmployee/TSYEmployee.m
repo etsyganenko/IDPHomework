@@ -18,7 +18,7 @@
 + (instancetype)employeeWithName:(NSString *)name
                            salary:(NSUInteger)salary
 {
-    TSYEmployee *employee = [[[self alloc] init] autorelease];
+    TSYEmployee *employee = [self object];
     
     employee.name = name;
     employee.salary = salary;
@@ -38,24 +38,14 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)takeMoneyFromCar:(NSUInteger)money car:(TSYCar *)car {
-    if (car.money < money) {
+- (void)giveMoney:(NSUInteger)money toObject:(TSYEmployee *)object {
+    if (self.money < money) {
         NSLog(@"Not enough money!");
         return;
     }
     
-    self.money += money;
-    car.money -= money;
-}
-
-- (void)takeMoneyFromEmployee:(NSUInteger)money employee:(TSYEmployee *)employee {
-    if (employee.money < money) {
-        NSLog(@"Not enough money!");
-        return;
-    }
-    
-    self.money += money;
-    employee.money -= money;
+    self.money -= money;
+    object.money += money;
 }
 
 @end

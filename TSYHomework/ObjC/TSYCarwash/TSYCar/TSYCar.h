@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TSYCar : NSObject
+#import "NSObject+TSYCategory.h"
+#import "TSYGiveMoney.h"
+
+@interface TSYCar : NSObject<TSYGiveMoney>
 @property (nonatomic, copy, readonly)   NSString    *model;
 @property (nonatomic, assign)           NSUInteger  money;
 @property (nonatomic, assign)           BOOL        clean;
 
 + (instancetype)carWithModel:(NSString *)model
                        money:(NSUInteger)money;
-
-- (BOOL)payWithPrice: (NSUInteger)price;
 
 @end

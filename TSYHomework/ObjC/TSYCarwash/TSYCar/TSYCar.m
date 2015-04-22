@@ -7,6 +7,7 @@
 //
 
 #import "TSYCar.h"
+#import "TSYEmployee.h"
 
 @interface TSYCar ()
 @property (nonatomic, copy, readwrite)   NSString    *model;
@@ -20,7 +21,7 @@
 
 + (instancetype)carWithModel: (NSString *)model
                        money:(NSUInteger)money {
-    TSYCar *car = [[[self alloc] init] autorelease];
+    TSYCar *car = [self object];
     
     car.money = money;
     car.model = model;
@@ -40,14 +41,14 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (BOOL)payWithPrice: (NSUInteger)price {
-    if (self.money < price) {
-        NSLog(@"Ooops...");
-        return false;
-    } else {
-        self.money -= price;
-        return true;
+- (void)giveMoney:(NSUInteger)money toObject:(TSYEmployee *)object {
+    if (self.money < money) {
+        NSLog(@"Not enough money!");
+        return;
     }
+    
+    self.money -= money;
+    object.money += money;
 }
 
 @end

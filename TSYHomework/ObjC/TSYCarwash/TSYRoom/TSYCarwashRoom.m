@@ -41,7 +41,6 @@
 
 - (instancetype)init {
     self = [super init];
-    
     if (self) {
         self.mutableCars = [NSMutableArray array];
     }
@@ -62,11 +61,13 @@
 - (void)addCar:(TSYCar *)car {
     if (![self.mutableCars containsObject:car] && self.carsCount < self.carsCapacity) {
         [self.mutableCars addObject:car];
+        self.carsCount++;
     }
 }
 
 - (void)removeCar:(TSYCar *)car {
     [self.mutableCars removeObject:car];
+    self.carsCount--;
 }
 
 @end

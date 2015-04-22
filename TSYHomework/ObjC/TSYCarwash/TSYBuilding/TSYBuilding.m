@@ -23,7 +23,7 @@
 #pragma mark Class Methods
 
 + (instancetype)buildingWithRoomsAmount: (NSUInteger)roomsAmount {
-    TSYBuilding *building = [[[self alloc] init] autorelease];
+    TSYBuilding *building = [self object];
     
     building.roomsAmount = roomsAmount;
     
@@ -41,7 +41,6 @@
 
 - (instancetype)initWithRooms {
     self = [super init];
-    
     if (self) {
         self.mutableRooms = [NSMutableArray array];
     }
