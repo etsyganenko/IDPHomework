@@ -16,7 +16,11 @@
 #pragma mark Public Methods
 
 - (void)calculateMoney:(NSUInteger)money {
+    self.free = NO;
+    
     NSLog(@"Calculating...");
+    
+    self.free = YES;
 }
 
 @end

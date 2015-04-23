@@ -35,6 +35,15 @@
     [super dealloc];
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.free = YES;
+    }
+    
+    return self;
+}
+
 #pragma mark -
 #pragma mark Public Methods
 

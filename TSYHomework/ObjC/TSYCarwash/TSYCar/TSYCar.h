@@ -10,9 +10,9 @@
 #import "TSYGiveMoney.h"
 
 @interface TSYCar : NSObject<TSYGiveMoney>
-@property (nonatomic, copy, readonly)   NSString    *model;
-@property (nonatomic, assign)           NSUInteger  money;
-@property (nonatomic, assign)           BOOL        clean;
+@property (nonatomic, copy, readonly)           NSString    *model;
+@property (nonatomic, assign)                   NSUInteger  money;
+@property (nonatomic, assign, getter=isClean)   BOOL        clean;
 
 + (instancetype)carWithModel:(NSString *)model
                        money:(NSUInteger)money;

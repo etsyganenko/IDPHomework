@@ -9,11 +9,6 @@
 #import "TSYWasher.h"
 #import "TSYCar.h"
 
-@interface TSYWasher ()
-@property (nonatomic, assign) BOOL  free;
-
-@end
-
 @implementation TSYWasher
 
 #pragma mark -
