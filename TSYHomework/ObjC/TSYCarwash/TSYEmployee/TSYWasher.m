@@ -9,6 +9,11 @@
 #import "TSYWasher.h"
 #import "TSYCar.h"
 
+@interface TSYWasher ()
+@property (nonatomic, assign) BOOL  free;
+
+@end
+
 @implementation TSYWasher
 
 #pragma mark -
@@ -19,9 +24,12 @@
         return;
     }
     
-    car.clean = true;
+    self.free = NO;
     
     NSLog(@"%@ is washing %@", self.name, car.model);
+    car.clean = true;
+    
+    self.free = YES;
 }
 
 @end

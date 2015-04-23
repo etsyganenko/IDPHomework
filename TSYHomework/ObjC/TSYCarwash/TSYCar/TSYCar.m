@@ -8,6 +8,7 @@
 
 #import "TSYCar.h"
 #import "TSYEmployee.h"
+#import "NSObject+TSYCategory.h"
 
 @interface TSYCar ()
 @property (nonatomic, copy, readwrite)   NSString    *model;

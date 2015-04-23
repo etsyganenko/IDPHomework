@@ -8,6 +8,7 @@
 
 #import "TSYBuilding.h"
 #import "TSYRoom.h"
+#import "NSObject+TSYCategory.h"
 
 @interface TSYBuilding ()
 @property (nonatomic, retain) NSMutableArray    *mutableRooms;

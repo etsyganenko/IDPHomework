@@ -8,14 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "NSObject+TSYCategory.h"
-
 @class TSYEmployee;
 
 @interface TSYRoom : NSObject
 @property (nonatomic, readonly) NSArray     *people;
 @property (nonatomic, readonly) NSUInteger  peopleCapacity;
-@property (nonatomic, readonly) NSUInteger  peopleCount;
 
 + (instancetype)roomWithPeopleCapacity:(NSUInteger)peopleCapacity;
 

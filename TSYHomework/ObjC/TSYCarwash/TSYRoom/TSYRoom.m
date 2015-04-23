@@ -8,11 +8,11 @@
 
 #import "TSYRoom.h"
 #import "TSYEmployee.h"
+#import "NSObject+TSYCategory.h"
 
 @interface TSYRoom ()
 @property (nonatomic, retain) NSMutableArray    *mutablePeople;
 @property (nonatomic, assign) NSUInteger        peopleCapacity;
-@property (nonatomic, assign) NSUInteger        peopleCount;
 
 @end
 
@@ -60,15 +60,13 @@
 #pragma mark Public Methods
 
 - (void)addPerson:(TSYEmployee *)person {
-    if (![self.mutablePeople containsObject:person] && self.peopleCount < self.peopleCapacity) {
+    if (![self.mutablePeople containsObject:person] && self.people.count < self.peopleCapacity) {
         [self.mutablePeople addObject:person];
-        self.peopleCount++;
     }
 }
 
 - (void)removePerson:(TSYEmployee *)person {
     [self.mutablePeople removeObject:person];
-    self.peopleCount--;
 }
 
 @end

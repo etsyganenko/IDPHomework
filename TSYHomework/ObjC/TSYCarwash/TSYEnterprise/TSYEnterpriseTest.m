@@ -17,7 +17,7 @@ void TSYEnterprisePerformTest() {
         TSYEnterprise *enterprise = [TSYEnterprise enterprise];
         
         NSMutableArray *cars = [NSMutableArray array];
-        NSUInteger carsAmount = 10;
+        NSUInteger carsAmount = 5;
         
         for (NSUInteger index = 0; index < carsAmount; index++) {
             TSYCar *car = [TSYCar carWithModel:@"VW" money:100];

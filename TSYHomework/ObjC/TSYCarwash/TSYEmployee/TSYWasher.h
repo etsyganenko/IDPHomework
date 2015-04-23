@@ -11,7 +11,8 @@
 @class TSYCar;
 
 @interface TSYWasher : TSYEmployee
-@property (nonatomic, assign) NSUInteger    price;
+@property (nonatomic, assign)   NSUInteger  price;
+@property (nonatomic, readonly) BOOL        free;
 
 - (void)wash:(TSYCar *)car;
 

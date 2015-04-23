@@ -7,6 +7,7 @@
 //
 
 #import "TSYCarwashRoom.h"
+#import "TSYCar.h"
 
 @interface TSYCarwashRoom ()
 @property (nonatomic, retain) NSMutableArray *mutableCars;
@@ -59,15 +60,13 @@
 #pragma mark Public Methods
 
 - (void)addCar:(TSYCar *)car {
-    if (![self.mutableCars containsObject:car] && self.carsCount < self.carsCapacity) {
+    if (![self.mutableCars containsObject:car] && self.cars.count < self.carsCapacity) {
         [self.mutableCars addObject:car];
-        self.carsCount++;
     }
 }
 
 - (void)removeCar:(TSYCar *)car {
     [self.mutableCars removeObject:car];
-    self.carsCount--;
 }
 
 @end

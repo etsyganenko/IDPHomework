@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "NSObject+TSYCategory.h"
 #import "TSYGiveMoney.h"
 
 @interface TSYCar : NSObject<TSYGiveMoney>

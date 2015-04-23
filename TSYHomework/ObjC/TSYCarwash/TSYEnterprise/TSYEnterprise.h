@@ -8,32 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-#import "TSYDirector.h"
-#import "TSYAccountant.h"
-#import "TSYWasher.h"
-#import "TSYAdministration.h"
-#import "TSYCarwash.h"
-#import "TSYCarwashRoom.h"
-#import "TSYRoom.h"
-#import "TSYCar.h"
-
-#import "NSObject+TSYCategory.h"
+@class TSYAdministration;
+@class TSYCarwash;
+@class TSYRoom;
+@class TSYCarwashRoom;
+@class TSYDirector;
+@class TSYAccountant;
+@class TSYWasher;
+@class TSYCar;
 
 @interface TSYEnterprise : NSObject
-@property (nonatomic, retain) TSYAdministration *administration;
-@property (nonatomic, retain) TSYCarwash        *carwash;
-
-@property (nonatomic, retain) TSYRoom           *administrationRoom;
-@property (nonatomic, retain) TSYCarwashRoom    *carwashRoom;
-
-@property (nonatomic, retain) TSYDirector       *director;
-@property (nonatomic, retain) TSYAccountant     *accountant;
-@property (nonatomic, retain) TSYWasher         *washer;
 
 + (instancetype)enterprise;
 
-- (void)organizeStaff;
-- (void)organizeBuildings;
 - (void)runCarwash:(TSYCar *)car;
 
 @end

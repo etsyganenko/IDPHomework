@@ -7,12 +7,12 @@
 //
 
 #import "TSYRoom.h"
-#import "TSYCar.h"
+
+@class TSYCar;
 
 @interface TSYCarwashRoom : TSYRoom
 @property (nonatomic, readonly) NSArray     *cars;
 @property (nonatomic, assign)   NSUInteger  carsCapacity;
-@property (nonatomic, assign)   NSUInteger  carsCount;
 
 + (instancetype)carwashRoomWithCarsCapacity:(NSUInteger)carsCapacity
                              peopleCapacity:(NSUInteger)peopleCapacity;
