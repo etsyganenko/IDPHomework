@@ -42,10 +42,7 @@ const NSUInteger washingPrice                   =   60;
 - (void)organizeStaff;
 - (void)organizeBuildings;
 
-- (TSYWasher *)findFreeWasher;
-- (TSYAccountant *)findFreeAccountant;
-
-//- (TSYEmployee *)findFreeEmployeeInEmployees:(NSMutableArray *)employees;
+- (TSYEmployee *)freeEmployeeInEmployees:(NSMutableArray *)employees;
 
 @end
 
@@ -111,10 +108,9 @@ const NSUInteger washingPrice                   =   60;
 }
 
 - (void)runCarwash:(TSYCar *)car {
-//    TSYAccountant *accountant = [self findFreeEmployeeInEmployees:self.accountants];
-    
-    TSYWasher *washer = [self findFreeWasher];
-    TSYAccountant *accountant = [self findFreeAccountant];
+    TSYAccountant *accountant = [self freeEmployeeInEmployees:self.accountants];
+    TSYWasher *washer = [self freeEmployeeInEmployees:self.washers];
+
     TSYDirector *director = self.director;
     TSYCarwashRoom *box = self.carwashRoom;
     NSUInteger price = washer.price;
@@ -133,34 +129,14 @@ const NSUInteger washingPrice                   =   60;
     [director earnProfit];
 }
 
-- (TSYWasher *)findFreeWasher {
-    for (TSYWasher *washer in self.washers) {
-        if (washer.isFree) {
-            return washer;
+- (TSYEmployee *)freeEmployeeInEmployees:(NSMutableArray *)employees {
+    for (TSYEmployee *employee in employees) {
+        if (employee.isFree) {
+            return employee;
         }
     }
     
     return nil;
 }
-
-- (TSYAccountant *)findFreeAccountant {
-    for (TSYAccountant *accountant in self.accountants) {
-        if (accountant.isFree) {
-            return accountant;
-        }
-    }
-    
-    return nil;
-}
-
-//- (id)findFreeEmployeeInEmployees:(NSMutableArray *)employees {
-//    for (TSYEmployee *employee in employees) {
-//        if (employee.isFree) {
-//            return employee;
-//        }
-//    }
-//    
-//    return nil;
-//}
 
 @end
