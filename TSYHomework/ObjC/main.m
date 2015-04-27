@@ -10,12 +10,15 @@
 
 #import "TSYCreatureTest.h"
 #import "TSYCreature2Test.h"
+#import "TSYEnterpriseTest.h"
 
 int main(int argc, const char * argv[]) {
-    @autoreleasepool {        
-        TSYCreaturePerformTest();
+    @autoreleasepool {
+        TSYEnterprisePerformTest();
         
-        TSYCreature2PerformTest();
+//        TSYCreaturePerformTest();
+
+//        TSYCreature2PerformTest();
     }
     
     return 0;

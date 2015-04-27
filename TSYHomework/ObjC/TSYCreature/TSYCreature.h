@@ -15,11 +15,11 @@ typedef NS_ENUM(NSUInteger, TSYGender) {
 };
 
 @interface TSYCreature : NSObject
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, assign) TSYGender gender;
-@property (nonatomic, assign) NSUInteger age;
-@property (nonatomic, assign) NSUInteger weight;
-@property (nonatomic, readonly) NSArray *children;
+@property (nonatomic, copy)     NSString    *name;
+@property (nonatomic, assign)   TSYGender   gender;
+@property (nonatomic, assign)   NSUInteger  age;
+@property (nonatomic, assign)   NSUInteger  weight;
+@property (nonatomic, readonly) NSArray     *children;
 
 + (instancetype)creatureWithName:(NSString *)name
                           gender:(TSYGender)gender;
