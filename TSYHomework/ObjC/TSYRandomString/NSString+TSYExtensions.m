@@ -22,16 +22,16 @@ static const NSUInteger TSYCharactersLimit = 10;
     return [self randomStringWithLength:length alphabet:[TSYAlphabet alphanumericAlphabet]];
 }
 
-+ (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet {
++ (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(TSYAlphabet *)alphabet {
     NSMutableString *result = [NSMutableString stringWithCapacity:length];
-    NSUInteger alphabetLength = [alphabet length];
+    NSUInteger alphabetLength = [(NSString *)alphabet length];
     
-    for (NSUInteger index = 0; index < alphabetLength; index++) {
-        unichar character = [alphabet characterAtIndex:arc4random_uniform((uint32_t)alphabetLength)];
+    for (NSUInteger index = 0; index < length; index++) {
+        unichar character = [(NSString *)alphabet characterAtIndex:arc4random_uniform((uint32_t)alphabetLength)];
         [result appendFormat:@"%c", character];
     }
     
-    return result;
+    return [self stringWithString:result];
 }
 
 

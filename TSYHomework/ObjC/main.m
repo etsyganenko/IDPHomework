@@ -11,9 +11,11 @@
 #import "TSYCreatureTest.h"
 #import "TSYCreature2Test.h"
 #import "TSYEnterpriseTest.h"
+#import "TSYAlphabet.h"
+#import "NSString+TSYExtensions.h"
 
 int main(int argc, const char * argv[]) {
-    @autoreleasepool {
+    @autoreleasepool {        
         TSYEnterprisePerformTest();
         
 //        TSYCreaturePerformTest();

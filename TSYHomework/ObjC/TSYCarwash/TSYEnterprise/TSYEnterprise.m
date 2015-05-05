@@ -15,7 +15,10 @@
 #import "TSYCarwashRoom.h"
 #import "TSYRoom.h"
 #import "TSYCar.h"
+#import "TSYAlphabet.h"
+
 #import "NSObject+TSYCategory.h"
+#import "NSString+TSYExtensions.h"
 
 const NSUInteger administrationRoomsAmount      =   1;
 const NSUInteger carwashRoomsAmount             =   1;
@@ -81,10 +84,15 @@ const NSUInteger washingPrice                   =   60;
 }
 
 - (void)organizeStaff {
-    TSYAccountant *accountant = [TSYAccountant employeeWithName:@"Anton" salary:accountantSalary];
-    TSYWasher *washer = [TSYWasher employeeWithName:@"Ivan" salary:washerSalary];
+    NSString *accountantName = [NSString randomStringWithLength:5 alphabet:[TSYAlphabet letterAlphabet]];
+    NSString *directorName = [NSString randomStringWithLength:5 alphabet:[TSYAlphabet letterAlphabet]];
+    NSString *washerName = [NSString randomStringWithLength:5 alphabet:[TSYAlphabet letterAlphabet]];
 
-    self.director = [TSYDirector employeeWithName:@"Mihal Mihalych" salary:directorSalary];
+    
+    TSYAccountant *accountant = [TSYAccountant employeeWithName:accountantName salary:accountantSalary];
+    TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:washerSalary];
+
+    self.director = [TSYDirector employeeWithName:directorName salary:directorSalary];
     [self.washers addObject:washer];
     [self.accountants addObject:accountant];
     

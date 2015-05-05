@@ -11,10 +11,10 @@
 @implementation TSYAlphabet
 
 + (instancetype)letterAlphabet {
-    NSMutableString *result = [NSMutableString stringWithString:[self lowerCaseLetterAlphabet]];
-    [result appendString:[self upperCaseLetterAlphabet]];
+    NSMutableString *result = [NSMutableString stringWithString:[self lowercaseLetterAlphabet]];
+    [result appendString:[self capitalLetterAlphabet]];
     
-    return result;
+    return [NSString stringWithString:result];
 }
 
 + (instancetype)numericAlphabet {
@@ -34,7 +34,7 @@
     
     [result appendString:[self numericAlphabet]];
     
-    return  result;
+    return [NSString stringWithString:result];
 }
 
 + (instancetype)alphabetWithRange:(NSRange)range {
@@ -45,7 +45,7 @@
         [result appendFormat:@"%c", character];
     }
     
-    return [self stringWithString:result];
+    return [NSString stringWithString:result];
 }
 
 
