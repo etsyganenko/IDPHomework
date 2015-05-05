@@ -16,16 +16,7 @@
 // returns random string with given length
 + (instancetype)randomStringWithLength:(NSUInteger)length;
 
-// returns random string with random length of characters from range
+// returns random string with given length with characters from given range
 + (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet;
 
-
-
-
 @end
-
-//Написать расширения для строки, которая бы генерировалась случайным образом.
-//ТРебования:
-//1. должна быть расширяемой
-//2. должна быть удобной
-//3. должна предоставлять возможность работать с разными наборами символов

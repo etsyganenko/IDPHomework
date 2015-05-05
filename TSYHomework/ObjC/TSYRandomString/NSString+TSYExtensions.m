@@ -23,7 +23,15 @@ static const NSUInteger TSYCharactersLimit = 10;
 }
 
 + (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet {
+    NSMutableString *result = [NSMutableString stringWithCapacity:length];
+    NSUInteger alphabetLength = [alphabet length];
     
+    for (NSUInteger index = 0; index < alphabetLength; index++) {
+        unichar character = [alphabet characterAtIndex:arc4random_uniform((uint32_t)alphabetLength)];
+        [result appendFormat:@"%c", character];
+    }
+    
+    return result;
 }
 
 
