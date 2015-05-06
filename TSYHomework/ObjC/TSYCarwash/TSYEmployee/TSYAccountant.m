@@ -18,7 +18,7 @@
 - (void)calculateMoney:(NSUInteger)money {
     self.free = NO;
     
-    NSLog(@"Calculating...");
+    NSLog(@"%@ is calculating money. Money = %lu", self.name, money);
     
     self.free = YES;
 }

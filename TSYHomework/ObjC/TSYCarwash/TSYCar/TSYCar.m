@@ -39,17 +39,4 @@
     [super dealloc];
 }
 
-#pragma mark -
-#pragma mark Public Methods
-
-- (void)giveMoney:(NSUInteger)money toObject:(TSYEmployee *)object {
-    if (self.money < money) {
-        NSLog(@"Not enough money!");
-        return;
-    }
-    
-    self.money -= money;
-    object.money += money;
-}
-
 @end
