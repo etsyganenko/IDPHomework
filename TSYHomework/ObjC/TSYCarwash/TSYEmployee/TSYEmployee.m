@@ -57,4 +57,8 @@
     object.money -= money;
 }
 
+- (void)performWorkWithObject:(id)object {
+    
+}
+
 @end

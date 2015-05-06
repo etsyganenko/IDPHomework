@@ -118,30 +118,14 @@ const NSUInteger TSYWashingPrice                    =   60;
     TSYDirector *director = [self freeEmployeeOfClass:[TSYDirector class]];
     
     TSYCarwashRoom *box = self.carwashRoom;
-    NSUInteger price = washer.price;
     
     [box addCar:car];
-    
-    [washer wash:car];
+    [washer performWorkWithObject:car];
     [box removeCar:car];
     
-    [washer takeMoney:price fromObject:car];
+    [accountant performWorkWithObject:washer];
     
-    [accountant takeMoney:price fromObject:washer];
-    [accountant calculateMoney:price];
-    
-    [director takeMoney:price fromObject:accountant];
-    [director earnProfit];
-}
-
-- (id)freeEmployeeInEmployees:(NSMutableArray *)employees {
-    for (TSYEmployee *employee in employees) {
-        if (employee.isFree) {
-            return employee;
-        }
-    }
-    
-    return nil;
+    [director performWorkWithObject:accountant];
 }
 
 - (TSYEmployee *)freeEmployeeOfClass:(Class)class {

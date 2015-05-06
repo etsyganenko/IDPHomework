@@ -7,7 +7,7 @@
 //
 
 #import "TSYAccountant.h"
-#import "TSYDirector.h"
+
 #import "TSYWasher.h"
 
 @implementation TSYAccountant
@@ -18,9 +18,14 @@
 - (void)calculateMoney:(NSUInteger)money {
     self.free = NO;
     
-    NSLog(@"%@ is calculating money. Money = %lu", self.name, money);
+    NSLog(@"%@ %@ is calculating money. Money = %lu", self.className, self.name, money);
     
     self.free = YES;
+}
+
+- (void)performWorkWithObject:(TSYWasher *)washer {
+    [self takeMoney:washer.money fromObject:washer];
+    [self calculateMoney:self.money];
 }
 
 @end

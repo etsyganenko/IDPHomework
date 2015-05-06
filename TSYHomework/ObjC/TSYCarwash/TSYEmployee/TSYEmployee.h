@@ -21,4 +21,6 @@
 + (instancetype)employeeWithName:(NSString *)name
                           salary:(NSUInteger)salary;
 
+- (void)performWorkWithObject:(id)object;
+
 @end
