@@ -1,5 +1,5 @@
 //
-//  NSString+TSYExtensions.h
+//  NSString+TSYRandomString.h
 //  TSYHomework
 //
 //  Created by Admin on 27.04.15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (TSYExtensions)
+@interface NSString (TSYRandomString)
 
 // returns random string with random length
 + (instancetype)randomString;

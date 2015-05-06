@@ -1,20 +1,20 @@
 //
-//  TSYAlphabet.m
+//  NSString+TSYAlphabet.m
 //  TSYHomework
 //
 //  Created by Admin on 03.05.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYAlphabet.h"
+#import "NSString+TSYAlphabet.h"
 
-@implementation TSYAlphabet
+@implementation NSString (TSYAlphabet)
 
 + (instancetype)letterAlphabet {
     NSMutableString *result = [NSMutableString stringWithString:[self lowercaseLetterAlphabet]];
     [result appendString:[self capitalLetterAlphabet]];
     
-    return [NSString stringWithString:result];
+    return [self stringWithString:result];
 }
 
 + (instancetype)numericAlphabet {
@@ -34,7 +34,7 @@
     
     [result appendString:[self numericAlphabet]];
     
-    return [NSString stringWithString:result];
+    return [self stringWithString:result];
 }
 
 + (instancetype)alphabetWithRange:(NSRange)range {
@@ -45,8 +45,7 @@
         [result appendFormat:@"%c", character];
     }
     
-    return [NSString stringWithString:result];
+    return [self stringWithString:result];
 }
-
 
 @end

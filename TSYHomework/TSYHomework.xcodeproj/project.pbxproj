@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		849FCA2A1AE7933000FA0EEE /* TSYEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FCA291AE791E200FA0EEE /* TSYEnterprise.m */; };
 		849FCA2D1AE7A2C700FA0EEE /* TSYEnterpriseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FCA2C1AE7A2C700FA0EEE /* TSYEnterpriseTest.m */; };
-		84A1398A1AEE3A7000CFB9C8 /* NSString+TSYExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A139891AEE3A7000CFB9C8 /* NSString+TSYExtensions.m */; };
-		84A1DF8D1AF633D1008519C0 /* TSYAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1DF8C1AF633D1008519C0 /* TSYAlphabet.m */; };
+		84A1398A1AEE3A7000CFB9C8 /* NSString+TSYRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A139891AEE3A7000CFB9C8 /* NSString+TSYRandomString.m */; };
+		84A1DF8D1AF633D1008519C0 /* NSString+TSYAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1DF8C1AF633D1008519C0 /* NSString+TSYAlphabet.m */; };
 		84A337401AE645A1001145F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3373F1AE645A1001145F3 /* main.m */; };
 		84A337AD1AE64872001145F3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A337AC1AE64872001145F3 /* main.c */; };
 		84A337AE1AE64A5E001145F3 /* TSYCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A337431AE645D0001145F3 /* TSYCreature.m */; };
@@ -83,10 +83,10 @@
 		849FCA2B1AE7A2C700FA0EEE /* TSYEnterpriseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYEnterpriseTest.h; sourceTree = "<group>"; };
 		849FCA2C1AE7A2C700FA0EEE /* TSYEnterpriseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYEnterpriseTest.m; sourceTree = "<group>"; };
 		849FCA2E1AE7A5BB00FA0EEE /* TSYGiveMoney.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYGiveMoney.h; sourceTree = "<group>"; };
-		84A139881AEE3A7000CFB9C8 /* NSString+TSYExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYExtensions.h"; sourceTree = "<group>"; };
-		84A139891AEE3A7000CFB9C8 /* NSString+TSYExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYExtensions.m"; sourceTree = "<group>"; };
-		84A1DF8B1AF633D1008519C0 /* TSYAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAlphabet.h; sourceTree = "<group>"; };
-		84A1DF8C1AF633D1008519C0 /* TSYAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAlphabet.m; sourceTree = "<group>"; };
+		84A139881AEE3A7000CFB9C8 /* NSString+TSYRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYRandomString.h"; sourceTree = "<group>"; };
+		84A139891AEE3A7000CFB9C8 /* NSString+TSYRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomString.m"; sourceTree = "<group>"; };
+		84A1DF8B1AF633D1008519C0 /* NSString+TSYAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYAlphabet.h"; sourceTree = "<group>"; };
+		84A1DF8C1AF633D1008519C0 /* NSString+TSYAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYAlphabet.m"; sourceTree = "<group>"; };
 		84A3373F1AE645A1001145F3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ObjC/main.m; sourceTree = SOURCE_ROOT; };
 		84A337421AE645D0001145F3 /* TSYCreature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSYCreature.h; sourceTree = "<group>"; };
 		84A337431AE645D0001145F3 /* TSYCreature.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYCreature.m; sourceTree = "<group>"; };
@@ -210,10 +210,10 @@
 		84A139871AEE394700CFB9C8 /* TSYRandomString */ = {
 			isa = PBXGroup;
 			children = (
-				84A1DF8B1AF633D1008519C0 /* TSYAlphabet.h */,
-				84A1DF8C1AF633D1008519C0 /* TSYAlphabet.m */,
-				84A139881AEE3A7000CFB9C8 /* NSString+TSYExtensions.h */,
-				84A139891AEE3A7000CFB9C8 /* NSString+TSYExtensions.m */,
+				84A1DF8B1AF633D1008519C0 /* NSString+TSYAlphabet.h */,
+				84A1DF8C1AF633D1008519C0 /* NSString+TSYAlphabet.m */,
+				84A139881AEE3A7000CFB9C8 /* NSString+TSYRandomString.h */,
+				84A139891AEE3A7000CFB9C8 /* NSString+TSYRandomString.m */,
 			);
 			name = TSYRandomString;
 			path = ObjC/TSYRandomString;
@@ -592,7 +592,7 @@
 				84A337BD1AE64A92001145F3 /* TSYWasher.m in Sources */,
 				84A337B41AE64A72001145F3 /* TSYCreatureFemale.m in Sources */,
 				84A337AF1AE64A60001145F3 /* TSYCreatureTest.m in Sources */,
-				84A1398A1AEE3A7000CFB9C8 /* NSString+TSYExtensions.m in Sources */,
+				84A1398A1AEE3A7000CFB9C8 /* NSString+TSYRandomString.m in Sources */,
 				84A337401AE645A1001145F3 /* main.m in Sources */,
 				84A337B31AE64A70001145F3 /* TSYCreature2Test.m in Sources */,
 				84A337BE1AE64A95001145F3 /* TSYCarwashRoom.m in Sources */,
@@ -608,7 +608,7 @@
 				84A337B91AE64A8A001145F3 /* TSYCar.m in Sources */,
 				849FCA2A1AE7933000FA0EEE /* TSYEnterprise.m in Sources */,
 				84A337B51AE64A74001145F3 /* TSYCreatureMale.m in Sources */,
-				84A1DF8D1AF633D1008519C0 /* TSYAlphabet.m in Sources */,
+				84A1DF8D1AF633D1008519C0 /* NSString+TSYAlphabet.m in Sources */,
 				84A337AE1AE64A5E001145F3 /* TSYCreature.m in Sources */,
 				84A337BC1AE64A90001145F3 /* TSYEmployee.m in Sources */,
 			);

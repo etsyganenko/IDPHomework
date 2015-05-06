@@ -1,5 +1,5 @@
 //
-//  TSYAlphabet.h
+//  NSString+TSYAlphabet.h
 //  TSYHomework
 //
 //  Created by Admin on 03.05.15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TSYAlphabet : NSObject
+@interface NSString (TSYAlphabet)
 
 + (instancetype)letterAlphabet;
 + (instancetype)numericAlphabet;

@@ -8,13 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class TSYAdministration;
-@class TSYCarwash;
-@class TSYRoom;
-@class TSYCarwashRoom;
-@class TSYDirector;
-@class TSYAccountant;
-@class TSYWasher;
 @class TSYCar;
 
 @interface TSYEnterprise : NSObject

@@ -15,21 +15,21 @@
 #import "TSYCarwashRoom.h"
 #import "TSYRoom.h"
 #import "TSYCar.h"
-#import "TSYAlphabet.h"
 
 #import "NSObject+TSYCategory.h"
-#import "NSString+TSYExtensions.h"
+#import "NSString+TSYRandomString.h"
+#import "NSString+TSYAlphabet.h"
 
-const NSUInteger administrationRoomsAmount      =   1;
-const NSUInteger carwashRoomsAmount             =   1;
-const NSUInteger carwashCarRoomsAmount          =   1;
-const NSUInteger administrationEmployeesAmount  =   2;
-const NSUInteger carwashEmployeesAmount         =   1;
-const NSUInteger carwashCarsAmount              =   1;
-const NSUInteger washerSalary                   =   5000;
-const NSUInteger accountantSalary               =   7000;
-const NSUInteger directorSalary                 =   10000;
-const NSUInteger washingPrice                   =   60;
+const NSUInteger TSYAdministrationRoomsAmount      =   1;
+const NSUInteger TSYCarwashRoomsAmount             =   1;
+const NSUInteger TSYCarwashCarRoomsAmount          =   1;
+const NSUInteger TSYAdministrationEmployeesAmount  =   2;
+const NSUInteger TSYCarwashEmployeesAmount         =   1;
+const NSUInteger TSYCarwashCarsAmount              =   1;
+const NSUInteger TSYWasherSalary                   =   5000;
+const NSUInteger TSYAccountantSalary               =   7000;
+const NSUInteger TSYDirectorSalary                 =   10000;
+const NSUInteger TSYWashingPrice                   =   60;
 
 @interface TSYEnterprise ()
 @property (nonatomic, retain) TSYAdministration *administration;
@@ -84,31 +84,30 @@ const NSUInteger washingPrice                   =   60;
 }
 
 - (void)organizeStaff {
-    NSString *accountantName = [NSString randomStringWithLength:5 alphabet:[TSYAlphabet letterAlphabet]];
-    NSString *directorName = [NSString randomStringWithLength:5 alphabet:[TSYAlphabet letterAlphabet]];
-    NSString *washerName = [NSString randomStringWithLength:5 alphabet:[TSYAlphabet letterAlphabet]];
-
+    NSString *accountantName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
+    NSString *directorName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
+    NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
     
-    TSYAccountant *accountant = [TSYAccountant employeeWithName:accountantName salary:accountantSalary];
-    TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:washerSalary];
+    TSYAccountant *accountant = [TSYAccountant employeeWithName:accountantName salary:TSYAccountantSalary];
+    TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:TSYWasherSalary];
 
-    self.director = [TSYDirector employeeWithName:directorName salary:directorSalary];
+    self.director = [TSYDirector employeeWithName:directorName salary:TSYDirectorSalary];
     [self.washers addObject:washer];
     [self.accountants addObject:accountant];
     
-    washer.price = washingPrice;
+    washer.price = TSYWashingPrice;
 }
 
 - (void)organizeBuildings {
     TSYWasher *washer = [self.washers objectAtIndex:0];
     TSYAccountant *accountant = [self.accountants objectAtIndex:0];
-    self.administration = [TSYAdministration buildingWithRoomsAmount:administrationRoomsAmount];
-    self.carwash = [TSYCarwash carwashWithRoomsAmount:carwashRoomsAmount
-                                       carRoomsAmount:carwashCarRoomsAmount];
+    self.administration = [TSYAdministration buildingWithRoomsAmount:TSYAdministrationRoomsAmount];
+    self.carwash = [TSYCarwash carwashWithRoomsAmount:TSYCarwashRoomsAmount
+                                       carRoomsAmount:TSYCarwashCarRoomsAmount];
     
-    self.administrationRoom = [TSYRoom roomWithPeopleCapacity:administrationEmployeesAmount];
-    self.carwashRoom = [TSYCarwashRoom carwashRoomWithCarsCapacity:carwashCarsAmount
-                                                    peopleCapacity:carwashEmployeesAmount];
+    self.administrationRoom = [TSYRoom roomWithPeopleCapacity:TSYAdministrationEmployeesAmount];
+    self.carwashRoom = [TSYCarwashRoom carwashRoomWithCarsCapacity:TSYCarwashCarsAmount
+                                                    peopleCapacity:TSYCarwashEmployeesAmount];
     
     [self.administrationRoom addPerson:self.director];
     [self.administrationRoom addPerson:accountant];

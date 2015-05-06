@@ -11,8 +11,8 @@
 #import "TSYCreatureTest.h"
 #import "TSYCreature2Test.h"
 #import "TSYEnterpriseTest.h"
-#import "TSYAlphabet.h"
-#import "NSString+TSYExtensions.h"
+#import "NSString+TSYRandomString.h"
+#import "NSString+TSYAlphabet.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {        
