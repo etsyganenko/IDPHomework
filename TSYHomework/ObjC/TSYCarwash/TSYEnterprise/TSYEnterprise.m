@@ -10,46 +10,47 @@
 #import "TSYDirector.h"
 #import "TSYAccountant.h"
 #import "TSYWasher.h"
-#import "TSYAdministration.h"
 #import "TSYCarwash.h"
 #import "TSYCarwashRoom.h"
 #import "TSYRoom.h"
 #import "TSYCar.h"
-#import "NSObject+TSYCategory.h"
 
-const NSUInteger administrationRoomsAmount      =   1;
-const NSUInteger carwashRoomsAmount             =   1;
-const NSUInteger carwashCarRoomsAmount          =   1;
-const NSUInteger administrationEmployeesAmount  =   2;
-const NSUInteger carwashEmployeesAmount         =   1;
-const NSUInteger carwashCarsAmount              =   1;
-const NSUInteger washerSalary                   =   5000;
-const NSUInteger accountantSalary               =   7000;
-const NSUInteger directorSalary                 =   10000;
-const NSUInteger washingPrice                   =   60;
+#import "NSObject+TSYCategory.h"
+#import "NSString+TSYRandomString.h"
+#import "NSString+TSYAlphabet.h"
+
+const NSUInteger TSYEmployeesAmount                 =   3;
+const NSUInteger TSYAdministrationRoomsAmount       =   1;
+const NSUInteger TSYCarwashRoomsAmount              =   1;
+const NSUInteger TSYCarwashCarRoomsAmount           =   1;
+const NSUInteger TSYAdministrationEmployeesAmount   =   2;
+const NSUInteger TSYCarwashEmployeesAmount          =   1;
+const NSUInteger TSYCarwashCarsAmount               =   1;
+const NSUInteger TSYWasherSalary                    =   5000;
+const NSUInteger TSYAccountantSalary                =   7000;
+const NSUInteger TSYDirectorSalary                  =   10000;
+const NSUInteger TSYWashingPrice                    =   60;
 
 @interface TSYEnterprise ()
-@property (nonatomic, retain) TSYAdministration *administration;
+@property (nonatomic, retain) TSYBuilding       *administration;
 @property (nonatomic, retain) TSYCarwash        *carwash;
 
 @property (nonatomic, retain) TSYRoom           *administrationRoom;
 @property (nonatomic, retain) TSYCarwashRoom    *carwashRoom;
 
-@property (nonatomic, retain) TSYDirector       *director;
-@property (nonatomic, retain) NSMutableArray    *accountants;
-@property (nonatomic, retain) NSMutableArray    *washers;
+@property (nonatomic, retain) NSMutableArray    *employees;
 
 - (void)organizeStaff;
 - (void)organizeBuildings;
 
-- (TSYEmployee *)freeEmployeeInEmployees:(NSMutableArray *)employees;
+- (id)freeEmployeeOfClass:(Class)class;
 
 @end
 
 @implementation TSYEnterprise
 
 + (instancetype)enterprise {
-    TSYEnterprise *enterprise = [TSYEnterprise object];
+    TSYEnterprise *enterprise = [self object];
     
     return enterprise;
 }
@@ -61,9 +62,7 @@ const NSUInteger washingPrice                   =   60;
     self.administrationRoom = nil;
     self.carwashRoom = nil;
     
-    self.director = nil;
-    self.accountants = nil;
-    self.washers = nil;
+    self.employees = nil;
     
     [super dealloc];
 }
@@ -71,8 +70,7 @@ const NSUInteger washingPrice                   =   60;
 - (instancetype)init {
     self = [super init];
     
-    self.washers = [NSMutableArray array];
-    self.accountants = [NSMutableArray array];
+    self.employees = [NSMutableArray array];
     
     [self organizeStaff];
     [self organizeBuildings];
@@ -81,58 +79,60 @@ const NSUInteger washingPrice                   =   60;
 }
 
 - (void)organizeStaff {
-    TSYAccountant *accountant = [TSYAccountant employeeWithName:@"Anton" salary:accountantSalary];
-    TSYWasher *washer = [TSYWasher employeeWithName:@"Ivan" salary:washerSalary];
-
-    self.director = [TSYDirector employeeWithName:@"Mihal Mihalych" salary:directorSalary];
-    [self.washers addObject:washer];
-    [self.accountants addObject:accountant];
+    NSString *accountantName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
+    NSString *directorName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
+    NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
     
-    washer.price = washingPrice;
+    TSYDirector *director = [TSYDirector employeeWithName:directorName salary:TSYDirectorSalary];
+    TSYAccountant *accountant = [TSYAccountant employeeWithName:accountantName salary:TSYAccountantSalary];
+    TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:TSYWasherSalary];
+
+    [self.employees addObject:director];
+    [self.employees addObject:accountant];
+    [self.employees addObject:washer];
+    
+    washer.price = TSYWashingPrice;
 }
 
 - (void)organizeBuildings {
-    TSYWasher *washer = [self.washers objectAtIndex:0];
-    TSYAccountant *accountant = [self.accountants objectAtIndex:0];
-    self.administration = [TSYAdministration buildingWithRoomsAmount:administrationRoomsAmount];
-    self.carwash = [TSYCarwash carwashWithRoomsAmount:carwashRoomsAmount
-                                       carRoomsAmount:carwashCarRoomsAmount];
+    TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
+    TSYAccountant *accountant = [self freeEmployeeOfClass:[TSYAccountant class]];
+    TSYDirector *director = [self freeEmployeeOfClass:[TSYDirector class]];
     
-    self.administrationRoom = [TSYRoom roomWithPeopleCapacity:administrationEmployeesAmount];
-    self.carwashRoom = [TSYCarwashRoom carwashRoomWithCarsCapacity:carwashCarsAmount
-                                                    peopleCapacity:carwashEmployeesAmount];
+    self.administration = [TSYBuilding buildingWithRoomsAmount:TSYAdministrationRoomsAmount];
+    self.carwash = [TSYCarwash carwashWithRoomsAmount:TSYCarwashRoomsAmount
+                                       carRoomsAmount:TSYCarwashCarRoomsAmount];
     
-    [self.administrationRoom addPerson:self.director];
+    self.administrationRoom = [TSYRoom roomWithPeopleCapacity:TSYAdministrationEmployeesAmount];
+    self.carwashRoom = [TSYCarwashRoom carwashRoomWithCarsCapacity:TSYCarwashCarsAmount
+                                                    peopleCapacity:TSYCarwashEmployeesAmount];
+    
+    [self.administrationRoom addPerson:director];
     [self.administrationRoom addPerson:accountant];
     [self.carwashRoom addPerson:washer];
 }
 
-- (void)runCarwash:(TSYCar *)car {
-    TSYAccountant *accountant = [self freeEmployeeInEmployees:self.accountants];
-    TSYWasher *washer = [self freeEmployeeInEmployees:self.washers];
-
-    TSYDirector *director = self.director;
+- (void)washCar:(TSYCar *)car {
+    TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
+    TSYAccountant *accountant = [self freeEmployeeOfClass:[TSYAccountant class]];
+    TSYDirector *director = [self freeEmployeeOfClass:[TSYDirector class]];
+    
     TSYCarwashRoom *box = self.carwashRoom;
-    NSUInteger price = washer.price;
     
     [box addCar:car];
-    
-    [washer wash:car];
+    [washer performWorkWithObject:car];
     [box removeCar:car];
     
-    [car giveMoney:price toObject:washer];
+    [accountant performWorkWithObject:washer];
     
-    [washer giveMoney:price toObject:accountant];
-    [accountant calculateMoney:price];
-    
-    [accountant giveMoney:price toObject:director];
-    [director earnProfit];
+    [director performWorkWithObject:accountant];
 }
 
-- (TSYEmployee *)freeEmployeeInEmployees:(NSMutableArray *)employees {
-    for (TSYEmployee *employee in employees) {
-        if (employee.isFree) {
+- (TSYEmployee *)freeEmployeeOfClass:(Class)class {
+    for (TSYEmployee *employee in self.employees) {
+        if ([employee class] == class) {
             return employee;
+            break;
         }
     }
     

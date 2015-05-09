@@ -8,13 +8,20 @@
 
 #import "TSYDirector.h"
 
+#import "TSYAccountant.h"
+
 @implementation TSYDirector
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)earnProfit {
-    NSLog(@"Profit equals %lu", self.money);
+    NSLog(@"%@ %@ is earning profit. Total profit = %lu", self.className, self.name, self.money);
+}
+
+- (void)performWorkWithObject:(TSYAccountant *)accountant {
+    [self takeMoney:accountant.money fromObject:accountant];
+    [self earnProfit];
 }
 
 @end

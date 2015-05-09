@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TSYGiveMoney.h"
+#import "TSYTakeMoney.h"
 
 @class TSYCar;
 
-@interface TSYEmployee : NSObject<TSYGiveMoney>
+@interface TSYEmployee : NSObject<TSYTakeMoney>
 @property (nonatomic, copy)                     NSString    *name;
 @property (nonatomic, assign)                   NSUInteger  salary;
 @property (nonatomic, assign)                   NSUInteger  experience;
@@ -20,5 +20,7 @@
 
 + (instancetype)employeeWithName:(NSString *)name
                           salary:(NSUInteger)salary;
+
+- (void)performWorkWithObject:(id)object;
 
 @end

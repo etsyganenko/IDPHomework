@@ -47,14 +47,18 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)giveMoney:(NSUInteger)money toObject:(TSYEmployee *)object {
-    if (self.money < money) {
+- (void)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
+    if (object.money < money) {
         NSLog(@"Not enough money!");
         return;
     }
     
-    self.money -= money;
-    object.money += money;
+    self.money += money;
+    object.money -= money;
+}
+
+- (void)performWorkWithObject:(id)object {
+    
 }
 
 @end
