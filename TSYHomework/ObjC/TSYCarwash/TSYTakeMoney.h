@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @protocol TSYTakeMoney <NSObject>
+@property (nonatomic, assign)   NSUInteger  money;
+
 - (void)takeMoney:(NSUInteger)money fromObject:(id)object;
 
 @end

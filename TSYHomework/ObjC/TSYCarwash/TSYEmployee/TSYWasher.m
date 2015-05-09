@@ -31,6 +31,7 @@
 - (void)performWorkWithObject:(TSYCar *)car {
     [self washCar:car];
     [self takeMoney:self.price fromObject:car];
+    [self delegatingObjectDidFinishWork:self];
 }
 
 @end

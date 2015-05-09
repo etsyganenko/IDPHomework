@@ -8,15 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "TSYTakeMoney.h"
+#import "TSYDelegatingObject.h"
+#import "TSYDelegate.h"
 
 @class TSYCar;
 
-@interface TSYEmployee : NSObject<TSYTakeMoney>
+@interface TSYEmployee : NSObject<TSYTakeMoney, TSYDelegatingObject, TSYDelegate>
 @property (nonatomic, copy)                     NSString    *name;
 @property (nonatomic, assign)                   NSUInteger  salary;
 @property (nonatomic, assign)                   NSUInteger  experience;
-@property (nonatomic, assign)                   NSUInteger  money;
-@property (nonatomic, assign, getter=isFree)    BOOL        free;
+//@property (nonatomic, assign)                   NSUInteger  money;
+//@property (nonatomic, assign, getter=isFree)    BOOL        free;
 
 + (instancetype)employeeWithName:(NSString *)name
                           salary:(NSUInteger)salary;

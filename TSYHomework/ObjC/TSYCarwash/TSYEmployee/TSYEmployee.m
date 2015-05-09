@@ -12,6 +12,11 @@
 
 @implementation TSYEmployee
 
+@synthesize money               = _money;
+@synthesize free                = _free;
+//@synthesize delegate            = _delegate;
+//@synthesize delegatingObject    = _delegatingObject;
+
 #pragma mark -
 #pragma mark Class Methods
 
@@ -60,5 +65,15 @@
 - (void)performWorkWithObject:(id)object {
     
 }
+
+//- (void)delegatingObjectDidFinishWork:(id<TSYDelegatingObject>)object {
+//    
+//}
+
+//- (void)setDelegatingObject:(id<TSYDelegatingObject>)object {
+//    if (self.delegatingObject != object) {
+//        
+//    }
+//}
 
 @end

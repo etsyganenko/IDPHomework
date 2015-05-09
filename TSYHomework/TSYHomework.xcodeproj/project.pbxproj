@@ -86,6 +86,8 @@
 		84A139891AEE3A7000CFB9C8 /* NSString+TSYRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomString.m"; sourceTree = "<group>"; };
 		84A1DF8B1AF633D1008519C0 /* NSString+TSYAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYAlphabet.h"; sourceTree = "<group>"; };
 		84A1DF8C1AF633D1008519C0 /* NSString+TSYAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYAlphabet.m"; sourceTree = "<group>"; };
+		84A1E3961AFE2FF500D920D9 /* TSYDelegatingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYDelegatingObject.h; sourceTree = "<group>"; };
+		84A1E3971AFE3AA400D920D9 /* TSYDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYDelegate.h; sourceTree = "<group>"; };
 		84A3373F1AE645A1001145F3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ObjC/main.m; sourceTree = SOURCE_ROOT; };
 		84A337421AE645D0001145F3 /* TSYCreature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSYCreature.h; sourceTree = "<group>"; };
 		84A337431AE645D0001145F3 /* TSYCreature.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYCreature.m; sourceTree = "<group>"; };
@@ -250,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				849FCA2E1AE7A5BB00FA0EEE /* TSYTakeMoney.h */,
+				84A1E3961AFE2FF500D920D9 /* TSYDelegatingObject.h */,
+				84A1E3971AFE3AA400D920D9 /* TSYDelegate.h */,
 				84A337521AE646F5001145F3 /* TSYBuilding */,
 				84A337591AE646F5001145F3 /* TSYCar */,
 				84A3375E1AE646F5001145F3 /* TSYEmployee */,
