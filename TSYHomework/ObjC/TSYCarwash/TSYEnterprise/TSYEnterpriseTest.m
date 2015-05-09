@@ -31,7 +31,7 @@ void TSYEnterprisePerformTest() {
         }
         
         for (NSUInteger index = 0; index < carsAmount; index++) {
-            [enterprise runCarwash:cars[index]];
+            [enterprise washCar:cars[index]];
         }
     }
 }

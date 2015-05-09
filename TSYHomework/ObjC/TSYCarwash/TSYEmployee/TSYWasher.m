@@ -15,7 +15,7 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)wash:(TSYCar *)car {
+- (void)washCar:(TSYCar *)car {
     if (nil == car) {
         return;
     }
@@ -29,7 +29,7 @@
 }
 
 - (void)performWorkWithObject:(TSYCar *)car {
-    [self wash:car];
+    [self washCar:car];
     [self takeMoney:self.price fromObject:car];
 }
 

@@ -112,7 +112,7 @@ const NSUInteger TSYWashingPrice                    =   60;
     [self.carwashRoom addPerson:washer];
 }
 
-- (void)runCarwash:(TSYCar *)car {
+- (void)washCar:(TSYCar *)car {
     TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
     TSYAccountant *accountant = [self freeEmployeeOfClass:[TSYAccountant class]];
     TSYDirector *director = [self freeEmployeeOfClass:[TSYDirector class]];

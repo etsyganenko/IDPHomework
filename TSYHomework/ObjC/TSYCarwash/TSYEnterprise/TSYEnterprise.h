@@ -14,6 +14,6 @@
 
 + (instancetype)enterprise;
 
-- (void)runCarwash:(TSYCar *)car;
+- (void)washCar:(TSYCar *)car;
 
 @end

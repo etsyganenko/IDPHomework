@@ -13,6 +13,4 @@
 @interface TSYWasher : TSYEmployee
 @property (nonatomic, assign)   NSUInteger  price;
 
-- (void)wash:(TSYCar *)car;
-
 @end
