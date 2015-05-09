@@ -23,11 +23,11 @@ void TSYEnterprisePerformTest() {
         NSUInteger carMoney = 100;
         
         NSMutableArray *cars = [NSMutableArray array];
+        NSMutableArray *carNames = [NSMutableArray array];
         
         for (NSUInteger index = 0; index < carsAmount; index++) {
-            NSString *model = [NSString randomStringWithLength:5 alphabet:[NSString alphanumericAlphabet]];
-            
-            [cars addObject:[TSYCar carWithModel:model money:carMoney]];
+            [carNames addObject:[NSString randomStringWithLength:5 alphabet:[NSString alphanumericAlphabet]]];
+            [cars addObject:[TSYCar carWithModel:carNames[index] money:carMoney]];
         }
         
         for (NSUInteger index = 0; index < carsAmount; index++) {
