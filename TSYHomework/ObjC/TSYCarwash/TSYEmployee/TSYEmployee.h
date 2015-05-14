@@ -33,11 +33,10 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
 @property (nonatomic, copy)                     NSString            *name;
 @property (nonatomic, assign)                   NSUInteger          salary;
 @property (nonatomic, assign)                   NSUInteger          experience;
-
-//@property (nonatomic, assign, getter=isFree)    BOOL                free;
 @property (nonatomic, assign)                   TSYEmployeeState    state;
 
 @property (nonatomic, assign)                   id<TSYDelegate>     delegate;
+
 @property (nonatomic, readonly)                 NSSet               *observersSet;
 
 + (instancetype)employeeWithName:(NSString *)name
