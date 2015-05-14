@@ -8,7 +8,7 @@
 
 #import "TSYEmployee.h"
 
-@interface TSYDirector : TSYEmployee
+@interface TSYDirector : TSYEmployee<TSYDelegate>
 
 - (void)earnProfit;
 

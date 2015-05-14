@@ -10,7 +10,7 @@
 
 @class TSYCar;
 
-@interface TSYWasher : TSYEmployee
+@interface TSYWasher : TSYEmployee<TSYDelegate>
 @property (nonatomic, assign)   NSUInteger  price;
 
 @end

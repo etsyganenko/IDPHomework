@@ -49,11 +49,17 @@ const NSUInteger TSYWashingPrice                    =   60;
 
 @implementation TSYEnterprise
 
+#pragma mark -
+#pragma mark Class Methods
+
 + (instancetype)enterprise {
     TSYEnterprise *enterprise = [self object];
     
     return enterprise;
 }
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
 
 - (void)dealloc {
     self.administration = nil;
@@ -77,6 +83,35 @@ const NSUInteger TSYWashingPrice                    =   60;
     
     return self;
 }
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)washCar:(TSYCar *)car {
+    TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
+    TSYAccountant *accountant = [self freeEmployeeOfClass:[TSYAccountant class]];
+    TSYDirector *director = [self freeEmployeeOfClass:[TSYDirector class]];
+    
+    TSYCarwashRoom *box = self.carwashRoom;
+    
+    [box addCar:car];
+    [washer performWorkWithObject:car];
+    [box removeCar:car];
+    
+    [accountant performWorkWithObject:washer];
+    
+    [director performWorkWithObject:accountant];
+}
+
+#pragma mark -
+#pragma mark TSYObserver
+
+- (void)employeeDidBecomeFree:(TSYEmployee *)employee {
+    
+}
+
+#pragma mark -
+#pragma mark Private Methods
 
 - (void)organizeStaff {
     NSString *accountantName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
@@ -110,22 +145,6 @@ const NSUInteger TSYWashingPrice                    =   60;
     [self.administrationRoom addPerson:director];
     [self.administrationRoom addPerson:accountant];
     [self.carwashRoom addPerson:washer];
-}
-
-- (void)washCar:(TSYCar *)car {
-    TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
-    TSYAccountant *accountant = [self freeEmployeeOfClass:[TSYAccountant class]];
-    TSYDirector *director = [self freeEmployeeOfClass:[TSYDirector class]];
-    
-    TSYCarwashRoom *box = self.carwashRoom;
-    
-    [box addCar:car];
-    [washer performWorkWithObject:car];
-    [box removeCar:car];
-    
-    [accountant performWorkWithObject:washer];
-    
-    [director performWorkWithObject:accountant];
 }
 
 - (TSYEmployee *)freeEmployeeOfClass:(Class)class {

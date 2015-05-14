@@ -16,14 +16,19 @@
 #pragma mark Public Methods
 
 - (void)calculateMoney:(NSUInteger)money {
-    self.free = NO;
+//    self.free = NO;
     
     NSLog(@"%@ %@ is calculating money. Money = %lu", self.className, self.name, money);
     
-    self.free = YES;
+//    self.free = YES;
 }
 
-- (void)performWorkWithObject:(TSYWasher *)washer {
+//- (void)performWorkWithObject:(TSYWasher *)washer {
+//    [self takeMoney:washer.money fromObject:washer];
+//    [self calculateMoney:self.money];
+//}
+
+- (void)processObject:(TSYWasher *)washer {
     [self takeMoney:washer.money fromObject:washer];
     [self calculateMoney:self.money];
 }

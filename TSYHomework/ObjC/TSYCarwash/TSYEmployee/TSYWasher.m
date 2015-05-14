@@ -20,18 +20,22 @@
         return;
     }
     
-    self.free = NO;
+//    self.state = NO;
     
     NSLog(@"%@ %@ is washing %@ %@", self.className, self.name, car.className, car.model);
     car.clean = true;
     
-    self.free = YES;
+//    self.free = YES;
 }
 
-- (void)performWorkWithObject:(TSYCar *)car {
+//- (void)performWorkWithObject:(TSYCar *)car {
+//    [self washCar:car];
+//    [self takeMoney:self.price fromObject:car];
+//}
+
+- (void)processObject:(TSYCar *)car {
     [self washCar:car];
     [self takeMoney:self.price fromObject:car];
-    [self delegatingObjectDidFinishWork:self];
 }
 
 @end
