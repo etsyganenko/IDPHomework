@@ -86,7 +86,7 @@
 }
 
 #pragma mark -
-#pragma mark TSYTakeMoney
+#pragma mark TSYMoney
 
 - (void)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
     if (object.money < money) {
