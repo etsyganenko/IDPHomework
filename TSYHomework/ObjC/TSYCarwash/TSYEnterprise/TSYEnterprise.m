@@ -89,25 +89,12 @@ const NSUInteger TSYWashingPrice                    =   60;
 
 - (void)washCar:(TSYCar *)car {
     TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
-    TSYAccountant *accountant = [self freeEmployeeOfClass:[TSYAccountant class]];
-    TSYDirector *director = [self freeEmployeeOfClass:[TSYDirector class]];
     
     TSYCarwashRoom *box = self.carwashRoom;
     
     [box addCar:car];
     [washer performWorkWithObject:car];
     [box removeCar:car];
-    
-    [accountant performWorkWithObject:washer];
-    
-    [director performWorkWithObject:accountant];
-}
-
-#pragma mark -
-#pragma mark TSYObserver
-
-- (void)employeeDidBecomeFree:(TSYEmployee *)employee {
-    
 }
 
 #pragma mark -
@@ -127,6 +114,9 @@ const NSUInteger TSYWashingPrice                    =   60;
     [self.employees addObject:washer];
     
     washer.price = TSYWashingPrice;
+    
+    washer.delegate = accountant;
+    accountant.delegate = director;
 }
 
 - (void)organizeBuildings {
