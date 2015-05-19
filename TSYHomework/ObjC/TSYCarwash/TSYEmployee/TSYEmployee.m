@@ -40,7 +40,6 @@
 
 - (void)dealloc {
     self.name = nil;
-    self.delegate = nil;
     self.mutableObserversSet = nil;
     
     [super dealloc];
@@ -63,9 +62,7 @@
     if (_state != state) {
         _state = state;
         
-        if (TSYEmployeeStateFree == _state) {
-            [self.delegate employeeDidFinishWork:self];
-        }
+        [self notifyOfStateWithSelector:[self selectorForState:state]];
     }
 }
 
@@ -74,6 +71,7 @@
     
     [self processObject:object];
     
+    self.state = TSYEmployeeStateReadyForProcessing;    
     self.state = TSYEmployeeStateFree;
 }
 
@@ -99,18 +97,7 @@
 }
 
 #pragma mark -
-#pragma mark TSYDelegate
-
-- (void)employeeDidFinishWork:(TSYEmployee *)employee {
-    [self performWorkWithObject:employee];
-}
-
-#pragma mark -
 #pragma mark TSYObserver
-
-- (void)employeeDidBecomeFree:(TSYEmployee *)employee {
-    
-}
 
 - (void)addObserver:(id)observer {
     [self.mutableObserversSet addObject:observer];
@@ -118,6 +105,33 @@
 
 - (void)removeObserver:(id)observer {
     [self.mutableObserversSet removeObject:observer];
+}
+
+- (void)notifyOfStateWithSelector:(SEL)selector {
+    for (TSYEmployee<TSYObserver> *observer in self.observersSet) {
+        if ([observer respondsToSelector:selector]) {
+            [observer performSelector:selector withObject:self];
+        }
+    }
+}
+
+- (SEL)selectorForState:(TSYEmployeeState)state {
+    switch (state) {
+        case TSYEmployeeStateFree:
+            return @selector(employeeDidBecomeFree:);
+            
+        case TSYEmployeeStateReadyForProcessing:
+            return @selector(employeeDidFinishWork:);
+            
+        case TSYEmployeeStateBusy:
+            return nil;
+    }
+    
+    return nil;
+}
+
+- (void)employeeDidFinishWork:(TSYEmployee *)employee {
+
 }
 
 @end

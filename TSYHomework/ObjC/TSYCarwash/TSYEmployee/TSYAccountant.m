@@ -24,4 +24,8 @@
     [self calculateMoney:self.money];
 }
 
+- (void)employeeDidFinishWork:(TSYEmployee *)employee {
+    [self processObject:employee];
+}
+
 @end
