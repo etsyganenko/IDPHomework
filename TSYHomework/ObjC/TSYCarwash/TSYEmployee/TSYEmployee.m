@@ -62,10 +62,10 @@
 - (void)setState:(TSYEmployeeState)state {
     if (_state != state) {
         _state = state;
-    }
-    
-    if (TSYEmployeeStateFree == _state) {
-        [self.delegate employeeDidFinishWork:self];
+        
+        if (TSYEmployeeStateFree == _state) {
+            [self.delegate employeeDidFinishWork:self];
+        }
     }
 }
 
@@ -86,7 +86,7 @@
 }
 
 #pragma mark -
-#pragma mark TSYTakeMoney
+#pragma mark TSYMoney
 
 - (void)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
     if (object.money < money) {
@@ -102,7 +102,7 @@
 #pragma mark TSYDelegate
 
 - (void)employeeDidFinishWork:(TSYEmployee *)employee {
-    
+    [self performWorkWithObject:employee];
 }
 
 #pragma mark -

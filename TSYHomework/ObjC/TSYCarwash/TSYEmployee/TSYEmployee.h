@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TSYTakeMoney.h"
+#import "TSYMoney.h"
 
 @class TSYCar;
 @class TSYEmployee;
@@ -29,7 +29,7 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
 
 @end
 
-@interface TSYEmployee : NSObject<TSYTakeMoney, TSYDelegate, TSYObserver>
+@interface TSYEmployee : NSObject<TSYMoney, TSYDelegate, TSYObserver>
 @property (nonatomic, copy)                     NSString            *name;
 @property (nonatomic, assign)                   NSUInteger          salary;
 @property (nonatomic, assign)                   NSUInteger          experience;
