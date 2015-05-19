@@ -20,8 +20,6 @@
 #import "NSString+TSYAlphabet.h"
 
 static const NSUInteger TSYWashersCount                     =   5;
-static const NSUInteger TSYAdministrationEmployeesCount     =   2;
-static const NSUInteger TSYCarwashCarsCount                 =   5;
 static const NSUInteger TSYWasherSalary                     =   5000;
 static const NSUInteger TSYAccountantSalary                 =   7000;
 static const NSUInteger TSYDirectorSalary                   =   10000;
@@ -92,6 +90,8 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark Private Methods
 
 - (void)organizeStaff {
+    NSMutableArray *employees = self.employees;
+    
     NSString *accountantName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
     NSString *directorName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
     
@@ -107,11 +107,11 @@ static const NSUInteger TSYWashingPrice                     =   60;
         [washer addObserver:self];
         [washer addObserver:accountant];
         
-        [self.employees addObject:washer];
+        [employees addObject:washer];
     }
     
-    [self.employees addObject:accountant];
-    [self.employees addObject:director];
+    [employees addObject:accountant];
+    [employees addObject:director];
     
     [accountant addObserver:director];
 }

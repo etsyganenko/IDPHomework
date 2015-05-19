@@ -19,14 +19,13 @@
     NSLog(@"%@ %@ is earning profit. Total profit = %lu", self.className, self.name, self.money);
 }
 
-//- (void)performWorkWithObject:(TSYAccountant *)accountant {
-//    [self takeMoney:accountant.money fromObject:accountant];
-//    [self earnProfit];
-//}
-
 - (void)processObject:(TSYAccountant *)accountant {
     [self takeMoney:accountant.money fromObject:accountant];
     [self earnProfit];
+}
+
+- (void)employeeDidFinishWork:(TSYAccountant *)accountant {
+    [self processObject:accountant];
 }
 
 @end
