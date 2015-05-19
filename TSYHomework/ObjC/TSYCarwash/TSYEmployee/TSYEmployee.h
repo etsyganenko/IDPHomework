@@ -7,20 +7,45 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TSYTakeMoney.h"
+#import "TSYMoney.h"
 
 @class TSYCar;
+@class TSYEmployee;
 
-@interface TSYEmployee : NSObject<TSYTakeMoney>
-@property (nonatomic, copy)                     NSString    *name;
-@property (nonatomic, assign)                   NSUInteger  salary;
-@property (nonatomic, assign)                   NSUInteger  experience;
-@property (nonatomic, assign)                   NSUInteger  money;
-@property (nonatomic, assign, getter=isFree)    BOOL        free;
+typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
+    TSYEmployeeStateFree,
+    TSYEmployeeStateBusy
+};
+
+@protocol TSYDelegate <NSObject>
+
+- (void)employeeDidFinishWork:(TSYEmployee *)employee;
+
+@end
+
+@protocol TSYObserver <NSObject>
+
+- (void)employeeDidBecomeFree:(TSYEmployee *)employee;
+
+@end
+
+@interface TSYEmployee : NSObject<TSYMoney, TSYDelegate, TSYObserver>
+@property (nonatomic, copy)                     NSString            *name;
+@property (nonatomic, assign)                   NSUInteger          salary;
+@property (nonatomic, assign)                   NSUInteger          experience;
+@property (nonatomic, assign)                   TSYEmployeeState    state;
+
+@property (nonatomic, assign)                   id<TSYDelegate>     delegate;
+
+@property (nonatomic, readonly)                 NSSet               *observersSet;
 
 + (instancetype)employeeWithName:(NSString *)name
                           salary:(NSUInteger)salary;
 
 - (void)performWorkWithObject:(id)object;
+- (void)processObject:(id)object;
+
+- (void)addObserver:(id)observer;
+- (void)removeObserver:(id)observer;
 
 @end
