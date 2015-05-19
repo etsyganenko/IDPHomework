@@ -31,6 +31,8 @@ static const NSUInteger TSYWashingPrice                     =   60;
 
 - (void)organizeStaff;
 
+- (void)removeObservers;
+
 - (id)freeEmployeeOfClass:(Class)class;
 
 @end
@@ -53,6 +55,8 @@ static const NSUInteger TSYWashingPrice                     =   60;
     self.employees = nil;
     self.cars = nil;
     
+    [self removeObservers];
+    
     [super dealloc];
 }
 
@@ -71,19 +75,27 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark Public Methods
 
 - (void)washCar:(TSYCar *)car {
-    [self.cars addObject:car];
-    
     TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
-    [washer performWorkWithObject:car];
     
-    [self.cars removeObject:car];
+    if (washer) {
+        [washer performWorkWithObject:car];
+    } else {
+        [self.cars addObject:car];
+    }
 }
 
 #pragma mark -
 #pragma mark TSYObserver
 
 - (void)employeeDidBecomeFree:(TSYWasher *)washer {
-    [washer performWorkWithObject:[self.cars firstObject]];
+    NSMutableArray *cars = self.cars;
+    
+    TSYCar *car = [[[cars firstObject] retain] autorelease];
+    
+    if (car) {
+        [cars removeObject:car];
+        [washer performWorkWithObject:car];
+    }
 }
 
 #pragma mark -
@@ -98,6 +110,11 @@ static const NSUInteger TSYWashingPrice                     =   60;
     TSYAccountant *accountant = [TSYAccountant employeeWithName:accountantName salary:TSYAccountantSalary];
     TSYDirector *director = [TSYDirector employeeWithName:directorName salary:TSYDirectorSalary];
     
+    [employees addObject:accountant];
+    [employees addObject:director];
+    
+    [accountant addObserver:director];
+    
     for (NSUInteger index = 0; index < TSYWashersCount; index++) {
         NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
         
@@ -109,18 +126,26 @@ static const NSUInteger TSYWashingPrice                     =   60;
         
         [employees addObject:washer];
     }
+}
+
+- (void)removeObservers {
+    TSYAccountant *accountant = [self freeEmployeeOfClass:[TSYAccountant class]];
+    TSYDirector *director = [self freeEmployeeOfClass:[TSYDirector class]];
     
-    [employees addObject:accountant];
-    [employees addObject:director];
+    [accountant removeObserver:director];
     
-    [accountant addObserver:director];
+    for (TSYEmployee *employee in self.employees) {
+        if ([employee isKindOfClass:[TSYWasher class]]) {
+            [employee removeObserver:accountant];
+            [employee removeObserver:self];
+        }
+    }
 }
 
 - (TSYEmployee *)freeEmployeeOfClass:(Class)class {
     for (TSYEmployee *employee in self.employees) {
         if ([employee class] == class && TSYEmployeeStateFree == employee.state) {
             return employee;
-            break;
         }
     }
     

@@ -24,8 +24,12 @@
     [self earnProfit];
 }
 
-- (void)employeeDidFinishWork:(TSYAccountant *)accountant {
-    [self processObject:accountant];
+- (void)performWorkWithObject:(id)object {
+    self.processedObject = object;
+    
+    [self processObject:object];
+    
+    self.processedObject = nil;
 }
 
 @end

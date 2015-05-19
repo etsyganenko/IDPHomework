@@ -22,10 +22,7 @@
 - (void)processObject:(TSYWasher *)washer {
     [self takeMoney:washer.money fromObject:washer];
     [self calculateMoney:self.money];
-}
-
-- (void)employeeDidFinishWork:(TSYWasher *)washer {
-    [self processObject:washer];
+    [self setState:TSYEmployeeStateReadyForProcessing];
 }
 
 @end

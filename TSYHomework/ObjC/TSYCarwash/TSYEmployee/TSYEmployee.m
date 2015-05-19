@@ -67,16 +67,19 @@
 }
 
 - (void)performWorkWithObject:(id)object {
+    self.processedObject = object;
+    
     self.state = TSYEmployeeStateBusy;
     
     [self processObject:object];
     
-    self.state = TSYEmployeeStateReadyForProcessing;    
-    self.state = TSYEmployeeStateFree;
+    self.processedObject = nil;
+    
+    self.state = TSYEmployeeStateReadyForProcessing;
 }
 
 - (void)processObject:(id)object {
-    
+
 }
 
 - (NSSet *)observersSet {
@@ -84,7 +87,7 @@
 }
 
 #pragma mark -
-#pragma mark TSYMoney
+#pragma mark TSYMoneyProtocol
 
 - (void)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
     if (object.money < money) {
@@ -124,14 +127,16 @@
             return @selector(employeeDidFinishWork:);
             
         case TSYEmployeeStateBusy:
-            return nil;
+            return NULL;
     }
     
-    return nil;
+    return NULL;
 }
 
 - (void)employeeDidFinishWork:(TSYEmployee *)employee {
-
+    [self processObject:employee];
+    
+    [employee setState:TSYEmployeeStateFree];
 }
 
 @end

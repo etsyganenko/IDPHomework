@@ -1,5 +1,5 @@
 //
-//  TSYMoney.h
+//  TSYMoneyProtocol.h
 //  TSYHomework
 //
 //  Created by Admin on 22.04.15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol TSYMoney <NSObject>
+@protocol TSYMoneyProtocol <NSObject>
 @property (nonatomic, assign)   NSUInteger  money;
 
 - (void)takeMoney:(NSUInteger)money fromObject:(id)object;
