@@ -40,7 +40,6 @@
 
 - (void)dealloc {
     self.name = nil;
-    self.delegate = nil;
     self.mutableObserversSet = nil;
     
     [super dealloc];
@@ -63,22 +62,24 @@
     if (_state != state) {
         _state = state;
         
-        if (TSYEmployeeStateFree == _state) {
-            [self.delegate employeeDidFinishWork:self];
-        }
+        [self notifyOfStateWithSelector:[self selectorForState:state]];
     }
 }
 
 - (void)performWorkWithObject:(id)object {
+    self.processedObject = object;
+    
     self.state = TSYEmployeeStateBusy;
     
     [self processObject:object];
     
-    self.state = TSYEmployeeStateFree;
+    self.processedObject = nil;
+    
+    self.state = TSYEmployeeStateReadyForProcessing;
 }
 
 - (void)processObject:(id)object {
-    
+
 }
 
 - (NSSet *)observersSet {
@@ -86,7 +87,7 @@
 }
 
 #pragma mark -
-#pragma mark TSYMoney
+#pragma mark TSYMoneyProtocol
 
 - (void)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
     if (object.money < money) {
@@ -99,18 +100,7 @@
 }
 
 #pragma mark -
-#pragma mark TSYDelegate
-
-- (void)employeeDidFinishWork:(TSYEmployee *)employee {
-    [self performWorkWithObject:employee];
-}
-
-#pragma mark -
 #pragma mark TSYObserver
-
-- (void)employeeDidBecomeFree:(TSYEmployee *)employee {
-    
-}
 
 - (void)addObserver:(id)observer {
     [self.mutableObserversSet addObject:observer];
@@ -118,6 +108,35 @@
 
 - (void)removeObserver:(id)observer {
     [self.mutableObserversSet removeObject:observer];
+}
+
+- (void)notifyOfStateWithSelector:(SEL)selector {
+    for (TSYEmployee<TSYObserver> *observer in self.observersSet) {
+        if ([observer respondsToSelector:selector]) {
+            [observer performSelector:selector withObject:self];
+        }
+    }
+}
+
+- (SEL)selectorForState:(TSYEmployeeState)state {
+    switch (state) {
+        case TSYEmployeeStateFree:
+            return @selector(employeeDidBecomeFree:);
+            
+        case TSYEmployeeStateReadyForProcessing:
+            return @selector(employeeDidFinishWork:);
+            
+        case TSYEmployeeStateBusy:
+            return NULL;
+    }
+    
+    return NULL;
+}
+
+- (void)employeeDidFinishWork:(TSYEmployee *)employee {
+    [self processObject:employee];
+    
+    [employee setState:TSYEmployeeStateFree];
 }
 
 @end

@@ -12,9 +12,11 @@
 
 @interface TSYBuilding : NSObject
 @property (nonatomic, readonly) NSArray     *rooms;
-@property (nonatomic, readonly) NSUInteger  roomsAmount;
+@property (nonatomic, readonly) NSUInteger  roomsCapacity;
 
-+ (instancetype)buildingWithRoomsAmount:(NSUInteger)roomsAmount;
++ (instancetype)buildingWithRoomsCapacity:(NSUInteger)roomsCapacity;
+
+- (instancetype)initWithRoomsCapacity:(NSUInteger)roomsCapacity;
 
 - (void)addRoom:(TSYRoom *)room;
 - (void)removeRoom:(TSYRoom *)room;

@@ -12,10 +12,13 @@
 
 @interface TSYCarwash : TSYBuilding
 @property (nonatomic, readonly) NSArray     *carwashRooms;
-@property (nonatomic, readonly) NSUInteger  carwashRoomsAmount;
+@property (nonatomic, readonly) NSUInteger  carwashRoomsCapacity;
 
-+ (instancetype)carwashWithRoomsAmount:(NSUInteger)roomsAmount
-                        carRoomsAmount:(NSUInteger)carRoomsAmount;
++ (instancetype)carwashWithRoomsCapacity:(NSUInteger)roomsCapacity
+                        carRoomsCapacity:(NSUInteger)carRoomsCapacity;
+
+- (instancetype)initWithRoomsCapacity:(NSUInteger)roomsCapacity
+                     carRoomsCapacity:(NSUInteger)carRoomsCapacity;
 
 - (void)addCarwashRoom:(TSYCarwashRoom *)carwashRoom;
 - (void)removeCarwashRoom:(TSYCarwashRoom *)carwashRoom;

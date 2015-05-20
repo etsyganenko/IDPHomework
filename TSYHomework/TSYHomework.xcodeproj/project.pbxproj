@@ -81,7 +81,7 @@
 		849FCA291AE791E200FA0EEE /* TSYEnterprise.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYEnterprise.m; sourceTree = "<group>"; };
 		849FCA2B1AE7A2C700FA0EEE /* TSYEnterpriseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYEnterpriseTest.h; sourceTree = "<group>"; };
 		849FCA2C1AE7A2C700FA0EEE /* TSYEnterpriseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYEnterpriseTest.m; sourceTree = "<group>"; };
-		849FCA2E1AE7A5BB00FA0EEE /* TSYMoney.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMoney.h; sourceTree = "<group>"; };
+		849FCA2E1AE7A5BB00FA0EEE /* TSYMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMoneyProtocol.h; sourceTree = "<group>"; };
 		84A139881AEE3A7000CFB9C8 /* NSString+TSYRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYRandomString.h"; sourceTree = "<group>"; };
 		84A139891AEE3A7000CFB9C8 /* NSString+TSYRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomString.m"; sourceTree = "<group>"; };
 		84A1DF8B1AF633D1008519C0 /* NSString+TSYAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYAlphabet.h"; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 		84A337511AE646F5001145F3 /* TSYCarwash */ = {
 			isa = PBXGroup;
 			children = (
-				849FCA2E1AE7A5BB00FA0EEE /* TSYMoney.h */,
+				849FCA2E1AE7A5BB00FA0EEE /* TSYMoneyProtocol.h */,
 				84A337521AE646F5001145F3 /* TSYBuilding */,
 				84A337591AE646F5001145F3 /* TSYCar */,
 				84A3375E1AE646F5001145F3 /* TSYEmployee */,

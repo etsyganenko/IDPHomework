@@ -11,7 +11,7 @@
 
 @interface TSYCarwash ()
 @property (nonatomic, retain) NSMutableArray    *mutableCarwashRooms;
-@property (nonatomic, assign) NSUInteger        carwashRoomsAmount;
+@property (nonatomic, assign) NSUInteger        carwashRoomsCapacity;
 
 @end
 
@@ -22,12 +22,11 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)carwashWithRoomsAmount: (NSUInteger)roomsAmount
-                        carRoomsAmount: (NSUInteger)carRoomsAmount
++ (instancetype)carwashWithRoomsCapacity:(NSUInteger)roomsCapacity
+                        carRoomsCapacity:(NSUInteger)carRoomsCapacity
 {
-    TSYCarwash *carwash = [self buildingWithRoomsAmount:roomsAmount];
-    
-    carwash.carwashRoomsAmount = carRoomsAmount;
+    TSYCarwash *carwash = [[[self alloc] initWithRoomsCapacity:roomsCapacity
+                                              carRoomsCapacity:carRoomsCapacity] autorelease];
     
     return carwash;
 }
@@ -41,9 +40,12 @@
     [super dealloc];
 }
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithRoomsCapacity:(NSUInteger)roomsCapacity
+                     carRoomsCapacity:(NSUInteger)carRoomsCapacity
+{
+    self = [super initWithRoomsCapacity:roomsCapacity];
     if (self) {
+        self.carwashRoomsCapacity = carRoomsCapacity;
         self.mutableCarwashRooms = [NSMutableArray array];
     }
     
@@ -61,7 +63,7 @@
 #pragma mark Public Methods
 
 - (void)addCarwashRoom:(TSYCarwashRoom *)carwashRoom {
-    if ([self.mutableCarwashRooms containsObject:carwashRoom]) {
+    if ([self.mutableCarwashRooms containsObject:carwashRoom] || [self.carwashRooms count] == self.carwashRoomsCapacity) {
         return;
     }
     

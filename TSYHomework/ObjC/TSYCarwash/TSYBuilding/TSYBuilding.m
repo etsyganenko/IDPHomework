@@ -12,7 +12,7 @@
 
 @interface TSYBuilding ()
 @property (nonatomic, retain) NSMutableArray    *mutableRooms;
-@property (nonatomic, assign) NSUInteger        roomsAmount;
+@property (nonatomic, assign) NSUInteger        roomsCapacity;
 
 @end
 
@@ -23,10 +23,8 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)buildingWithRoomsAmount: (NSUInteger)roomsAmount {
-    TSYBuilding *building = [self object];
-    
-    building.roomsAmount = roomsAmount;
++ (instancetype)buildingWithRoomsCapacity:(NSUInteger)roomsCapacity {
+    TSYBuilding *building = [[[self alloc] initWithRoomsCapacity:roomsCapacity] autorelease];
     
     return building;
 }
@@ -40,9 +38,10 @@
     [super dealloc];
 }
 
-- (instancetype)initWithRooms {
+- (instancetype)initWithRoomsCapacity:(NSUInteger)roomsCapacity {
     self = [super init];
     if (self) {
+        self.roomsCapacity = roomsCapacity;
         self.mutableRooms = [NSMutableArray array];
     }
     
@@ -60,7 +59,7 @@
 #pragma mark Public Methods
 
 - (void)addRoom:(TSYRoom *)room {
-    if ([self.mutableRooms containsObject:room]) {
+    if ([self.mutableRooms containsObject:room] || [self.mutableRooms count] == self.roomsCapacity) {
         return;
     }
     

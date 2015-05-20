@@ -24,9 +24,7 @@
 #pragma mark Class Methods
 
 + (instancetype)roomWithPeopleCapacity:(NSUInteger)peopleCapacity {
-    TSYRoom *room = [self object];
-    
-    room.peopleCapacity = peopleCapacity;
+    TSYRoom *room = [[[self alloc] initWithPeopleCapacity:peopleCapacity] autorelease];
     
     return room;
 }
@@ -40,9 +38,10 @@
     [super dealloc];
 }
 
-- (instancetype)init {
+- (instancetype)initWithPeopleCapacity:(NSUInteger)peopleCapacity {
     self = [super init];
     if (self) {
+        self.peopleCapacity = peopleCapacity;
         self.mutablePeople = [NSMutableArray array];
     }
     

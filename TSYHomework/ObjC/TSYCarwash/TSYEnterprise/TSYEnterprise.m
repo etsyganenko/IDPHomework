@@ -19,29 +19,19 @@
 #import "NSString+TSYRandomString.h"
 #import "NSString+TSYAlphabet.h"
 
-const NSUInteger TSYEmployeesAmount                 =   3;
-const NSUInteger TSYAdministrationRoomsAmount       =   1;
-const NSUInteger TSYCarwashRoomsAmount              =   1;
-const NSUInteger TSYCarwashCarRoomsAmount           =   1;
-const NSUInteger TSYAdministrationEmployeesAmount   =   2;
-const NSUInteger TSYCarwashEmployeesAmount          =   1;
-const NSUInteger TSYCarwashCarsAmount               =   1;
-const NSUInteger TSYWasherSalary                    =   5000;
-const NSUInteger TSYAccountantSalary                =   7000;
-const NSUInteger TSYDirectorSalary                  =   10000;
-const NSUInteger TSYWashingPrice                    =   60;
+static const NSUInteger TSYWashersCount                     =   5;
+static const NSUInteger TSYWasherSalary                     =   5000;
+static const NSUInteger TSYAccountantSalary                 =   7000;
+static const NSUInteger TSYDirectorSalary                   =   10000;
+static const NSUInteger TSYWashingPrice                     =   60;
 
 @interface TSYEnterprise ()
-@property (nonatomic, retain) TSYBuilding       *administration;
-@property (nonatomic, retain) TSYCarwash        *carwash;
-
-@property (nonatomic, retain) TSYRoom           *administrationRoom;
-@property (nonatomic, retain) TSYCarwashRoom    *carwashRoom;
-
-@property (nonatomic, retain) NSMutableArray    *employees;
+@property (nonatomic, retain)   NSMutableArray  *cars;
+@property (nonatomic, retain)   NSMutableArray  *employees;
 
 - (void)organizeStaff;
-- (void)organizeBuildings;
+
+- (void)removeObservers;
 
 - (id)freeEmployeeOfClass:(Class)class;
 
@@ -62,13 +52,10 @@ const NSUInteger TSYWashingPrice                    =   60;
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.administration = nil;
-    self.carwash = nil;
-    
-    self.administrationRoom = nil;
-    self.carwashRoom = nil;
-    
     self.employees = nil;
+    self.cars = nil;
+    
+    [self removeObservers];
     
     [super dealloc];
 }
@@ -77,9 +64,9 @@ const NSUInteger TSYWashingPrice                    =   60;
     self = [super init];
     
     self.employees = [NSMutableArray array];
+    self.cars = [NSMutableArray array];
     
     [self organizeStaff];
-    [self organizeBuildings];
     
     return self;
 }
@@ -90,58 +77,75 @@ const NSUInteger TSYWashingPrice                    =   60;
 - (void)washCar:(TSYCar *)car {
     TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
     
-    TSYCarwashRoom *box = self.carwashRoom;
+    if (washer) {
+        [washer performWorkWithObject:car];
+    } else {
+        [self.cars addObject:car];
+    }
+}
+
+#pragma mark -
+#pragma mark TSYObserver
+
+- (void)employeeDidBecomeFree:(TSYWasher *)washer {
+    NSMutableArray *cars = self.cars;
     
-    [box addCar:car];
-    [washer performWorkWithObject:car];
-    [box removeCar:car];
+    TSYCar *car = [[[cars firstObject] retain] autorelease];
+    
+    if (car) {
+        [cars removeObject:car];
+        [washer performWorkWithObject:car];
+    }
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
 - (void)organizeStaff {
+    NSMutableArray *employees = self.employees;
+    
     NSString *accountantName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
     NSString *directorName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
-    NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
     
-    TSYDirector *director = [TSYDirector employeeWithName:directorName salary:TSYDirectorSalary];
     TSYAccountant *accountant = [TSYAccountant employeeWithName:accountantName salary:TSYAccountantSalary];
-    TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:TSYWasherSalary];
-
-    [self.employees addObject:director];
-    [self.employees addObject:accountant];
-    [self.employees addObject:washer];
+    TSYDirector *director = [TSYDirector employeeWithName:directorName salary:TSYDirectorSalary];
     
-    washer.price = TSYWashingPrice;
+    [employees addObject:accountant];
+    [employees addObject:director];
     
-    washer.delegate = accountant;
-    accountant.delegate = director;
+    [accountant addObserver:director];
+    
+    for (NSUInteger index = 0; index < TSYWashersCount; index++) {
+        NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
+        
+        TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:TSYWasherSalary];
+        washer.price = TSYWashingPrice;
+        
+        [washer addObserver:self];
+        [washer addObserver:accountant];
+        
+        [employees addObject:washer];
+    }
 }
 
-- (void)organizeBuildings {
-    TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
+- (void)removeObservers {
     TSYAccountant *accountant = [self freeEmployeeOfClass:[TSYAccountant class]];
     TSYDirector *director = [self freeEmployeeOfClass:[TSYDirector class]];
     
-    self.administration = [TSYBuilding buildingWithRoomsAmount:TSYAdministrationRoomsAmount];
-    self.carwash = [TSYCarwash carwashWithRoomsAmount:TSYCarwashRoomsAmount
-                                       carRoomsAmount:TSYCarwashCarRoomsAmount];
+    [accountant removeObserver:director];
     
-    self.administrationRoom = [TSYRoom roomWithPeopleCapacity:TSYAdministrationEmployeesAmount];
-    self.carwashRoom = [TSYCarwashRoom carwashRoomWithCarsCapacity:TSYCarwashCarsAmount
-                                                    peopleCapacity:TSYCarwashEmployeesAmount];
-    
-    [self.administrationRoom addPerson:director];
-    [self.administrationRoom addPerson:accountant];
-    [self.carwashRoom addPerson:washer];
+    for (TSYEmployee *employee in self.employees) {
+        if ([employee isKindOfClass:[TSYWasher class]]) {
+            [employee removeObserver:accountant];
+            [employee removeObserver:self];
+        }
+    }
 }
 
 - (TSYEmployee *)freeEmployeeOfClass:(Class)class {
     for (TSYEmployee *employee in self.employees) {
-        if ([employee class] == class) {
+        if ([employee class] == class && TSYEmployeeStateFree == employee.state) {
             return employee;
-            break;
         }
     }
     

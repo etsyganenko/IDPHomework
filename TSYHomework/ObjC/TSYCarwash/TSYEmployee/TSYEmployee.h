@@ -7,37 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TSYMoney.h"
+#import "TSYMoneyProtocol.h"
 
 @class TSYCar;
 @class TSYEmployee;
 
 typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
     TSYEmployeeStateFree,
-    TSYEmployeeStateBusy
+    TSYEmployeeStateBusy,
+    TSYEmployeeStateReadyForProcessing
 };
-
-@protocol TSYDelegate <NSObject>
-
-- (void)employeeDidFinishWork:(TSYEmployee *)employee;
-
-@end
 
 @protocol TSYObserver <NSObject>
 
+@optional
+- (void)employeeDidFinishWork:(TSYEmployee *)employee;
 - (void)employeeDidBecomeFree:(TSYEmployee *)employee;
 
 @end
 
-@interface TSYEmployee : NSObject<TSYMoney, TSYDelegate, TSYObserver>
-@property (nonatomic, copy)                     NSString            *name;
-@property (nonatomic, assign)                   NSUInteger          salary;
-@property (nonatomic, assign)                   NSUInteger          experience;
-@property (nonatomic, assign)                   TSYEmployeeState    state;
+@interface TSYEmployee : NSObject<TSYMoneyProtocol, TSYObserver>
+@property (nonatomic, copy)     NSString            *name;
+@property (nonatomic, assign)   NSUInteger          salary;
+@property (nonatomic, assign)   NSUInteger          experience;
+@property (nonatomic, assign)   TSYEmployeeState    state;
 
-@property (nonatomic, assign)                   id<TSYDelegate>     delegate;
+@property (nonatomic, readonly) NSSet               *observersSet;
 
-@property (nonatomic, readonly)                 NSSet               *observersSet;
+@property (nonatomic, retain)   NSObject            *processedObject;
 
 + (instancetype)employeeWithName:(NSString *)name
                           salary:(NSUInteger)salary;
@@ -47,5 +44,8 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
+
+- (void)notifyOfStateWithSelector:(SEL)selector;
+- (SEL)selectorForState:(TSYEmployeeState)state;
 
 @end

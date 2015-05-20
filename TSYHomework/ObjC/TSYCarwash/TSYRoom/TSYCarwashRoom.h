@@ -14,8 +14,11 @@
 @property (nonatomic, readonly) NSArray     *cars;
 @property (nonatomic, assign)   NSUInteger  carsCapacity;
 
-+ (instancetype)carwashRoomWithCarsCapacity:(NSUInteger)carsCapacity
-                             peopleCapacity:(NSUInteger)peopleCapacity;
++ (instancetype)carwashRoomWithPeopleCapacity:(NSUInteger)peopleCapacity
+                                 carsCapacity:(NSUInteger)carsCapacity;
+
+- (instancetype)initWithPeopleCapacity:(NSUInteger)peopleCapacity
+                          carsCapacity:(NSUInteger)carsCapacity;
 
 - (void)addCar:(TSYCar *)car;
 - (void)removeCar:(TSYCar *)car;
