@@ -25,9 +25,8 @@
 + (instancetype)carwashWithRoomsCapacity:(NSUInteger)roomsCapacity
                         carRoomsCapacity:(NSUInteger)carRoomsCapacity
 {
-    TSYCarwash *carwash = [self buildingWithRoomsCapacity:roomsCapacity];
-    
-    carwash.carwashRoomsCapacity = carRoomsCapacity;
+    TSYCarwash *carwash = [[[self alloc] initWithRoomsCapacity:roomsCapacity
+                                              carRoomsCapacity:carRoomsCapacity] autorelease];
     
     return carwash;
 }

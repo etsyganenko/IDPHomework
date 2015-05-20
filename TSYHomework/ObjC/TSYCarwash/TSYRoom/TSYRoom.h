@@ -16,6 +16,8 @@
 
 + (instancetype)roomWithPeopleCapacity:(NSUInteger)peopleCapacity;
 
+- (instancetype)initWithPeopleCapacity:(NSUInteger)peopleCapacity;
+
 - (void)addPerson:(TSYEmployee *)person;
 - (void)removePerson:(TSYEmployee *)person;
 

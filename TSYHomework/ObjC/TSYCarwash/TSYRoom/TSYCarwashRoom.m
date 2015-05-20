@@ -21,12 +21,11 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)carwashRoomWithCarsCapacity:(NSUInteger)carsCapacity
-                             peopleCapacity:(NSUInteger)peopleCapacity
++ (instancetype)carwashRoomWithPeopleCapacity:(NSUInteger)peopleCapacity
+                                 carsCapacity:(NSUInteger)carsCapacity
 {
-    TSYCarwashRoom *carwashRoom = [self roomWithPeopleCapacity:peopleCapacity];
-    
-    carwashRoom.carsCapacity = carsCapacity;
+    TSYCarwashRoom *carwashRoom = [[[self alloc] initWithPeopleCapacity:peopleCapacity
+                                                           carsCapacity:carsCapacity] autorelease];
     
     return carwashRoom;
 }
@@ -40,9 +39,12 @@
     [super dealloc];
 }
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithPeopleCapacity:(NSUInteger)peopleCapacity
+                          carsCapacity:(NSUInteger)carsCapacity
+{
+    self = [super initWithPeopleCapacity:peopleCapacity];
     if (self) {
+        self.carsCapacity = carsCapacity;
         self.mutableCars = [NSMutableArray array];
     }
     
