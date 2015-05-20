@@ -52,10 +52,10 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
+    [self removeObservers];
+    
     self.employees = nil;
     self.cars = nil;
-    
-    [self removeObservers];
     
     [super dealloc];
 }
