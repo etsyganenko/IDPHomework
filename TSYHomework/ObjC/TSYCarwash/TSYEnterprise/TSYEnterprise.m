@@ -134,8 +134,8 @@ static const NSUInteger TSYWashingPrice                     =   60;
 }
 
 - (void)removeObservers {
-    TSYAccountant *accountant = [self employeesOfClass:[TSYAccountant class]];
-    TSYDirector *director = [self employeesOfClass:[TSYDirector class]];
+    TSYAccountant *accountant = [[self employeesOfClass:[TSYAccountant class]] firstObject];
+    TSYDirector *director = [[self employeesOfClass:[TSYDirector class]] firstObject];
     
     [accountant removeObserver:director];
     
@@ -143,6 +143,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
     
     for (TSYWasher *washer in washers) {
         [washer removeObserver:self];
+        [washer removeObserver:accountant];
     }
 }
 

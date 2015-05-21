@@ -11,7 +11,7 @@
 @class TSYDirector;
 @class TSYWasher;
 
-@interface TSYAccountant : TSYEmployee<TSYObserver>
+@interface TSYAccountant : TSYEmployee
 
 - (void)calculateMoney:(NSUInteger)money;
 
