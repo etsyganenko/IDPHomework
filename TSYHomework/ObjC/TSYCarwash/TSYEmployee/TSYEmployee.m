@@ -67,15 +67,21 @@
 }
 
 - (void)performWorkWithObject:(id)object {
-    self.processedObject = object;
+    @synchronized (self) {
+        self.processedObject = object;
+        
+        self.state = TSYEmployeeStateBusy;
+        
+        [self processObject:object];
+        
+        self.processedObject = nil;
+        
+        self.state = TSYEmployeeStateReadyForProcessing;
+    }
+}
+
+- (void)performWorkWithObjectInBackGround:(id)object {
     
-    self.state = TSYEmployeeStateBusy;
-    
-    [self processObject:object];
-    
-    self.processedObject = nil;
-    
-    self.state = TSYEmployeeStateReadyForProcessing;
 }
 
 - (void)processObject:(id)object {
@@ -90,13 +96,18 @@
 #pragma mark TSYMoneyProtocol
 
 - (void)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
-    if (object.money < money) {
-        NSLog(@"Not enough money!");
-        return;
+    @synchronized (object) {
+        if (object.money < money) {
+            NSLog(@"Not enough money!");
+            return;
+        }
+        
+        object.money -= money;
     }
     
-    self.money += money;
-    object.money -= money;
+    @synchronized (self) {
+        self.money += money;
+    }
 }
 
 #pragma mark -
@@ -111,7 +122,7 @@
 }
 
 - (void)notifyOfStateWithSelector:(SEL)selector {
-    for (TSYEmployee<TSYObserver> *observer in self.observersSet) {
+    for (id observer in self.observersSet) {
         if ([observer respondsToSelector:selector]) {
             [observer performSelector:selector withObject:self];
         }
@@ -136,7 +147,7 @@
 - (void)employeeDidFinishWork:(TSYEmployee *)employee {
     [self performWorkWithObject:employee];
     
-    [employee setState:TSYEmployeeStateFree];
+    employee.state = TSYEmployeeStateFree;
 }
 
 @end

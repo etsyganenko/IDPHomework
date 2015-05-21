@@ -76,12 +76,14 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark Public Methods
 
 - (void)washCar:(TSYCar *)car {
-    TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
-    
-    if (washer) {
-        [washer performWorkWithObject:car];
-    } else {
-        [self.cars addObject:car];
+    @synchronized (self) {
+        TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
+        
+        if (washer) {
+            [washer performWorkWithObject:car];
+        } else {
+            [self.cars addObject:car];
+        }
     }
 }
 
@@ -89,13 +91,15 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark TSYObserver
 
 - (void)employeeDidBecomeFree:(TSYWasher *)washer {
-    NSMutableArray *cars = self.cars;
-    
-    TSYCar *car = [[[cars firstObject] retain] autorelease];
-    
-    if (car) {
-        [cars removeObject:car];
-        [washer performWorkWithObject:car];
+    @synchronized (self) {
+        NSMutableArray *cars = self.cars;
+        
+        TSYCar *car = [[[cars firstObject] retain] autorelease];
+        
+        if (car) {
+            [cars removeObject:car];
+            [washer performWorkWithObject:car];
+        }
     }
 }
 
