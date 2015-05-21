@@ -19,18 +19,20 @@ void TSYEnterprisePerformTest() {
     @autoreleasepool {
         TSYEnterprise *enterprise = [TSYEnterprise enterprise];
         
-        NSUInteger carsAmount = 10;
+        NSUInteger carsCount = 2;
         NSUInteger carMoney = 100;
         
         NSMutableArray *cars = [NSMutableArray array];
-        NSMutableArray *carNames = [NSMutableArray array];
         
-        for (NSUInteger index = 0; index < carsAmount; index++) {
-            [carNames addObject:[NSString randomStringWithLength:5 alphabet:[NSString alphanumericAlphabet]]];
-            [cars addObject:[TSYCar carWithModel:carNames[index] money:carMoney]];
+        NSString *alphabet = [NSString alphanumericAlphabet];
+        
+        for (NSUInteger index = 0; index < carsCount; index++) {
+            NSString *model = [NSString randomStringWithLength:5 alphabet:alphabet];
+            
+            [cars addObject:[TSYCar carWithModel:model money:carMoney]];
         }
         
-        for (NSUInteger index = 0; index < carsAmount; index++) {
+        for (NSUInteger index = 0; index < carsCount; index++) {
             [enterprise washCar:cars[index]];
         }
     }

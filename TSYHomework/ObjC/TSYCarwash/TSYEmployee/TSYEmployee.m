@@ -134,7 +134,7 @@
 }
 
 - (void)employeeDidFinishWork:(TSYEmployee *)employee {
-    [self processObject:employee];
+    [self performWorkWithObject:employee];
     
     [employee setState:TSYEmployeeStateFree];
 }

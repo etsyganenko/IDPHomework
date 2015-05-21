@@ -34,6 +34,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
 - (void)removeObservers;
 
 - (id)freeEmployeeOfClass:(Class)class;
+- (id)employeesOfClass:(Class)class;
 
 @end
 
@@ -129,20 +130,19 @@ static const NSUInteger TSYWashingPrice                     =   60;
 }
 
 - (void)removeObservers {
-    TSYAccountant *accountant = [self freeEmployeeOfClass:[TSYAccountant class]];
-    TSYDirector *director = [self freeEmployeeOfClass:[TSYDirector class]];
+    TSYAccountant *accountant = [self employeesOfClass:[TSYAccountant class]];
+    TSYDirector *director = [self employeesOfClass:[TSYDirector class]];
     
     [accountant removeObserver:director];
     
-    for (TSYEmployee *employee in self.employees) {
-        if ([employee isKindOfClass:[TSYWasher class]]) {
-            [employee removeObserver:accountant];
-            [employee removeObserver:self];
-        }
+    NSArray *washers = [self employeesOfClass:[TSYWasher class]];
+    
+    for (TSYWasher *washer in washers) {
+        [washer removeObserver:self];
     }
 }
 
-- (TSYEmployee *)freeEmployeeOfClass:(Class)class {
+- (id)freeEmployeeOfClass:(Class)class {
     for (TSYEmployee *employee in self.employees) {
         if ([employee class] == class && TSYEmployeeStateFree == employee.state) {
             return employee;
@@ -150,6 +150,18 @@ static const NSUInteger TSYWashingPrice                     =   60;
     }
     
     return nil;
+}
+
+- (id)employeesOfClass:(Class)class {
+    NSMutableArray *result = [NSMutableArray array];
+    
+    for (TSYEmployee *employee in self.employees) {
+        if ([employee class] == class) {
+            [result addObject:employee];
+        }
+    }
+    
+    return result;
 }
 
 @end
