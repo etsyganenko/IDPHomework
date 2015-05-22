@@ -59,10 +59,12 @@
 #pragma mark Public Methods
 
 - (void)setState:(TSYEmployeeState)state {
-    if (_state != state) {
-        _state = state;
-        
-        [self notifyOfStateWithSelector:[self selectorForState:state]];
+    @synchronized (self) {
+        if (_state != state) {
+            _state = state;
+            
+            [self notifyOfStateWithSelector:[self selectorForState:state]];
+        }
     }
 }
 
@@ -72,16 +74,27 @@
         
         self.state = TSYEmployeeStateBusy;
         
-        [self processObject:object];
-        
-        self.processedObject = nil;
-        
-        self.state = TSYEmployeeStateReadyForProcessing;
+        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                               withObject:object];
     }
 }
 
-- (void)performWorkWithObjectInBackGround:(id)object {
-    
+- (void)performWorkWithObjectInBackground:(id)object {
+    @synchronized (self) {
+        [self processObject:object];
+        
+        [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
+                               withObject:object
+                            waitUntilDone:NO];
+    }
+}
+
+- (void)performWorkWithObjectOnMainThread:(id)object {
+    @synchronized (self) {
+        self.processedObject = nil;
+        
+        self.state = TSYEmployeeStateDidFinishWork;
+    }
 }
 
 - (void)processObject:(id)object {
@@ -134,7 +147,7 @@
         case TSYEmployeeStateFree:
             return @selector(employeeDidBecomeFree:);
             
-        case TSYEmployeeStateReadyForProcessing:
+        case TSYEmployeeStateDidFinishWork:
             return @selector(employeeDidFinishWork:);
             
         case TSYEmployeeStateBusy:

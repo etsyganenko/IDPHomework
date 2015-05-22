@@ -99,7 +99,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
         if (car) {
             [cars removeObject:car];
             [washer performWorkWithObject:car];
-        }
+        }   
     }
 }
 
