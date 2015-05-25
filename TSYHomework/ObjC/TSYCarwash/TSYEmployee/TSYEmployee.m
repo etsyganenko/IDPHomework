@@ -94,6 +94,14 @@
         self.processedObject = nil;
         
         self.state = TSYEmployeeStateDidFinishWork;
+        
+        [self finishProcessingObject:object];
+    }
+}
+
+- (void)finishProcessingObject:(id)object {
+    @synchronized (self) {
+        self.state = TSYEmployeeStateFree;
     }
 }
 
@@ -158,9 +166,11 @@
 }
 
 - (void)employeeDidFinishWork:(TSYEmployee *)employee {
-    [self performWorkWithObject:employee];
-    
-    employee.state = TSYEmployeeStateFree;
+    @synchronized (self) {
+        [self performWorkWithObject:employee];
+        
+        employee.state = TSYEmployeeStateFree;
+    }
 }
 
 @end

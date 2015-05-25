@@ -159,8 +159,13 @@ static const NSUInteger TSYWashingPrice                     =   60;
 
 - (id)employeesOfClass:(Class)class {
     NSMutableArray *result = [NSMutableArray array];
+    NSArray *employees = [NSArray array];
     
-    for (TSYEmployee *employee in self.employees) {
+    @synchronized (self) {
+        employees = self.employees;
+    }
+    
+    for (TSYEmployee *employee in employees) {
         if ([employee class] == class) {
             [result addObject:employee];
         }
