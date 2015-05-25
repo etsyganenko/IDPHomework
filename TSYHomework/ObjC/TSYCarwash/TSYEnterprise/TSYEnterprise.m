@@ -36,6 +36,8 @@ static const NSUInteger TSYWashingPrice                     =   60;
 - (id)freeEmployeeOfClass:(Class)class;
 - (id)employeesOfClass:(Class)class;
 
+- (TSYCar *)nextCar;
+
 @end
 
 @implementation TSYEnterprise
@@ -92,14 +94,25 @@ static const NSUInteger TSYWashingPrice                     =   60;
 
 - (void)employeeDidBecomeFree:(TSYWasher *)washer {
     @synchronized (self) {
+        TSYCar *car = [self nextCar];
+        
+        if (car) {
+            [washer performWorkWithObject:car];
+        }
+    }
+}
+
+- (TSYCar *)nextCar {
+    @synchronized (self) {
         NSMutableArray *cars = self.cars;
         
         TSYCar *car = [[[cars firstObject] retain] autorelease];
         
         if (car) {
             [cars removeObject:car];
-            [washer performWorkWithObject:car];
-        }   
+        }
+        
+        return car;
     }
 }
 
