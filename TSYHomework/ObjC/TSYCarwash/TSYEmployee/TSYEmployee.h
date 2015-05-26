@@ -15,7 +15,7 @@
 typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
     TSYEmployeeStateFree,
     TSYEmployeeStateBusy,
-    TSYEmployeeStateReadyForProcessing
+    TSYEmployeeStateDidFinishWork
 };
 
 @protocol TSYObserver <NSObject>
