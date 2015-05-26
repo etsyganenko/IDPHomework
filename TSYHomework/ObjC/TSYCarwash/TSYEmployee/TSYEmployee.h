@@ -11,6 +11,7 @@
 
 @class TSYCar;
 @class TSYEmployee;
+@class TSYQueue;
 
 typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
     TSYEmployeeStateFree,
@@ -34,6 +35,8 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
 
 @property (nonatomic, readonly) NSSet               *observersSet;
 
+@property (nonatomic, readonly) TSYQueue            *subordinates;
+
 @property (nonatomic, retain)   NSObject            *processedObject;
 
 + (instancetype)employeeWithName:(NSString *)name
@@ -41,6 +44,7 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
 
 - (void)performWorkWithObject:(id)object;
 - (void)processObject:(id)object;
+- (void)finishProcessingObject:(TSYEmployee *)employee;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;

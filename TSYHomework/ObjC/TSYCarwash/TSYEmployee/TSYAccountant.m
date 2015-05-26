@@ -9,6 +9,7 @@
 #import "TSYAccountant.h"
 
 #import "TSYWasher.h"
+#import "TSYQueue.h"
 
 @implementation TSYAccountant
 

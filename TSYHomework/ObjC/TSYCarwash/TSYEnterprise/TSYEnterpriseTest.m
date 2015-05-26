@@ -19,7 +19,7 @@ void TSYEnterprisePerformTest() {
     @autoreleasepool {
         TSYEnterprise *enterprise = [TSYEnterprise enterprise];
         
-        NSUInteger carsCount = 2;
+        NSUInteger carsCount = 5;
         NSUInteger carMoney = 100;
         
         NSMutableArray *cars = [NSMutableArray array];
@@ -32,8 +32,8 @@ void TSYEnterprisePerformTest() {
             [cars addObject:[TSYCar carWithModel:model money:carMoney]];
         }
         
-        for (NSUInteger index = 0; index < carsCount; index++) {
-            [enterprise washCar:cars[index]];
+        for (TSYCar *car in cars) {
+            [enterprise washCar:car];
         }
         
         NSRunLoop *loop = [NSRunLoop mainRunLoop];

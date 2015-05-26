@@ -30,4 +30,8 @@
     [self takeMoney:self.price fromObject:car];
 }
 
+- (void)finishProcessingObject:(id)object {
+    
+}
+
 @end

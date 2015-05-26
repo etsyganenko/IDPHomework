@@ -13,8 +13,8 @@
 #import "NSObject+TSYCategory.h"
 
 @interface TSYEmployee ()
-@property (nonatomic, retain)   NSMutableSet    *mutableObserversSet;
-@property (nonatomic, assign)   TSYQueue        *subordinates;
+@property (nonatomic, retain)       NSMutableSet    *mutableObserversSet;
+@property (nonatomic, readwrite)    TSYQueue        *subordinates;
 
 @end
 
@@ -75,20 +75,24 @@
 }
 
 - (TSYEmployeeState)state {
-    return _state;
+    @synchronized (self) {
+        return _state;
+    }
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)performWorkWithObject:(id)object {
-    @synchronized (self) {
+    if (TSYEmployeeStateFree == self.state) {
         self.state = TSYEmployeeStateBusy;
         
         self.processedObject = object;
-        
+    
         [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
                                withObject:object];
+    } else {
+        [self.subordinates enqueue:object];
     }
 }
 
@@ -106,15 +110,15 @@
     @synchronized (self) {
         self.processedObject = nil;
         
-        self.state = TSYEmployeeStateDidFinishWork;
-        
         [self finishProcessingObject:object];
+        
+        self.state = TSYEmployeeStateDidFinishWork;
     }
 }
 
-- (void)finishProcessingObject:(id)object {
+- (void)finishProcessingObject:(TSYEmployee *)employee {
     @synchronized (self) {
-        self.state = TSYEmployeeStateFree;
+        employee.state = TSYEmployeeStateFree;
     }
 }
 
@@ -156,6 +160,10 @@
 }
 
 - (void)notifyOfStateWithSelector:(SEL)selector {
+    if (NULL == selector) {
+        return;
+    }
+    
     for (id observer in self.observersSet) {
         if ([observer respondsToSelector:selector]) {
             [observer performSelector:selector withObject:self];
@@ -171,18 +179,28 @@
         case TSYEmployeeStateDidFinishWork:
             return @selector(employeeDidFinishWork:);
             
-        case TSYEmployeeStateBusy:
+        default:
             return NULL;
     }
-    
-    return NULL;
 }
 
 - (void)employeeDidFinishWork:(TSYEmployee *)employee {
     @synchronized (self) {
-        [self performWorkWithObject:employee];
+        if (TSYEmployeeStateBusy == self.state) {
+            [self.subordinates enqueue:employee];
+        } else {
+            [self performWorkWithObject:employee];
+        }
+    }
+}
+
+- (void)employeeDidBecomeFree:(TSYEmployee *)employee {
+    @synchronized (self) {
+        TSYQueue *subordinates = self.subordinates;
         
-        employee.state = TSYEmployeeStateFree;
+        if (![subordinates isEmpty]) {
+            [self performWorkWithObject:[subordinates dequeue]];
+        }
     }
 }
 

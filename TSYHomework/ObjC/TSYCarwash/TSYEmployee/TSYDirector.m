@@ -24,12 +24,10 @@
     [self earnProfit];
 }
 
-- (void)performWorkWithObject:(id)object {
-    self.processedObject = object;
+- (void)finishProcessingObject:(TSYEmployee *)employee {
+    employee.state = TSYEmployeeStateFree;
     
-    [self processObject:object];
-    
-    self.processedObject = nil;
+    self.state = TSYEmployeeStateFree;
 }
 
 @end

@@ -20,7 +20,7 @@
 #import "NSString+TSYRandomString.h"
 #import "NSString+TSYAlphabet.h"
 
-static const NSUInteger TSYWashersCount                     =   5;
+static const NSUInteger TSYWashersCount                     =   3;
 static const NSUInteger TSYWasherSalary                     =   5000;
 static const NSUInteger TSYAccountantSalary                 =   7000;
 static const NSUInteger TSYDirectorSalary                   =   10000;
@@ -125,6 +125,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
     [employees addObject:director];
     
     [accountant addObserver:director];
+    [accountant addObserver:accountant];
     
     for (NSUInteger index = 0; index < TSYWashersCount; index++) {
         NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
@@ -144,6 +145,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
     TSYDirector *director = [[self employeesOfClass:[TSYDirector class]] firstObject];
     
     [accountant removeObserver:director];
+    [accountant removeObserver:accountant];
     
     NSArray *washers = [self employeesOfClass:[TSYWasher class]];
     
