@@ -115,6 +115,12 @@
         self.processedObject = nil;
         
         [self finishProcessingObject:object];
+    }
+}
+
+- (void)finishProcessingObject:(TSYEmployee *)employee {
+    @synchronized (self) {
+        employee.state = TSYEmployeeStateFree;
         
         if (![self.subordinates isEmpty]) {
             [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
@@ -122,12 +128,6 @@
         } else {
             self.state = TSYEmployeeStateDidFinishWork;
         }
-    }
-}
-
-- (void)finishProcessingObject:(TSYEmployee *)employee {
-    @synchronized (self) {
-        employee.state = TSYEmployeeStateFree;
     }
 }
 

@@ -25,11 +25,13 @@
 }
 
 - (void)performWorkWithObject:(TSYAccountant *)accountant {
-    [self processObject:accountant];
-    
-    self.state = TSYEmployeeStateFree;
-    
-    accountant.state = TSYEmployeeStateFree;
+    @synchronized (self) {
+        [self processObject:accountant];
+        
+        self.state = TSYEmployeeStateFree;
+        
+        accountant.state = TSYEmployeeStateFree;
+    }
 }
 
 @end

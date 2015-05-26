@@ -31,7 +31,7 @@
 }
 
 - (void)finishProcessingObject:(id)object {
-    
+    self.state = TSYEmployeeStateDidFinishWork;
 }
 
 @end
