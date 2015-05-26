@@ -80,6 +80,10 @@
     }
 }
 
+- (TSYQueue *)queue {
+    return [[self.subordinates copy] autorelease];
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
@@ -112,7 +116,12 @@
         
         [self finishProcessingObject:object];
         
-        self.state = TSYEmployeeStateDidFinishWork;
+        if (![self.subordinates isEmpty]) {
+            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                   withObject:[self.subordinates dequeue]];
+        } else {
+            self.state = TSYEmployeeStateDidFinishWork;
+        }
     }
 }
 
@@ -186,21 +195,7 @@
 
 - (void)employeeDidFinishWork:(TSYEmployee *)employee {
     @synchronized (self) {
-        if (TSYEmployeeStateBusy == self.state) {
-            [self.subordinates enqueue:employee];
-        } else {
-            [self performWorkWithObject:employee];
-        }
-    }
-}
-
-- (void)employeeDidBecomeFree:(TSYEmployee *)employee {
-    @synchronized (self) {
-        TSYQueue *subordinates = self.subordinates;
-        
-        if (![subordinates isEmpty]) {
-            [self performWorkWithObject:[subordinates dequeue]];
-        }
+        [self performWorkWithObject:employee];
     }
 }
 

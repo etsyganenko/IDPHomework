@@ -19,7 +19,7 @@ void TSYEnterprisePerformTest() {
     @autoreleasepool {
         TSYEnterprise *enterprise = [TSYEnterprise enterprise];
         
-        NSUInteger carsCount = 5;
+        NSUInteger carsCount = 10;
         NSUInteger carMoney = 100;
         
         NSMutableArray *cars = [NSMutableArray array];

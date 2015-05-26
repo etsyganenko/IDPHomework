@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
 
 @property (nonatomic, readonly) NSSet               *observersSet;
 
-@property (nonatomic, readonly) TSYQueue            *subordinates;
+@property (nonatomic, readonly) TSYQueue            *queue;
 
 @property (nonatomic, retain)   NSObject            *processedObject;
 
@@ -44,12 +44,14 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
 
 - (void)performWorkWithObject:(id)object;
 - (void)processObject:(id)object;
-- (void)finishProcessingObject:(TSYEmployee *)employee;
+- (void)finishProcessingObject:(id)object;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 
 - (void)notifyOfStateWithSelector:(SEL)selector;
 - (SEL)selectorForState:(TSYEmployeeState)state;
+
+- (TSYQueue *)queue;
 
 @end

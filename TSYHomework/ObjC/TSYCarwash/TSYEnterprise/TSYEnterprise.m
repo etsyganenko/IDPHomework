@@ -125,7 +125,6 @@ static const NSUInteger TSYWashingPrice                     =   60;
     [employees addObject:director];
     
     [accountant addObserver:director];
-    [accountant addObserver:accountant];
     
     for (NSUInteger index = 0; index < TSYWashersCount; index++) {
         NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
@@ -145,7 +144,6 @@ static const NSUInteger TSYWashingPrice                     =   60;
     TSYDirector *director = [[self employeesOfClass:[TSYDirector class]] firstObject];
     
     [accountant removeObserver:director];
-    [accountant removeObserver:accountant];
     
     NSArray *washers = [self employeesOfClass:[TSYWasher class]];
     

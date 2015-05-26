@@ -64,9 +64,7 @@
         NSMutableArray *queue = self.queue;
         id object = [[[queue firstObject] retain] autorelease];
         
-        if (object) {
-            [queue removeObject:object];
-        }
+        [queue removeObject:object];
         
         return object;
     }
