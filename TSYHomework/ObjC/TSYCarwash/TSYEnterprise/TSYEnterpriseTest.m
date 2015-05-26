@@ -33,12 +33,11 @@ void TSYEnterprisePerformTest() {
         }
         
         for (NSUInteger index = 0; index < carsCount; index++) {
-            [enterprise performSelectorInBackground:@selector(washCar:) withObject:cars[index]];
-//            [enterprise washCar:cars[index]];
-            
-            NSRunLoop *loop = [NSRunLoop mainRunLoop];
-            [loop run];
+            [enterprise washCar:cars[index]];
         }
+        
+        NSRunLoop *loop = [NSRunLoop mainRunLoop];
+        [loop run];
     }
 }
 

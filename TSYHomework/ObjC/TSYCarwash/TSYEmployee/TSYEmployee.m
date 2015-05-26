@@ -20,6 +20,7 @@
 @dynamic observersSet;
 
 @synthesize money   = _money;
+@synthesize state   = _state;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -56,7 +57,7 @@
 }
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark Accessors Methods
 
 - (void)setState:(TSYEmployeeState)state {
     @synchronized (self) {
@@ -67,6 +68,13 @@
         }
     }
 }
+
+- (TSYEmployeeState)state {
+    return _state;
+}
+
+#pragma mark -
+#pragma mark Public Methods
 
 - (void)performWorkWithObject:(id)object {
     @synchronized (self) {

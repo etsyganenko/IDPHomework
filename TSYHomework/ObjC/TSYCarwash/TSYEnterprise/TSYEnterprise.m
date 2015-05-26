@@ -175,7 +175,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
     NSArray *employees = [NSArray array];
     
     @synchronized (self) {
-        employees = self.employees;
+        employees = [[self.employees copy] autorelease];
     }
     
     for (TSYEmployee *employee in employees) {
