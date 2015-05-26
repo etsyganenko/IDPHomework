@@ -20,10 +20,7 @@
 
 @implementation TSYEmployee
 
-@dynamic observersSet;
-
 @synthesize money   = _money;
-@synthesize state   = _state;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -64,22 +61,6 @@
 #pragma mark -
 #pragma mark Accessors Methods
 
-- (void)setState:(TSYEmployeeState)state {
-    @synchronized (self) {
-        if (_state != state) {
-            _state = state;
-            
-            [self notifyOfStateWithSelector:[self selectorForState:state]];
-        }
-    }
-}
-
-- (TSYEmployeeState)state {
-    @synchronized (self) {
-        return _state;
-    }
-}
-
 - (TSYQueue *)queue {
     return [[self.subordinates copy] autorelease];
 }
@@ -91,8 +72,6 @@
     @synchronized (self) {
         if (TSYEmployeeStateFree == self.state) {
             self.state = TSYEmployeeStateBusy;
-            
-//            self.processedObject = object;
             
             [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
                                    withObject:object];
@@ -137,10 +116,6 @@
 
 }
 
-- (NSSet *)observersSet {
-    return [[self.mutableObserversSet copy] autorelease];
-}
-
 #pragma mark -
 #pragma mark TSYMoneyProtocol
 
@@ -160,40 +135,7 @@
 }
 
 #pragma mark -
-#pragma mark TSYObserver
-
-- (void)addObserver:(id)observer {
-    [self.mutableObserversSet addObject:observer];
-}
-
-- (void)removeObserver:(id)observer {
-    [self.mutableObserversSet removeObject:observer];
-}
-
-- (void)notifyOfStateWithSelector:(SEL)selector {
-    if (NULL == selector) {
-        return;
-    }
-    
-    for (id observer in self.observersSet) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self];
-        }
-    }
-}
-
-- (SEL)selectorForState:(TSYEmployeeState)state {
-    switch (state) {
-        case TSYEmployeeStateFree:
-            return @selector(employeeDidBecomeFree:);
-            
-        case TSYEmployeeStateDidFinishWork:
-            return @selector(employeeDidFinishWork:);
-            
-        default:
-            return NULL;
-    }
-}
+#pragma mark TSYEmployeeObserver
 
 - (void)employeeDidFinishWork:(TSYEmployee *)employee {
     @synchronized (self) {

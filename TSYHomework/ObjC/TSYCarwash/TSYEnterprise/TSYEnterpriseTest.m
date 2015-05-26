@@ -34,6 +34,9 @@ void TSYEnterprisePerformTest() {
         
         for (TSYCar *car in cars) {
 //            [enterprise washCar:car];
+            
+            usleep((arc4random_uniform(1000 * 100) - 1000));
+            
             [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
         }
         

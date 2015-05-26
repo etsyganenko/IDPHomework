@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "TSYEmployee.h"
+#import "TSYObservableObject.h"
 
 @class TSYCar;
 
-@interface TSYEnterprise : NSObject<TSYObserver>
+@interface TSYEnterprise : NSObject<TSYEmployeeObserver>
 
 + (instancetype)enterprise;
 

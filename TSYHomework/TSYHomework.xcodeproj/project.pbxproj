@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		849FCA2A1AE7933000FA0EEE /* TSYEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FCA291AE791E200FA0EEE /* TSYEnterprise.m */; };
 		849FCA2D1AE7A2C700FA0EEE /* TSYEnterpriseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FCA2C1AE7A2C700FA0EEE /* TSYEnterpriseTest.m */; };
+		84A0DAF71B151EC400870261 /* TSYObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0DAF61B151EC400870261 /* TSYObservableObject.m */; };
 		84A1398A1AEE3A7000CFB9C8 /* NSString+TSYRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A139891AEE3A7000CFB9C8 /* NSString+TSYRandomString.m */; };
 		84A14C6A1B146F9C005A5404 /* TSYQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A14C691B146F9C005A5404 /* TSYQueue.m */; };
 		84A1DF8D1AF633D1008519C0 /* NSString+TSYAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1DF8C1AF633D1008519C0 /* NSString+TSYAlphabet.m */; };
@@ -83,6 +84,8 @@
 		849FCA2B1AE7A2C700FA0EEE /* TSYEnterpriseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYEnterpriseTest.h; sourceTree = "<group>"; };
 		849FCA2C1AE7A2C700FA0EEE /* TSYEnterpriseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYEnterpriseTest.m; sourceTree = "<group>"; };
 		849FCA2E1AE7A5BB00FA0EEE /* TSYMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMoneyProtocol.h; sourceTree = "<group>"; };
+		84A0DAF51B151EC400870261 /* TSYObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSYObservableObject.h; path = ObjC/TSYObservableObject.h; sourceTree = SOURCE_ROOT; };
+		84A0DAF61B151EC400870261 /* TSYObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSYObservableObject.m; path = ObjC/TSYObservableObject.m; sourceTree = SOURCE_ROOT; };
 		84A139881AEE3A7000CFB9C8 /* NSString+TSYRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYRandomString.h"; sourceTree = "<group>"; };
 		84A139891AEE3A7000CFB9C8 /* NSString+TSYRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomString.m"; sourceTree = "<group>"; };
 		84A14C681B146F9C005A5404 /* TSYQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYQueue.h; sourceTree = "<group>"; };
@@ -206,6 +209,16 @@
 			name = TSYEnterprise;
 			path = ObjC/TSYCarwash/TSYEnterprise;
 			sourceTree = SOURCE_ROOT;
+		};
+		84A0DAF41B151E8500870261 /* TSYObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				84A0DAF51B151EC400870261 /* TSYObservableObject.h */,
+				84A0DAF61B151EC400870261 /* TSYObservableObject.m */,
+			);
+			name = TSYObservableObject;
+			path = ../TSYHomework/ObjC/TSYRandomString;
+			sourceTree = "<group>";
 		};
 		84A139871AEE394700CFB9C8 /* TSYRandomString */ = {
 			isa = PBXGroup;
@@ -491,6 +504,7 @@
 				84A139871AEE394700CFB9C8 /* TSYRandomString */,
 				84A337411AE645D0001145F3 /* TSYCreature */,
 				84A337461AE645D0001145F3 /* TSYCreature2 */,
+				84A0DAF41B151E8500870261 /* TSYObservableObject */,
 				84A14C651B146EF0005A5404 /* TSYQueue */,
 				84A337511AE646F5001145F3 /* TSYCarwash */,
 			);
@@ -602,6 +616,7 @@
 				84A337B41AE64A72001145F3 /* TSYCreatureFemale.m in Sources */,
 				84A337AF1AE64A60001145F3 /* TSYCreatureTest.m in Sources */,
 				84A1398A1AEE3A7000CFB9C8 /* NSString+TSYRandomString.m in Sources */,
+				84A0DAF71B151EC400870261 /* TSYObservableObject.m in Sources */,
 				84A337401AE645A1001145F3 /* main.m in Sources */,
 				84A337B31AE64A70001145F3 /* TSYCreature2Test.m in Sources */,
 				84A337BE1AE64A95001145F3 /* TSYCarwashRoom.m in Sources */,

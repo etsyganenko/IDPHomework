@@ -91,7 +91,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
 }
 
 #pragma mark -
-#pragma mark TSYObserver
+#pragma mark TSYEmployeeObserver
 
 - (void)employeeDidBecomeFree:(TSYWasher *)washer {
     @synchronized (self) {
@@ -102,12 +102,6 @@ static const NSUInteger TSYWashingPrice                     =   60;
         }
     }
 }
-
-//- (TSYCar *)nextCar {
-//    @synchronized (self) {
-//        return [self.cars dequeue];
-//    }
-//}
 
 #pragma mark -
 #pragma mark Private Methods

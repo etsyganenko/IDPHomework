@@ -7,33 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "TSYMoneyProtocol.h"
+#import "TSYObservableObject.h"
 
 @class TSYCar;
 @class TSYEmployee;
 @class TSYQueue;
 
-typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
-    TSYEmployeeStateFree,
-    TSYEmployeeStateBusy,
-    TSYEmployeeStateDidFinishWork
-};
-
-@protocol TSYObserver <NSObject>
-
-@optional
-- (void)employeeDidFinishWork:(TSYEmployee *)employee;
-- (void)employeeDidBecomeFree:(TSYEmployee *)employee;
-
-@end
-
-@interface TSYEmployee : NSObject<TSYMoneyProtocol, TSYObserver>
+@interface TSYEmployee : TSYObservableObject<TSYMoneyProtocol, TSYEmployeeObserver>
 @property (nonatomic, copy)     NSString            *name;
 @property (nonatomic, assign)   NSUInteger          salary;
 @property (nonatomic, assign)   NSUInteger          experience;
-@property (atomic, assign)      TSYEmployeeState    state;
-
-@property (nonatomic, readonly) NSSet               *observersSet;
 
 @property (nonatomic, readonly) TSYQueue            *queue;
 
@@ -45,11 +30,5 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
 - (void)performWorkWithObject:(id)object;
 - (void)processObject:(id)object;
 - (void)finishProcessingObject:(id)object;
-
-- (void)addObserver:(id)observer;
-- (void)removeObserver:(id)observer;
-
-- (void)notifyOfStateWithSelector:(SEL)selector;
-- (SEL)selectorForState:(TSYEmployeeState)state;
 
 @end

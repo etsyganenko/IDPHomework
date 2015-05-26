@@ -26,7 +26,7 @@
 }
 
 - (void)processObject:(TSYCar *)car {
-    usleep(arc4random_uniform((1000 * 1000) - 10));
+    usleep((arc4random_uniform(1000 * 1000) - 10));
     
     [self washCar:car];
     
