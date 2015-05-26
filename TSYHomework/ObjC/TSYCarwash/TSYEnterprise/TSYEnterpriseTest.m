@@ -33,7 +33,8 @@ void TSYEnterprisePerformTest() {
         }
         
         for (TSYCar *car in cars) {
-            [enterprise washCar:car];
+//            [enterprise washCar:car];
+            [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
         }
         
         NSRunLoop *loop = [NSRunLoop mainRunLoop];

@@ -52,6 +52,4 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
 - (void)notifyOfStateWithSelector:(SEL)selector;
 - (SEL)selectorForState:(TSYEmployeeState)state;
 
-- (TSYQueue *)queue;
-
 @end

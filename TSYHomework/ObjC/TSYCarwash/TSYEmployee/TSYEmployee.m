@@ -88,46 +88,48 @@
 #pragma mark Public Methods
 
 - (void)performWorkWithObject:(id)object {
-    if (TSYEmployeeStateFree == self.state) {
-        self.state = TSYEmployeeStateBusy;
-        
-        self.processedObject = object;
-    
-        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                               withObject:object];
-    } else {
-        [self.subordinates enqueue:object];
+    @synchronized (self) {
+        if (TSYEmployeeStateFree == self.state) {
+            self.state = TSYEmployeeStateBusy;
+            
+//            self.processedObject = object;
+            
+            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                   withObject:object];
+        } else {
+            [self.subordinates enqueue:object];
+        }
     }
 }
 
 - (void)performWorkWithObjectInBackground:(id)object {
-    @synchronized (self) {
-        [self processObject:object];
-        
-        [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
-                               withObject:object
-                            waitUntilDone:NO];
-    }
+    self.processedObject = object;
+    
+    [self processObject:object];
+    
+    [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
+                           withObject:object
+                        waitUntilDone:NO];
 }
 
 - (void)performWorkWithObjectOnMainThread:(id)object {
-    @synchronized (self) {
-        self.processedObject = nil;
-        
-        [self finishProcessingObject:object];
+    self.processedObject = nil;
+    
+    [self finishProcessingObject:object];
+    
+    TSYQueue *subordinates = self.subordinates;
+    
+    if (![subordinates isEmpty]) {
+        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                               withObject:[subordinates dequeue]];
+    } else {
+        self.state = TSYEmployeeStateDidFinishWork;
     }
 }
 
 - (void)finishProcessingObject:(TSYEmployee *)employee {
     @synchronized (self) {
         employee.state = TSYEmployeeStateFree;
-        
-        if (![self.subordinates isEmpty]) {
-            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                   withObject:[self.subordinates dequeue]];
-        } else {
-            self.state = TSYEmployeeStateDidFinishWork;
-        }
     }
 }
 

@@ -21,7 +21,10 @@
 }
 
 - (void)processObject:(TSYWasher *)washer {
+    usleep(arc4random_uniform((1000 * 1000) - 10));
+    
     [self takeMoney:washer.money fromObject:washer];
+    
     [self calculateMoney:self.money];
 }
 
