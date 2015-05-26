@@ -8,10 +8,13 @@
 
 #import "TSYEmployee.h"
 #import "TSYCar.h"
+#import "TSYQueue.h"
+
 #import "NSObject+TSYCategory.h"
 
 @interface TSYEmployee ()
 @property (nonatomic, retain)   NSMutableSet    *mutableObserversSet;
+@property (nonatomic, assign)   TSYQueue        *subordinates;
 
 @end
 
@@ -42,6 +45,7 @@
 - (void)dealloc {
     self.name = nil;
     self.mutableObserversSet = nil;
+    self.subordinates = nil;
     
     [super dealloc];
 }
@@ -51,6 +55,7 @@
     if (self) {
         self.state = TSYEmployeeStateFree;
         self.mutableObserversSet = [NSMutableSet set];
+        self.subordinates = [TSYQueue queue];
     }
     
     return self;
@@ -78,9 +83,9 @@
 
 - (void)performWorkWithObject:(id)object {
     @synchronized (self) {
-        self.processedObject = object;
-        
         self.state = TSYEmployeeStateBusy;
+        
+        self.processedObject = object;
         
         [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
                                withObject:object];

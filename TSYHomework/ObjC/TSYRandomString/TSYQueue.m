@@ -48,20 +48,28 @@
 #pragma mark Public Methods
 
 - (BOOL)isEmpty {
-    return (0 == [self.queue count]);
+    @synchronized (self) {
+        return (0 == [self.queue count]);
+    }
 }
 
 - (void)enqueue:(id)object {
-    [self.queue addObject:object];
+    @synchronized (self) {
+        [self.queue addObject:object];
+    }
 }
 
 - (id)dequeue {
-    NSMutableArray *queue = self.queue;
-    id object = [queue firstObject];
-    
-    [queue removeObject:object];
-    
-    return object;
+    @synchronized (self) {
+        NSMutableArray *queue = self.queue;
+        id object = [[[queue firstObject] retain] autorelease];
+        
+        if (object) {
+            [queue removeObject:object];
+        }
+        
+        return object;
+    }
 }
 
 @end

@@ -14,6 +14,7 @@
 #import "TSYCarwashRoom.h"
 #import "TSYRoom.h"
 #import "TSYCar.h"
+#import "TSYQueue.h"
 
 #import "NSObject+TSYCategory.h"
 #import "NSString+TSYRandomString.h"
@@ -26,7 +27,7 @@ static const NSUInteger TSYDirectorSalary                   =   10000;
 static const NSUInteger TSYWashingPrice                     =   60;
 
 @interface TSYEnterprise ()
-@property (nonatomic, retain)   NSMutableArray  *cars;
+@property (nonatomic, retain)   TSYQueue        *cars;
 @property (nonatomic, retain)   NSMutableArray  *employees;
 
 - (void)organizeStaff;
@@ -36,7 +37,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
 - (id)freeEmployeeOfClass:(Class)class;
 - (id)employeesOfClass:(Class)class;
 
-- (TSYCar *)nextCar;
+//- (TSYCar *)nextCar;
 
 @end
 
@@ -67,7 +68,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
     self = [super init];
     
     self.employees = [NSMutableArray array];
-    self.cars = [NSMutableArray array];
+    self.cars = [TSYQueue queue];
     
     [self organizeStaff];
     
@@ -84,7 +85,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
         if (washer) {
             [washer performWorkWithObject:car];
         } else {
-            [self.cars addObject:car];
+            [self.cars enqueue:car];
         }
     }
 }
@@ -94,7 +95,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
 
 - (void)employeeDidBecomeFree:(TSYWasher *)washer {
     @synchronized (self) {
-        TSYCar *car = [self nextCar];
+        TSYCar *car = [self.cars dequeue];
         
         if (car) {
             [washer performWorkWithObject:car];
@@ -102,19 +103,11 @@ static const NSUInteger TSYWashingPrice                     =   60;
     }
 }
 
-- (TSYCar *)nextCar {
-    @synchronized (self) {
-        NSMutableArray *cars = self.cars;
-        
-        TSYCar *car = [[[cars firstObject] retain] autorelease];
-        
-        if (car) {
-            [cars removeObject:car];
-        }
-        
-        return car;
-    }
-}
+//- (TSYCar *)nextCar {
+//    @synchronized (self) {
+//        return [self.cars dequeue];
+//    }
+//}
 
 #pragma mark -
 #pragma mark Private Methods
