@@ -19,7 +19,7 @@ void TSYEnterprisePerformTest() {
     @autoreleasepool {
         TSYEnterprise *enterprise = [TSYEnterprise enterprise];
         
-        NSUInteger carsCount = 10;
+        NSUInteger carsCount = 100;
         NSUInteger carMoney = 100;
         
         NSMutableArray *cars = [NSMutableArray array];
@@ -35,7 +35,7 @@ void TSYEnterprisePerformTest() {
         for (TSYCar *car in cars) {
 //            [enterprise washCar:car];
             
-            usleep((arc4random_uniform(1000 * 100) - 1000));
+            usleep(arc4random_uniform(10000));
             
             [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
         }

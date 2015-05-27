@@ -14,6 +14,8 @@
 
 - (instancetype)initWithMutableObserversSet;
 
+- (void)setState:(NSUInteger)state;
+
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 
