@@ -10,12 +10,15 @@
 
 #import "TSYQueue.h"
 #import "TSYCar.h"
+#import "TSYWasher.h"
 
 #import "NSObject+TSYCategory.h"
 
 @interface TSYDispatcher ()
-@property (nonatomic, assign)   NSMutableArray  *mutableEmployees;
+@property (nonatomic, assign)   NSMutableArray  *employees;
 @property (nonatomic, assign)   TSYQueue        *queue;
+
+- (id)freeEmployeeOfClass:(Class)class;
 
 @end
 
@@ -35,7 +38,7 @@
 
 - (void)dealloc {
     self.queue = nil;
-    self.mutableEmployees = nil;
+    self.employees = nil;
     
     [super dealloc];
 }
@@ -43,7 +46,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableEmployees = [NSMutableArray array];
+        self.employees = [NSMutableArray array];
         self.queue = [TSYQueue queue];
     }
     
@@ -56,16 +59,48 @@
 #pragma mark -
 #pragma mark Public Methods
 
+- (void)processCar:(TSYCar *)car {
+    @synchronized (self) {
+        TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
+        
+        if (washer) {
+            [washer performWorkWithObject:car];
+        } else {
+            [self.queue enqueue:car];
+        }
+    }
+}
+
 - (void)addEmployee:(TSYEmployee *)employee {
-    
+    @synchronized (self) {
+        [self.employees addObject:employee];
+    }
 }
 
 - (void)removeEmployee:(TSYEmployee *)employee {
-    
+    @synchronized (self) {
+        [self.employees removeObject:employee];
+    }
 }
 
 #pragma mark -
 #pragma mark Private Methods
+
+- (id)freeEmployeeOfClass:(Class)class {
+    NSArray *employees = nil;
+    
+    @synchronized (self) {
+        employees = self.employees;
+    }
+    
+    for (TSYEmployee *employee in employees) {
+        if ([employee class] == class && TSYEmployeeStateFree == employee.state) {
+            return employee;
+        }
+    }
+    
+    return nil;
+}
 
 #pragma mark -
 #pragma mark TSYEmployeeObserver

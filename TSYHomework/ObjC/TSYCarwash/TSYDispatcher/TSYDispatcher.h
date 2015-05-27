@@ -18,6 +18,8 @@
 
 - (instancetype)init;
 
+- (void)processCar:(TSYCar *)car;
+
 - (void)addEmployee:(TSYEmployee *)employee;
 - (void)removeEmployee:(TSYEmployee *)employee;
 
