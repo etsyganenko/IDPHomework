@@ -8,23 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
-    TSYEmployeeStateFree,
-    TSYEmployeeStateBusy,
-    TSYEmployeeStateDidFinishWork
-};
-
 @interface TSYObservableObject : NSObject
-@property (atomic, assign)      TSYEmployeeState    state;
-@property (nonatomic, readonly) NSSet               *observersSet;
+@property (atomic, assign)      NSUInteger  state;
+@property (nonatomic, readonly) NSSet       *observersSet;
 
-// нужен???
-- (instancetype)init;
+- (instancetype)initWithMutableObserversSet;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 
-- (void)notifyOfStateWithSelector:(SEL)selector;
-- (SEL)selectorForState:(TSYEmployeeState)state;
+- (void)notifyOfStateChange:(NSUInteger)state;
 
 @end

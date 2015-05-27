@@ -20,19 +20,38 @@
 @synthesize state   = _state;
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.mutableObserversSet = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)initWithMutableObserversSet {
+    self = [super init];
+    if (self) {
+        self.mutableObserversSet = [NSMutableSet set];
+    }
+    
+    return self;
+}
+
+#pragma mark -
 #pragma mark Accessors Methods
 
-- (void)setState:(TSYEmployeeState)state {
+- (void)setState:(NSUInteger)state {
     @synchronized (self) {
         if (_state != state) {
             _state = state;
             
-            [self notifyOfStateWithSelector:[self selectorForState:state]];
+//            [self notifyOfStateWithSelector:[self selectorForState:state]];
+            [self notifyOfStateChange:state];
         }
     }
 }
 
-- (TSYEmployeeState)state {
+- (NSUInteger)state {
     @synchronized (self) {
         return _state;
     }
@@ -53,6 +72,13 @@
     [self.mutableObserversSet removeObject:observer];
 }
 
+- (void)notifyOfStateChange:(NSUInteger)state {
+    [self notifyOfStateWithSelector:[self selectorForState:state]];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
 - (void)notifyOfStateWithSelector:(SEL)selector {
     if (NULL == selector) {
         return;
@@ -65,17 +91,9 @@
     }
 }
 
-- (SEL)selectorForState:(TSYEmployeeState)state {
-    switch (state) {
-        case TSYEmployeeStateFree:
-            return @selector(employeeDidBecomeFree:);
-            
-        case TSYEmployeeStateDidFinishWork:
-            return @selector(employeeDidFinishWork:);
-            
-        default:
-            return NULL;
-    }
+// this method is for overriding in children
+- (SEL)selectorForState:(NSUInteger)state {
+    return NULL;
 }
 
 @end

@@ -41,17 +41,15 @@
 
 - (void)dealloc {
     self.name = nil;
-    self.mutableObserversSet = nil;
     self.subordinates = nil;
     
     [super dealloc];
 }
 
 - (instancetype)init {
-    self = [super init];
+    self = [super initWithMutableObserversSet];
     if (self) {
         self.state = TSYEmployeeStateFree;
-        self.mutableObserversSet = [NSMutableSet set];
         self.subordinates = [TSYQueue queue];
     }
     
@@ -81,6 +79,19 @@
     }
 }
 
+- (void)finishProcessingObject:(TSYEmployee *)employee {
+    @synchronized (self) {
+        employee.state = TSYEmployeeStateFree;
+    }
+}
+
+- (void)processObject:(id)object {
+
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
 - (void)performWorkWithObjectInBackground:(id)object {
     self.processedObject = object;
     
@@ -106,14 +117,20 @@
     }
 }
 
-- (void)finishProcessingObject:(TSYEmployee *)employee {
-    @synchronized (self) {
-        employee.state = TSYEmployeeStateFree;
+#pragma mark -
+#pragma mark TSYObservableObject
+
+- (SEL)selectorForState:(TSYEmployeeState)state {
+    switch (state) {
+        case TSYEmployeeStateFree:
+            return @selector(employeeDidBecomeFree:);
+            
+        case TSYEmployeeStateDidFinishWork:
+            return @selector(employeeDidFinishWork:);
+            
+        default:
+            return NULL;
     }
-}
-
-- (void)processObject:(id)object {
-
 }
 
 #pragma mark -

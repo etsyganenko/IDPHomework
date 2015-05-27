@@ -15,6 +15,12 @@
 @class TSYEmployee;
 @class TSYQueue;
 
+typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
+    TSYEmployeeStateFree,
+    TSYEmployeeStateBusy,
+    TSYEmployeeStateDidFinishWork
+};
+
 @protocol TSYEmployeeObserver <NSObject>
 
 @optional
