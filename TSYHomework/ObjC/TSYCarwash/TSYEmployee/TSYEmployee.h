@@ -15,6 +15,14 @@
 @class TSYEmployee;
 @class TSYQueue;
 
+@protocol TSYEmployeeObserver <NSObject>
+
+@optional
+- (void)employeeDidFinishWork:(id<TSYEmployeeObserver>)employee;
+- (void)employeeDidBecomeFree:(id<TSYEmployeeObserver>)employee;
+
+@end
+
 @interface TSYEmployee : TSYObservableObject<TSYMoneyProtocol, TSYEmployeeObserver>
 @property (nonatomic, copy)     NSString            *name;
 @property (nonatomic, assign)   NSUInteger          salary;

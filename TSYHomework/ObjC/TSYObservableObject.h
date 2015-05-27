@@ -14,14 +14,6 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
     TSYEmployeeStateDidFinishWork
 };
 
-@protocol TSYEmployeeObserver <NSObject>
-
-@optional
-- (void)employeeDidFinishWork:(id<TSYEmployeeObserver>)employee;
-- (void)employeeDidBecomeFree:(id<TSYEmployeeObserver>)employee;
-
-@end
-
 @interface TSYObservableObject : NSObject
 @property (atomic, assign)      TSYEmployeeState    state;
 @property (nonatomic, readonly) NSSet               *observersSet;
