@@ -11,6 +11,8 @@
 #import "TSYQueue.h"
 #import "TSYCar.h"
 #import "TSYWasher.h"
+#import "TSYAccountant.h"
+#import "TSYDirector.h"
 
 #import "NSObject+TSYCategory.h"
 
@@ -18,6 +20,7 @@
 @property (nonatomic, assign)   NSMutableArray  *employees;
 @property (nonatomic, assign)   TSYQueue        *queue;
 
+- (void)tryToProcessObject:(id)object withProcessor:(id)processor;
 - (id)freeEmployeeOfClass:(Class)class;
 
 @end
@@ -59,15 +62,19 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)processCar:(TSYCar *)car {
+- (void)processObject:(id)object {
+    TSYEmployee *processor = nil;
+    
     @synchronized (self) {
-        TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
-        
-        if (washer) {
-            [washer performWorkWithObject:car];
-        } else {
-            [self.queue enqueue:car];
+        if ([object isKindOfClass:[TSYCar class]]) {
+            processor = [self freeEmployeeOfClass:[TSYWasher class]];
+        } else if ([object isKindOfClass:[TSYWasher class]]) {
+            processor = [self freeEmployeeOfClass:[TSYAccountant class]];
+        } else if ([object isKindOfClass:[TSYAccountant class]]) {
+            processor = [self freeEmployeeOfClass:[TSYDirector class]];
         }
+        
+        [self tryToProcessObject:object withProcessor:processor];
     }
 }
 
@@ -85,6 +92,14 @@
 
 #pragma mark -
 #pragma mark Private Methods
+
+- (void)tryToProcessObject:(id)object withProcessor:(id)processor {
+    if (processor) {
+        [processor performWorkWithObject:object];
+    } else {
+        [self.queue enqueue:object];
+    }
+}
 
 - (id)freeEmployeeOfClass:(Class)class {
     NSArray *employees = nil;

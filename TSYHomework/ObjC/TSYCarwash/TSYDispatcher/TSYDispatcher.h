@@ -16,9 +16,7 @@
 
 + (instancetype)dispatcher;
 
-- (instancetype)init;
-
-- (void)processCar:(TSYCar *)car;
+- (void)processObject:(id)object;
 
 - (void)addEmployee:(TSYEmployee *)employee;
 - (void)removeEmployee:(TSYEmployee *)employee;
