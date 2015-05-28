@@ -12,13 +12,10 @@
 @property (atomic, assign)      NSUInteger  state;
 @property (nonatomic, readonly) NSSet       *observersSet;
 
-- (instancetype)initWithMutableObserversSet;
-
-- (void)setState:(NSUInteger)state;
-
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 
 - (void)notifyOfStateChange:(NSUInteger)state;
+- (SEL)selectorForState:(NSUInteger)state;
 
 @end

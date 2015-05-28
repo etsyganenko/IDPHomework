@@ -35,10 +35,4 @@
     }
 }
 
-//- (void)finishProcessingObject:(TSYEmployee *)employee {
-//    employee.state = TSYEmployeeStateFree;
-//    
-//    self.state = TSYEmployeeStateFree;
-//}
-
 @end

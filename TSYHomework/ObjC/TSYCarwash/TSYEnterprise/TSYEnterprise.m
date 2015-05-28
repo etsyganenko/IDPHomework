@@ -149,7 +149,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
 
 - (id)freeEmployeeOfClass:(Class)class {
     for (TSYEmployee *employee in self.employees) {
-        if ([employee class] == class && TSYEmployeeStateFree == employee.state) {
+        if ([employee isMemberOfClass:class] && TSYEmployeeStateFree == employee.state) {
             return employee;
         }
     }
@@ -166,7 +166,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
     }
     
     for (TSYEmployee *employee in employees) {
-        if ([employee class] == class) {
+        if ([employee isMemberOfClass:class]) {
             [result addObject:employee];
         }
     }

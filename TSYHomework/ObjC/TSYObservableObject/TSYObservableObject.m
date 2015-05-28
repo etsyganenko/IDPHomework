@@ -9,7 +9,7 @@
 #import "TSYObservableObject.h"
 
 @interface TSYObservableObject ()
-@property (nonatomic, retain)       NSMutableSet    *mutableObserversSet;
+@property (nonatomic, retain)   NSHashTable     *observersHashTable;
 
 @end
 
@@ -23,15 +23,15 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.mutableObserversSet = nil;
+    self.observersHashTable = nil;
     
     [super dealloc];
 }
 
-- (instancetype)initWithMutableObserversSet {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObserversSet = [NSMutableSet set];
+        self.observersHashTable = [NSHashTable weakObjectsHashTable];
     }
     
     return self;
@@ -45,7 +45,6 @@
         if (_state != state) {
             _state = state;
             
-//            [self notifyOfStateWithSelector:[self selectorForState:state]];
             [self notifyOfStateChange:state];
         }
     }
@@ -58,18 +57,18 @@
 }
 
 - (NSSet *)observersSet {
-    return [[self.mutableObserversSet copy] autorelease];
+    return [[self.observersHashTable copy] autorelease];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-    [self.mutableObserversSet addObject:observer];
+    [self.observersHashTable addObject:observer];
 }
 
 - (void)removeObserver:(id)observer {
-    [self.mutableObserversSet removeObject:observer];
+    [self.observersHashTable removeObject:observer];
 }
 
 - (void)notifyOfStateChange:(NSUInteger)state {
@@ -84,7 +83,7 @@
         return;
     }
     
-    for (id observer in self.observersSet) {
+    for (id observer in self.observersHashTable	) {
         if ([observer respondsToSelector:selector]) {
             [observer performSelector:selector withObject:self];
         }
