@@ -9,19 +9,19 @@
 #import "TSYDispatcher.h"
 
 #import "TSYQueue.h"
-#import "TSYCar.h"
-#import "TSYWasher.h"
-#import "TSYAccountant.h"
-#import "TSYDirector.h"
+//#import "TSYCar.h"
+//#import "TSYWasher.h"
+//#import "TSYAccountant.h"
+//#import "TSYDirector.h"
 
 #import "NSObject+TSYCategory.h"
 
 @interface TSYDispatcher ()
-@property (nonatomic, assign)   NSMutableArray  *employees;
-@property (nonatomic, assign)   TSYQueue        *queue;
+@property (nonatomic, retain)   NSMutableArray  *employees;
+@property (nonatomic, retain)   TSYQueue        *queue;
 
-- (void)tryToProcessObject:(id)object withProcessor:(id)processor;
-- (id)freeEmployeeOfClass:(Class)class;
+- (void)processObject:(id)object withProcessor:(id)processor;
+- (id)freeProcessor;
 
 @end
 
@@ -63,19 +63,9 @@
 #pragma mark Public Methods
 
 - (void)processObject:(id)object {
-    TSYEmployee *processor = nil;
+    TSYEmployee *employee = [self freeEmployee];
     
-    @synchronized (self) {
-        if ([object isKindOfClass:[TSYCar class]]) {
-            processor = [self freeEmployeeOfClass:[TSYWasher class]];
-        } else if ([object isKindOfClass:[TSYWasher class]]) {
-            processor = [self freeEmployeeOfClass:[TSYAccountant class]];
-        } else if ([object isKindOfClass:[TSYAccountant class]]) {
-            processor = [self freeEmployeeOfClass:[TSYDirector class]];
-        }
-        
-        [self tryToProcessObject:object withProcessor:processor];
-    }
+    [self processObject:object withEmployee:employee];
 }
 
 - (void)addEmployee:(TSYEmployee *)employee {
@@ -93,39 +83,37 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)tryToProcessObject:(id)object withProcessor:(id)processor {
-    if (processor) {
-        [processor performWorkWithObject:object];
+- (void)processObject:(id)object withEmployee:(TSYEmployee *)employee {
+    if (employee) {
+        [employee performWorkWithObject:object];
     } else {
         [self.queue enqueue:object];
     }
 }
 
-- (id)freeEmployeeOfClass:(Class)class {
-    NSArray *employees = nil;
-    
+- (TSYEmployee *)freeEmployee {
     @synchronized (self) {
-        employees = self.employees;
-    }
-    
-    for (TSYEmployee *employee in employees) {
-        if ([employee class] == class && TSYEmployeeStateFree == employee.state) {
-            return employee;
+        for (TSYEmployee *employee in self.employees) {
+            if (TSYEmployeeStateFree == employee.state) {
+                return employee;
+            }
         }
+        
+        return nil;
     }
-    
-    return nil;
 }
 
 #pragma mark -
 #pragma mark TSYEmployeeObserver
 
-- (void)employeeDidFinishWork:(TSYEmployee *)employee {
-    
-}
-
 - (void)employeeDidBecomeFree:(TSYEmployee *)employee {
-    
+    @synchronized (self) {
+        id object = [self.queue dequeue];
+        
+        if (object) {
+            [employee performWorkWithObject:object];
+        }
+    }
 }
 
 @end
