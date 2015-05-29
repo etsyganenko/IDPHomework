@@ -122,25 +122,31 @@
 #pragma mark -
 #pragma mark TSYObservableObject
 
-- (void)setState:(TSYEmployeeState)state {
+- (void)setState:(NSUInteger)state {
     @synchronized (self) {
         if (_state != state) {
             _state = state;
             
             if (TSYEmployeeStateFree == state) {
-                TSYEmployee *subordinate = [self.subordinates dequeue];
-                
-                if (subordinate) {
-                    [self performWorkWithObject:subordinate];
-                }
+                [self checkQueueBeforeNotifying];
+            } else {
+                [self notifyOfStateChange:state];
             }
-            
-            [self notifyOfStateChange:state];
         }
     }
 }
 
-- (SEL)selectorForState:(TSYEmployeeState)state {
+- (void)checkQueueBeforeNotifying {
+    TSYEmployee *subordinate = [self.subordinates dequeue];
+    
+    if (subordinate) {
+        [self performWorkWithObject:subordinate];
+    } else {
+        [self notifyOfStateChange:_state];
+    }
+}
+
+- (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case TSYEmployeeStateFree:
             return @selector(employeeDidBecomeFree:);
