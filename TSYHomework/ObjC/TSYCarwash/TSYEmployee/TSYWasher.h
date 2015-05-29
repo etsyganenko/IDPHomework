@@ -13,4 +13,6 @@
 @interface TSYWasher : TSYEmployee
 @property (nonatomic, assign)   NSUInteger  price;
 
+- (void)finishProcessingObject:(id)object;
+
 @end

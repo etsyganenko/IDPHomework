@@ -21,15 +21,24 @@
 
 - (void)processObject:(TSYAccountant *)accountant {
     [self takeMoney:accountant.money fromObject:accountant];
+    
     [self earnProfit];
 }
 
-- (void)performWorkWithObject:(id)object {
-    self.processedObject = object;
-    
-    [self processObject:object];
-    
-    self.processedObject = nil;
+- (void)performWorkWithObject:(TSYAccountant *)accountant {
+    @synchronized (self) {
+        [self processObject:accountant];
+        
+        accountant.state = TSYEmployeeStateFree;
+        
+        self.state = TSYEmployeeStateFree;
+    }
 }
+
+//- (void)finishProcessingObject:(TSYEmployee *)employee {
+//    employee.state = TSYEmployeeStateFree;
+//    
+//    self.state = TSYEmployeeStateFree;
+//}
 
 @end

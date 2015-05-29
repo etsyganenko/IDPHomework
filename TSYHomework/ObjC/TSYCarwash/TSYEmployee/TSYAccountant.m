@@ -9,6 +9,7 @@
 #import "TSYAccountant.h"
 
 #import "TSYWasher.h"
+#import "TSYQueue.h"
 
 @implementation TSYAccountant
 
@@ -20,7 +21,10 @@
 }
 
 - (void)processObject:(TSYWasher *)washer {
+    usleep(arc4random_uniform(100000));
+    
     [self takeMoney:washer.money fromObject:washer];
+    
     [self calculateMoney:self.money];
 }
 

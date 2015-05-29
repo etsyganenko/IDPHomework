@@ -8,16 +8,17 @@
 
 #import "TSYEmployee.h"
 #import "TSYCar.h"
+#import "TSYQueue.h"
+
 #import "NSObject+TSYCategory.h"
 
 @interface TSYEmployee ()
-@property (nonatomic, retain)   NSMutableSet    *mutableObserversSet;
+@property (nonatomic, retain)       NSMutableSet    *mutableObserversSet;
+@property (nonatomic, readwrite)    TSYQueue        *subordinates;
 
 @end
 
 @implementation TSYEmployee
-
-@dynamic observersSet;
 
 @synthesize money   = _money;
 
@@ -40,68 +41,47 @@
 
 - (void)dealloc {
     self.name = nil;
-    self.mutableObserversSet = nil;
+    self.subordinates = nil;
     
     [super dealloc];
 }
 
 - (instancetype)init {
-    self = [super init];
+    self = [super initWithMutableObserversSet];
     if (self) {
         self.state = TSYEmployeeStateFree;
-        self.mutableObserversSet = [NSMutableSet set];
+        self.subordinates = [TSYQueue queue];
     }
     
     return self;
 }
 
 #pragma mark -
+#pragma mark Accessors Methods
+
+- (TSYQueue *)queue {
+    return [[self.subordinates copy] autorelease];
+}
+
+#pragma mark -
 #pragma mark Public Methods
 
-- (void)setState:(TSYEmployeeState)state {
+- (void)performWorkWithObject:(id)object {
     @synchronized (self) {
-        if (_state != state) {
-            _state = state;
+        if (TSYEmployeeStateFree == self.state) {
+            self.state = TSYEmployeeStateBusy;
             
-            [self notifyOfStateWithSelector:[self selectorForState:state]];
+            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                   withObject:object];
+        } else {
+            [self.subordinates enqueue:object];
         }
     }
 }
 
-- (void)performWorkWithObject:(id)object {
+- (void)finishProcessingObject:(TSYEmployee *)employee {
     @synchronized (self) {
-        self.processedObject = object;
-        
-        self.state = TSYEmployeeStateBusy;
-        
-        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                               withObject:object];
-    }
-}
-
-- (void)performWorkWithObjectInBackground:(id)object {
-    @synchronized (self) {
-        [self processObject:object];
-        
-        [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
-                               withObject:object
-                            waitUntilDone:NO];
-    }
-}
-
-- (void)performWorkWithObjectOnMainThread:(id)object {
-    @synchronized (self) {
-        self.processedObject = nil;
-        
-        self.state = TSYEmployeeStateDidFinishWork;
-        
-        [self finishProcessingObject:object];
-    }
-}
-
-- (void)finishProcessingObject:(id)object {
-    @synchronized (self) {
-        self.state = TSYEmployeeStateFree;
+        employee.state = TSYEmployeeStateFree;
     }
 }
 
@@ -109,8 +89,48 @@
 
 }
 
-- (NSSet *)observersSet {
-    return [[self.mutableObserversSet copy] autorelease];
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)performWorkWithObjectInBackground:(id)object {
+    self.processedObject = object;
+    
+    [self processObject:object];
+    
+    [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
+                           withObject:object
+                        waitUntilDone:NO];
+}
+
+- (void)performWorkWithObjectOnMainThread:(id)object {
+    self.processedObject = nil;
+    
+    [self finishProcessingObject:object];
+    
+    TSYQueue *subordinates = self.subordinates;
+    
+    if (![subordinates isEmpty]) {
+        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                               withObject:[subordinates dequeue]];
+    } else {
+        self.state = TSYEmployeeStateDidFinishWork;
+    }
+}
+
+#pragma mark -
+#pragma mark TSYObservableObject
+
+- (SEL)selectorForState:(TSYEmployeeState)state {
+    switch (state) {
+        case TSYEmployeeStateFree:
+            return @selector(employeeDidBecomeFree:);
+            
+        case TSYEmployeeStateDidFinishWork:
+            return @selector(employeeDidFinishWork:);
+            
+        default:
+            return NULL;
+    }
 }
 
 #pragma mark -
@@ -132,44 +152,11 @@
 }
 
 #pragma mark -
-#pragma mark TSYObserver
-
-- (void)addObserver:(id)observer {
-    [self.mutableObserversSet addObject:observer];
-}
-
-- (void)removeObserver:(id)observer {
-    [self.mutableObserversSet removeObject:observer];
-}
-
-- (void)notifyOfStateWithSelector:(SEL)selector {
-    for (id observer in self.observersSet) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self];
-        }
-    }
-}
-
-- (SEL)selectorForState:(TSYEmployeeState)state {
-    switch (state) {
-        case TSYEmployeeStateFree:
-            return @selector(employeeDidBecomeFree:);
-            
-        case TSYEmployeeStateDidFinishWork:
-            return @selector(employeeDidFinishWork:);
-            
-        case TSYEmployeeStateBusy:
-            return NULL;
-    }
-    
-    return NULL;
-}
+#pragma mark TSYEmployeeObserver
 
 - (void)employeeDidFinishWork:(TSYEmployee *)employee {
     @synchronized (self) {
         [self performWorkWithObject:employee];
-        
-        employee.state = TSYEmployeeStateFree;
     }
 }
 

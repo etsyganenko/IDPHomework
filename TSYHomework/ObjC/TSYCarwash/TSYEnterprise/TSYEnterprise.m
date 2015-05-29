@@ -14,19 +14,20 @@
 #import "TSYCarwashRoom.h"
 #import "TSYRoom.h"
 #import "TSYCar.h"
+#import "TSYQueue.h"
 
 #import "NSObject+TSYCategory.h"
 #import "NSString+TSYRandomString.h"
 #import "NSString+TSYAlphabet.h"
 
-static const NSUInteger TSYWashersCount                     =   5;
+static const NSUInteger TSYWashersCount                     =   3;
 static const NSUInteger TSYWasherSalary                     =   5000;
 static const NSUInteger TSYAccountantSalary                 =   7000;
 static const NSUInteger TSYDirectorSalary                   =   10000;
 static const NSUInteger TSYWashingPrice                     =   60;
 
 @interface TSYEnterprise ()
-@property (nonatomic, retain)   NSMutableArray  *cars;
+@property (nonatomic, retain)   TSYQueue        *cars;
 @property (nonatomic, retain)   NSMutableArray  *employees;
 
 - (void)organizeStaff;
@@ -36,7 +37,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
 - (id)freeEmployeeOfClass:(Class)class;
 - (id)employeesOfClass:(Class)class;
 
-- (TSYCar *)nextCar;
+//- (TSYCar *)nextCar;
 
 @end
 
@@ -67,7 +68,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
     self = [super init];
     
     self.employees = [NSMutableArray array];
-    self.cars = [NSMutableArray array];
+    self.cars = [TSYQueue queue];
     
     [self organizeStaff];
     
@@ -84,35 +85,21 @@ static const NSUInteger TSYWashingPrice                     =   60;
         if (washer) {
             [washer performWorkWithObject:car];
         } else {
-            [self.cars addObject:car];
+            [self.cars enqueue:car];
         }
     }
 }
 
 #pragma mark -
-#pragma mark TSYObserver
+#pragma mark TSYEmployeeObserver
 
 - (void)employeeDidBecomeFree:(TSYWasher *)washer {
     @synchronized (self) {
-        TSYCar *car = [self nextCar];
+        TSYCar *car = [self.cars dequeue];
         
         if (car) {
             [washer performWorkWithObject:car];
         }
-    }
-}
-
-- (TSYCar *)nextCar {
-    @synchronized (self) {
-        NSMutableArray *cars = self.cars;
-        
-        TSYCar *car = [[[cars firstObject] retain] autorelease];
-        
-        if (car) {
-            [cars removeObject:car];
-        }
-        
-        return car;
     }
 }
 
@@ -175,7 +162,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
     NSArray *employees = [NSArray array];
     
     @synchronized (self) {
-        employees = self.employees;
+        employees = [[self.employees copy] autorelease];
     }
     
     for (TSYEmployee *employee in employees) {

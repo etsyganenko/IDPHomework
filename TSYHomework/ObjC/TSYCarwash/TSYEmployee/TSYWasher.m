@@ -26,8 +26,15 @@
 }
 
 - (void)processObject:(TSYCar *)car {
+    usleep(arc4random_uniform(100000));
+    
     [self washCar:car];
+    
     [self takeMoney:self.price fromObject:car];
+}
+
+- (void)finishProcessingObject:(id)object {
+
 }
 
 @end

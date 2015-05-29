@@ -12,7 +12,7 @@
 
 @class TSYCar;
 
-@interface TSYEnterprise : NSObject<TSYObserver>
+@interface TSYEnterprise : NSObject<TSYEmployeeObserver>
 
 + (instancetype)enterprise;
 
