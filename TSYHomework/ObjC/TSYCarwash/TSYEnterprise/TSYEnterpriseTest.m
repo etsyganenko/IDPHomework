@@ -9,6 +9,7 @@
 #import "TSYEnterpriseTest.h"
 #import "TSYEnterprise.h"
 #import "TSYCar.h"
+#import "TSYDispatcher.h"
 
 #import "NSString+TSYRandomString.h"
 #import "NSString+TSYAlphabet.h"
@@ -17,7 +18,8 @@
 
 void TSYEnterprisePerformTest() {
     @autoreleasepool {
-        TSYEnterprise *enterprise = [TSYEnterprise enterprise];
+//        TSYEnterprise *enterprise = [TSYEnterprise enterprise];
+        TSYDispatcher
         
         NSUInteger carsCount = 100;
         NSUInteger carMoney = 100;

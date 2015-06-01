@@ -15,6 +15,7 @@
 #import "TSYRoom.h"
 #import "TSYCar.h"
 #import "TSYQueue.h"
+#import "TSYDispatcher.h"
 
 #import "NSObject+TSYCategory.h"
 #import "NSString+TSYRandomString.h"
@@ -29,6 +30,9 @@ static const NSUInteger TSYWashingPrice                     =   60;
 @interface TSYEnterprise ()
 @property (nonatomic, retain)   TSYQueue        *cars;
 @property (nonatomic, retain)   NSMutableArray  *employees;
+
+@property (nonatomic, retain)   TSYDispatcher   *washersDispatcher;
+@property (nonatomic, retain)   TSYDispatcher   *accountantsDispatcher;
 
 - (void)organizeStaff;
 
@@ -93,6 +97,10 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark -
 #pragma mark TSYEmployeeObserver
 
+- (void)employeeDidFinishWork:(TSYEmployee *)employee {
+    
+}
+
 - (void)employeeDidBecomeFree:(TSYWasher *)washer {
     @synchronized (self) {
         TSYCar *car = [self.cars dequeue];
@@ -107,7 +115,26 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark Private Methods
 
 - (void)organizeStaff {
-    NSMutableArray *employees = self.employees;
+    TSYDispatcher *washersDispatcher = self.washersDispatcher;
+    TSYDispatcher *accountantsDispatcher = self.accountantsDispatcher;
+    
+    for (NSUInteger index = 0; index < TSYWashersCount; index++) {
+        NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
+        
+        TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:TSYWasherSalary];
+        washer.price = TSYWashingPrice;
+        
+        [washer addObserver:self];
+        [washer addObserver:washersDispatcher];
+        
+        [washersDispatcher addEmployee:washer];
+    }
+    
+    
+    
+    
+    
+//    NSMutableArray *employees = self.employees;
     
     NSString *accountantName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
     NSString *directorName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
@@ -120,17 +147,17 @@ static const NSUInteger TSYWashingPrice                     =   60;
     
     [accountant addObserver:director];
     
-    for (NSUInteger index = 0; index < TSYWashersCount; index++) {
-        NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
-        
-        TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:TSYWasherSalary];
-        washer.price = TSYWashingPrice;
-        
-        [washer addObserver:self];
-        [washer addObserver:accountant];
-        
-        [employees addObject:washer];
-    }
+//    for (NSUInteger index = 0; index < TSYWashersCount; index++) {
+//        NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
+//        
+//        TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:TSYWasherSalary];
+//        washer.price = TSYWashingPrice;
+//        
+//        [washer addObserver:self];
+//        [washer addObserver:accountant];
+//        
+//        [employees addObject:washer];
+//    }
 }
 
 - (void)removeObservers {

@@ -9,10 +9,6 @@
 #import "TSYDispatcher.h"
 
 #import "TSYQueue.h"
-//#import "TSYCar.h"
-//#import "TSYWasher.h"
-//#import "TSYAccountant.h"
-//#import "TSYDirector.h"
 
 #import "NSObject+TSYCategory.h"
 
@@ -20,8 +16,8 @@
 @property (nonatomic, retain)   NSMutableArray  *employees;
 @property (nonatomic, retain)   TSYQueue        *queue;
 
-- (void)processObject:(id)object withProcessor:(id)processor;
-- (id)freeProcessor;
+- (void)processObject:(id)object withEmployee:(TSYEmployee *)employee;
+- (id)freeEmployee;
 
 @end
 
@@ -63,9 +59,11 @@
 #pragma mark Public Methods
 
 - (void)processObject:(id)object {
-    TSYEmployee *employee = [self freeEmployee];
-    
-    [self processObject:object withEmployee:employee];
+    @synchronized (self) {
+        TSYEmployee *employee = [self freeEmployee];
+        
+        [self processObject:object withEmployee:employee];
+    }
 }
 
 - (void)addEmployee:(TSYEmployee *)employee {
@@ -92,15 +90,13 @@
 }
 
 - (TSYEmployee *)freeEmployee {
-    @synchronized (self) {
-        for (TSYEmployee *employee in self.employees) {
-            if (TSYEmployeeStateFree == employee.state) {
-                return employee;
-            }
+    for (TSYEmployee *employee in self.employees) {
+        if (TSYEmployeeStateFree == employee.state) {
+            return employee;
         }
-        
-        return nil;
     }
+    
+    return nil;
 }
 
 #pragma mark -
