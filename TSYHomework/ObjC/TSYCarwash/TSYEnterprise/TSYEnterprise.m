@@ -98,7 +98,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark TSYEmployeeObserver
 
 - (void)employeeDidFinishWork:(TSYEmployee *)employee {
-    
+    [self.accountantsDispatcher processObject:employee];
 }
 
 - (void)employeeDidBecomeFree:(TSYWasher *)washer {
