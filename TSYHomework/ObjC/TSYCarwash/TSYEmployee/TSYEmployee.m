@@ -14,7 +14,6 @@
 @implementation TSYEmployee
 
 @synthesize money   = _money;
-@synthesize state   = _state;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -82,16 +81,6 @@
 #pragma mark -
 #pragma mark Private Methods
 
-//- (void)performWorkWithObjectInBackground:(id)object {
-//    self.processedObject = object;
-//    
-//    [self processObject:object];
-//    
-//    [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
-//                           withObject:object
-//                        waitUntilDone:NO];
-//}
-
 - (void)performWorkWithObjectInBackground:(id)object {
     [self processObject:object];
     
@@ -100,55 +89,14 @@
                         waitUntilDone:NO];
 }
 
-//- (void)performWorkWithObjectOnMainThread:(id)object {
-//    [self finishProcessingObject:object];
-//    
-//    self.processedObject = nil;
-//    
-//    @synchronized (self) {
-//        TSYEmployee *subordinate = [self.subordinates dequeue];
-//        
-//        if (subordinate) {
-//            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-//                                   withObject:subordinate];
-//        } else {
-//            self.state = TSYEmployeeStateDidFinishWork;
-//        }
-//    }
-//}
-
 - (void)performWorkWithObjectOnMainThread:(id)object {
     [self finishProcessingObject:object];
-    
+
     self.state = TSYEmployeeStateDidFinishWork;
 }
 
 #pragma mark -
 #pragma mark TSYObservableObject
-
-//- (void)setState:(NSUInteger)state {
-//    @synchronized (self) {
-//        if (_state != state) {
-//            _state = state;
-//            
-//            if (TSYEmployeeStateFree == state) {
-//                [self checkQueueBeforeNotifying];
-//            } else {
-//                [self notifyOfStateChange:state];
-//            }
-//        }
-//    }
-//}
-
-//- (void)checkQueueBeforeNotifying {
-//    TSYEmployee *subordinate = [self.subordinates dequeue];
-//    
-//    if (subordinate) {
-//        [self performWorkWithObject:subordinate];
-//    } else {
-//        [self notifyOfStateChange:_state];
-//    }
-//}
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
@@ -179,13 +127,6 @@
     @synchronized (self) {
         self.money += money;
     }
-}
-
-#pragma mark -
-#pragma mark TSYEmployeeObserver
-
-- (void)employeeDidFinishWork:(TSYEmployee *)employee {
-    [self performWorkWithObject:employee];
 }
 
 @end

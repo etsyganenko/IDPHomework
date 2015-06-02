@@ -73,18 +73,6 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark -
 #pragma mark Public Methods
 
-//- (void)washCar:(TSYCar *)car {
-//    @synchronized (self) {
-//        TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
-//        
-//        if (washer) {
-//            [washer performWorkWithObject:car];
-//        } else {
-//            [self.cars enqueue:car];
-//        }
-//    }
-//}
-
 - (void)washCar:(TSYCar *)car {
     [self.washersDispatcher processObject:car];
 }
@@ -92,14 +80,17 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark -
 #pragma mark TSYEmployeeObserver
 
-- (void)employeeDidFinishWork:(TSYEmployee *)employee {
-    [self.accountantsDispatcher processObject:employee];
+- (void)employeeDidFinishWork:(TSYWasher *)washer {
+    [self.accountantsDispatcher processObject:washer];
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
 - (void)organizeStaff {
+    self.washersDispatcher = [TSYDispatcher dispatcher];
+    self.accountantsDispatcher = [TSYDispatcher dispatcher];
+    
     TSYDispatcher *washersDispatcher = self.washersDispatcher;
     TSYDispatcher *accountantsDispatcher = self.accountantsDispatcher;
     

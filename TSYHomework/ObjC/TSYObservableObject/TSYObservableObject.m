@@ -44,7 +44,7 @@
     @synchronized (self) {
         if (_state != state) {
             _state = state;
-            
+
             [self notifyOfStateChange:state];
         }
     }
