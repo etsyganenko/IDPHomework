@@ -8,18 +8,10 @@
 
 #import "TSYEmployee.h"
 #import "TSYCar.h"
-#import "TSYQueue.h"
 
 #import "NSObject+TSYCategory.h"
 
-@interface TSYEmployee ()
-@property (nonatomic, readwrite)    TSYQueue        *subordinates;
-
-@end
-
 @implementation TSYEmployee
-
-@dynamic queue;
 
 @synthesize money   = _money;
 @synthesize state   = _state;
@@ -43,7 +35,6 @@
 
 - (void)dealloc {
     self.name = nil;
-    self.subordinates = nil;
     
     [super dealloc];
 }
@@ -52,17 +43,9 @@
     self = [super init];
     if (self) {
         self.state = TSYEmployeeStateFree;
-        self.subordinates = [TSYQueue queue];
     }
     
     return self;
-}
-
-#pragma mark -
-#pragma mark Accessors Methods
-
-- (TSYQueue *)queue {
-    return [[self.subordinates copy] autorelease];
 }
 
 #pragma mark -
@@ -143,29 +126,29 @@
 #pragma mark -
 #pragma mark TSYObservableObject
 
-- (void)setState:(NSUInteger)state {
-    @synchronized (self) {
-        if (_state != state) {
-            _state = state;
-            
-            if (TSYEmployeeStateFree == state) {
-                [self checkQueueBeforeNotifying];
-            } else {
-                [self notifyOfStateChange:state];
-            }
-        }
-    }
-}
+//- (void)setState:(NSUInteger)state {
+//    @synchronized (self) {
+//        if (_state != state) {
+//            _state = state;
+//            
+//            if (TSYEmployeeStateFree == state) {
+//                [self checkQueueBeforeNotifying];
+//            } else {
+//                [self notifyOfStateChange:state];
+//            }
+//        }
+//    }
+//}
 
-- (void)checkQueueBeforeNotifying {
-    TSYEmployee *subordinate = [self.subordinates dequeue];
-    
-    if (subordinate) {
-        [self performWorkWithObject:subordinate];
-    } else {
-        [self notifyOfStateChange:_state];
-    }
-}
+//- (void)checkQueueBeforeNotifying {
+//    TSYEmployee *subordinate = [self.subordinates dequeue];
+//    
+//    if (subordinate) {
+//        [self performWorkWithObject:subordinate];
+//    } else {
+//        [self notifyOfStateChange:_state];
+//    }
+//}
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {

@@ -18,8 +18,7 @@
 
 void TSYEnterprisePerformTest() {
     @autoreleasepool {
-//        TSYEnterprise *enterprise = [TSYEnterprise enterprise];
-        TSYDispatcher *dispatcher = [TSYDispatcher dispatcher];
+        TSYEnterprise *enterprise = [TSYEnterprise enterprise];
         
         NSUInteger carsCount = 100;
         NSUInteger carMoney = 100;
@@ -39,8 +38,7 @@ void TSYEnterprisePerformTest() {
             
             usleep(arc4random_uniform(10000));
             
-//            [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
-            [dispatcher processObject:car];
+            [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
         }
         
         NSRunLoop *loop = [NSRunLoop mainRunLoop];

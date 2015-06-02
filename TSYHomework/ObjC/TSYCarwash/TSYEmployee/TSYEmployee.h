@@ -13,7 +13,6 @@
 
 @class TSYCar;
 @class TSYEmployee;
-@class TSYQueue;
 
 typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
     TSYEmployeeStateFree,
@@ -33,10 +32,6 @@ typedef NS_ENUM(NSUInteger, TSYEmployeeState) {
 @property (nonatomic, copy)     NSString            *name;
 @property (nonatomic, assign)   NSUInteger          salary;
 @property (nonatomic, assign)   NSUInteger          experience;
-
-@property (nonatomic, readonly) TSYQueue            *queue;
-
-@property (nonatomic, retain)   NSObject            *processedObject;
 
 + (instancetype)employeeWithName:(NSString *)name
                           salary:(NSUInteger)salary;
