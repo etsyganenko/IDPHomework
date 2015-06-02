@@ -57,18 +57,24 @@
 }
 
 - (NSSet *)observersSet {
-    return [[self.observersHashTable copy] autorelease];
+    @synchronized (self) {
+        return [[self.observersHashTable copy] autorelease];
+    }
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-    [self.observersHashTable addObject:observer];
+    @synchronized (self) {
+        [self.observersHashTable addObject:observer];
+    }
 }
 
 - (void)removeObserver:(id)observer {
-    [self.observersHashTable removeObject:observer];
+    @synchronized (self) {
+        [self.observersHashTable removeObject:observer];
+    }
 }
 
 - (void)notifyOfStateChange:(NSUInteger)state {

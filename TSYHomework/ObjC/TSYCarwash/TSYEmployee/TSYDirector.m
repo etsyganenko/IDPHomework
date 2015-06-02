@@ -23,6 +23,8 @@
     [self takeMoney:accountant.money fromObject:accountant];
     
     [self earnProfit];
+    
+    usleep(arc4random_uniform(50000));
 }
 
 - (void)performWorkWithObject:(TSYAccountant *)accountant {
