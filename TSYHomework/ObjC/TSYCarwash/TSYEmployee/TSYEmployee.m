@@ -8,12 +8,23 @@
 
 #import "TSYEmployee.h"
 #import "TSYCar.h"
+#import "TSYQueue.h"
 
 #import "NSObject+TSYCategory.h"
 
+@interface TSYEmployee ()
+@property (nonatomic, retain) TSYQueue    *subordinates;
+
+- (void)checkQueueBeforeNotifying;
+
+@end
+
 @implementation TSYEmployee
 
+@dynamic queue;
+
 @synthesize money   = _money;
+@synthesize state   = _state;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -34,6 +45,7 @@
 
 - (void)dealloc {
     self.name = nil;
+    self.subordinates = nil;
     
     [super dealloc];
 }
@@ -42,32 +54,33 @@
     self = [super init];
     if (self) {
         self.state = TSYEmployeeStateFree;
+        self.subordinates = [TSYQueue queue];
     }
     
     return self;
 }
 
 #pragma mark -
+#pragma mark Accessors Methods
+
+- (NSArray *)queue {
+    return [[self.subordinates copy] autorelease];
+}
+
+#pragma mark -
 #pragma mark Public Methods
 
-//- (void)performWorkWithObject:(id)object {
-//    @synchronized (self) {
-//        if (TSYEmployeeStateFree == self.state) {
-//            self.state = TSYEmployeeStateBusy;
-//            
-//            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-//                                   withObject:object];
-//        } else {
-//            [self.subordinates enqueue:object];
-//        }
-//    }
-//}
-
 - (void)performWorkWithObject:(id)object {
-    self.state = TSYEmployeeStateBusy;
-    
-    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                           withObject:object];
+    @synchronized (self) {
+        if (TSYEmployeeStateFree == self.state) {
+            self.state = TSYEmployeeStateBusy;
+            
+            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                   withObject:object];
+        } else {
+            [self.subordinates enqueue:object];
+        }
+    }
 }
 
 - (void)finishProcessingObject:(TSYEmployee *)employee {
@@ -95,8 +108,32 @@
     self.state = TSYEmployeeStateDidFinishWork;
 }
 
+- (void)checkQueueBeforeNotifying {
+    TSYEmployee *subordinate = [self.subordinates dequeue];
+    
+    if (subordinate) {
+        [self performWorkWithObject:subordinate];
+    } else {
+        [self notifyOfStateChange:_state];
+    }
+}
+
 #pragma mark -
 #pragma mark TSYObservableObject
+
+- (void)setState:(NSUInteger)state {
+    @synchronized (self) {
+        if (_state != state) {
+            _state = state;
+
+            if (TSYEmployeeStateFree == state) {
+                [self checkQueueBeforeNotifying];
+            } else {
+                [self notifyOfStateChange:state];
+            }
+        }
+    }
+}
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {

@@ -36,9 +36,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
 
 - (void)organizeStaff;
 
-//- (void)removeObservers;
-//
-//- (id)employeesOfClass:(Class)class;
+- (void)removeObservers;
 
 @end
 
@@ -57,7 +55,7 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-//    [self removeObservers];
+    [self removeObservers];
     
     [super dealloc];
 }
@@ -122,35 +120,23 @@ static const NSUInteger TSYWashingPrice                     =   60;
     }
 }
 
-//- (void)removeObservers {
-//    TSYAccountant *accountant = [[self employeesOfClass:[TSYAccountant class]] firstObject];
-//    TSYDirector *director = [[self employeesOfClass:[TSYDirector class]] firstObject];
-//    
-//    [accountant removeObserver:director];
-//    
-//    NSArray *washers = [self employeesOfClass:[TSYWasher class]];
-//    
-//    for (TSYWasher *washer in washers) {
-//        [washer removeObserver:self];
-//        [washer removeObserver:accountant];
-//    }
-//}
-
-//- (id)employeesOfClass:(Class)class {
-//    NSMutableArray *result = [NSMutableArray array];
-//    NSArray *employees = [NSArray array];
-//    
-//    @synchronized (self) {
-//        employees = [[self.employees copy] autorelease];
-//    }
-//    
-//    for (TSYEmployee *employee in employees) {
-//        if ([employee isMemberOfClass:class]) {
-//            [result addObject:employee];
-//        }
-//    }
-//    
-//    return result;
-//}
+- (void)removeObservers {
+    TSYDispatcher *washersDispatcher = self.washersDispatcher;
+    TSYDispatcher *accountantsDispatcher = self.accountantsDispatcher;
+    TSYDirector *director = self.director;
+    
+    NSArray *washers = [washersDispatcher processors];
+    NSArray *accountants = [accountantsDispatcher processors];
+    
+    for (TSYWasher *washer in washers) {
+        [washer removeObserver:self];
+        [washer removeObserver:washersDispatcher];
+    }
+    
+    for (TSYAccountant *accountant in accountants) {
+        [accountant removeObserver:director];
+        [accountant removeObserver:accountantsDispatcher];
+    }
+}
 
 @end

@@ -23,6 +23,8 @@
 
 @implementation TSYDispatcher
 
+@dynamic processors;
+
 #pragma mark -
 #pragma mark Class Methods
 
@@ -54,6 +56,10 @@
 
 #pragma mark -
 #pragma mark Accessors Methods
+
+- (NSArray *)processors {
+    return [[self.employees copy] autorelease];
+}
 
 #pragma mark -
 #pragma mark Public Methods
