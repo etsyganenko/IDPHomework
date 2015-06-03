@@ -25,9 +25,9 @@
 + (instancetype)randomNameWithMinLength:(NSUInteger)min
                               maxLength:(NSUInteger)max
 {
-    NSUInteger length = (min + arc4random_uniform((uint32_t)(max - min)));
-    
-    return [self randomNameWithLength:length];
+    return [NSString randomStringWithMinLength:min
+                                     maxLength:max
+                                      alphabet:[[NSString letterAlphabet] capitalizedString]];
 }
 
 @end

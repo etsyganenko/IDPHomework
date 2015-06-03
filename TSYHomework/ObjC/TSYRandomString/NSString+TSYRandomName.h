@@ -10,16 +10,15 @@
 
 @interface NSString (TSYRandomName)
 
-//returns capitalized random string with random length
-//with min characters count = 2
-//and max characters count = 5
+// returns capitalized random string with random length
+// from range [1 - 10]
 + (instancetype)randomName;
 
-//returns capitalized random string with given length
+// returns capitalized random string with given length
 + (instancetype)randomNameWithLength:(NSUInteger)length;
 
-//returns capitalized random string with random length
-//with given min and max characters count
+// returns capitalized random string with random length
+// with given min and max characters count
 + (instancetype)randomNameWithMinLength:(NSUInteger)min
                               maxLength:(NSUInteger)max;
 
