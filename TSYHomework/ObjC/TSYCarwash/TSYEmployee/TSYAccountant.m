@@ -20,9 +20,7 @@
     NSLog(@"%@ %@ is calculating money. Money = %lu", self.className, self.name, money);
 }
 
-- (void)processObject:(TSYWasher *)washer {
-    usleep(arc4random_uniform(100000));
-    
+- (void)processObject:(TSYWasher *)washer {    
     [self takeMoney:washer.money fromObject:washer];
     
     [self calculateMoney:self.money];

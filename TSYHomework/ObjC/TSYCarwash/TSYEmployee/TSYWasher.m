@@ -25,9 +25,7 @@
     car.clean = true;
 }
 
-- (void)processObject:(TSYCar *)car {
-    usleep(arc4random_uniform(100000));
-    
+- (void)processObject:(TSYCar *)car {    
     [self washCar:car];
     
     [self takeMoney:self.price fromObject:car];

@@ -25,16 +25,6 @@
     [self earnProfit];
 }
 
-//- (void)performWorkWithObject:(TSYAccountant *)accountant {
-//    @synchronized (self) {
-//        [self processObject:accountant];
-//        
-//        accountant.state = TSYEmployeeStateFree;
-//        
-//        self.state = TSYEmployeeStateFree;
-//    }
-//}
-
 - (void)performWorkWithObject:(TSYAccountant *)accountant {
     @synchronized (self) {
         [self processObject:accountant];

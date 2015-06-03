@@ -13,7 +13,7 @@
 #import "NSObject+TSYCategory.h"
 
 @interface TSYDispatcher ()
-@property (nonatomic, retain)   NSMutableArray  *employees;
+@property (nonatomic, retain)   NSMutableArray  *mutableEmployees;
 @property (nonatomic, retain)   TSYQueue        *queue;
 
 - (void)processObject:(id)object withEmployee:(TSYEmployee *)employee;
@@ -23,13 +23,13 @@
 
 @implementation TSYDispatcher
 
+@dynamic employees;
+
 #pragma mark -
 #pragma mark Class Methods
 
 + (instancetype)dispatcher {
-    TSYDispatcher *dispatcher = [self object];
-    
-    return dispatcher;
+    return [self object];
 }
 
 #pragma mark -
@@ -37,7 +37,7 @@
 
 - (void)dealloc {
     self.queue = nil;
-    self.employees = nil;
+    self.mutableEmployees = nil;
     
     [super dealloc];
 }
@@ -45,15 +45,21 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.employees = [NSMutableArray array];
+        self.mutableEmployees = [NSMutableArray array];
         self.queue = [TSYQueue queue];
     }
-    
+
     return self;
 }
 
 #pragma mark -
 #pragma mark Accessors Methods
+
+- (NSArray *)employees {
+    @synchronized (self) {
+        return [[self.mutableEmployees copy] autorelease];
+    }
+}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -68,13 +74,15 @@
 
 - (void)addEmployee:(TSYEmployee *)employee {
     @synchronized (self) {
-        [self.employees addObject:employee];
+        [self.mutableEmployees addObject:employee];
+        [employee addObserver:self];
     }
 }
 
 - (void)removeEmployee:(TSYEmployee *)employee {
     @synchronized (self) {
-        [self.employees removeObject:employee];
+        [employee removeObserver:self];
+        [self.mutableEmployees removeObject:employee];
     }
 }
 
@@ -90,7 +98,7 @@
 }
 
 - (TSYEmployee *)freeEmployee {
-    for (TSYEmployee *employee in self.employees) {
+    for (TSYEmployee *employee in self.mutableEmployees) {
         if (TSYEmployeeStateFree == employee.state) {
             return employee;
         }

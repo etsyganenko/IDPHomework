@@ -13,6 +13,7 @@
 @class TSYQueue;
 
 @interface TSYDispatcher : NSObject<TSYEmployeeObserver>
+@property (nonatomic, readonly)   NSArray  *employees;
 
 + (instancetype)dispatcher;
 

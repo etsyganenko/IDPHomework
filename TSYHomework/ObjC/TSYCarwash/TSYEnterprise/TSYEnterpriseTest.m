@@ -14,29 +14,28 @@
 #import "NSString+TSYRandomString.h"
 #import "NSString+TSYAlphabet.h"
 
-@implementation TSYEnterpriseTest
+static const NSUInteger TSYCarsCount        =   100;
+static const NSUInteger TSYCarMoney         =   100;
+static const NSUInteger TSYCarNameLength    =   5;
 
 void TSYEnterprisePerformTest() {
     @autoreleasepool {
         TSYEnterprise *enterprise = [TSYEnterprise enterprise];
         
-        NSUInteger carsCount = 100;
-        NSUInteger carMoney = 100;
-        
         NSMutableArray *cars = [NSMutableArray array];
         
         NSString *alphabet = [NSString alphanumericAlphabet];
         
-        for (NSUInteger index = 0; index < carsCount; index++) {
-            NSString *model = [NSString randomStringWithLength:5 alphabet:alphabet];
+        for (NSUInteger index = 0; index < TSYCarsCount; index++) {
+            NSString *model = [NSString randomStringWithLength:TSYCarNameLength alphabet:alphabet];
             
-            [cars addObject:[TSYCar carWithModel:model money:carMoney]];
+            [cars addObject:[TSYCar carWithModel:model money:TSYCarMoney]];
         }
         
         for (TSYCar *car in cars) {
 //            [enterprise washCar:car];
             
-            usleep(arc4random_uniform(10000));
+            usleep(arc4random_uniform(1000));
             
             [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
         }
@@ -45,5 +44,3 @@ void TSYEnterprisePerformTest() {
         [loop run];
     }
 }
-
-@end

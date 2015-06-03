@@ -10,12 +10,19 @@
 
 #import "NSString+TSYAlphabet.h"
 
-static const NSUInteger TSYCharactersLimit = 10;
+static const NSUInteger TSYMaxCharactersCount = 10;
+static const NSUInteger TSYMinCharactersCount = 1;
 
 @implementation NSString (TSYExtensions)
 
-+ (instancetype)randomString {    
-    return [self randomStringWithLength:arc4random_uniform(TSYCharactersLimit)];
++ (instancetype)randomString {
+    return [self randomStringWithAlphabet:[NSString alphanumericAlphabet]];
+}
+
++ (instancetype)randomStringWithAlphabet:(NSString *)alphabet {
+    NSUInteger length = TSYMinCharactersCount + arc4random_uniform(TSYMaxCharactersCount - TSYMinCharactersCount);
+    
+    return [self randomStringWithLength:length alphabet:alphabet];
 }
 
 + (instancetype)randomStringWithLength:(NSUInteger)length {
@@ -32,6 +39,20 @@ static const NSUInteger TSYCharactersLimit = 10;
     }
     
     return [self stringWithString:result];
+}
+
++ (instancetype)randomStringWithMinLength:(NSUInteger)min
+                              maxLength:(NSUInteger)max
+{
+    return [self randomStringWithMinLength:min maxLength:max alphabet:[NSString alphanumericAlphabet]];
+}
+
++ (instancetype)randomStringWithMinLength:(NSUInteger)min
+                                maxLength:(NSUInteger)max
+                                 alphabet:(NSString *)alphabet {
+    NSUInteger length = (min + arc4random_uniform((uint32_t)(max - min)));
+    
+    return [self randomStringWithLength:length alphabet:alphabet];
 }
 
 @end
