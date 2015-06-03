@@ -20,6 +20,7 @@
 #import "NSObject+TSYCategory.h"
 #import "NSString+TSYRandomString.h"
 #import "NSString+TSYAlphabet.h"
+#import "NSString+TSYRandomName.h"
 
 static const NSUInteger TSYWashersCount                     =   5;
 static const NSUInteger TSYAccountantsCount                 =   3;
@@ -27,6 +28,8 @@ static const NSUInteger TSYWasherSalary                     =   5000;
 static const NSUInteger TSYAccountantSalary                 =   7000;
 static const NSUInteger TSYDirectorSalary                   =   10000;
 static const NSUInteger TSYWashingPrice                     =   60;
+static const NSUInteger TSYMinNameLength                    =   2;
+static const NSUInteger TSYMaxNameLength                    =   5;
 
 @interface TSYEnterprise ()
 @property (nonatomic, retain)   TSYDirector     *director;
@@ -93,9 +96,9 @@ static const NSUInteger TSYWashingPrice                     =   60;
     TSYDispatcher *accountantsDispatcher = self.accountantsDispatcher;
     
     for (NSUInteger index = 0; index < TSYWashersCount; index++) {
-        NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
-        
-        TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:TSYWasherSalary];
+        TSYWasher *washer = [TSYWasher employeeWithName:[NSString randomNameWithMinLength:TSYMinNameLength
+                                                                                maxLength:TSYMaxNameLength]
+                                                 salary:TSYWasherSalary];
         washer.price = TSYWashingPrice;
         
         [washer addObserver:self];
@@ -103,15 +106,15 @@ static const NSUInteger TSYWashingPrice                     =   60;
         
         [washersDispatcher addEmployee:washer];
     }
-
-    NSString *directorName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
     
-    self.director = [TSYDirector employeeWithName:directorName salary:TSYDirectorSalary];
+    self.director = [TSYDirector employeeWithName:[NSString randomNameWithMinLength:TSYMinNameLength
+                                                                          maxLength:TSYMaxNameLength]
+                                           salary:TSYDirectorSalary];
     
     for (NSUInteger index = 0; index < TSYAccountantsCount; index++) {
-        NSString *accountantName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
-        
-        TSYAccountant *accountant = [TSYAccountant employeeWithName:accountantName salary:TSYAccountantSalary];
+        TSYAccountant *accountant = [TSYAccountant employeeWithName:[NSString randomNameWithMinLength:TSYMinNameLength
+                                                                                            maxLength:TSYMaxNameLength]
+                                                             salary:TSYAccountantSalary];
         
         [accountant addObserver:self.director];
         [accountant addObserver:accountantsDispatcher];
@@ -125,8 +128,8 @@ static const NSUInteger TSYWashingPrice                     =   60;
     TSYDispatcher *accountantsDispatcher = self.accountantsDispatcher;
     TSYDirector *director = self.director;
     
-    NSArray *washers = [washersDispatcher processors];
-    NSArray *accountants = [accountantsDispatcher processors];
+    NSArray *washers = [washersDispatcher employees];
+    NSArray *accountants = [accountantsDispatcher employees];
     
     for (TSYWasher *washer in washers) {
         [washer removeObserver:self];

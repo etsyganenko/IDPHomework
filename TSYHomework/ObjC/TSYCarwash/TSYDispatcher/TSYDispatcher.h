@@ -13,7 +13,7 @@
 @class TSYQueue;
 
 @interface TSYDispatcher : NSObject<TSYEmployeeObserver>
-@property (nonatomic, readonly)   NSArray  *processors;
+@property (nonatomic, readonly)   NSArray  *employees;
 
 + (instancetype)dispatcher;
 
@@ -21,7 +21,5 @@
 
 - (void)addEmployee:(TSYEmployee *)employee;
 - (void)removeEmployee:(TSYEmployee *)employee;
-
-- (NSArray *)processors;
 
 @end
