@@ -30,6 +30,8 @@
 + (instancetype)randomStringWithMinLength:(NSUInteger)min
                               maxLength:(NSUInteger)max;
 
++ (instancetype)randomStringWithLengthInRange:(NSRange)range;
+
 // returns random string with random length
 // with given min and max characters count
 // with characters from a given range

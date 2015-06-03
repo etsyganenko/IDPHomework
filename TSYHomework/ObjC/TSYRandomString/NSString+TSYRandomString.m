@@ -10,8 +10,8 @@
 
 #import "NSString+TSYAlphabet.h"
 
-static const NSUInteger TSYMaxCharactersCount = 10;
-static const NSUInteger TSYMinCharactersCount = 1;
+static const NSUInteger TSYMaxCharactersCount = 5;
+static const NSUInteger TSYMinCharactersCount = 2;
 
 @implementation NSString (TSYExtensions)
 
@@ -41,16 +41,27 @@ static const NSUInteger TSYMinCharactersCount = 1;
     return [self stringWithString:result];
 }
 
-+ (instancetype)randomStringWithMinLength:(NSUInteger)min
-                              maxLength:(NSUInteger)max
-{
-    return [self randomStringWithMinLength:min maxLength:max alphabet:[NSString alphanumericAlphabet]];
+//+ (instancetype)randomStringWithMinLength:(NSUInteger)min
+//                              maxLength:(NSUInteger)max
+//{
+//    return [self randomStringWithMinLength:min maxLength:max alphabet:[NSString alphanumericAlphabet]];
+//}
+
++ (instancetype)randomStringWithLengthInRange:(NSRange)range {
+    return [self randomStringWithLengthInRange:range alphabet:[NSString alphanumericAlphabet]];
 }
 
-+ (instancetype)randomStringWithMinLength:(NSUInteger)min
-                                maxLength:(NSUInteger)max
-                                 alphabet:(NSString *)alphabet {
-    NSUInteger length = (min + arc4random_uniform((uint32_t)(max - min)));
+//+ (instancetype)randomStringWithMinLength:(NSUInteger)min
+//                                maxLength:(NSUInteger)max
+//                                 alphabet:(NSString *)alphabet {
+//    NSUInteger length = (min + arc4random_uniform((uint32_t)(max - min)));
+//    
+//    return [self randomStringWithLength:length alphabet:alphabet];
+//}
+
++ (instancetype)randomStringWithLengthInRange:(NSRange)range
+                                     alphabet:(NSString *)alphabet {
+    NSUInteger length = range.location + arc4random_uniform((u_int32_t)(range.length));
     
     return [self randomStringWithLength:length alphabet:alphabet];
 }

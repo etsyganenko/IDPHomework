@@ -12,6 +12,8 @@
 
 #import "NSObject+TSYCategory.h"
 
+static const NSUInteger TSYSleepingTime =  500000;
+
 @interface TSYEmployee ()
 @property (nonatomic, retain) TSYQueue    *mutableQueue;
 
@@ -97,7 +99,7 @@
 - (void)performWorkWithObjectInBackground:(id)object {
     [self processObject:object];
     
-    usleep(arc4random_uniform(500000));
+    usleep(arc4random_uniform(TSYSleepingTime));
     
     [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
                            withObject:object
