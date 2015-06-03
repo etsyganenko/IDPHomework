@@ -8,8 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TSYEnterpriseTest : NSObject
-
 void TSYEnterprisePerformTest();
-
-@end
