@@ -14,8 +14,9 @@
 #import "NSString+TSYRandomString.h"
 #import "NSString+TSYAlphabet.h"
 
-static const NSUInteger TSYCarsCount    =   100;
-static const NSUInteger TSYCarMoney     =   100;
+static const NSUInteger TSYCarsCount        =   100;
+static const NSUInteger TSYCarMoney         =   100;
+static const NSUInteger TSYCarNameLength    =   5;
 
 void TSYEnterprisePerformTest() {
     @autoreleasepool {
@@ -26,7 +27,7 @@ void TSYEnterprisePerformTest() {
         NSString *alphabet = [NSString alphanumericAlphabet];
         
         for (NSUInteger index = 0; index < TSYCarsCount; index++) {
-            NSString *model = [NSString randomStringWithLength:5 alphabet:alphabet];
+            NSString *model = [NSString randomStringWithLength:TSYCarNameLength alphabet:alphabet];
             
             [cars addObject:[TSYCar carWithModel:model money:TSYCarMoney]];
         }

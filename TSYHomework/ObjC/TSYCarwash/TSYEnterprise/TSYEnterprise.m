@@ -89,11 +89,11 @@ static const NSUInteger TSYMaxNameLength                    =   5;
 #pragma mark Private Methods
 
 - (void)organizeStaff {
-    self.washersDispatcher = [TSYDispatcher dispatcher];
-    self.accountantsDispatcher = [TSYDispatcher dispatcher];
+    TSYDispatcher *washersDispatcher = [TSYDispatcher dispatcher];
+    TSYDispatcher *accountantsDispatcher = [TSYDispatcher dispatcher];
     
-    TSYDispatcher *washersDispatcher = self.washersDispatcher;
-    TSYDispatcher *accountantsDispatcher = self.accountantsDispatcher;
+    self.washersDispatcher = washersDispatcher;
+    self.accountantsDispatcher = accountantsDispatcher;
     
     for (NSUInteger index = 0; index < TSYWashersCount; index++) {
         TSYWasher *washer = [TSYWasher employeeWithName:[NSString randomNameWithMinLength:TSYMinNameLength
@@ -102,7 +102,6 @@ static const NSUInteger TSYMaxNameLength                    =   5;
         washer.price = TSYWashingPrice;
         
         [washer addObserver:self];
-        [washer addObserver:washersDispatcher];
         
         [washersDispatcher addEmployee:washer];
     }
@@ -117,28 +116,23 @@ static const NSUInteger TSYMaxNameLength                    =   5;
                                                              salary:TSYAccountantSalary];
         
         [accountant addObserver:self.director];
-        [accountant addObserver:accountantsDispatcher];
         
         [accountantsDispatcher addEmployee:accountant];
     }
 }
 
 - (void)removeObservers {
-    TSYDispatcher *washersDispatcher = self.washersDispatcher;
-    TSYDispatcher *accountantsDispatcher = self.accountantsDispatcher;
     TSYDirector *director = self.director;
     
-    NSArray *washers = [washersDispatcher employees];
-    NSArray *accountants = [accountantsDispatcher employees];
+    NSArray *washers = [self.washersDispatcher employees];
+    NSArray *accountants = [self.accountantsDispatcher employees];
     
     for (TSYWasher *washer in washers) {
         [washer removeObserver:self];
-        [washer removeObserver:washersDispatcher];
     }
     
     for (TSYAccountant *accountant in accountants) {
         [accountant removeObserver:director];
-        [accountant removeObserver:accountantsDispatcher];
     }
 }
 

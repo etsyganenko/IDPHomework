@@ -13,9 +13,9 @@
 #import "NSObject+TSYCategory.h"
 
 @interface TSYEmployee ()
-@property (nonatomic, retain) TSYQueue    *subordinates;
+@property (nonatomic, retain) TSYQueue    *mutableQueue;
 
-- (void)checkQueueBeforeNotifying;
+- (BOOL)shouldNotifyWithState:(NSUInteger)state;
 
 @end
 
@@ -45,7 +45,7 @@
 
 - (void)dealloc {
     self.name = nil;
-    self.subordinates = nil;
+    self.mutableQueue = nil;
     
     [super dealloc];
 }
@@ -54,7 +54,7 @@
     self = [super init];
     if (self) {
         self.state = TSYEmployeeStateFree;
-        self.subordinates = [TSYQueue queue];
+        self.mutableQueue = [TSYQueue queue];
     }
     
     return self;
@@ -64,7 +64,7 @@
 #pragma mark Accessors Methods
 
 - (NSArray *)queue {
-    return [[self.subordinates copy] autorelease];
+    return [[self.mutableQueue copy] autorelease];
 }
 
 #pragma mark -
@@ -78,7 +78,7 @@
             [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
                                    withObject:object];
         } else {
-            [self.subordinates enqueue:object];
+            [self.mutableQueue enqueue:object];
         }
     }
 }
@@ -97,6 +97,8 @@
 - (void)performWorkWithObjectInBackground:(id)object {
     [self processObject:object];
     
+    usleep(arc4random_uniform(500000));
+    
     [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
                            withObject:object
                         waitUntilDone:NO];
@@ -108,28 +110,32 @@
     self.state = TSYEmployeeStateDidFinishWork;
 }
 
-- (void)checkQueueBeforeNotifying {
-    TSYEmployee *subordinate = [self.subordinates dequeue];
-    
-    if (subordinate) {
-        [self performWorkWithObject:subordinate];
-    } else {
-        [self notifyOfStateChange:_state];
-    }
-}
-
 #pragma mark -
 #pragma mark TSYObservableObject
+
+- (BOOL)shouldNotify {
+    return [self.mutableQueue isEmpty];
+}
+
+- (BOOL)shouldNotifyWithState:(NSUInteger)state {
+//    return !(TSYEmployeeStateFree == state && ![self.mutableQueue isEmpty]);
+    
+    if (TSYEmployeeStateFree == state && ![self.mutableQueue isEmpty]) {
+        return NO;
+    }
+    
+    return YES;
+}
 
 - (void)setState:(NSUInteger)state {
     @synchronized (self) {
         if (_state != state) {
             _state = state;
-
-            if (TSYEmployeeStateFree == state) {
-                [self checkQueueBeforeNotifying];
-            } else {
+        
+            if ([self shouldNotifyWithState:state]) {
                 [self notifyOfStateChange:state];
+            } else {
+                [self performWorkWithObject:[self.mutableQueue dequeue]];
             }
         }
     }

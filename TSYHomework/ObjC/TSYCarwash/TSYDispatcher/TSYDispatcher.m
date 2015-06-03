@@ -75,11 +75,13 @@
 - (void)addEmployee:(TSYEmployee *)employee {
     @synchronized (self) {
         [self.mutableEmployees addObject:employee];
+        [employee addObserver:self];
     }
 }
 
 - (void)removeEmployee:(TSYEmployee *)employee {
     @synchronized (self) {
+        [employee removeObserver:self];
         [self.mutableEmployees removeObject:employee];
     }
 }
