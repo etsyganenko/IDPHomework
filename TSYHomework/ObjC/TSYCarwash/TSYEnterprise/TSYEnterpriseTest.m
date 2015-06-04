@@ -14,10 +14,10 @@
 #import "NSString+TSYRandomString.h"
 #import "NSString+TSYAlphabet.h"
 
-static const NSUInteger TSYCarsCount        =   100;
-static const NSUInteger TSYCarMoney         =   100;
-static const NSUInteger TSYCarNameNumberCount    =   4;
-static const NSUInteger TSYCarNameLetterCount    =   2;
+static const NSUInteger TSYCarsCount            = 100;
+static const NSUInteger TSYCarMoney             = 100;
+static const NSUInteger TSYCarNameNumberCount   = 4;
+static const NSUInteger TSYCarNameLetterCount   = 2;
 
 void TSYEnterprisePerformTest() {
     @autoreleasepool {
@@ -41,13 +41,22 @@ void TSYEnterprisePerformTest() {
             [cars addObject:[TSYCar carWithModel:model money:TSYCarMoney]];
         }
         
-        for (TSYCar *car in cars) {
-//            [enterprise washCar:car];
-            
-            usleep(arc4random_uniform(1000));
-            
-            [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
-        }
+//        for (TSYCar *car in cars) {
+////            [enterprise washCar:car];
+//            
+//            usleep(arc4random_uniform(1000));
+//            
+//            [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
+//        }
+
+        dispatch_queue_t queue = dispatch_queue_create("TSYQueue", DISPATCH_QUEUE_CONCURRENT);
+        
+        dispatch_sync(queue, ^{
+            dispatch_apply(TSYCarsCount, queue, ^(size_t count){
+                [enterprise washCar:[cars objectAtIndex:count]];
+                count += 1;
+            });
+        });
         
         NSRunLoop *loop = [NSRunLoop mainRunLoop];
         [loop run];
