@@ -21,9 +21,7 @@
 #pragma mark Class Methods
 
 + (instancetype)queue {
-    TSYQueue *queue = [self object];
-    
-    return queue;
+    return [self object];
 }
 
 #pragma mark -

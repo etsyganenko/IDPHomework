@@ -60,6 +60,10 @@ static const NSUInteger TSYMaxNameLength                    =   5;
 - (void)dealloc {
     [self removeObservers];
     
+    self.director = nil;
+    self.washersDispatcher = nil;
+    self.accountantsDispatcher = nil;
+    
     [super dealloc];
 }
 

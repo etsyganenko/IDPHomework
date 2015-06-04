@@ -66,9 +66,7 @@
 
 - (void)processObject:(id)object {
     @synchronized (self) {
-        TSYEmployee *employee = [self freeEmployee];
-        
-        [self processObject:object withEmployee:employee];
+        [self processObject:object withEmployee:[self freeEmployee]];
     }
 }
 
@@ -112,10 +110,12 @@
 
 - (void)employeeDidBecomeFree:(TSYEmployee *)employee {
     @synchronized (self) {
-        id object = [self.queue dequeue];
-        
-        if (object) {
-            [employee performWorkWithObject:object];
+        if (TSYEmployeeStateFree == employee.state) {
+            id object = [self.queue dequeue];
+            
+            if (object) {
+                [employee performWorkWithObject:object];
+            }
         }
     }
 }
