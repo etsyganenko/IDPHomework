@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TSYCar : NSObject
+#import "TSYMoneyProtocol.h"
+
+@interface TSYCar : NSObject<TSYMoneyProtocol>
 @property (nonatomic, copy, readonly)           NSString    *model;
 @property (nonatomic, assign)                   NSUInteger  money;
 @property (nonatomic, assign, getter=isClean)   BOOL        clean;

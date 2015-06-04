@@ -25,10 +25,10 @@
     car.clean = true;
 }
 
-- (void)processObject:(TSYCar *)car {    
-    [self washCar:car];
-    
-    [self takeMoney:self.price fromObject:car];
+- (void)processObject:(TSYCar *)car {
+    if ([self takeMoney:self.price fromObject:car]) {
+        [self washCar:car];
+    }
 }
 
 - (void)finishProcessingObject:(id)object {

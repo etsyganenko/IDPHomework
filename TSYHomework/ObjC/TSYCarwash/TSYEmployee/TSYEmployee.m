@@ -120,13 +120,13 @@ static const NSUInteger TSYSleepingTime =  500000;
 }
 
 - (BOOL)shouldNotifyWithState:(NSUInteger)state {
-//    return !(TSYEmployeeStateFree == state && ![self.mutableQueue isEmpty]);
+//    if (TSYEmployeeStateFree == state && ![self.mutableQueue isEmpty]) {
+//        return NO;
+//    }
+//    
+//    return YES;
     
-    if (TSYEmployeeStateFree == state && ![self.mutableQueue isEmpty]) {
-        return NO;
-    }
-    
-    return YES;
+    return !(TSYEmployeeStateFree == state && ![self.mutableQueue isEmpty]);
 }
 
 - (void)setState:(NSUInteger)state {
@@ -159,18 +159,29 @@ static const NSUInteger TSYSleepingTime =  500000;
 #pragma mark -
 #pragma mark TSYMoneyProtocol
 
-- (void)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
-    @synchronized (object) {
-        if (object.money < money) {
-            NSLog(@"Not enough money!");
-            return;
-        }
-        
-        object.money -= money;
+- (BOOL)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
+    if ([object giveMoneyIfEnough:money]) {
+        [self takeMoney:money];
+        return YES;
     }
-    
+    return NO;
+}
+
+- (void)takeMoney:(NSUInteger)money {
     @synchronized (self) {
         self.money += money;
+    }
+}
+
+- (BOOL)giveMoneyIfEnough:(NSUInteger)money {
+    @synchronized (self) {
+        if (self.money < money) {
+            NSLog(@"Not enough money!");
+            return NO;
+        }
+        
+        self.money -= money;
+        return YES;
     }
 }
 
