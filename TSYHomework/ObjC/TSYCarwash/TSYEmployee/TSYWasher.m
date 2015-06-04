@@ -26,11 +26,9 @@
 }
 
 - (void)processObject:(TSYCar *)car {
-    usleep(arc4random_uniform(100000));
-    
-    [self washCar:car];
-    
-    [self takeMoney:self.price fromObject:car];
+    if ([self takeMoney:self.price fromObject:car]) {
+        [self washCar:car];
+    }
 }
 
 - (void)finishProcessingObject:(id)object {

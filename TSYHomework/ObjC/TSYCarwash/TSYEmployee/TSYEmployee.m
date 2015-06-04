@@ -12,15 +12,21 @@
 
 #import "NSObject+TSYCategory.h"
 
+static const NSUInteger TSYSleepingTime =  500000;
+
 @interface TSYEmployee ()
-@property (nonatomic, retain)       NSMutableSet    *mutableObserversSet;
-@property (nonatomic, readwrite)    TSYQueue        *subordinates;
+@property (nonatomic, retain) TSYQueue    *mutableQueue;
+
+- (BOOL)shouldNotifyWithState:(NSUInteger)state;
 
 @end
 
 @implementation TSYEmployee
 
+@dynamic queue;
+
 @synthesize money   = _money;
+@synthesize state   = _state;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -41,16 +47,16 @@
 
 - (void)dealloc {
     self.name = nil;
-    self.subordinates = nil;
+    self.mutableQueue = nil;
     
     [super dealloc];
 }
 
 - (instancetype)init {
-    self = [super initWithMutableObserversSet];
+    self = [super init];
     if (self) {
         self.state = TSYEmployeeStateFree;
-        self.subordinates = [TSYQueue queue];
+        self.mutableQueue = [TSYQueue queue];
     }
     
     return self;
@@ -59,8 +65,8 @@
 #pragma mark -
 #pragma mark Accessors Methods
 
-- (TSYQueue *)queue {
-    return [[self.subordinates copy] autorelease];
+- (NSArray *)queue {
+    return [[self.mutableQueue copy] autorelease];
 }
 
 #pragma mark -
@@ -74,15 +80,13 @@
             [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
                                    withObject:object];
         } else {
-            [self.subordinates enqueue:object];
+            [self.mutableQueue enqueue:object];
         }
     }
 }
 
 - (void)finishProcessingObject:(TSYEmployee *)employee {
-    @synchronized (self) {
-        employee.state = TSYEmployeeStateFree;
-    }
+    employee.state = TSYEmployeeStateFree;
 }
 
 - (void)processObject:(id)object {
@@ -93,9 +97,9 @@
 #pragma mark Private Methods
 
 - (void)performWorkWithObjectInBackground:(id)object {
-    self.processedObject = object;
-    
     [self processObject:object];
+    
+    usleep(arc4random_uniform(TSYSleepingTime));
     
     [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
                            withObject:object
@@ -103,24 +107,43 @@
 }
 
 - (void)performWorkWithObjectOnMainThread:(id)object {
-    self.processedObject = nil;
-    
     [self finishProcessingObject:object];
-    
-    TSYQueue *subordinates = self.subordinates;
-    
-    if (![subordinates isEmpty]) {
-        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                               withObject:[subordinates dequeue]];
-    } else {
-        self.state = TSYEmployeeStateDidFinishWork;
-    }
+
+    self.state = TSYEmployeeStateDidFinishWork;
 }
 
 #pragma mark -
 #pragma mark TSYObservableObject
 
-- (SEL)selectorForState:(TSYEmployeeState)state {
+- (BOOL)shouldNotify {
+    return [self.mutableQueue isEmpty];
+}
+
+- (BOOL)shouldNotifyWithState:(NSUInteger)state {
+//    if (TSYEmployeeStateFree == state && ![self.mutableQueue isEmpty]) {
+//        return NO;
+//    }
+//    
+//    return YES;
+    
+    return !(TSYEmployeeStateFree == state && ![self.mutableQueue isEmpty]);
+}
+
+- (void)setState:(NSUInteger)state {
+    @synchronized (self) {
+        if (_state != state) {
+            _state = state;
+        
+            if ([self shouldNotifyWithState:state]) {
+                [self notifyOfStateChange:state];
+            } else {
+                [self performWorkWithObject:[self.mutableQueue dequeue]];
+            }
+        }
+    }
+}
+
+- (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case TSYEmployeeStateFree:
             return @selector(employeeDidBecomeFree:);
@@ -129,34 +152,36 @@
             return @selector(employeeDidFinishWork:);
             
         default:
-            return NULL;
+            return [super selectorForState:state];
     }
 }
 
 #pragma mark -
 #pragma mark TSYMoneyProtocol
 
-- (void)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
-    @synchronized (object) {
-        if (object.money < money) {
-            NSLog(@"Not enough money!");
-            return;
-        }
-        
-        object.money -= money;
+- (BOOL)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
+    if ([object giveMoneyIfEnough:money]) {
+        [self takeMoney:money];
+        return YES;
     }
-    
+    return NO;
+}
+
+- (void)takeMoney:(NSUInteger)money {
     @synchronized (self) {
         self.money += money;
     }
 }
 
-#pragma mark -
-#pragma mark TSYEmployeeObserver
-
-- (void)employeeDidFinishWork:(TSYEmployee *)employee {
+- (BOOL)giveMoneyIfEnough:(NSUInteger)money {
     @synchronized (self) {
-        [self performWorkWithObject:employee];
+        if (self.money < money) {
+            NSLog(@"Not enough money!");
+            return NO;
+        }
+        
+        self.money -= money;
+        return YES;
     }
 }
 

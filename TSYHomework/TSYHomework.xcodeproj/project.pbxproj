@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		849F1AD91B15BAA700D85301 /* TSYObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F1AD51B15BAA700D85301 /* TSYObservableObject.m */; };
 		849F1ADA1B15BAA700D85301 /* TSYQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F1AD81B15BAA700D85301 /* TSYQueue.m */; };
+		849F1ADF1B15CB9500D85301 /* TSYDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F1ADE1B15CB9500D85301 /* TSYDispatcher.m */; };
 		849FCA2A1AE7933000FA0EEE /* TSYEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FCA291AE791E200FA0EEE /* TSYEnterprise.m */; };
 		849FCA2D1AE7A2C700FA0EEE /* TSYEnterpriseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FCA2C1AE7A2C700FA0EEE /* TSYEnterpriseTest.m */; };
+		84A124C91B203EA9004D2C35 /* TSYHomeworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A124C81B203EA9004D2C35 /* TSYHomeworkTests.m */; };
 		84A1398A1AEE3A7000CFB9C8 /* NSString+TSYRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A139891AEE3A7000CFB9C8 /* NSString+TSYRandomString.m */; };
 		84A1DF8D1AF633D1008519C0 /* NSString+TSYAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1DF8C1AF633D1008519C0 /* NSString+TSYAlphabet.m */; };
+		84A20A671B1EFD680087019E /* NSString+TSYRandomName.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A20A661B1EFD680087019E /* NSString+TSYRandomName.m */; };
 		84A337401AE645A1001145F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3373F1AE645A1001145F3 /* main.m */; };
 		84A337AD1AE64872001145F3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A337AC1AE64872001145F3 /* main.c */; };
 		84A337AE1AE64A5E001145F3 /* TSYCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A337431AE645D0001145F3 /* TSYCreature.m */; };
@@ -55,6 +58,7 @@
 		84A337D61AE64AF6001145F3 /* TSYStructureOutputTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A337AA1AE647FB001145F3 /* TSYStructureOutputTest.c */; };
 		84A337D71AE64AFA001145F3 /* TSYBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A3377B1AE647DB001145F3 /* TSYBitOutput.c */; };
 		84A337D81AE64AFC001145F3 /* TSYBitOutputTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A3377D1AE647DB001145F3 /* TSYBitOutputTest.c */; };
+		BB6CD106F2DA3EB88838EAA0 /* libPods-TSYHomeworkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3014234E13632246049673F9 /* libPods-TSYHomeworkTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,19 +83,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		27F4E2A10796065E36837BFD /* Pods-TSYHomeworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkTests/Pods-TSYHomeworkTests.release.xcconfig"; sourceTree = "<group>"; };
+		3014234E13632246049673F9 /* libPods-TSYHomeworkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849F1AD41B15BAA700D85301 /* TSYObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYObservableObject.h; sourceTree = "<group>"; };
 		849F1AD51B15BAA700D85301 /* TSYObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYObservableObject.m; sourceTree = "<group>"; };
 		849F1AD71B15BAA700D85301 /* TSYQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYQueue.h; sourceTree = "<group>"; };
 		849F1AD81B15BAA700D85301 /* TSYQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYQueue.m; sourceTree = "<group>"; };
 		849F1ADB1B15BAE500D85301 /* TSYMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSYMoneyProtocol.h; path = ObjC/TSYMoneyProtocol.h; sourceTree = SOURCE_ROOT; };
+		849F1ADD1B15CB9500D85301 /* TSYDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYDispatcher.h; sourceTree = "<group>"; };
+		849F1ADE1B15CB9500D85301 /* TSYDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYDispatcher.m; sourceTree = "<group>"; };
 		849FCA281AE791E200FA0EEE /* TSYEnterprise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSYEnterprise.h; sourceTree = "<group>"; };
 		849FCA291AE791E200FA0EEE /* TSYEnterprise.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYEnterprise.m; sourceTree = "<group>"; };
 		849FCA2B1AE7A2C700FA0EEE /* TSYEnterpriseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYEnterpriseTest.h; sourceTree = "<group>"; };
 		849FCA2C1AE7A2C700FA0EEE /* TSYEnterpriseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYEnterpriseTest.m; sourceTree = "<group>"; };
+		84A124C41B203EA9004D2C35 /* TSYHomeworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSYHomeworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A124C71B203EA9004D2C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84A124C81B203EA9004D2C35 /* TSYHomeworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYHomeworkTests.m; sourceTree = "<group>"; };
 		84A139881AEE3A7000CFB9C8 /* NSString+TSYRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYRandomString.h"; sourceTree = "<group>"; };
 		84A139891AEE3A7000CFB9C8 /* NSString+TSYRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomString.m"; sourceTree = "<group>"; };
 		84A1DF8B1AF633D1008519C0 /* NSString+TSYAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYAlphabet.h"; sourceTree = "<group>"; };
 		84A1DF8C1AF633D1008519C0 /* NSString+TSYAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYAlphabet.m"; sourceTree = "<group>"; };
+		84A20A651B1EFD680087019E /* NSString+TSYRandomName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYRandomName.h"; sourceTree = "<group>"; };
+		84A20A661B1EFD680087019E /* NSString+TSYRandomName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomName.m"; sourceTree = "<group>"; };
 		84A3373F1AE645A1001145F3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ObjC/main.m; sourceTree = SOURCE_ROOT; };
 		84A337421AE645D0001145F3 /* TSYCreature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSYCreature.h; sourceTree = "<group>"; };
 		84A337431AE645D0001145F3 /* TSYCreature.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYCreature.m; sourceTree = "<group>"; };
@@ -178,9 +191,18 @@
 		84A337AC1AE64872001145F3 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		84ECC8C21AE13AA200178C76 /* TSYHomework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TSYHomework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84ECC9411AE13ED100178C76 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
+		A50765A842193AA1B0FF11BB /* Pods-TSYHomeworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkTests/Pods-TSYHomeworkTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		84A124C11B203EA9004D2C35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB6CD106F2DA3EB88838EAA0 /* libPods-TSYHomeworkTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84ECC8BF1AE13AA200178C76 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,6 +220,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05A495C84B3AE346B2B4AAD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A50765A842193AA1B0FF11BB /* Pods-TSYHomeworkTests.debug.xcconfig */,
+				27F4E2A10796065E36837BFD /* Pods-TSYHomeworkTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		293F81773621E022CE1C0C88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3014234E13632246049673F9 /* libPods-TSYHomeworkTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		849F1AD31B15BAA700D85301 /* TSYObservableObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +257,15 @@
 			path = ObjC/TSYQueue;
 			sourceTree = SOURCE_ROOT;
 		};
+		849F1ADC1B15CB8200D85301 /* TSYDispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				849F1ADD1B15CB9500D85301 /* TSYDispatcher.h */,
+				849F1ADE1B15CB9500D85301 /* TSYDispatcher.m */,
+			);
+			path = TSYDispatcher;
+			sourceTree = "<group>";
+		};
 		849FCA271AE791E200FA0EEE /* TSYEnterprise */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +278,23 @@
 			path = ObjC/TSYCarwash/TSYEnterprise;
 			sourceTree = SOURCE_ROOT;
 		};
+		84A124C51B203EA9004D2C35 /* TSYHomeworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				84A124C81B203EA9004D2C35 /* TSYHomeworkTests.m */,
+				84A124C61B203EA9004D2C35 /* Supporting Files */,
+			);
+			path = TSYHomeworkTests;
+			sourceTree = "<group>";
+		};
+		84A124C61B203EA9004D2C35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84A124C71B203EA9004D2C35 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		84A139871AEE394700CFB9C8 /* TSYRandomString */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +302,8 @@
 				84A1DF8C1AF633D1008519C0 /* NSString+TSYAlphabet.m */,
 				84A139881AEE3A7000CFB9C8 /* NSString+TSYRandomString.h */,
 				84A139891AEE3A7000CFB9C8 /* NSString+TSYRandomString.m */,
+				84A20A651B1EFD680087019E /* NSString+TSYRandomName.h */,
+				84A20A661B1EFD680087019E /* NSString+TSYRandomName.m */,
 			);
 			name = TSYRandomString;
 			path = ObjC/TSYRandomString;
@@ -276,9 +343,10 @@
 			isa = PBXGroup;
 			children = (
 				84A337521AE646F5001145F3 /* TSYBuilding */,
-				84A337591AE646F5001145F3 /* TSYCar */,
-				84A3375E1AE646F5001145F3 /* TSYEmployee */,
 				84A337671AE646F5001145F3 /* TSYRoom */,
+				84A337591AE646F5001145F3 /* TSYCar */,
+				849F1ADC1B15CB8200D85301 /* TSYDispatcher */,
+				84A3375E1AE646F5001145F3 /* TSYEmployee */,
 				849FCA271AE791E200FA0EEE /* TSYEnterprise */,
 			);
 			name = TSYCarwash;
@@ -483,7 +551,10 @@
 			children = (
 				84ECC9291AE13C2B00178C76 /* ObjC */,
 				84ECC9421AE13ED100178C76 /* C */,
+				84A124C51B203EA9004D2C35 /* TSYHomeworkTests */,
 				84ECC8C31AE13AA200178C76 /* Products */,
+				05A495C84B3AE346B2B4AAD0 /* Pods */,
+				293F81773621E022CE1C0C88 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -492,6 +563,7 @@
 			children = (
 				84ECC8C21AE13AA200178C76 /* TSYHomework */,
 				84ECC9411AE13ED100178C76 /* C */,
+				84A124C41B203EA9004D2C35 /* TSYHomeworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -538,6 +610,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		84A124C31B203EA9004D2C35 /* TSYHomeworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84A124CC1B203EA9004D2C35 /* Build configuration list for PBXNativeTarget "TSYHomeworkTests" */;
+			buildPhases = (
+				4ABC2953FEC64734DDFF165E /* Check Pods Manifest.lock */,
+				84A124C01B203EA9004D2C35 /* Sources */,
+				84A124C11B203EA9004D2C35 /* Frameworks */,
+				84A124C21B203EA9004D2C35 /* Resources */,
+				6335AB331FF95E4EF0C2C16B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TSYHomeworkTests;
+			productName = TSYHomeworkTests;
+			productReference = 84A124C41B203EA9004D2C35 /* TSYHomeworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		84ECC8C11AE13AA200178C76 /* TSYHomework */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84ECC8C91AE13AA200178C76 /* Build configuration list for PBXNativeTarget "TSYHomework" */;
@@ -581,6 +672,9 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Admin;
 				TargetAttributes = {
+					84A124C31B203EA9004D2C35 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
 					84ECC8C11AE13AA200178C76 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -603,11 +697,63 @@
 			targets = (
 				84ECC8C11AE13AA200178C76 /* TSYHomework */,
 				84ECC9401AE13ED100178C76 /* C */,
+				84A124C31B203EA9004D2C35 /* TSYHomeworkTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		84A124C21B203EA9004D2C35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4ABC2953FEC64734DDFF165E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6335AB331FF95E4EF0C2C16B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSYHomeworkTests/Pods-TSYHomeworkTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		84A124C01B203EA9004D2C35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A124C91B203EA9004D2C35 /* TSYHomeworkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84ECC8BE1AE13AA200178C76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -626,9 +772,11 @@
 				84A337B81AE64A87001145F3 /* TSYCarwash.m in Sources */,
 				849FCA2D1AE7A2C700FA0EEE /* TSYEnterpriseTest.m in Sources */,
 				84A337B21AE64A6D001145F3 /* TSYCreature2.m in Sources */,
+				84A20A671B1EFD680087019E /* NSString+TSYRandomName.m in Sources */,
 				84A337BB1AE64A8E001145F3 /* TSYDirector.m in Sources */,
 				84A337BF1AE64A98001145F3 /* TSYRoom.m in Sources */,
 				849F1ADA1B15BAA700D85301 /* TSYQueue.m in Sources */,
+				849F1ADF1B15CB9500D85301 /* TSYDispatcher.m in Sources */,
 				84A337B91AE64A8A001145F3 /* TSYCar.m in Sources */,
 				849FCA2A1AE7933000FA0EEE /* TSYEnterprise.m in Sources */,
 				84A337B51AE64A74001145F3 /* TSYCreatureMale.m in Sources */,
@@ -673,6 +821,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		84A124CA1B203EA9004D2C35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A50765A842193AA1B0FF11BB /* Pods-TSYHomeworkTests.debug.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TSYHomeworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		84A124CB1B203EA9004D2C35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27F4E2A10796065E36837BFD /* Pods-TSYHomeworkTests.release.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TSYHomeworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		84ECC8C71AE13AA200178C76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -786,6 +968,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		84A124CC1B203EA9004D2C35 /* Build configuration list for PBXNativeTarget "TSYHomeworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A124CA1B203EA9004D2C35 /* Debug */,
+				84A124CB1B203EA9004D2C35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		84ECC8BD1AE13AA200178C76 /* Build configuration list for PBXProject "TSYHomework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

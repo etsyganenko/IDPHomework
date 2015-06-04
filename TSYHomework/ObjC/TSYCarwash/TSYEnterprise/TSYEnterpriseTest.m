@@ -9,33 +9,42 @@
 #import "TSYEnterpriseTest.h"
 #import "TSYEnterprise.h"
 #import "TSYCar.h"
+#import "TSYDispatcher.h"
 
 #import "NSString+TSYRandomString.h"
 #import "NSString+TSYAlphabet.h"
 
-@implementation TSYEnterpriseTest
+static const NSUInteger TSYCarsCount        =   100;
+static const NSUInteger TSYCarMoney         =   100;
+static const NSUInteger TSYCarNameNumberCount    =   4;
+static const NSUInteger TSYCarNameLetterCount    =   2;
 
 void TSYEnterprisePerformTest() {
     @autoreleasepool {
         TSYEnterprise *enterprise = [TSYEnterprise enterprise];
         
-        NSUInteger carsCount = 100;
-        NSUInteger carMoney = 100;
-        
         NSMutableArray *cars = [NSMutableArray array];
         
-        NSString *alphabet = [NSString alphanumericAlphabet];
+        NSString *capitalLetterAlphabet = [NSString capitalLetterAlphabet];
+        NSString *numericAlphabet = [NSString numericAlphabet];
         
-        for (NSUInteger index = 0; index < carsCount; index++) {
-            NSString *model = [NSString randomStringWithLength:5 alphabet:alphabet];
+        for (NSUInteger index = 0; index < TSYCarsCount; index++) {
+            NSString *model = [NSString randomStringWithLength:TSYCarNameLetterCount
+                                                      alphabet:capitalLetterAlphabet];
             
-            [cars addObject:[TSYCar carWithModel:model money:carMoney]];
+            model = [model stringByAppendingString:[NSString randomStringWithLength:TSYCarNameNumberCount
+                                                                           alphabet:numericAlphabet]];
+            
+            model = [model stringByAppendingString:[NSString randomStringWithLength:TSYCarNameLetterCount
+                                                                        alphabet:capitalLetterAlphabet]];
+
+            [cars addObject:[TSYCar carWithModel:model money:TSYCarMoney]];
         }
         
         for (TSYCar *car in cars) {
 //            [enterprise washCar:car];
             
-            usleep(arc4random_uniform(10000));
+            usleep(arc4random_uniform(1000));
             
             [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
         }
@@ -44,5 +53,3 @@ void TSYEnterprisePerformTest() {
         [loop run];
     }
 }
-
-@end

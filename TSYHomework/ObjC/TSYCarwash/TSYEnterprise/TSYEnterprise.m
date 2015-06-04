@@ -15,29 +15,29 @@
 #import "TSYRoom.h"
 #import "TSYCar.h"
 #import "TSYQueue.h"
+#import "TSYDispatcher.h"
 
 #import "NSObject+TSYCategory.h"
 #import "NSString+TSYRandomString.h"
 #import "NSString+TSYAlphabet.h"
+#import "NSString+TSYRandomName.h"
 
-static const NSUInteger TSYWashersCount                     =   3;
+static const NSUInteger TSYWashersCount                     =   5;
+static const NSUInteger TSYAccountantsCount                 =   3;
 static const NSUInteger TSYWasherSalary                     =   5000;
 static const NSUInteger TSYAccountantSalary                 =   7000;
 static const NSUInteger TSYDirectorSalary                   =   10000;
 static const NSUInteger TSYWashingPrice                     =   60;
 
 @interface TSYEnterprise ()
-@property (nonatomic, retain)   TSYQueue        *cars;
-@property (nonatomic, retain)   NSMutableArray  *employees;
+@property (nonatomic, retain)   TSYDirector     *director;
+
+@property (nonatomic, retain)   TSYDispatcher   *washersDispatcher;
+@property (nonatomic, retain)   TSYDispatcher   *accountantsDispatcher;
 
 - (void)organizeStaff;
 
 - (void)removeObservers;
-
-- (id)freeEmployeeOfClass:(Class)class;
-- (id)employeesOfClass:(Class)class;
-
-//- (TSYCar *)nextCar;
 
 @end
 
@@ -58,17 +58,15 @@ static const NSUInteger TSYWashingPrice                     =   60;
 - (void)dealloc {
     [self removeObservers];
     
-    self.employees = nil;
-    self.cars = nil;
+    self.director = nil;
+    self.washersDispatcher = nil;
+    self.accountantsDispatcher = nil;
     
     [super dealloc];
 }
 
 - (instancetype)init {
     self = [super init];
-    
-    self.employees = [NSMutableArray array];
-    self.cars = [TSYQueue queue];
     
     [self organizeStaff];
     
@@ -79,99 +77,62 @@ static const NSUInteger TSYWashingPrice                     =   60;
 #pragma mark Public Methods
 
 - (void)washCar:(TSYCar *)car {
-    @synchronized (self) {
-        TSYWasher *washer = [self freeEmployeeOfClass:[TSYWasher class]];
-        
-        if (washer) {
-            [washer performWorkWithObject:car];
-        } else {
-            [self.cars enqueue:car];
-        }
-    }
+    [self.washersDispatcher processObject:car];
 }
 
 #pragma mark -
 #pragma mark TSYEmployeeObserver
 
-- (void)employeeDidBecomeFree:(TSYWasher *)washer {
-    @synchronized (self) {
-        TSYCar *car = [self.cars dequeue];
-        
-        if (car) {
-            [washer performWorkWithObject:car];
-        }
-    }
+- (void)employeeDidFinishWork:(TSYWasher *)washer {
+    [self.accountantsDispatcher processObject:washer];
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
 - (void)organizeStaff {
-    NSMutableArray *employees = self.employees;
+    TSYDispatcher *washersDispatcher = [TSYDispatcher dispatcher];
+    TSYDispatcher *accountantsDispatcher = [TSYDispatcher dispatcher];
     
-    NSString *accountantName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
-    NSString *directorName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
-    
-    TSYAccountant *accountant = [TSYAccountant employeeWithName:accountantName salary:TSYAccountantSalary];
-    TSYDirector *director = [TSYDirector employeeWithName:directorName salary:TSYDirectorSalary];
-    
-    [employees addObject:accountant];
-    [employees addObject:director];
-    
-    [accountant addObserver:director];
+    self.washersDispatcher = washersDispatcher;
+    self.accountantsDispatcher = accountantsDispatcher;
     
     for (NSUInteger index = 0; index < TSYWashersCount; index++) {
-        NSString *washerName = [NSString randomStringWithLength:5 alphabet:[NSString letterAlphabet]];
-        
-        TSYWasher *washer = [TSYWasher employeeWithName:washerName salary:TSYWasherSalary];
+        TSYWasher *washer = [TSYWasher employeeWithName:[NSString randomName]
+                                                 salary:TSYWasherSalary];
         washer.price = TSYWashingPrice;
         
         [washer addObserver:self];
-        [washer addObserver:accountant];
         
-        [employees addObject:washer];
+        [washersDispatcher addEmployee:washer];
+    }
+    
+    self.director = [TSYDirector employeeWithName:[NSString randomName]
+                                           salary:TSYDirectorSalary];
+    
+    for (NSUInteger index = 0; index < TSYAccountantsCount; index++) {
+        TSYAccountant *accountant = [TSYAccountant employeeWithName:[NSString randomName]
+                                                             salary:TSYAccountantSalary];
+        
+        [accountant addObserver:self.director];
+        
+        [accountantsDispatcher addEmployee:accountant];
     }
 }
 
 - (void)removeObservers {
-    TSYAccountant *accountant = [[self employeesOfClass:[TSYAccountant class]] firstObject];
-    TSYDirector *director = [[self employeesOfClass:[TSYDirector class]] firstObject];
+    TSYDirector *director = self.director;
     
-    [accountant removeObserver:director];
-    
-    NSArray *washers = [self employeesOfClass:[TSYWasher class]];
+    NSArray *washers = [self.washersDispatcher employees];
+    NSArray *accountants = [self.accountantsDispatcher employees];
     
     for (TSYWasher *washer in washers) {
         [washer removeObserver:self];
-        [washer removeObserver:accountant];
-    }
-}
-
-- (id)freeEmployeeOfClass:(Class)class {
-    for (TSYEmployee *employee in self.employees) {
-        if ([employee class] == class && TSYEmployeeStateFree == employee.state) {
-            return employee;
-        }
     }
     
-    return nil;
-}
-
-- (id)employeesOfClass:(Class)class {
-    NSMutableArray *result = [NSMutableArray array];
-    NSArray *employees = [NSArray array];
-    
-    @synchronized (self) {
-        employees = [[self.employees copy] autorelease];
+    for (TSYAccountant *accountant in accountants) {
+        [accountant removeObserver:director];
     }
-    
-    for (TSYEmployee *employee in employees) {
-        if ([employee class] == class) {
-            [result addObject:employee];
-        }
-    }
-    
-    return result;
 }
 
 @end

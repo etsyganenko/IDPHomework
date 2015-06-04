@@ -39,4 +39,33 @@
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark TSYMoneyProtocol
+
+- (BOOL)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
+    if ([object giveMoneyIfEnough:money]) {
+        [self takeMoney:money];
+        return YES;
+    }
+    return NO;
+}
+
+- (void)takeMoney:(NSUInteger)money {
+    @synchronized (self) {
+        self.money += money;
+    }
+}
+
+- (BOOL)giveMoneyIfEnough:(NSUInteger)money {
+    @synchronized (self) {
+        if (self.money < money) {
+            NSLog(@"%@ %@ has not enough money!", self.className, self.model);
+            return NO;
+        }
+        
+        self.money -= money;
+        return YES;
+    }
+}
+
 @end

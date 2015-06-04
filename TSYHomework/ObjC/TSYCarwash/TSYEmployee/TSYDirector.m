@@ -28,17 +28,18 @@
 - (void)performWorkWithObject:(TSYAccountant *)accountant {
     @synchronized (self) {
         [self processObject:accountant];
-        
+
         accountant.state = TSYEmployeeStateFree;
-        
+
         self.state = TSYEmployeeStateFree;
     }
 }
 
-//- (void)finishProcessingObject:(TSYEmployee *)employee {
-//    employee.state = TSYEmployeeStateFree;
-//    
-//    self.state = TSYEmployeeStateFree;
-//}
+#pragma mark -
+#pragma mark TSYEmployeeObserver
+
+- (void)employeeDidFinishWork:(TSYAccountant *)accountant {
+    [self performWorkWithObject:accountant];
+}
 
 @end

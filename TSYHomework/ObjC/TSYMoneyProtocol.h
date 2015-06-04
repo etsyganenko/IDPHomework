@@ -11,6 +11,8 @@
 @protocol TSYMoneyProtocol <NSObject>
 @property (nonatomic, assign)   NSUInteger  money;
 
-- (void)takeMoney:(NSUInteger)money fromObject:(id)object;
+- (BOOL)takeMoney:(NSUInteger)money fromObject:(id)object;
+- (void)takeMoney:(NSUInteger)money;
+- (BOOL)giveMoneyIfEnough:(NSUInteger)money;
 
 @end
