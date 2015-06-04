@@ -28,8 +28,6 @@ static const NSUInteger TSYWasherSalary                     =   5000;
 static const NSUInteger TSYAccountantSalary                 =   7000;
 static const NSUInteger TSYDirectorSalary                   =   10000;
 static const NSUInteger TSYWashingPrice                     =   60;
-static const NSUInteger TSYMinNameLength                    =   2;
-static const NSUInteger TSYMaxNameLength                    =   5;
 
 @interface TSYEnterprise ()
 @property (nonatomic, retain)   TSYDirector     *director;
@@ -100,8 +98,7 @@ static const NSUInteger TSYMaxNameLength                    =   5;
     self.accountantsDispatcher = accountantsDispatcher;
     
     for (NSUInteger index = 0; index < TSYWashersCount; index++) {
-        TSYWasher *washer = [TSYWasher employeeWithName:[NSString randomNameWithMinLength:TSYMinNameLength
-                                                                                maxLength:TSYMaxNameLength]
+        TSYWasher *washer = [TSYWasher employeeWithName:[NSString randomName]
                                                  salary:TSYWasherSalary];
         washer.price = TSYWashingPrice;
         
@@ -110,13 +107,11 @@ static const NSUInteger TSYMaxNameLength                    =   5;
         [washersDispatcher addEmployee:washer];
     }
     
-    self.director = [TSYDirector employeeWithName:[NSString randomNameWithMinLength:TSYMinNameLength
-                                                                          maxLength:TSYMaxNameLength]
+    self.director = [TSYDirector employeeWithName:[NSString randomName]
                                            salary:TSYDirectorSalary];
     
     for (NSUInteger index = 0; index < TSYAccountantsCount; index++) {
-        TSYAccountant *accountant = [TSYAccountant employeeWithName:[NSString randomNameWithMinLength:TSYMinNameLength
-                                                                                            maxLength:TSYMaxNameLength]
+        TSYAccountant *accountant = [TSYAccountant employeeWithName:[NSString randomName]
                                                              salary:TSYAccountantSalary];
         
         [accountant addObserver:self.director];

@@ -25,18 +25,12 @@
 // returns random string with given length with characters from a given range
 + (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet;
 
-// returns random string with random length
-// with given min and max characters count
-+ (instancetype)randomStringWithMinLength:(NSUInteger)min
-                              maxLength:(NSUInteger)max;
-
+// returns random string with random length in given range
 + (instancetype)randomStringWithLengthInRange:(NSRange)range;
 
-// returns random string with random length
-// with given min and max characters count
+// returns random string with random length in given range
 // with characters from a given range
-+ (instancetype)randomStringWithMinLength:(NSUInteger)min
-                                maxLength:(NSUInteger)max
-                                 alphabet:(NSString *)alphabet;
++ (instancetype)randomStringWithLengthInRange:(NSRange)range
+                                     alphabet:(NSString *)alphabet;
 
 @end

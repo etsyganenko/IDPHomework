@@ -41,23 +41,9 @@ static const NSUInteger TSYMinCharactersCount = 2;
     return [self stringWithString:result];
 }
 
-//+ (instancetype)randomStringWithMinLength:(NSUInteger)min
-//                              maxLength:(NSUInteger)max
-//{
-//    return [self randomStringWithMinLength:min maxLength:max alphabet:[NSString alphanumericAlphabet]];
-//}
-
 + (instancetype)randomStringWithLengthInRange:(NSRange)range {
     return [self randomStringWithLengthInRange:range alphabet:[NSString alphanumericAlphabet]];
 }
-
-//+ (instancetype)randomStringWithMinLength:(NSUInteger)min
-//                                maxLength:(NSUInteger)max
-//                                 alphabet:(NSString *)alphabet {
-//    NSUInteger length = (min + arc4random_uniform((uint32_t)(max - min)));
-//    
-//    return [self randomStringWithLength:length alphabet:alphabet];
-//}
 
 + (instancetype)randomStringWithLengthInRange:(NSRange)range
                                      alphabet:(NSString *)alphabet {

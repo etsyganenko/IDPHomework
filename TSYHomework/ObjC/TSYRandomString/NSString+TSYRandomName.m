@@ -14,20 +14,17 @@
 @implementation NSString (TSYRandomName)
 
 + (instancetype)randomName {
-    return [[NSString randomStringWithAlphabet:[NSString letterAlphabet]] capitalizedString];
+    return [[NSString randomStringWithAlphabet:[NSString lowercaseLetterAlphabet]] capitalizedString];
 }
 
 + (instancetype)randomNameWithLength:(NSUInteger)length {
     return [[NSString randomStringWithLength:length
-                                    alphabet:[NSString letterAlphabet]] capitalizedString];
+                                    alphabet:[NSString lowercaseLetterAlphabet]] capitalizedString];
 }
 
-+ (instancetype)randomNameWithMinLength:(NSUInteger)min
-                              maxLength:(NSUInteger)max
-{
-    return [NSString randomStringWithMinLength:min
-                                     maxLength:max
-                                      alphabet:[[NSString letterAlphabet] capitalizedString]];
++ (instancetype)randomNameWithLengthInRange:(NSRange)range {
+    return [[NSString randomStringWithLengthInRange:range
+                                           alphabet:[NSString lowercaseLetterAlphabet]] capitalizedString];
 }
 
 @end
