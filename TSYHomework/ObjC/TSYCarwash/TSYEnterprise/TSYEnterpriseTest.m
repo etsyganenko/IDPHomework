@@ -15,7 +15,7 @@
 #import "NSString+TSYAlphabet.h"
 
 static const NSUInteger TSYCarsCount        =   100;
-static const NSUInteger TSYCarMoney         =   50;
+static const NSUInteger TSYCarMoney         =   100;
 static const NSUInteger TSYCarNameNumberCount    =   4;
 static const NSUInteger TSYCarNameLetterCount    =   2;
 
