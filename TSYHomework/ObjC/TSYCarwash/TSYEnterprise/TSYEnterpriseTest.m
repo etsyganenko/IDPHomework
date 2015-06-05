@@ -24,11 +24,8 @@ void TSYEnterprisePerformTest() {
                                                                          withMoney:TSYCarMoney
                                                                           capacity:TSYCarsCount];
         
-        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                          target:carGenerator
-                                                        selector:@selector(washCarsWithTimer:)
-                                                        userInfo:nil
-                                                         repeats:YES];
+        [carGenerator start];
+        
         
 //        dispatch_queue_t queue = dispatch_queue_create("TSYQueue", DISPATCH_QUEUE_CONCURRENT);
 //        
@@ -37,11 +34,6 @@ void TSYEnterprisePerformTest() {
 //                [enterprise washCar:cars[count]];
 //            });
 //        });
-        
-        NSRunLoop *loop = [NSRunLoop mainRunLoop];
-        [loop run];
-        
-        [timer invalidate];
         
 //        dispatch_release(queue);
     }

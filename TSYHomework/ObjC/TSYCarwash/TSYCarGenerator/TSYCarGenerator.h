@@ -9,17 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class TSYEnterprise;
-@class TSYQueue;
 
 @interface TSYCarGenerator : NSObject
-@property (nonatomic, retain)   TSYEnterprise   *enterprise;
-@property (nonatomic, assign)   NSUInteger      capacity;
-@property (nonatomic, assign)   NSUInteger      money;
 
 + (instancetype)carGeneratorForEnterprise:(TSYEnterprise *)enterprise
                                 withMoney:(NSUInteger)money
                                  capacity:(NSUInteger)capacity;
 
-- (void)washCarsWithTimer:(NSTimer *)timer;
+- (void)start;
 
 @end

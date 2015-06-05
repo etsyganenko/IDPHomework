@@ -16,7 +16,10 @@
 #import "NSObject+TSYCategory.h"
 
 @interface TSYCarGenerator ()
-@property (nonatomic, retain)   TSYQueue    *cars;
+@property (nonatomic, retain)   TSYEnterprise   *enterprise;
+@property (nonatomic, retain)   TSYQueue        *cars;
+@property (nonatomic, assign)   NSUInteger      capacity;
+@property (nonatomic, assign)   NSUInteger      money;
 
 @end
 
@@ -60,7 +63,20 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)washCarsWithTimer:(NSTimer *)timer {
+- (void)start {
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                      target:self
+                                                    selector:@selector(washGeneratedCarsWithTimer:)
+                                                    userInfo:nil
+                                                     repeats:YES];
+    
+    NSRunLoop *loop = [NSRunLoop mainRunLoop];
+    [loop run];
+    
+    [timer invalidate];
+}
+
+- (void)washGeneratedCarsWithTimer:(NSTimer *)timer {
     [self generateCars];
     
     TSYEnterprise *enterprise = self.enterprise;
