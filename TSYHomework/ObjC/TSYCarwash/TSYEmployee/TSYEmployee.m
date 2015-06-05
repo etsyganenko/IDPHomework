@@ -162,8 +162,10 @@ static const NSUInteger TSYSleepingTime =  500000;
 - (BOOL)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
     if ([object giveMoneyIfEnough:money]) {
         [self takeMoney:money];
+        
         return YES;
     }
+    
     return NO;
 }
 
@@ -181,6 +183,7 @@ static const NSUInteger TSYSleepingTime =  500000;
         }
         
         self.money -= money;
+        
         return YES;
     }
 }

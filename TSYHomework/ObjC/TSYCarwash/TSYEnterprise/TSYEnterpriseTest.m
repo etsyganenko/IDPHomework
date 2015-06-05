@@ -11,13 +11,10 @@
 #import "TSYCar.h"
 #import "TSYDispatcher.h"
 
-#import "NSString+TSYRandomString.h"
-#import "NSString+TSYAlphabet.h"
+#import "NSString+TSYRandomCarNumber.h"
 
 static const NSUInteger TSYCarsCount            = 100;
 static const NSUInteger TSYCarMoney             = 100;
-static const NSUInteger TSYCarNameNumberCount   = 4;
-static const NSUInteger TSYCarNameLetterCount   = 2;
 
 void TSYEnterprisePerformTest() {
     @autoreleasepool {
@@ -25,20 +22,10 @@ void TSYEnterprisePerformTest() {
         
         NSMutableArray *cars = [NSMutableArray array];
         
-        NSString *capitalLetterAlphabet = [NSString capitalLetterAlphabet];
-        NSString *numericAlphabet = [NSString numericAlphabet];
-        
         for (NSUInteger index = 0; index < TSYCarsCount; index++) {
-            NSString *model = [NSString randomStringWithLength:TSYCarNameLetterCount
-                                                      alphabet:capitalLetterAlphabet];
+            NSString *carNumber = [NSString randomCarNumber];
             
-            model = [model stringByAppendingString:[NSString randomStringWithLength:TSYCarNameNumberCount
-                                                                           alphabet:numericAlphabet]];
-            
-            model = [model stringByAppendingString:[NSString randomStringWithLength:TSYCarNameLetterCount
-                                                                        alphabet:capitalLetterAlphabet]];
-
-            [cars addObject:[TSYCar carWithModel:model money:TSYCarMoney]];
+            [cars addObject:[TSYCar carWithCarNumber:carNumber money:TSYCarMoney]];
         }
         
 //        for (TSYCar *car in cars) {
@@ -51,14 +38,15 @@ void TSYEnterprisePerformTest() {
 
         dispatch_queue_t queue = dispatch_queue_create("TSYQueue", DISPATCH_QUEUE_CONCURRENT);
         
-        dispatch_sync(queue, ^{
+        dispatch_async(queue, ^{
             dispatch_apply(TSYCarsCount, queue, ^(size_t count){
-                [enterprise washCar:[cars objectAtIndex:count]];
-                count += 1;
+                [enterprise washCar:cars[count]];
             });
         });
         
         NSRunLoop *loop = [NSRunLoop mainRunLoop];
         [loop run];
+        
+        dispatch_release(queue);
     }
 }
