@@ -15,12 +15,11 @@
 #import "NSString+TSYRandomCarNumber.h"
 #import "NSObject+TSYCategory.h"
 
-static const NSUInteger TSYTimerInterval     = 0.3;
+static const float TSYTimerInterval    = 0.3f;
 
 @interface TSYCarGenerator ()
 @property (nonatomic, retain)   NSTimer         *timer;
 @property (nonatomic, retain)   TSYEnterprise   *enterprise;
-@property (nonatomic, retain)   TSYQueue        *cars;
 @property (nonatomic, assign)   NSUInteger      capacity;
 @property (nonatomic, assign)   NSUInteger      money;
 
@@ -52,7 +51,6 @@ static const NSUInteger TSYTimerInterval     = 0.3;
 
 - (void)dealloc {
     self.enterprise = nil;
-    self.cars = nil;
     self.timer = nil;
     
     [super dealloc];
@@ -61,8 +59,6 @@ static const NSUInteger TSYTimerInterval     = 0.3;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.cars = [TSYQueue queue];
-        
         self.timer = [NSTimer scheduledTimerWithTimeInterval:TSYTimerInterval
                                                       target:self
                                                     selector:@selector(washGeneratedCarsWithTimer:)
@@ -103,19 +99,13 @@ static const NSUInteger TSYTimerInterval     = 0.3;
 
 - (void)washGeneratedCarsWithTimer:(NSTimer *)timer {
     TSYEnterprise *enterprise = self.enterprise;
-    TSYQueue *cars = self.cars;
     NSUInteger capacity = self.capacity;
     NSUInteger money = self.money;
     
     for (NSUInteger index = 0; index < capacity; index++) {
-        NSString *carNumber = [NSString randomCarNumber];
-        
-        [cars enqueue:[TSYCar carWithCarNumber:carNumber money:money]];
-    }
-    
-    for (NSUInteger index = 0; index < capacity; index++) {
-//        [enterprise washCar:[cars dequeue]];
-        [enterprise performSelectorInBackground:@selector(washCar:) withObject:[cars dequeue]];
+        TSYCar *car = [TSYCar carWithCarNumber:[NSString randomCarNumber] money:money];
+//        [enterprise washCar:car];
+        [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
     }
 }
 

@@ -138,6 +138,7 @@ static const NSUInteger TSYSleepingTime =  50000;
                 [self notifyOfStateChange:state];
             } else {
                 [self performWorkWithObject:[self.mutableQueue dequeue]];
+//                [self processObject:[self.mutableQueue dequeue]];
             }
         }
     }
