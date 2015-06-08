@@ -27,13 +27,14 @@ void TSYEnterprisePerformTest() {
 //        [carGenerator start];
         
         
-//        dispatch_queue_t queue = dispatch_queue_create("TSYQueue", DISPATCH_QUEUE_CONCURRENT);
-//        
-//        dispatch_async(queue, ^{
-//            dispatch_apply(TSYCarsCount, queue, ^(size_t count){
+        dispatch_queue_t queue = dispatch_queue_create("TSYQueue", DISPATCH_QUEUE_CONCURRENT);
+        
+        dispatch_async(queue, ^{
+            dispatch_apply(TSYCarsCount, queue, ^(size_t count){
 //                [enterprise washCar:cars[count]];
-//            });
-//        });
+                    [carGenerator start];
+            });
+        });
         
         NSRunLoop *loop = [NSRunLoop mainRunLoop];
         [loop run];
