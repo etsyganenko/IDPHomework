@@ -12,7 +12,7 @@
 
 #import "NSObject+TSYCategory.h"
 
-static const NSUInteger TSYSleepingTime =  500000;
+static const NSUInteger TSYSleepingTime =  50000;
 
 @interface TSYEmployee ()
 @property (nonatomic, retain) TSYQueue    *mutableQueue;
@@ -73,7 +73,7 @@ static const NSUInteger TSYSleepingTime =  500000;
 #pragma mark Public Methods
 
 - (void)performWorkWithObject:(id)object {
-    @synchronized (self) {
+//    @synchronized (self) {
         if (TSYEmployeeStateFree == self.state) {
             self.state = TSYEmployeeStateBusy;
             
@@ -82,7 +82,7 @@ static const NSUInteger TSYSleepingTime =  500000;
         } else {
             [self.mutableQueue enqueue:object];
         }
-    }
+//    }
 }
 
 - (void)finishProcessingObject:(TSYEmployee *)employee {

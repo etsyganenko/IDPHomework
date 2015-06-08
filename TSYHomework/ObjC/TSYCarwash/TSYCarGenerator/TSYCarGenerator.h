@@ -17,5 +17,6 @@
                                  capacity:(NSUInteger)capacity;
 
 - (void)start;
+- (void)stop;
 
 @end
