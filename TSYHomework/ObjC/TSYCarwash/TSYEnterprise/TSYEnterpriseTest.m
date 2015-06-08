@@ -14,7 +14,7 @@
 
 #import "NSString+TSYRandomCarNumber.h"
 
-static const NSUInteger TSYCarsCount            = 10;
+static const NSUInteger TSYCarsCount            = 5;
 static const NSUInteger TSYCarMoney             = 100;
 
 void TSYEnterprisePerformTest() {
@@ -24,20 +24,10 @@ void TSYEnterprisePerformTest() {
                                                                          withMoney:TSYCarMoney
                                                                           capacity:TSYCarsCount];
         
-//        [carGenerator start];
+        [carGenerator start];
         
-        
-//        dispatch_queue_t queue = dispatch_queue_create("TSYQueue", DISPATCH_QUEUE_CONCURRENT);
-//        
-//        dispatch_async(queue, ^{
-//            dispatch_apply(TSYCarsCount, queue, ^(size_t count){
-//                [enterprise washCar:cars[count]];
-//            });
-//        });
         
         NSRunLoop *loop = [NSRunLoop mainRunLoop];
         [loop run];
-        
-//        dispatch_release(queue);
     }
 }

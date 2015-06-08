@@ -108,18 +108,6 @@
 #pragma mark -
 #pragma mark TSYEmployeeObserver
 
-//- (void)employeeDidBecomeFree:(TSYEmployee *)employee {
-//    @synchronized (self) {
-//        if (TSYEmployeeStateFree == employee.state) {
-//            id object = [self.queue dequeue];
-//            
-//            if (object) {
-//                [employee performWorkWithObject:object];
-//            }
-//        }
-//    }
-//}
-
 - (void)employeeDidBecomeFree:(TSYEmployee *)employee {
     @synchronized (employee) {
         if (TSYEmployeeStateFree == employee.state) {

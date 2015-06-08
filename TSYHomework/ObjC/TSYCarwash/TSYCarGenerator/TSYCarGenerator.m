@@ -15,7 +15,7 @@
 #import "NSString+TSYRandomCarNumber.h"
 #import "NSObject+TSYCategory.h"
 
-static const float TSYTimerInterval    = 0.3f;
+static const float TSYTimerInterval     = 0.5f;
 
 @interface TSYCarGenerator ()
 @property (nonatomic, retain)   NSTimer         *timer;
@@ -36,14 +36,9 @@ static const float TSYTimerInterval    = 0.3f;
                                 withMoney:(NSUInteger)money
                                  capacity:(NSUInteger)capacity
 {
-    
-    TSYCarGenerator *carGenerator = [self object];
-    
-    carGenerator.enterprise = enterprise;
-    carGenerator.capacity = capacity;
-    carGenerator.money = money;
-    
-    return carGenerator;
+    return [[[self alloc] initWithEnterprise:enterprise
+                                       Money:money
+                                    capacity:capacity] autorelease];
 }
 
 #pragma mark -
@@ -56,14 +51,14 @@ static const float TSYTimerInterval    = 0.3f;
     [super dealloc];
 }
 
-- (instancetype)init {
+- (instancetype)initWithEnterprise:(TSYEnterprise *)enterprise
+                             Money:(NSUInteger)money
+                          capacity:(NSUInteger)capacity {
     self = [super init];
     if (self) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:TSYTimerInterval
-                                                      target:self
-                                                    selector:@selector(washGeneratedCarsWithTimer:)
-                                                    userInfo:nil
-                                                     repeats:YES];
+        self.enterprise = enterprise;
+        self.capacity = capacity;
+        self.money = money;
     }
     
     return self;
@@ -73,11 +68,15 @@ static const float TSYTimerInterval    = 0.3f;
 #pragma mark Public Methods
 
 - (void)start {
-    [self.timer fire];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:TSYTimerInterval
+                                                  target:self
+                                                selector:@selector(washGeneratedCarsWithTimer:)
+                                                userInfo:nil
+                                                 repeats:YES];
 }
 
 - (void)stop {
-    [self.timer invalidate];
+    self.timer = nil;
 }
 
 #pragma mark -
@@ -91,9 +90,7 @@ static const float TSYTimerInterval    = 0.3f;
         
         [_timer release];
         
-        _timer = timer;
-        
-        [timer retain];
+        _timer = [timer retain];
     }
 }
 
@@ -102,11 +99,17 @@ static const float TSYTimerInterval    = 0.3f;
     NSUInteger capacity = self.capacity;
     NSUInteger money = self.money;
     
-    for (NSUInteger index = 0; index < capacity; index++) {
-        TSYCar *car = [TSYCar carWithCarNumber:[NSString randomCarNumber] money:money];
-//        [enterprise washCar:car];
-        [enterprise performSelectorInBackground:@selector(washCar:) withObject:car];
-    }
+    dispatch_queue_t queue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0);
+    
+//    dispatch_async(queue, ^{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_apply(capacity, queue, ^(size_t index){
+            TSYCar *car = [TSYCar carWithCarNumber:[NSString randomCarNumber] money:money];
+            
+            [enterprise washCar:car];
+        });
+    });
 }
 
 @end
