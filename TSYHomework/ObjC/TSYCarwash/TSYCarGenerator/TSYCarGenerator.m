@@ -101,7 +101,13 @@ static const float TSYTimerInterval     = 0.5f;
     
     dispatch_queue_t queue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0);
     
-//    dispatch_async(queue, ^{
+//    dispatch_apply(capacity, dispatch_get_main_queue(), ^(size_t index){
+//        TSYCar *car = [TSYCar carWithCarNumber:[NSString randomCarNumber] money:money];
+//        
+//        dispatch_async(queue, ^{
+//            [enterprise washCar:car];
+//        });
+//    });
     
     dispatch_async(dispatch_get_main_queue(), ^{
         dispatch_apply(capacity, queue, ^(size_t index){
