@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TSYAppDelegate.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 11.06.15.
@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface TSYAppDelegate : UIResponder <UIApplicationDelegate>
+@property (strong, nonatomic) UIWindow *window;
 
 
 @end
