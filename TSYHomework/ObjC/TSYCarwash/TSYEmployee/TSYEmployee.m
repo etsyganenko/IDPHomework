@@ -76,8 +76,8 @@ static const NSUInteger TSYSleepingTime =  50000;
     if (TSYEmployeeStateFree == self.state) {
         self.state = TSYEmployeeStateBusy;
         
-//        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+
             [self processObject:object];
             
             usleep(arc4random_uniform(TSYSleepingTime));
