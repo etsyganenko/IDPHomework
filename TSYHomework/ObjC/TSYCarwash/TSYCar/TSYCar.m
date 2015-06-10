@@ -11,7 +11,7 @@
 #import "NSObject+TSYCategory.h"
 
 @interface TSYCar ()
-@property (nonatomic, copy, readwrite)   NSString    *model;
+@property (nonatomic, copy, readwrite)   NSString    *carNumber;
 
 @end
 
@@ -20,12 +20,12 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)carWithModel: (NSString *)model
++ (instancetype)carWithCarNumber: (NSString *)carNumber
                        money:(NSUInteger)money {
     TSYCar *car = [self object];
     
     car.money = money;
-    car.model = model;
+    car.carNumber = carNumber;
     
     return car;
 }
@@ -34,7 +34,7 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.model = nil;
+    self.carNumber = nil;
     
     [super dealloc];
 }
@@ -59,7 +59,7 @@
 - (BOOL)giveMoneyIfEnough:(NSUInteger)money {
     @synchronized (self) {
         if (self.money < money) {
-            NSLog(@"%@ %@ has not enough money!", self.className, self.model);
+            NSLog(@"%@ %@ has not enough money!", self.className, self.carNumber);
             return NO;
         }
         

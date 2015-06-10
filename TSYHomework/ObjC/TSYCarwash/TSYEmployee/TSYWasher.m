@@ -20,7 +20,7 @@
         return;
     }
     
-    NSLog(@"%@ %@ is washing %@ %@", self.className, self.name, car.className, car.model);
+    NSLog(@"%@ %@ is washing %@ %@", self.className, self.name, car.className, car.carNumber);
     
     car.clean = true;
 }

@@ -12,7 +12,7 @@
 
 #import "NSObject+TSYCategory.h"
 
-static const NSUInteger TSYSleepingTime =  500000;
+static const NSUInteger TSYSleepingTime =  50000;
 
 @interface TSYEmployee ()
 @property (nonatomic, retain) TSYQueue    *mutableQueue;
@@ -73,15 +73,23 @@ static const NSUInteger TSYSleepingTime =  500000;
 #pragma mark Public Methods
 
 - (void)performWorkWithObject:(id)object {
-    @synchronized (self) {
-        if (TSYEmployeeStateFree == self.state) {
-            self.state = TSYEmployeeStateBusy;
+    if (TSYEmployeeStateFree == self.state) {
+        self.state = TSYEmployeeStateBusy;
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+
+            [self processObject:object];
             
-            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                   withObject:object];
-        } else {
-            [self.mutableQueue enqueue:object];
-        }
+            usleep(arc4random_uniform(TSYSleepingTime));
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self finishProcessingObject:object];
+                
+                self.state = TSYEmployeeStateDidFinishWork;
+            });
+        });
+    } else {
+        [self.mutableQueue enqueue:object];
     }
 }
 
@@ -96,21 +104,21 @@ static const NSUInteger TSYSleepingTime =  500000;
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)performWorkWithObjectInBackground:(id)object {
-    [self processObject:object];
-    
-    usleep(arc4random_uniform(TSYSleepingTime));
-    
-    [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
-                           withObject:object
-                        waitUntilDone:NO];
-}
+//- (void)performWorkWithObjectInBackground:(id)object {
+//    [self processObject:object];
+//    
+//    usleep(arc4random_uniform(TSYSleepingTime));
+//    
+//    [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:)
+//                           withObject:object
+//                        waitUntilDone:NO];
+//}
 
-- (void)performWorkWithObjectOnMainThread:(id)object {
-    [self finishProcessingObject:object];
-
-    self.state = TSYEmployeeStateDidFinishWork;
-}
+//- (void)performWorkWithObjectOnMainThread:(id)object {
+//    [self finishProcessingObject:object];
+//
+//    self.state = TSYEmployeeStateDidFinishWork;
+//}
 
 #pragma mark -
 #pragma mark TSYObservableObject
@@ -162,8 +170,10 @@ static const NSUInteger TSYSleepingTime =  500000;
 - (BOOL)takeMoney:(NSUInteger)money fromObject:(TSYEmployee *)object {
     if ([object giveMoneyIfEnough:money]) {
         [self takeMoney:money];
+        
         return YES;
     }
+    
     return NO;
 }
 
@@ -181,6 +191,7 @@ static const NSUInteger TSYSleepingTime =  500000;
         }
         
         self.money -= money;
+        
         return YES;
     }
 }

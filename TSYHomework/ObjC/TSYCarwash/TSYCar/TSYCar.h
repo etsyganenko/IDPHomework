@@ -11,11 +11,11 @@
 #import "TSYMoneyProtocol.h"
 
 @interface TSYCar : NSObject<TSYMoneyProtocol>
-@property (nonatomic, copy, readonly)           NSString    *model;
+@property (nonatomic, copy, readonly)           NSString    *carNumber;
 @property (nonatomic, assign)                   NSUInteger  money;
 @property (nonatomic, assign, getter=isClean)   BOOL        clean;
 
-+ (instancetype)carWithModel:(NSString *)model
++ (instancetype)carWithCarNumber:(NSString *)carNumber
                        money:(NSUInteger)money;
 
 @end
