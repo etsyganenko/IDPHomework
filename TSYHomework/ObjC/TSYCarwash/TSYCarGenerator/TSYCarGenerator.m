@@ -99,18 +99,8 @@ static const float TSYTimerInterval     = 0.5f;
     NSUInteger capacity = self.capacity;
     NSUInteger money = self.money;
     
-    dispatch_queue_t queue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0);
-    
-//    dispatch_apply(capacity, dispatch_get_main_queue(), ^(size_t index){
-//        TSYCar *car = [TSYCar carWithCarNumber:[NSString randomCarNumber] money:money];
-//        
-//        dispatch_async(queue, ^{
-//            [enterprise washCar:car];
-//        });
-//    });
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        dispatch_apply(capacity, queue, ^(size_t index){
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        dispatch_apply(capacity, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^(size_t index){
             TSYCar *car = [TSYCar carWithCarNumber:[NSString randomCarNumber] money:money];
             
             [enterprise washCar:car];
