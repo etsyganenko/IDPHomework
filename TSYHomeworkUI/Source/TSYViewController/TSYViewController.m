@@ -24,12 +24,12 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)onClickButtonNext:(id)sender {
-    [self.mainView nextPosition];
+- (IBAction)onButtonNext:(id)sender {
+    [(TSYView *)self.view nextPosition];
 }
 
-- (IBAction)onClickButtonRandom:(id)sender {
-    [self.mainView randomPosition];
+- (IBAction)onButtonRandom:(id)sender {
+    [(TSYView *)self.view randomPosition];
 }
 
 @end

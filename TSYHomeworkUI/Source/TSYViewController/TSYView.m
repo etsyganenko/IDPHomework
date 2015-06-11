@@ -11,11 +11,11 @@
 @implementation TSYView
 
 - (void)nextPosition {
-//    self.square.transform = CGAffineTransformTranslate();
+    self.square.backgroundColor = [UIColor yellowColor];
 }
 
 - (void)randomPosition {
-    
+    self.square.backgroundColor = [UIColor greenColor];
 }
 
 @end

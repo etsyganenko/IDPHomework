@@ -4,7 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" customClass="TSYView"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" customClass="TSYViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="Cps-Fu-Pfk"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="TSYView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -18,6 +22,9 @@
                     <state key="normal" title="Random">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onButtonRandom:" destination="-1" eventType="touchUpInside" id="8iG-8r-irz"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rb3-Bp-Zhc">
                     <rect key="frame" x="77" y="285" width="83" height="30"/>
@@ -27,6 +34,9 @@
                     <state key="normal" title="Next">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onButtonNext:" destination="-1" eventType="touchUpInside" id="PHV-Kw-dpc"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Square" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JsO-fj-fnZ">
                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -38,6 +48,11 @@
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="next" destination="rb3-Bp-Zhc" id="pJa-QP-lMg"/>
+                <outlet property="random" destination="51f-vK-Q03" id="i8G-0b-dcA"/>
+                <outlet property="square" destination="JsO-fj-fnZ" id="IpQ-o5-pHT"/>
+            </connections>
             <point key="canvasLocation" x="140" y="154"/>
         </view>
     </objects>

@@ -24,7 +24,6 @@
     TSYViewController *controller = [TSYViewController new];
     window.rootViewController = controller;
     
-    window.backgroundColor = [UIColor greenColor];
     [window makeKeyAndVisible];
     
     return YES;
