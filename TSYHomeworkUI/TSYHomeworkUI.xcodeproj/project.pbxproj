@@ -17,8 +17,9 @@
 		849FB4B51B28E98E0096D0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4AB1B28E98E0096D0AD /* Images.xcassets */; };
 		849FB4B61B28E98E0096D0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4AB1B28E98E0096D0AD /* Images.xcassets */; };
 		849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB4BD1B28ED760096D0AD /* TSYAppDelegate.m */; };
-		849FB4C21B28EDDC0096D0AD /* TSYLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB4C01B28EDDC0096D0AD /* TSYLabelViewController.m */; };
-		849FB4C31B28EDDC0096D0AD /* TSYLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4C11B28EDDC0096D0AD /* TSYLabelViewController.xib */; };
+		84A1A1ED1B296E5300E9E0FB /* TSYView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1A1EA1B296E5300E9E0FB /* TSYView.m */; };
+		84A1A1EE1B296E5300E9E0FB /* TSYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1A1EC1B296E5300E9E0FB /* TSYViewController.m */; };
+		84A1A1F01B296EB900E9E0FB /* TSYViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1A1EF1B296EB900E9E0FB /* TSYViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +46,11 @@
 		849FB4AB1B28E98E0096D0AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		849FB4BC1B28ED760096D0AD /* TSYAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAppDelegate.h; sourceTree = "<group>"; };
 		849FB4BD1B28ED760096D0AD /* TSYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAppDelegate.m; sourceTree = "<group>"; };
-		849FB4BF1B28EDDC0096D0AD /* TSYLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYLabelViewController.h; sourceTree = "<group>"; };
-		849FB4C01B28EDDC0096D0AD /* TSYLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYLabelViewController.m; sourceTree = "<group>"; };
-		849FB4C11B28EDDC0096D0AD /* TSYLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYLabelViewController.xib; sourceTree = "<group>"; };
+		84A1A1E91B296E5300E9E0FB /* TSYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYView.h; sourceTree = "<group>"; };
+		84A1A1EA1B296E5300E9E0FB /* TSYView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYView.m; sourceTree = "<group>"; };
+		84A1A1EB1B296E5300E9E0FB /* TSYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYViewController.h; sourceTree = "<group>"; };
+		84A1A1EC1B296E5300E9E0FB /* TSYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYViewController.m; sourceTree = "<group>"; };
+		84A1A1EF1B296EB900E9E0FB /* TSYViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,19 +134,21 @@
 		849FB4AC1B28E98E0096D0AD /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				849FB4BB1B28ED340096D0AD /* TSYLabelViewController */,
+				84A1A1E81B296E5300E9E0FB /* TSYViewController */,
 			);
 			path = Source;
 			sourceTree = "<group>";
 		};
-		849FB4BB1B28ED340096D0AD /* TSYLabelViewController */ = {
+		84A1A1E81B296E5300E9E0FB /* TSYViewController */ = {
 			isa = PBXGroup;
 			children = (
-				849FB4BF1B28EDDC0096D0AD /* TSYLabelViewController.h */,
-				849FB4C01B28EDDC0096D0AD /* TSYLabelViewController.m */,
-				849FB4C11B28EDDC0096D0AD /* TSYLabelViewController.xib */,
+				84A1A1E91B296E5300E9E0FB /* TSYView.h */,
+				84A1A1EA1B296E5300E9E0FB /* TSYView.m */,
+				84A1A1EB1B296E5300E9E0FB /* TSYViewController.h */,
+				84A1A1EC1B296E5300E9E0FB /* TSYViewController.m */,
+				84A1A1EF1B296EB900E9E0FB /* TSYViewController.xib */,
 			);
-			path = TSYLabelViewController;
+			path = TSYViewController;
 			sourceTree = "<group>";
 		};
 		BE30A4A9EDD4073BC4CA38A1 /* Pods */ = {
@@ -238,8 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				849FB4B51B28E98E0096D0AD /* Images.xcassets in Resources */,
+				84A1A1F01B296EB900E9E0FB /* TSYViewController.xib in Resources */,
 				849FB4B11B28E98E0096D0AD /* LaunchScreen.xib in Resources */,
-				849FB4C31B28EDDC0096D0AD /* TSYLabelViewController.xib in Resources */,
 				849FB49F1B28E9460096D0AD /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,8 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				849FB4A01B28E9460096D0AD /* main.m in Sources */,
+				84A1A1EE1B296E5300E9E0FB /* TSYViewController.m in Sources */,
+				84A1A1ED1B296E5300E9E0FB /* TSYView.m in Sources */,
 				849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */,
-				849FB4C21B28EDDC0096D0AD /* TSYLabelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

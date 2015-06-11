@@ -8,6 +8,8 @@
 
 #import "TSYAppDelegate.h"
 
+#import "TSYViewController.h"
+
 @interface TSYAppDelegate ()
 
 @end
@@ -18,6 +20,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
+    
+    TSYViewController *controller = [TSYViewController new];
+    window.rootViewController = controller;
     
     window.backgroundColor = [UIColor greenColor];
     [window makeKeyAndVisible];
