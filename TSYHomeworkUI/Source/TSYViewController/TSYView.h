@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, TSYSquarePosition) {
+    TSYSquarePositionLeftUp,
+    TSYSquarePositionRightUp,
+    TSYSquarePositionRightDown,
+    TSYSquarePositionLeftDown
+};
+
 @interface TSYView : UIView
-@property (nonatomic, retain)   IBOutlet UILabel     *square;
-@property (nonatomic, retain)   IBOutlet UIButton    *next;
-@property (nonatomic, retain)   IBOutlet UIButton    *random;
+@property (nonatomic, strong)   IBOutlet UILabel     *square;
+@property (nonatomic, strong)   IBOutlet UIButton    *next;
+@property (nonatomic, strong)   IBOutlet UIButton    *random;
 
 - (void)nextPosition;
 - (void)randomPosition;
