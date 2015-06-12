@@ -12,6 +12,9 @@
 @property (nonatomic, assign) TSYSquarePosition   position;
 
 - (TSYSquarePosition)futurePosition;
+- (TSYSquarePosition)randomFuturePosition;
+
+- (CGRect)frameWithPosition:(TSYSquarePosition)position;
 
 @end
 
@@ -29,9 +32,19 @@
     if (_position != position) {
         CGRect frame = [self frameWithPosition:position];
 
+//        [UIView animateWithDuration:1
+//                         animations:^{
+//                             self.square.frame = frame;
+//                         }];
+        
+        self.userInteractionEnabled = NO;
+        
         [UIView animateWithDuration:1
                          animations:^{
                              self.square.frame = frame;
+                         }
+                         completion:^(BOOL finished){
+                                     self.userInteractionEnabled = YES;
                          }];
 
         _position = position;
@@ -41,8 +54,7 @@
 - (CGRect)frameWithPosition:(TSYSquarePosition)position {
     CGRect windowFrame = self.window.bounds;
     CGRect squareFrame = self.square.frame;
-    CGRect newFrame = CGRectZero;
-    newFrame.size = squareFrame.size;
+    CGRect newFrame = squareFrame;
     
     CGFloat distanceX = windowFrame.size.width - squareFrame.size.width;
     CGFloat distanceY = windowFrame.size.height - squareFrame.size.height;
@@ -50,29 +62,23 @@
     switch (position) {
         case TSYSquarePositionLeftUp:
             newFrame.origin = CGPointMake(windowFrame.origin.x, windowFrame.origin.y);
-            
             return newFrame;
             
         case TSYSquarePositionRightUp:
             newFrame.origin = CGPointMake(windowFrame.origin.x + distanceX, windowFrame.origin.y);
-
             return newFrame;
             
         case TSYSquarePositionRightDown:
             newFrame.origin = CGPointMake(windowFrame.origin.x + distanceX, windowFrame.origin.y + distanceY);
-            
             return newFrame;
             
         case TSYSquarePositionLeftDown:
             newFrame.origin = CGPointMake(windowFrame.origin.x, windowFrame.origin.y + distanceY);
-            
             return newFrame;
             
         default:
             return squareFrame;
     }
-    
-    return CGRectNull;
 }
 
 - (TSYSquarePosition)futurePosition {
