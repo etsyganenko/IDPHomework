@@ -9,44 +9,90 @@
 #import "TSYView.h"
 
 @interface TSYView ()
-@property (nonatomic, assign) TSYSquarePosition   position;
+@property (nonatomic, assign) TSYSquarePosition     position;
+@property (nonatomic, strong) NSTimer               *timer;
 
 - (TSYSquarePosition)futurePosition;
 - (TSYSquarePosition)randomFuturePosition;
 
 - (CGRect)frameWithPosition:(TSYSquarePosition)position;
 
+- (void)setPosition:(TSYSquarePosition)position;
+- (void)setPosition:(TSYSquarePosition)position animated:(BOOL)isAnimated;
+- (void)setPosition:(TSYSquarePosition)position
+           animated:(BOOL)isAnimated
+  completionHandler:(void (^)(BOOL finished))handler;
+
 @end
 
 @implementation TSYView
 
 - (void)nextPosition {
-    self.position = [self futurePosition];
+    [self setPosition:[self futurePosition] animated:YES];
 }
 
 - (void)randomPosition {
-    self.position = [self randomFuturePosition];
+    [self setPosition:[self randomFuturePosition] animated:YES];
+}
+
+- (void)startMoving {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                      target:self
+                                                    selector:@selector(moveWithTimer:)
+                                                    userInfo:nil
+                                                     repeats:YES];
+}
+
+- (void)moveWithTimer:(NSTimer *)timer {
+    self.start.userInteractionEnabled = NO;
+    self.next.userInteractionEnabled = NO;
+    self.random.userInteractionEnabled = NO;
+    
+    [self nextPosition];
+}
+
+- (void)stopMoving {
+    [self.timer invalidate];
 }
 
 - (void)setPosition:(TSYSquarePosition)position {
-    if (_position != position) {
-        CGRect frame = [self frameWithPosition:position];
+    [self setPosition:position animated:NO];
+}
 
-//        [UIView animateWithDuration:1
-//                         animations:^{
-//                             self.square.frame = frame;
-//                         }];
-        
+- (void)setPosition:(TSYSquarePosition)position animated:(BOOL)isAnimated {
+    [self setPosition:position
+             animated:isAnimated
+    completionHandler:NULL];
+    
+//    [self setPosition:position
+//             animated:isAnimated
+//    completionHandler:^(BOOL finished) {
+//        self.userInteractionEnabled = YES;
+//    }];
+}
+
+- (void)setPosition:(TSYSquarePosition)position
+           animated:(BOOL)isAnimated
+  completionHandler:(void (^)(BOOL finished))handler
+{
+    if (_position != position) {
         self.userInteractionEnabled = NO;
         
-        [UIView animateWithDuration:1
-                         animations:^{
-                             self.square.frame = frame;
-                         }
-                         completion:^(BOOL finished){
-                                     self.userInteractionEnabled = YES;
-                         }];
-
+        if (isAnimated) {
+            [UIView animateWithDuration:1
+                             animations:^{
+                                 self.square.frame = [self frameWithPosition:position];
+                             }
+                             completion:handler];
+            
+            if (!handler) {
+                self.userInteractionEnabled = YES;
+            }
+            
+        } else {
+            self.square.frame = [self frameWithPosition:position];
+        }
+        
         _position = position;
     }
 }

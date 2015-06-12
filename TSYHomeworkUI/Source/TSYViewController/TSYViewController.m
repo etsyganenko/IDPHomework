@@ -32,4 +32,12 @@
     [(TSYView *)self.view randomPosition];
 }
 
+- (IBAction)onButtonStart:(id)sender {
+    [(TSYView *)self.view startMoving];
+}
+
+- (IBAction)onButtonStop:(id)sender {
+    [(TSYView *)self.view stopMoving];
+}
+
 @end
