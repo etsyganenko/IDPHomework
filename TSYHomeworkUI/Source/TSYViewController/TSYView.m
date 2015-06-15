@@ -28,7 +28,7 @@
 @implementation TSYView
 
 - (void)nextPosition {
-    [self setPosition:[self futurePosition] animated:YES];
+    [self setPosition:[self futurePosition] animated:NO];
 }
 
 - (void)randomPosition {
@@ -87,15 +87,15 @@
                              }
                              completion:handler];
             
-            if (!handler) {
-                self.userInteractionEnabled = YES;
-            }
-            
         } else {
             self.square.frame = [self frameWithPosition:position];
         }
         
         _position = position;
+        
+        if (!handler) {
+            self.userInteractionEnabled = YES;
+        }
     }
 }
 
