@@ -53,9 +53,7 @@
 }
 
 - (void)stopMoving {
-    self.start.userInteractionEnabled = YES;
-    self.next.userInteractionEnabled = YES;
-    self.random.userInteractionEnabled = YES;
+    [self buttonsEnabled:YES];
 
     [self.timer invalidate];
     
@@ -65,10 +63,15 @@
 #pragma mark -
 #pragma mark Private Methods
 
+// enable/disable all buttons except "Stop"
+- (void)buttonsEnabled:(BOOL)enabled {
+    self.start.userInteractionEnabled = enabled;
+    self.next.userInteractionEnabled = enabled;
+    self.random.userInteractionEnabled = enabled;
+}
+
 - (void)moveWithTimer:(NSTimer *)timer {
-    self.start.userInteractionEnabled = NO;
-    self.next.userInteractionEnabled = NO;
-    self.random.userInteractionEnabled = NO;
+    [self buttonsEnabled:NO];
     
     [self nextTimerPosition];
 }

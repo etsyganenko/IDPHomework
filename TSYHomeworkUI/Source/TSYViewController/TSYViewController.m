@@ -12,6 +12,8 @@
 
 @implementation TSYViewController
 
+@dynamic mainView;
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -38,19 +40,19 @@
 #pragma mark Interface Handling
 
 - (IBAction)onButtonNext:(id)sender {
-    [(TSYView *)self.view nextPosition];
+    [self.mainView nextPosition];
 }
 
 - (IBAction)onButtonRandom:(id)sender {
-    [(TSYView *)self.view randomPosition];
+    [self.mainView randomPosition];
 }
 
 - (IBAction)onButtonStart:(id)sender {
-    [(TSYView *)self.view startMoving];
+    [self.mainView startMoving];
 }
 
 - (IBAction)onButtonStop:(id)sender {
-    [(TSYView *)self.view stopMoving];
+    [self.mainView stopMoving];
 }
 
 @end
