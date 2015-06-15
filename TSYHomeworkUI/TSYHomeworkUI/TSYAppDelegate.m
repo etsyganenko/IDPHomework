@@ -10,6 +10,8 @@
 
 #import "TSYViewController.h"
 
+#import "UIWindow+TSYCategories.h"
+
 @interface TSYAppDelegate ()
 
 @end
@@ -18,7 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIWindow *window = [UIWindow window];
     self.window = window;
     
     TSYViewController *controller = [TSYViewController new];

@@ -15,8 +15,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="51f-vK-Q03">
-                    <rect key="frame" x="165" y="302" width="88" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                    <rect key="frame" x="160" y="302" width="75" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                     <color key="backgroundColor" red="0.91372555494308472" green="0.90196084976196289" blue="0.52549022436141968" alpha="1" colorSpace="deviceRGB"/>
                     <gestureRecognizers/>
                     <state key="normal" title="Random">
@@ -27,17 +27,9 @@
                         <action selector="onButtonRandom:" destination="-1" eventType="touchUpInside" id="8iG-8r-irz"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JsO-fj-fnZ">
-                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.33110034789999998" blue="0.21141509929999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oH9-nR-Oin">
-                    <rect key="frame" x="74" y="355" width="88" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                    <rect key="frame" x="84" y="348" width="75" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                     <color key="backgroundColor" red="0.38431376218795776" green="0.62745100259780884" blue="0.90980398654937744" alpha="1" colorSpace="deviceRGB"/>
                     <state key="normal" title="Start">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,8 +40,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gAJ-LA-8fx">
-                    <rect key="frame" x="165" y="355" width="88" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="160" y="348" width="75" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.91372555494308472" green="0.60000002384185791" blue="0.52549022436141968" alpha="1" colorSpace="deviceRGB"/>
                     <state key="normal" title="Stop">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -60,8 +52,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rb3-Bp-Zhc">
-                    <rect key="frame" x="74" y="302" width="88" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                    <rect key="frame" x="84" y="302" width="75" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                     <color key="backgroundColor" red="0.066666670143604279" green="0.85098046064376831" blue="0.54509806632995605" alpha="1" colorSpace="deviceRGB"/>
                     <gestureRecognizers/>
                     <state key="normal" title="Next">
@@ -72,6 +64,14 @@
                         <action selector="onButtonNext:" destination="-1" eventType="touchUpInside" id="PHV-Kw-dpc"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JsO-fj-fnZ">
+                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.33110034789999998" blue="0.21141509929999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.67843139171600342" green="0.89411771297454834" blue="0.92941182851791382" alpha="1" colorSpace="deviceRGB"/>
             <connections>

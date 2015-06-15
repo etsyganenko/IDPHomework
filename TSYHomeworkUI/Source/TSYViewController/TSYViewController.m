@@ -10,11 +10,21 @@
 
 #import "TSYView.h"
 
-@interface TSYViewController ()
-
-@end
-
 @implementation TSYViewController
+
+#pragma mark -
+#pragma mark Accessors
+
+- (TSYView *)mainView {
+    if ([self isViewLoaded] && [self.view isKindOfClass:[TSYView class]]) {
+        return (TSYView *)self.view;
+    }
+    
+    return nil;
+}
+
+#pragma mark -
+#pragma mark View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +33,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+#pragma mark -
+#pragma mark Interface Handling
 
 - (IBAction)onButtonNext:(id)sender {
     [(TSYView *)self.view nextPosition];

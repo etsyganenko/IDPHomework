@@ -27,6 +27,9 @@
 
 @implementation TSYView
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (void)nextPosition {
     [self setPosition:[self futurePosition] animated:NO];
 }
@@ -43,18 +46,21 @@
                                                      repeats:YES];
 }
 
+- (void)stopMoving {
+    [self.timer invalidate];
+    
+    self.timer = nil;
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
 - (void)moveWithTimer:(NSTimer *)timer {
     self.start.userInteractionEnabled = NO;
     self.next.userInteractionEnabled = NO;
     self.random.userInteractionEnabled = NO;
     
     [self nextPosition];
-}
-
-- (void)stopMoving {
-    [self.timer invalidate];
-    
-    self.timer = nil;
 }
 
 - (void)setPosition:(TSYSquarePosition)position {
