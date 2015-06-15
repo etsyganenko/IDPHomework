@@ -31,14 +31,20 @@
 #pragma mark Public Methods
 
 - (void)nextPosition {
-    [self setPosition:[self futurePosition] animated:NO];
+    self.next.userInteractionEnabled = NO;
+    
+    [self setPosition:[self futurePosition] animated:YES];
 }
 
 - (void)randomPosition {
+    self.random.userInteractionEnabled = NO;
+    
     [self setPosition:[self randomFuturePosition] animated:YES];
 }
 
 - (void)startMoving {
+    self.start.userInteractionEnabled = NO;
+    
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1
                                                       target:self
                                                     selector:@selector(moveWithTimer:)
@@ -47,6 +53,10 @@
 }
 
 - (void)stopMoving {
+    self.start.userInteractionEnabled = YES;
+    self.next.userInteractionEnabled = YES;
+    self.random.userInteractionEnabled = YES;
+
     [self.timer invalidate];
     
     self.timer = nil;
@@ -60,7 +70,13 @@
     self.next.userInteractionEnabled = NO;
     self.random.userInteractionEnabled = NO;
     
-    [self nextPosition];
+    [self nextTimerPosition];
+}
+
+- (void)nextTimerPosition {
+    [self setPosition:[self futurePosition]
+             animated:YES
+    completionHandler:NULL];
 }
 
 - (void)setPosition:(TSYSquarePosition)position {
@@ -70,13 +86,10 @@
 - (void)setPosition:(TSYSquarePosition)position animated:(BOOL)isAnimated {
     [self setPosition:position
              animated:isAnimated
-    completionHandler:NULL];
-    
-//    [self setPosition:position
-//             animated:isAnimated
-//    completionHandler:^(BOOL finished) {
-//        self.userInteractionEnabled = YES;
-//    }];
+    completionHandler:^(BOOL finished) {
+        self.next.userInteractionEnabled = YES;
+        self.random.userInteractionEnabled = YES;
+    }];
 }
 
 - (void)setPosition:(TSYSquarePosition)position
@@ -84,8 +97,6 @@
   completionHandler:(void (^)(BOOL finished))handler
 {
     if (_position != position) {
-        self.userInteractionEnabled = NO;
-        
         if (isAnimated) {
             [UIView animateWithDuration:1
                              animations:^{
@@ -98,10 +109,6 @@
         }
         
         _position = position;
-        
-        if (!handler) {
-            self.userInteractionEnabled = YES;
-        }
     }
 }
 
