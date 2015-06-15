@@ -27,19 +27,6 @@
                         <action selector="onButtonRandom:" destination="-1" eventType="touchUpInside" id="8iG-8r-irz"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rb3-Bp-Zhc">
-                    <rect key="frame" x="74" y="302" width="88" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                    <color key="backgroundColor" red="0.066666670143604279" green="0.85098046064376831" blue="0.54509806632995605" alpha="1" colorSpace="deviceRGB"/>
-                    <gestureRecognizers/>
-                    <state key="normal" title="Next">
-                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onButtonNext:" destination="-1" eventType="touchUpInside" id="PHV-Kw-dpc"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JsO-fj-fnZ">
                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -70,6 +57,19 @@
                     </state>
                     <connections>
                         <action selector="onButtonStop:" destination="-1" eventType="touchUpInside" id="FCZ-J1-Wed"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rb3-Bp-Zhc">
+                    <rect key="frame" x="74" y="302" width="88" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                    <color key="backgroundColor" red="0.066666670143604279" green="0.85098046064376831" blue="0.54509806632995605" alpha="1" colorSpace="deviceRGB"/>
+                    <gestureRecognizers/>
+                    <state key="normal" title="Next">
+                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onButtonNext:" destination="-1" eventType="touchUpInside" id="PHV-Kw-dpc"/>
                     </connections>
                 </button>
             </subviews>

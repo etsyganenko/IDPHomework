@@ -53,6 +53,8 @@
 
 - (void)stopMoving {
     [self.timer invalidate];
+    
+    self.timer = nil;
 }
 
 - (void)setPosition:(TSYSquarePosition)position {
