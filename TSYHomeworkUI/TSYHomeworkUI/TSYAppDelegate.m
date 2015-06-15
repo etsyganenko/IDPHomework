@@ -22,9 +22,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
     self.window = window;
-    
-    TSYViewController *controller = [TSYViewController new];
-    window.rootViewController = controller;
+
+    window.rootViewController = [TSYViewController new];
     
     [window makeKeyAndVisible];
     

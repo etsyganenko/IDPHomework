@@ -8,20 +8,19 @@
 
 #import "TSYView.h"
 
+const NSUInteger TSYAnimationDuration   = 1;
+const NSUInteger TSYAnimationDelay      = 0;
+
 @interface TSYView ()
-@property (nonatomic, assign) TSYSquarePosition     position;
-@property (nonatomic, strong) NSTimer               *timer;
+@property (nonatomic, assign) TSYSquarePosition   position;
+@property (nonatomic, assign) BOOL                isMoving;
 
 - (TSYSquarePosition)futurePosition;
 - (TSYSquarePosition)randomFuturePosition;
 
 - (CGRect)frameWithPosition:(TSYSquarePosition)position;
 
-- (void)setPosition:(TSYSquarePosition)position;
-- (void)setPosition:(TSYSquarePosition)position animated:(BOOL)isAnimated;
-- (void)setPosition:(TSYSquarePosition)position
-           animated:(BOOL)isAnimated
-  completionHandler:(void (^)(BOOL finished))handler;
+- (void)setButtonsEnabled:(BOOL)enabled;
 
 @end
 
@@ -43,40 +42,34 @@
 }
 
 - (void)startMoving {
+    self.isMoving = YES;
+    
     self.start.userInteractionEnabled = NO;
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                      target:self
-                                                    selector:@selector(moveWithTimer:)
-                                                    userInfo:nil
-                                                     repeats:YES];
+//    [UIView animateWithDuration:TSYAnimationDuration
+//                          delay:TSYAnimationDelay
+//                        options:UIViewAnimationOptionBeginFromCurrentState
+//                     animations:^{
+//                         [self nextPosition];
+//                     }
+//                     completion:^(BOOL finished){
+//                         if (finished) {
+//                             [self nextPosition];
+//                         }
+//                     }];
+    
+    [self setPosition:[self futurePosition]
+             animated:YES
+    completionHandler:^(BOOL finished){
+        _position = [self futurePosition];
+        [self startMoving];
+    }];
 }
 
 - (void)stopMoving {
-    self.start.userInteractionEnabled = YES;
-    self.next.userInteractionEnabled = YES;
-    self.random.userInteractionEnabled = YES;
-
-    [self.timer invalidate];
+    self.isMoving = YES;
     
-    self.timer = nil;
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (void)moveWithTimer:(NSTimer *)timer {
-    self.start.userInteractionEnabled = NO;
-    self.next.userInteractionEnabled = NO;
-    self.random.userInteractionEnabled = NO;
-    
-    [self nextTimerPosition];
-}
-
-- (void)nextTimerPosition {
-    [self setPosition:[self futurePosition]
-             animated:YES
-    completionHandler:NULL];
+    [self setButtonsEnabled:YES];
 }
 
 - (void)setPosition:(TSYSquarePosition)position {
@@ -86,10 +79,7 @@
 - (void)setPosition:(TSYSquarePosition)position animated:(BOOL)isAnimated {
     [self setPosition:position
              animated:isAnimated
-    completionHandler:^(BOOL finished) {
-        self.next.userInteractionEnabled = YES;
-        self.random.userInteractionEnabled = YES;
-    }];
+    completionHandler:NULL];
 }
 
 - (void)setPosition:(TSYSquarePosition)position
@@ -97,19 +87,31 @@
   completionHandler:(void (^)(BOOL finished))handler
 {
     if (_position != position) {
-        if (isAnimated) {
-            [UIView animateWithDuration:1
-                             animations:^{
-                                 self.square.frame = [self frameWithPosition:position];
+        [UIView animateWithDuration:TSYAnimationDuration
+                              delay:TSYAnimationDelay
+                            options:UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             self.square.frame = [self frameWithPosition:position];
+                         }
+                         completion:^(BOOL finished) {
+                             if (finished) {
+                                 _position = position;
+                                 
+                                 self.next.userInteractionEnabled = YES;
+                                 self.random.userInteractionEnabled = YES;
                              }
-                             completion:handler];
-            
-        } else {
-            self.square.frame = [self frameWithPosition:position];
-        }
-        
-        _position = position;
+                         }];
     }
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+// enable/disable all buttons except "Stop"
+- (void)setButtonsEnabled:(BOOL)enabled {
+    self.start.userInteractionEnabled = enabled;
+    self.next.userInteractionEnabled = enabled;
+    self.random.userInteractionEnabled = enabled;
 }
 
 - (CGRect)frameWithPosition:(TSYSquarePosition)position {
@@ -122,19 +124,23 @@
     
     switch (position) {
         case TSYSquarePositionLeftUp:
-            newFrame.origin = CGPointMake(windowFrame.origin.x, windowFrame.origin.y);
+            newFrame.origin = CGPointMake(windowFrame.origin.x,
+                                          windowFrame.origin.y);
             return newFrame;
             
         case TSYSquarePositionRightUp:
-            newFrame.origin = CGPointMake(windowFrame.origin.x + distanceX, windowFrame.origin.y);
+            newFrame.origin = CGPointMake(windowFrame.origin.x + distanceX,
+                                          windowFrame.origin.y);
             return newFrame;
             
         case TSYSquarePositionRightDown:
-            newFrame.origin = CGPointMake(windowFrame.origin.x + distanceX, windowFrame.origin.y + distanceY);
+            newFrame.origin = CGPointMake(windowFrame.origin.x + distanceX,
+                                          windowFrame.origin.y + distanceY);
             return newFrame;
             
         case TSYSquarePositionLeftDown:
-            newFrame.origin = CGPointMake(windowFrame.origin.x, windowFrame.origin.y + distanceY);
+            newFrame.origin = CGPointMake(windowFrame.origin.x,
+                                          windowFrame.origin.y + distanceY);
             return newFrame;
             
         default:
@@ -143,17 +149,11 @@
 }
 
 - (TSYSquarePosition)futurePosition {
-    TSYSquarePosition currentPosition = self.position;
-    
-    if (TSYSquarePositionLeftDown == currentPosition) {
-        return TSYSquarePositionLeftUp;
-    }
-
-    return currentPosition + 1;
+    return (self.position + 1) % TSYSquarePositionCount;
 }
 
 - (TSYSquarePosition)randomFuturePosition {
-    TSYSquarePosition randomPosition = arc4random_uniform(TSYSquarePositionLeftDown + 1);
+    TSYSquarePosition randomPosition = arc4random_uniform(TSYSquarePositionCount);
     
     if (randomPosition == self.position) {
         randomPosition = [self randomFuturePosition];

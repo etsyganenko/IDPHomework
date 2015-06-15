@@ -12,22 +12,32 @@ typedef NS_ENUM(NSUInteger, TSYSquarePosition) {
     TSYSquarePositionLeftUp,
     TSYSquarePositionRightUp,
     TSYSquarePositionRightDown,
-    TSYSquarePositionLeftDown
+    TSYSquarePositionLeftDown,
+    TSYSquarePositionCount
 };
 
 @interface TSYView : UIView
-@property (nonatomic, strong)   IBOutlet UILabel     *square;
+@property (nonatomic, strong)   IBOutlet UILabel    *square;
 
-@property (nonatomic, strong)   IBOutlet UIButton    *next;
-@property (nonatomic, strong)   IBOutlet UIButton    *random;
+@property (nonatomic, readonly) TSYSquarePosition   position;
+@property (nonatomic, readonly) BOOL                isMoving;
 
-@property (nonatomic, strong)   IBOutlet UIButton    *start;
-@property (nonatomic, strong)   IBOutlet UIButton    *stop;
+@property (nonatomic, strong)   IBOutlet UIButton   *next;
+@property (nonatomic, strong)   IBOutlet UIButton   *random;
+
+@property (nonatomic, strong)   IBOutlet UIButton   *start;
+@property (nonatomic, strong)   IBOutlet UIButton   *stop;
 
 - (void)nextPosition;
 - (void)randomPosition;
 
 - (void)startMoving;
 - (void)stopMoving;
+
+- (void)setPosition:(TSYSquarePosition)position;
+- (void)setPosition:(TSYSquarePosition)position animated:(BOOL)isAnimated;
+- (void)setPosition:(TSYSquarePosition)position
+           animated:(BOOL)isAnimated
+  completionHandler:(void (^)(BOOL finished))handler;
 
 @end

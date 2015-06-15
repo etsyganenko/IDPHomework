@@ -156,11 +156,11 @@
 		84A1A1E81B296E5300E9E0FB /* TSYViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84A1A1E91B296E5300E9E0FB /* TSYView.h */,
-				84A1A1EA1B296E5300E9E0FB /* TSYView.m */,
 				84A1A1EB1B296E5300E9E0FB /* TSYViewController.h */,
 				84A1A1EC1B296E5300E9E0FB /* TSYViewController.m */,
 				84A1A1EF1B296EB900E9E0FB /* TSYViewController.xib */,
+				84A1A1E91B296E5300E9E0FB /* TSYView.h */,
+				84A1A1EA1B296E5300E9E0FB /* TSYView.m */,
 			);
 			path = TSYViewController;
 			sourceTree = "<group>";
