@@ -10,6 +10,8 @@
 
 #import "TSYView.h"
 
+#import "TSYMacros.h"
+
 @implementation TSYViewController
 
 @dynamic mainView;
@@ -17,13 +19,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (TSYView *)mainView {
-    if ([self isViewLoaded] && [self.view isKindOfClass:[TSYView class]]) {
-        return (TSYView *)self.view;
-    }
-    
-    return nil;
-}
+TSYBaseViewPropertyGetter(TSYView, mainView)
 
 #pragma mark -
 #pragma mark View Lifecycle

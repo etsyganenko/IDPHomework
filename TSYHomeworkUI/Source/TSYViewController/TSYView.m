@@ -46,7 +46,7 @@ static BOOL TSYAnimationShouldStop      = NO;
 - (void)startMoving {
     TSYAnimationShouldStop = NO;
     
-    self.startButton.userInteractionEnabled = NO;
+    [self setButtonsEnabled:NO];
     
     [self setPosition:[self futurePosition]
              animated:YES
