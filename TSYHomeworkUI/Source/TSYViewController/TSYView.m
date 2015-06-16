@@ -123,30 +123,33 @@ static BOOL TSYAnimationShouldStop      = NO;
     CGFloat distanceX = windowFrame.size.width - squareFrame.size.width;
     CGFloat distanceY = windowFrame.size.height - squareFrame.size.height;
     
+    CGPoint point = CGPointMake(windowFrame.origin.x,
+                                 windowFrame.origin.y);
+    
     switch (position) {
         case TSYSquarePositionLeftUp:
-            newFrame.origin = CGPointMake(windowFrame.origin.x,
-                                          windowFrame.origin.y);
-            return newFrame;
+            break;
             
         case TSYSquarePositionRightUp:
-            newFrame.origin = CGPointMake(windowFrame.origin.x + distanceX,
-                                          windowFrame.origin.y);
-            return newFrame;
+            point.x += distanceX;
+            break;
             
         case TSYSquarePositionRightDown:
-            newFrame.origin = CGPointMake(windowFrame.origin.x + distanceX,
-                                          windowFrame.origin.y + distanceY);
-            return newFrame;
+            point.x += distanceX;
+            point.y += distanceY;
+            break;
             
         case TSYSquarePositionLeftDown:
-            newFrame.origin = CGPointMake(windowFrame.origin.x,
-                                          windowFrame.origin.y + distanceY);
-            return newFrame;
+            point.y += distanceY;
+            break;
             
         default:
-            return squareFrame;
+            break;
     }
+    
+    newFrame.origin = point;
+    
+    return newFrame;
 }
 
 - (TSYSquarePosition)futurePosition {
