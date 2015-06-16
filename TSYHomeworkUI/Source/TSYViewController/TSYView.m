@@ -13,7 +13,7 @@ const NSUInteger TSYAnimationDelay      = 0;
 static BOOL TSYAnimationShouldStop      = NO;
 
 @interface TSYView ()
-@property (nonatomic, assign) TSYSquarePosition   position;
+@property (nonatomic, assign) TSYSquarePosition   currentPosition;
 
 - (TSYSquarePosition)futurePosition;
 - (TSYSquarePosition)randomFuturePosition;
@@ -32,13 +32,13 @@ static BOOL TSYAnimationShouldStop      = NO;
 #pragma mark Public Methods
 
 - (void)nextPosition {
-    self.next.userInteractionEnabled = NO;
+    self.nextButton.userInteractionEnabled = NO;
     
     [self setPosition:[self futurePosition] animated:YES];
 }
 
 - (void)randomPosition {
-    self.random.userInteractionEnabled = NO;
+    self.randomButton.userInteractionEnabled = NO;
     
     [self setPosition:[self randomFuturePosition] animated:YES];
 }
@@ -46,17 +46,25 @@ static BOOL TSYAnimationShouldStop      = NO;
 - (void)startMoving {
     TSYAnimationShouldStop = NO;
     
-    self.start.userInteractionEnabled = NO;
-    
-    void (^completion)(BOOL) = ^(BOOL finished){
-        if (finished && !TSYAnimationShouldStop) {
-            [self startMoving];
-        }
-    };
+    self.startButton.userInteractionEnabled = NO;
     
     [self setPosition:[self futurePosition]
              animated:YES
-    completionHandler:completion];
+    completionHandler:^(BOOL finished){
+        if (finished && !TSYAnimationShouldStop) {
+            [self startMoving];
+        }
+    }];
+    
+//    void (^completion)(BOOL) = ^(BOOL finished){
+//        if (finished && !TSYAnimationShouldStop) {
+//            [self startMoving];
+//        }
+//    };
+//    
+//    [self setPosition:[self futurePosition]
+//             animated:YES
+//    completionHandler:completion];
 }
 
 - (void)stopMoving {
@@ -79,19 +87,19 @@ static BOOL TSYAnimationShouldStop      = NO;
            animated:(BOOL)isAnimated
   completionHandler:(void (^)(BOOL finished))handler
 {
-    if (_position != position) {
+    if (_currentPosition != position) {
         [UIView animateWithDuration:TSYAnimationDuration
                               delay:TSYAnimationDelay
                             options:UIViewAnimationOptionBeginFromCurrentState
                          animations:^{
-                             self.square.frame = [self frameWithPosition:position];
+                             self.squareLabel.frame = [self frameWithPosition:position];
                          }
                          completion:^(BOOL finished) {
                              if (finished) {
-                                 _position = position;
+                                 _currentPosition = position;
                                  
-                                 self.next.userInteractionEnabled = YES;
-                                 self.random.userInteractionEnabled = YES;
+                                 self.nextButton.userInteractionEnabled = YES;
+                                 self.randomButton.userInteractionEnabled = YES;
                              }
                              
                              if (handler) {
@@ -110,21 +118,21 @@ static BOOL TSYAnimationShouldStop      = NO;
 
 // enable/disable all buttons except "Stop"
 - (void)setButtonsEnabled:(BOOL)enabled {
-    self.start.userInteractionEnabled = enabled;
-    self.next.userInteractionEnabled = enabled;
-    self.random.userInteractionEnabled = enabled;
+    self.startButton.userInteractionEnabled = enabled;
+    self.nextButton.userInteractionEnabled = enabled;
+    self.randomButton.userInteractionEnabled = enabled;
 }
 
 - (CGRect)frameWithPosition:(TSYSquarePosition)position {
     CGRect windowFrame = self.bounds;
-    CGRect squareFrame = self.square.frame;
+    CGRect squareFrame = self.squareLabel.frame;
     CGRect newFrame = squareFrame;
     
     CGFloat distanceX = windowFrame.size.width - squareFrame.size.width;
     CGFloat distanceY = windowFrame.size.height - squareFrame.size.height;
     
     CGPoint point = CGPointMake(windowFrame.origin.x,
-                                 windowFrame.origin.y);
+                                windowFrame.origin.y);
     
     switch (position) {
         case TSYSquarePositionLeftUp:
@@ -153,13 +161,13 @@ static BOOL TSYAnimationShouldStop      = NO;
 }
 
 - (TSYSquarePosition)futurePosition {
-    return (self.position + 1) % TSYSquarePositionCount;
+    return (self.currentPosition + 1) % TSYSquarePositionCount;
 }
 
 - (TSYSquarePosition)randomFuturePosition {
     TSYSquarePosition randomPosition = arc4random_uniform(TSYSquarePositionCount);
     
-    if (randomPosition == self.position) {
+    if (randomPosition == self.currentPosition) {
         randomPosition = [self randomFuturePosition];
     }
 

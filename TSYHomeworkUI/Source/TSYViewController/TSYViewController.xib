@@ -24,7 +24,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onButtonRandom:" destination="-1" eventType="touchUpInside" id="8iG-8r-irz"/>
+                        <action selector="onButtonRandom:" destination="-1" eventType="touchUpInside" id="56q-en-Kkh"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oH9-nR-Oin">
@@ -36,7 +36,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onButtonStart:" destination="-1" eventType="touchUpInside" id="0ax-5Z-xPp"/>
+                        <action selector="onButtonStart:" destination="-1" eventType="touchUpInside" id="Qxz-XS-0Am"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gAJ-LA-8fx">
@@ -48,7 +48,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onButtonStop:" destination="-1" eventType="touchUpInside" id="FCZ-J1-Wed"/>
+                        <action selector="onButtonStop:" destination="-1" eventType="touchUpInside" id="hWy-cK-t6c"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rb3-Bp-Zhc">
@@ -61,7 +61,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onButtonNext:" destination="-1" eventType="touchUpInside" id="PHV-Kw-dpc"/>
+                        <action selector="onButtonNext:" destination="-1" eventType="touchUpInside" id="7JA-5e-GEd"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JsO-fj-fnZ">
@@ -75,11 +75,11 @@
             </subviews>
             <color key="backgroundColor" red="0.67843139171600342" green="0.89411771297454834" blue="0.92941182851791382" alpha="1" colorSpace="deviceRGB"/>
             <connections>
-                <outlet property="next" destination="rb3-Bp-Zhc" id="pJa-QP-lMg"/>
-                <outlet property="random" destination="51f-vK-Q03" id="i8G-0b-dcA"/>
-                <outlet property="square" destination="JsO-fj-fnZ" id="IpQ-o5-pHT"/>
-                <outlet property="start" destination="oH9-nR-Oin" id="IUi-dD-zRe"/>
-                <outlet property="stop" destination="gAJ-LA-8fx" id="Qcf-vZ-ltz"/>
+                <outlet property="nextButton" destination="rb3-Bp-Zhc" id="maU-sZ-nra"/>
+                <outlet property="randomButton" destination="51f-vK-Q03" id="oqd-tH-Irf"/>
+                <outlet property="squareLabel" destination="JsO-fj-fnZ" id="Ohn-xt-4cG"/>
+                <outlet property="startButton" destination="oH9-nR-Oin" id="jEb-CE-nfm"/>
+                <outlet property="stopButton" destination="gAJ-LA-8fx" id="Ikb-Ai-kDP"/>
             </connections>
             <point key="canvasLocation" x="140" y="154"/>
         </view>
