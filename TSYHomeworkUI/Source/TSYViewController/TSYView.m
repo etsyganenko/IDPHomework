@@ -8,9 +8,9 @@
 
 #import "TSYView.h"
 
-const NSUInteger TSYAnimationDuration   = 1;
-const NSUInteger TSYAnimationDelay      = 0;
-static BOOL TSYAnimationShouldStop      = NO;
+const NSUInteger TSYViewAnimationDuration   = 1;
+const NSUInteger TSYViewAnimationDelay      = 0;
+static BOOL TSYViewAnimationShouldStop      = NO;
 
 @interface TSYView ()
 @property (nonatomic, assign) TSYSquarePosition   currentPosition;
@@ -44,20 +44,20 @@ static BOOL TSYAnimationShouldStop      = NO;
 }
 
 - (void)startMoving {
-    TSYAnimationShouldStop = NO;
+    TSYViewAnimationShouldStop = NO;
     
     [self setButtonsEnabled:NO];
     
     [self setPosition:[self nextPosition]
              animated:YES
     completionHandler:^(BOOL finished){
-        if (finished && !TSYAnimationShouldStop) {
+        if (finished && !TSYViewAnimationShouldStop) {
             [self startMoving];
         }
     }];
     
 //    void (^completion)(BOOL) = ^(BOOL finished){
-//        if (finished && !TSYAnimationShouldStop) {
+//        if (finished && !TSYViewAnimationShouldStop) {
 //            [self startMoving];
 //        }
 //    };
@@ -68,7 +68,7 @@ static BOOL TSYAnimationShouldStop      = NO;
 }
 
 - (void)stopMoving {
-    TSYAnimationShouldStop = YES;
+    TSYViewAnimationShouldStop = YES;
     
     [self setButtonsEnabled:YES];
 }
@@ -88,8 +88,8 @@ static BOOL TSYAnimationShouldStop      = NO;
   completionHandler:(void (^)(BOOL finished))handler
 {
     if (_currentPosition != position) {
-        [UIView animateWithDuration:TSYAnimationDuration
-                              delay:TSYAnimationDelay
+        [UIView animateWithDuration:TSYViewAnimationDuration
+                              delay:TSYViewAnimationDelay
                             options:UIViewAnimationOptionBeginFromCurrentState
                          animations:^{
                              self.squareLabel.frame = [self frameWithPosition:position];
@@ -110,7 +110,7 @@ static BOOL TSYAnimationShouldStop      = NO;
 }
 
 - (BOOL)isMoving {
-    return !TSYAnimationShouldStop;
+    return !TSYViewAnimationShouldStop;
 }
 
 #pragma mark -
