@@ -10,10 +10,10 @@
 
 const NSUInteger TSYAnimationDuration   = 1;
 const NSUInteger TSYAnimationDelay      = 0;
+static BOOL TSYAnimationShouldStop      = NO;
 
 @interface TSYView ()
 @property (nonatomic, assign) TSYSquarePosition   position;
-@property (nonatomic, assign) BOOL                isMoving;
 
 - (TSYSquarePosition)futurePosition;
 - (TSYSquarePosition)randomFuturePosition;
@@ -25,6 +25,8 @@ const NSUInteger TSYAnimationDelay      = 0;
 @end
 
 @implementation TSYView
+
+@dynamic isMoving;
 
 #pragma mark -
 #pragma mark Public Methods
@@ -42,32 +44,23 @@ const NSUInteger TSYAnimationDelay      = 0;
 }
 
 - (void)startMoving {
-    self.isMoving = YES;
+    TSYAnimationShouldStop = NO;
     
     self.start.userInteractionEnabled = NO;
     
-//    [UIView animateWithDuration:TSYAnimationDuration
-//                          delay:TSYAnimationDelay
-//                        options:UIViewAnimationOptionBeginFromCurrentState
-//                     animations:^{
-//                         [self nextPosition];
-//                     }
-//                     completion:^(BOOL finished){
-//                         if (finished) {
-//                             [self nextPosition];
-//                         }
-//                     }];
+    void (^completion)(BOOL) = ^(BOOL finished){
+        if (finished && !TSYAnimationShouldStop) {
+            [self startMoving];
+        }
+    };
     
     [self setPosition:[self futurePosition]
              animated:YES
-    completionHandler:^(BOOL finished){
-        _position = [self futurePosition];
-        [self startMoving];
-    }];
+    completionHandler:completion];
 }
 
 - (void)stopMoving {
-    self.isMoving = YES;
+    TSYAnimationShouldStop = YES;
     
     [self setButtonsEnabled:YES];
 }
@@ -100,8 +93,16 @@ const NSUInteger TSYAnimationDelay      = 0;
                                  self.next.userInteractionEnabled = YES;
                                  self.random.userInteractionEnabled = YES;
                              }
+                             
+                             if (handler) {
+                                 handler(finished);
+                             }
                          }];
     }
+}
+
+- (BOOL)isMoving {
+    return !TSYAnimationShouldStop;
 }
 
 #pragma mark -
@@ -115,7 +116,7 @@ const NSUInteger TSYAnimationDelay      = 0;
 }
 
 - (CGRect)frameWithPosition:(TSYSquarePosition)position {
-    CGRect windowFrame = self.window.bounds;
+    CGRect windowFrame = self.bounds;
     CGRect squareFrame = self.square.frame;
     CGRect newFrame = squareFrame;
     
