@@ -36,11 +36,11 @@ TSYBaseViewPropertyGetter(TSYView, mainView)
 #pragma mark Interface Handling
 
 - (IBAction)onButtonNext:(id)sender {
-    [self.mainView nextPosition];
+    [self.mainView moveToNextPosition];
 }
 
 - (IBAction)onButtonRandom:(id)sender {
-    [self.mainView randomPosition];
+    [self.mainView moveToRandomPosition];
 }
 
 - (IBAction)onButtonStart:(id)sender {

@@ -15,8 +15,8 @@ static BOOL TSYAnimationShouldStop      = NO;
 @interface TSYView ()
 @property (nonatomic, assign) TSYSquarePosition   currentPosition;
 
-- (TSYSquarePosition)futurePosition;
-- (TSYSquarePosition)randomFuturePosition;
+- (TSYSquarePosition)nextPosition;
+- (TSYSquarePosition)nextRandomPosition;
 
 - (CGRect)frameWithPosition:(TSYSquarePosition)position;
 
@@ -31,16 +31,16 @@ static BOOL TSYAnimationShouldStop      = NO;
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)nextPosition {
+- (void)moveToNextPosition {
     self.nextButton.userInteractionEnabled = NO;
     
-    [self setPosition:[self futurePosition] animated:YES];
+    [self setPosition:[self nextPosition] animated:YES];
 }
 
-- (void)randomPosition {
+- (void)moveToRandomPosition {
     self.randomButton.userInteractionEnabled = NO;
     
-    [self setPosition:[self randomFuturePosition] animated:YES];
+    [self setPosition:[self nextRandomPosition] animated:YES];
 }
 
 - (void)startMoving {
@@ -48,7 +48,7 @@ static BOOL TSYAnimationShouldStop      = NO;
     
     [self setButtonsEnabled:NO];
     
-    [self setPosition:[self futurePosition]
+    [self setPosition:[self nextPosition]
              animated:YES
     completionHandler:^(BOOL finished){
         if (finished && !TSYAnimationShouldStop) {
@@ -62,7 +62,7 @@ static BOOL TSYAnimationShouldStop      = NO;
 //        }
 //    };
 //    
-//    [self setPosition:[self futurePosition]
+//    [self setPosition:[self nextPosition]
 //             animated:YES
 //    completionHandler:completion];
 }
@@ -160,15 +160,15 @@ static BOOL TSYAnimationShouldStop      = NO;
     return newFrame;
 }
 
-- (TSYSquarePosition)futurePosition {
+- (TSYSquarePosition)nextPosition {
     return (self.currentPosition + 1) % TSYSquarePositionCount;
 }
 
-- (TSYSquarePosition)randomFuturePosition {
+- (TSYSquarePosition)nextRandomPosition {
     TSYSquarePosition randomPosition = arc4random_uniform(TSYSquarePositionCount);
     
     if (randomPosition == self.currentPosition) {
-        randomPosition = [self randomFuturePosition];
+        randomPosition = [self nextRandomPosition];
     }
 
     return randomPosition;

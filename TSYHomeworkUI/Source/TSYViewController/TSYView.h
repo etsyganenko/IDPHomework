@@ -28,8 +28,8 @@ typedef NS_ENUM(NSUInteger, TSYSquarePosition) {
 @property (nonatomic, strong)   IBOutlet UIButton   *startButton;
 @property (nonatomic, strong)   IBOutlet UIButton   *stopButton;
 
-- (void)nextPosition;
-- (void)randomPosition;
+- (void)moveToNextPosition;
+- (void)moveToRandomPosition;
 
 - (void)startMoving;
 - (void)stopMoving;
