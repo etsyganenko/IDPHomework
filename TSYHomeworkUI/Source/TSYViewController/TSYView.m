@@ -26,6 +26,13 @@ static const NSUInteger TSYViewAnimationDelay      = 0;
 @dynamic moving;
 
 #pragma mark -
+#pragma mark Accessors
+
+- (BOOL)isMoving {
+    return !self.animationShouldStop;
+}
+
+#pragma mark -
 #pragma mark Public Methods
 
 - (void)moveToNextPosition {
@@ -104,10 +111,6 @@ static const NSUInteger TSYViewAnimationDelay      = 0;
                              }
                          }];
     }
-}
-
-- (BOOL)isMoving {
-    return !self.animationShouldStop;
 }
 
 #pragma mark -
