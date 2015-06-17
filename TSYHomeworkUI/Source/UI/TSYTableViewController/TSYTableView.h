@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TSYTableView : UIView
+@property (nonatomic, strong)   IBOutlet UITableView    *tableView;
 
 @end

@@ -18,14 +18,14 @@
 #define TSYBaseViewPropertySynthesize(viewClass, property) \
     @property (nonatomic, readonly)   viewClass  *property;
 
-#define TSYViewControllerBaseViewProperty(viewControllerClass, viewClass, property) \
+#define TSYViewControllerBaseViewProperty(viewControllerClass, viewClass, propertyName) \
     @interface viewControllerClass () \
-    TSYBaseViewPropertySynthesize(viewClass, property) \
+    TSYBaseViewPropertySynthesize(viewClass, propertyName) \
     \
     @end \
     \
     @implementation viewControllerClass \
     \
-    @dynamic property; \
+    @dynamic propertyName; \
     \
-    TSYBaseViewPropertyGetterSynthesize(viewClass, property)
+    TSYBaseViewPropertyGetterSynthesize(viewClass, propertyName)

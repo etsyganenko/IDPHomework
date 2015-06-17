@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class TSYView;
-
-@interface TSYViewController : UIViewController
+@interface TSYViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 - (IBAction)onButtonNext:(id)sender;
 - (IBAction)onButtonRandom:(id)sender;
 

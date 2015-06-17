@@ -27,6 +27,7 @@
 		84A1EFD91B31678A0037A3B7 /* TSYView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1EFD21B31678A0037A3B7 /* TSYView.m */; };
 		84A1EFDA1B31678A0037A3B7 /* TSYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1EFD41B31678A0037A3B7 /* TSYViewController.m */; };
 		84A1EFDB1B31678A0037A3B7 /* TSYViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1EFD51B31678A0037A3B7 /* TSYViewController.xib */; };
+		84A1EFDF1B3190280037A3B7 /* TSYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1EFDE1B3190280037A3B7 /* TSYUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		84A1EFD31B31678A0037A3B7 /* TSYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYViewController.h; sourceTree = "<group>"; };
 		84A1EFD41B31678A0037A3B7 /* TSYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYViewController.m; sourceTree = "<group>"; };
 		84A1EFD51B31678A0037A3B7 /* TSYViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYViewController.xib; sourceTree = "<group>"; };
+		84A1EFDD1B3190280037A3B7 /* TSYUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYUser.h; sourceTree = "<group>"; };
+		84A1EFDE1B3190280037A3B7 /* TSYUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 		84A1EFDC1B31679B0037A3B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84A1EFDD1B3190280037A3B7 /* TSYUser.h */,
+				84A1EFDE1B3190280037A3B7 /* TSYUser.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				84A11DED1B304C9100FB163F /* TSYMacros.m in Sources */,
 				84A125F91B2EC9CF007887E3 /* UIWindow+TSYCategories.m in Sources */,
 				849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */,
+				84A1EFDF1B3190280037A3B7 /* TSYUser.m in Sources */,
 				84A1EFD71B31678A0037A3B7 /* TSYTableViewController.m in Sources */,
 				84A1EFDA1B31678A0037A3B7 /* TSYViewController.m in Sources */,
 				84A1EFD61B31678A0037A3B7 /* TSYTableView.m in Sources */,
