@@ -7,128 +7,189 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		849FB4451B28CFE40096D0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB4441B28CFE40096D0AD /* main.m */; };
-		849FB4481B28CFE40096D0AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB4471B28CFE40096D0AD /* AppDelegate.m */; };
-		849FB44B1B28CFE40096D0AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB44A1B28CFE40096D0AD /* ViewController.m */; };
-		849FB44E1B28CFE40096D0AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849FB44C1B28CFE40096D0AD /* Main.storyboard */; };
-		849FB4501B28CFE40096D0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849FB44F1B28CFE40096D0AD /* Images.xcassets */; };
-		849FB4531B28CFE40096D0AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4511B28CFE40096D0AD /* LaunchScreen.xib */; };
-		849FB45F1B28CFE40096D0AD /* TSYHomeworkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB45E1B28CFE40096D0AD /* TSYHomeworkUITests.m */; };
+		564CE81C0870301687525CD3 /* libPods-TSYHomeworkUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */; };
+		849FB49F1B28E9460096D0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849FB49D1B28E9460096D0AD /* Info.plist */; };
+		849FB4A01B28E9460096D0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB49E1B28E9460096D0AD /* main.m */; };
+		849FB4A41B28E96E0096D0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4A21B28E96E0096D0AD /* Info.plist */; };
+		849FB4A51B28E96E0096D0AD /* TSYHomeworkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB4A31B28E96E0096D0AD /* TSYHomeworkUITests.m */; };
+		849FB4B11B28E98E0096D0AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4A71B28E98E0096D0AD /* LaunchScreen.xib */; };
+		849FB4B21B28E98E0096D0AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4A71B28E98E0096D0AD /* LaunchScreen.xib */; };
+		849FB4B51B28E98E0096D0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4AB1B28E98E0096D0AD /* Images.xcassets */; };
+		849FB4B61B28E98E0096D0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4AB1B28E98E0096D0AD /* Images.xcassets */; };
+		849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB4BD1B28ED760096D0AD /* TSYAppDelegate.m */; };
+		84A11DED1B304C9100FB163F /* TSYMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A11DEC1B304C9100FB163F /* TSYMacros.m */; };
+		84A11DEE1B304C9100FB163F /* TSYMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A11DEC1B304C9100FB163F /* TSYMacros.m */; };
+		84A125F91B2EC9CF007887E3 /* UIWindow+TSYCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A125F81B2EC9CF007887E3 /* UIWindow+TSYCategories.m */; };
+		84A125FA1B2EC9CF007887E3 /* UIWindow+TSYCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A125F81B2EC9CF007887E3 /* UIWindow+TSYCategories.m */; };
+		84A1A1ED1B296E5300E9E0FB /* TSYView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1A1EA1B296E5300E9E0FB /* TSYView.m */; };
+		84A1A1EE1B296E5300E9E0FB /* TSYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1A1EC1B296E5300E9E0FB /* TSYViewController.m */; };
+		84A1A1F01B296EB900E9E0FB /* TSYViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1A1EF1B296EB900E9E0FB /* TSYViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		849FB4591B28CFE40096D0AD /* PBXContainerItemProxy */ = {
+		849FB48D1B28E5C90096D0AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 849FB4371B28CFE40096D0AD /* Project object */;
+			containerPortal = 849FB46B1B28E5C90096D0AD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 849FB43E1B28CFE40096D0AD;
+			remoteGlobalIDString = 849FB4721B28E5C90096D0AD;
 			remoteInfo = TSYHomeworkUI;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		849FB43F1B28CFE40096D0AD /* TSYHomeworkUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSYHomeworkUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		849FB4431B28CFE40096D0AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		849FB4441B28CFE40096D0AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		849FB4461B28CFE40096D0AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		849FB4471B28CFE40096D0AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		849FB4491B28CFE40096D0AD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		849FB44A1B28CFE40096D0AD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		849FB44D1B28CFE40096D0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		849FB44F1B28CFE40096D0AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		849FB4521B28CFE40096D0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		849FB4581B28CFE40096D0AD /* TSYHomeworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSYHomeworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		849FB45D1B28CFE40096D0AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		849FB45E1B28CFE40096D0AD /* TSYHomeworkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSYHomeworkUITests.m; sourceTree = "<group>"; };
+		0CF052DCE509C1B7489F499E /* Pods-TSYHomeworkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkUITests/Pods-TSYHomeworkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4758F823E14E040E645FB6A2 /* Pods-TSYHomeworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkUITests/Pods-TSYHomeworkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		849FB4731B28E5C90096D0AD /* TSYHomeworkUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSYHomeworkUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		849FB48C1B28E5C90096D0AD /* TSYHomeworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSYHomeworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		849FB49D1B28E9460096D0AD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849FB49E1B28E9460096D0AD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		849FB4A21B28E96E0096D0AD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849FB4A31B28E96E0096D0AD /* TSYHomeworkUITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYHomeworkUITests.m; sourceTree = "<group>"; };
+		849FB4A81B28E98E0096D0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		849FB4AB1B28E98E0096D0AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		849FB4BC1B28ED760096D0AD /* TSYAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAppDelegate.h; sourceTree = "<group>"; };
+		849FB4BD1B28ED760096D0AD /* TSYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAppDelegate.m; sourceTree = "<group>"; };
+		84A11DEB1B304C9100FB163F /* TSYMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMacros.h; sourceTree = "<group>"; };
+		84A11DEC1B304C9100FB163F /* TSYMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYMacros.m; sourceTree = "<group>"; };
+		84A125F71B2EC9CF007887E3 /* UIWindow+TSYCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+TSYCategories.h"; sourceTree = "<group>"; };
+		84A125F81B2EC9CF007887E3 /* UIWindow+TSYCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+TSYCategories.m"; sourceTree = "<group>"; };
+		84A1A1E91B296E5300E9E0FB /* TSYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYView.h; sourceTree = "<group>"; };
+		84A1A1EA1B296E5300E9E0FB /* TSYView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYView.m; sourceTree = "<group>"; };
+		84A1A1EB1B296E5300E9E0FB /* TSYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYViewController.h; sourceTree = "<group>"; };
+		84A1A1EC1B296E5300E9E0FB /* TSYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYViewController.m; sourceTree = "<group>"; };
+		84A1A1EF1B296EB900E9E0FB /* TSYViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		849FB43C1B28CFE40096D0AD /* Frameworks */ = {
+		849FB4701B28E5C90096D0AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		849FB4551B28CFE40096D0AD /* Frameworks */ = {
+		849FB4891B28E5C90096D0AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564CE81C0870301687525CD3 /* libPods-TSYHomeworkUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		849FB4361B28CFE40096D0AD = {
+		7E69D104E26710A72A4D43A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				849FB4411B28CFE40096D0AD /* TSYHomeworkUI */,
-				849FB45B1B28CFE40096D0AD /* TSYHomeworkUITests */,
-				849FB4401B28CFE40096D0AD /* Products */,
+				40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		849FB46A1B28E5C90096D0AD = {
+			isa = PBXGroup;
+			children = (
+				849FB4A61B28E98E0096D0AD /* Resources */,
+				849FB4AC1B28E98E0096D0AD /* Source */,
+				849FB4A11B28E96E0096D0AD /* TSYHomeworkUITests */,
+				849FB49C1B28E9460096D0AD /* TSYHomeworkUI */,
+				849FB4741B28E5C90096D0AD /* Products */,
+				BE30A4A9EDD4073BC4CA38A1 /* Pods */,
+				7E69D104E26710A72A4D43A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		849FB4401B28CFE40096D0AD /* Products */ = {
+		849FB4741B28E5C90096D0AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				849FB43F1B28CFE40096D0AD /* TSYHomeworkUI.app */,
-				849FB4581B28CFE40096D0AD /* TSYHomeworkUITests.xctest */,
+				849FB4731B28E5C90096D0AD /* TSYHomeworkUI.app */,
+				849FB48C1B28E5C90096D0AD /* TSYHomeworkUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		849FB4411B28CFE40096D0AD /* TSYHomeworkUI */ = {
+		849FB49C1B28E9460096D0AD /* TSYHomeworkUI */ = {
 			isa = PBXGroup;
 			children = (
-				849FB4461B28CFE40096D0AD /* AppDelegate.h */,
-				849FB4471B28CFE40096D0AD /* AppDelegate.m */,
-				849FB4491B28CFE40096D0AD /* ViewController.h */,
-				849FB44A1B28CFE40096D0AD /* ViewController.m */,
-				849FB44C1B28CFE40096D0AD /* Main.storyboard */,
-				849FB44F1B28CFE40096D0AD /* Images.xcassets */,
-				849FB4511B28CFE40096D0AD /* LaunchScreen.xib */,
-				849FB4421B28CFE40096D0AD /* Supporting Files */,
+				849FB4BC1B28ED760096D0AD /* TSYAppDelegate.h */,
+				849FB4BD1B28ED760096D0AD /* TSYAppDelegate.m */,
+				849FB49D1B28E9460096D0AD /* Info.plist */,
+				849FB49E1B28E9460096D0AD /* main.m */,
 			);
 			path = TSYHomeworkUI;
 			sourceTree = "<group>";
 		};
-		849FB4421B28CFE40096D0AD /* Supporting Files */ = {
+		849FB4A11B28E96E0096D0AD /* TSYHomeworkUITests */ = {
 			isa = PBXGroup;
 			children = (
-				849FB4431B28CFE40096D0AD /* Info.plist */,
-				849FB4441B28CFE40096D0AD /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		849FB45B1B28CFE40096D0AD /* TSYHomeworkUITests */ = {
-			isa = PBXGroup;
-			children = (
-				849FB45E1B28CFE40096D0AD /* TSYHomeworkUITests.m */,
-				849FB45C1B28CFE40096D0AD /* Supporting Files */,
+				849FB4A21B28E96E0096D0AD /* Info.plist */,
+				849FB4A31B28E96E0096D0AD /* TSYHomeworkUITests.m */,
 			);
 			path = TSYHomeworkUITests;
 			sourceTree = "<group>";
 		};
-		849FB45C1B28CFE40096D0AD /* Supporting Files */ = {
+		849FB4A61B28E98E0096D0AD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				849FB45D1B28CFE40096D0AD /* Info.plist */,
+				849FB4A71B28E98E0096D0AD /* LaunchScreen.xib */,
+				849FB4AB1B28E98E0096D0AD /* Images.xcassets */,
 			);
-			name = "Supporting Files";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		849FB4AC1B28E98E0096D0AD /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				84A125F61B2EC982007887E3 /* Categories */,
+				84A1A1E81B296E5300E9E0FB /* TSYViewController */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		84A125F61B2EC982007887E3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				84A125F71B2EC9CF007887E3 /* UIWindow+TSYCategories.h */,
+				84A125F81B2EC9CF007887E3 /* UIWindow+TSYCategories.m */,
+				84A11DEB1B304C9100FB163F /* TSYMacros.h */,
+				84A11DEC1B304C9100FB163F /* TSYMacros.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		84A1A1E81B296E5300E9E0FB /* TSYViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84A1A1EB1B296E5300E9E0FB /* TSYViewController.h */,
+				84A1A1EC1B296E5300E9E0FB /* TSYViewController.m */,
+				84A1A1EF1B296EB900E9E0FB /* TSYViewController.xib */,
+				84A1A1E91B296E5300E9E0FB /* TSYView.h */,
+				84A1A1EA1B296E5300E9E0FB /* TSYView.m */,
+			);
+			path = TSYViewController;
+			sourceTree = "<group>";
+		};
+		BE30A4A9EDD4073BC4CA38A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CF052DCE509C1B7489F499E /* Pods-TSYHomeworkUITests.debug.xcconfig */,
+				4758F823E14E040E645FB6A2 /* Pods-TSYHomeworkUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		849FB43E1B28CFE40096D0AD /* TSYHomeworkUI */ = {
+		849FB4721B28E5C90096D0AD /* TSYHomeworkUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 849FB4621B28CFE40096D0AD /* Build configuration list for PBXNativeTarget "TSYHomeworkUI" */;
+			buildConfigurationList = 849FB4961B28E5C90096D0AD /* Build configuration list for PBXNativeTarget "TSYHomeworkUI" */;
 			buildPhases = (
-				849FB43B1B28CFE40096D0AD /* Sources */,
-				849FB43C1B28CFE40096D0AD /* Frameworks */,
-				849FB43D1B28CFE40096D0AD /* Resources */,
+				849FB46F1B28E5C90096D0AD /* Sources */,
+				849FB4701B28E5C90096D0AD /* Frameworks */,
+				849FB4711B28E5C90096D0AD /* Resources */,
 			);
 			buildRules = (
 			);
@@ -136,46 +197,48 @@
 			);
 			name = TSYHomeworkUI;
 			productName = TSYHomeworkUI;
-			productReference = 849FB43F1B28CFE40096D0AD /* TSYHomeworkUI.app */;
+			productReference = 849FB4731B28E5C90096D0AD /* TSYHomeworkUI.app */;
 			productType = "com.apple.product-type.application";
 		};
-		849FB4571B28CFE40096D0AD /* TSYHomeworkUITests */ = {
+		849FB48B1B28E5C90096D0AD /* TSYHomeworkUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 849FB4651B28CFE40096D0AD /* Build configuration list for PBXNativeTarget "TSYHomeworkUITests" */;
+			buildConfigurationList = 849FB4991B28E5C90096D0AD /* Build configuration list for PBXNativeTarget "TSYHomeworkUITests" */;
 			buildPhases = (
-				849FB4541B28CFE40096D0AD /* Sources */,
-				849FB4551B28CFE40096D0AD /* Frameworks */,
-				849FB4561B28CFE40096D0AD /* Resources */,
+				E87E383DDA26CA1BBB9E539A /* Check Pods Manifest.lock */,
+				849FB4881B28E5C90096D0AD /* Sources */,
+				849FB4891B28E5C90096D0AD /* Frameworks */,
+				849FB48A1B28E5C90096D0AD /* Resources */,
+				C0A3D7065E90A0E1D84D1DDE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				849FB45A1B28CFE40096D0AD /* PBXTargetDependency */,
+				849FB48E1B28E5C90096D0AD /* PBXTargetDependency */,
 			);
 			name = TSYHomeworkUITests;
 			productName = TSYHomeworkUITests;
-			productReference = 849FB4581B28CFE40096D0AD /* TSYHomeworkUITests.xctest */;
+			productReference = 849FB48C1B28E5C90096D0AD /* TSYHomeworkUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		849FB4371B28CFE40096D0AD /* Project object */ = {
+		849FB46B1B28E5C90096D0AD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Admin;
 				TargetAttributes = {
-					849FB43E1B28CFE40096D0AD = {
+					849FB4721B28E5C90096D0AD = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
-					849FB4571B28CFE40096D0AD = {
+					849FB48B1B28E5C90096D0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 849FB43E1B28CFE40096D0AD;
+						TestTargetID = 849FB4721B28E5C90096D0AD;
 					};
 				};
 			};
-			buildConfigurationList = 849FB43A1B28CFE40096D0AD /* Build configuration list for PBXProject "TSYHomeworkUI" */;
+			buildConfigurationList = 849FB46E1B28E5C90096D0AD /* Build configuration list for PBXProject "TSYHomeworkUI" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -183,79 +246,113 @@
 				en,
 				Base,
 			);
-			mainGroup = 849FB4361B28CFE40096D0AD;
-			productRefGroup = 849FB4401B28CFE40096D0AD /* Products */;
+			mainGroup = 849FB46A1B28E5C90096D0AD;
+			productRefGroup = 849FB4741B28E5C90096D0AD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				849FB43E1B28CFE40096D0AD /* TSYHomeworkUI */,
-				849FB4571B28CFE40096D0AD /* TSYHomeworkUITests */,
+				849FB4721B28E5C90096D0AD /* TSYHomeworkUI */,
+				849FB48B1B28E5C90096D0AD /* TSYHomeworkUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		849FB43D1B28CFE40096D0AD /* Resources */ = {
+		849FB4711B28E5C90096D0AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849FB44E1B28CFE40096D0AD /* Main.storyboard in Resources */,
-				849FB4531B28CFE40096D0AD /* LaunchScreen.xib in Resources */,
-				849FB4501B28CFE40096D0AD /* Images.xcassets in Resources */,
+				849FB4B51B28E98E0096D0AD /* Images.xcassets in Resources */,
+				84A1A1F01B296EB900E9E0FB /* TSYViewController.xib in Resources */,
+				849FB4B11B28E98E0096D0AD /* LaunchScreen.xib in Resources */,
+				849FB49F1B28E9460096D0AD /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		849FB4561B28CFE40096D0AD /* Resources */ = {
+		849FB48A1B28E5C90096D0AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849FB4B61B28E98E0096D0AD /* Images.xcassets in Resources */,
+				849FB4B21B28E98E0096D0AD /* LaunchScreen.xib in Resources */,
+				849FB4A41B28E96E0096D0AD /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C0A3D7065E90A0E1D84D1DDE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSYHomeworkUITests/Pods-TSYHomeworkUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E87E383DDA26CA1BBB9E539A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		849FB43B1B28CFE40096D0AD /* Sources */ = {
+		849FB46F1B28E5C90096D0AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849FB44B1B28CFE40096D0AD /* ViewController.m in Sources */,
-				849FB4481B28CFE40096D0AD /* AppDelegate.m in Sources */,
-				849FB4451B28CFE40096D0AD /* main.m in Sources */,
+				849FB4A01B28E9460096D0AD /* main.m in Sources */,
+				84A11DED1B304C9100FB163F /* TSYMacros.m in Sources */,
+				84A1A1EE1B296E5300E9E0FB /* TSYViewController.m in Sources */,
+				84A125F91B2EC9CF007887E3 /* UIWindow+TSYCategories.m in Sources */,
+				84A1A1ED1B296E5300E9E0FB /* TSYView.m in Sources */,
+				849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		849FB4541B28CFE40096D0AD /* Sources */ = {
+		849FB4881B28E5C90096D0AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849FB45F1B28CFE40096D0AD /* TSYHomeworkUITests.m in Sources */,
+				84A125FA1B2EC9CF007887E3 /* UIWindow+TSYCategories.m in Sources */,
+				84A11DEE1B304C9100FB163F /* TSYMacros.m in Sources */,
+				849FB4A51B28E96E0096D0AD /* TSYHomeworkUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		849FB45A1B28CFE40096D0AD /* PBXTargetDependency */ = {
+		849FB48E1B28E5C90096D0AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 849FB43E1B28CFE40096D0AD /* TSYHomeworkUI */;
-			targetProxy = 849FB4591B28CFE40096D0AD /* PBXContainerItemProxy */;
+			target = 849FB4721B28E5C90096D0AD /* TSYHomeworkUI */;
+			targetProxy = 849FB48D1B28E5C90096D0AD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		849FB44C1B28CFE40096D0AD /* Main.storyboard */ = {
+		849FB4A71B28E98E0096D0AD /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				849FB44D1B28CFE40096D0AD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		849FB4511B28CFE40096D0AD /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				849FB4521B28CFE40096D0AD /* Base */,
+				849FB4A81B28E98E0096D0AD /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -263,7 +360,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		849FB4601B28CFE40096D0AD /* Debug */ = {
+		849FB4941B28E5C90096D0AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -304,7 +401,7 @@
 			};
 			name = Debug;
 		};
-		849FB4611B28CFE40096D0AD /* Release */ = {
+		849FB4951B28E5C90096D0AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -339,7 +436,7 @@
 			};
 			name = Release;
 		};
-		849FB4631B28CFE40096D0AD /* Debug */ = {
+		849FB4971B28E5C90096D0AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -349,7 +446,7 @@
 			};
 			name = Debug;
 		};
-		849FB4641B28CFE40096D0AD /* Release */ = {
+		849FB4981B28E5C90096D0AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -359,8 +456,9 @@
 			};
 			name = Release;
 		};
-		849FB4661B28CFE40096D0AD /* Debug */ = {
+		849FB49A1B28E5C90096D0AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CF052DCE509C1B7489F499E /* Pods-TSYHomeworkUITests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -378,8 +476,9 @@
 			};
 			name = Debug;
 		};
-		849FB4671B28CFE40096D0AD /* Release */ = {
+		849FB49B1B28E5C90096D0AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4758F823E14E040E645FB6A2 /* Pods-TSYHomeworkUITests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -396,32 +495,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		849FB43A1B28CFE40096D0AD /* Build configuration list for PBXProject "TSYHomeworkUI" */ = {
+		849FB46E1B28E5C90096D0AD /* Build configuration list for PBXProject "TSYHomeworkUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				849FB4601B28CFE40096D0AD /* Debug */,
-				849FB4611B28CFE40096D0AD /* Release */,
+				849FB4941B28E5C90096D0AD /* Debug */,
+				849FB4951B28E5C90096D0AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		849FB4621B28CFE40096D0AD /* Build configuration list for PBXNativeTarget "TSYHomeworkUI" */ = {
+		849FB4961B28E5C90096D0AD /* Build configuration list for PBXNativeTarget "TSYHomeworkUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				849FB4631B28CFE40096D0AD /* Debug */,
-				849FB4641B28CFE40096D0AD /* Release */,
+				849FB4971B28E5C90096D0AD /* Debug */,
+				849FB4981B28E5C90096D0AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		849FB4651B28CFE40096D0AD /* Build configuration list for PBXNativeTarget "TSYHomeworkUITests" */ = {
+		849FB4991B28E5C90096D0AD /* Build configuration list for PBXNativeTarget "TSYHomeworkUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				849FB4661B28CFE40096D0AD /* Debug */,
-				849FB4671B28CFE40096D0AD /* Release */,
+				849FB49A1B28E5C90096D0AD /* Debug */,
+				849FB49B1B28E5C90096D0AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 849FB4371B28CFE40096D0AD /* Project object */;
+	rootObject = 849FB46B1B28E5C90096D0AD /* Project object */;
 }
