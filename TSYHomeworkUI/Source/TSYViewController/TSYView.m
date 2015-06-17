@@ -8,25 +8,22 @@
 
 #import "TSYView.h"
 
-const NSUInteger TSYViewAnimationDuration   = 1;
-const NSUInteger TSYViewAnimationDelay      = 0;
-static BOOL TSYViewAnimationShouldStop      = NO;
+static const NSUInteger TSYViewAnimationDuration   = 1;
+static const NSUInteger TSYViewAnimationDelay      = 0;
 
 @interface TSYView ()
-@property (nonatomic, assign) TSYSquarePosition   currentPosition;
+@property (nonatomic, assign) BOOL  animationShouldStop;
 
 - (TSYSquarePosition)nextPosition;
 - (TSYSquarePosition)nextRandomPosition;
 
 - (CGRect)frameWithPosition:(TSYSquarePosition)position;
 
-- (void)setButtonsEnabled:(BOOL)enabled;
-
 @end
 
 @implementation TSYView
 
-@dynamic isMoving;
+@dynamic moving;
 
 #pragma mark -
 #pragma mark Public Methods
@@ -44,14 +41,14 @@ static BOOL TSYViewAnimationShouldStop      = NO;
 }
 
 - (void)startMoving {
-    TSYViewAnimationShouldStop = NO;
+    self.startButton.userInteractionEnabled = NO;
     
-    [self setButtonsEnabled:NO];
+    self.animationShouldStop = NO;
     
     [self setPosition:[self nextPosition]
              animated:YES
     completionHandler:^(BOOL finished){
-        if (finished && !TSYViewAnimationShouldStop) {
+        if (finished && !self.animationShouldStop) {
             [self startMoving];
         }
     }];
@@ -68,9 +65,9 @@ static BOOL TSYViewAnimationShouldStop      = NO;
 }
 
 - (void)stopMoving {
-    TSYViewAnimationShouldStop = YES;
+    self.startButton.userInteractionEnabled = YES;
     
-    [self setButtonsEnabled:YES];
+    self.animationShouldStop = YES;
 }
 
 - (void)setPosition:(TSYSquarePosition)position {
@@ -87,16 +84,16 @@ static BOOL TSYViewAnimationShouldStop      = NO;
            animated:(BOOL)isAnimated
   completionHandler:(void (^)(BOOL finished))handler
 {
-    if (_currentPosition != position) {
-        [UIView animateWithDuration:TSYViewAnimationDuration
-                              delay:TSYViewAnimationDelay
+    if (_position != position) {
+        [UIView animateWithDuration:isAnimated ? TSYViewAnimationDuration : 0
+                              delay:isAnimated ? TSYViewAnimationDelay : 0
                             options:UIViewAnimationOptionBeginFromCurrentState
                          animations:^{
                              self.squareLabel.frame = [self frameWithPosition:position];
                          }
                          completion:^(BOOL finished) {
                              if (finished) {
-                                 _currentPosition = position;
+                                 _position = position;
                                  
                                  self.nextButton.userInteractionEnabled = YES;
                                  self.randomButton.userInteractionEnabled = YES;
@@ -110,34 +107,23 @@ static BOOL TSYViewAnimationShouldStop      = NO;
 }
 
 - (BOOL)isMoving {
-    return !TSYViewAnimationShouldStop;
+    return !self.animationShouldStop;
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
-// enable/disable all buttons except "Stop"
-- (void)setButtonsEnabled:(BOOL)enabled {
-    self.startButton.userInteractionEnabled = enabled;
-    self.nextButton.userInteractionEnabled = enabled;
-    self.randomButton.userInteractionEnabled = enabled;
-}
-
 - (CGRect)frameWithPosition:(TSYSquarePosition)position {
-    CGRect windowFrame = self.bounds;
+    CGRect frame = self.bounds;
     CGRect squareFrame = self.squareLabel.frame;
-    CGRect newFrame = squareFrame;
     
-    CGFloat distanceX = windowFrame.size.width - squareFrame.size.width;
-    CGFloat distanceY = windowFrame.size.height - squareFrame.size.height;
+    CGFloat distanceX = CGRectGetWidth(frame) - CGRectGetWidth(squareFrame);
+    CGFloat distanceY = CGRectGetHeight(frame) - CGRectGetHeight(squareFrame);
     
-    CGPoint point = CGPointMake(windowFrame.origin.x,
-                                windowFrame.origin.y);
+    CGPoint point = CGPointMake(CGRectGetMinX(frame),
+                                CGRectGetMinY(frame));
     
     switch (position) {
-        case TSYSquarePositionLeftUp:
-            break;
-            
         case TSYSquarePositionRightUp:
             point.x += distanceX;
             break;
@@ -155,20 +141,20 @@ static BOOL TSYViewAnimationShouldStop      = NO;
             break;
     }
     
-    newFrame.origin = point;
+    squareFrame.origin = point;
     
-    return newFrame;
+    return squareFrame;
 }
 
 - (TSYSquarePosition)nextPosition {
-    return (self.currentPosition + 1) % TSYSquarePositionCount;
+    return (self.position + 1) % TSYSquarePositionCount;
 }
 
 - (TSYSquarePosition)nextRandomPosition {
     TSYSquarePosition randomPosition = arc4random_uniform(TSYSquarePositionCount);
     
-    if (randomPosition == self.currentPosition) {
-        randomPosition = [self nextRandomPosition];
+    while (self.position == randomPosition) {
+        randomPosition = arc4random_uniform(TSYSquarePositionCount);
     }
 
     return randomPosition;

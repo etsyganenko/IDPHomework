@@ -17,10 +17,11 @@ typedef NS_ENUM(NSUInteger, TSYSquarePosition) {
 };
 
 @interface TSYView : UIView
-@property (nonatomic, strong)   IBOutlet UILabel    *squareLabel;
+@property (nonatomic, readonly, getter=isMoving)    BOOL    moving;
 
-@property (nonatomic, readonly) TSYSquarePosition   currentPosition;
-@property (nonatomic, readonly) BOOL                isMoving;
+@property (nonatomic, assign)   TSYSquarePosition   position;
+
+@property (nonatomic, strong)   IBOutlet UILabel    *squareLabel;
 
 @property (nonatomic, strong)   IBOutlet UIButton   *nextButton;
 @property (nonatomic, strong)   IBOutlet UIButton   *randomButton;
@@ -34,7 +35,6 @@ typedef NS_ENUM(NSUInteger, TSYSquarePosition) {
 - (void)startMoving;
 - (void)stopMoving;
 
-- (void)setPosition:(TSYSquarePosition)position;
 - (void)setPosition:(TSYSquarePosition)position animated:(BOOL)isAnimated;
 - (void)setPosition:(TSYSquarePosition)position
            animated:(BOOL)isAnimated
