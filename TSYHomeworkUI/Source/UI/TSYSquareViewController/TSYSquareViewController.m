@@ -14,6 +14,8 @@
 
 TSYViewControllerBaseViewProperty(TSYSquareViewController, TSYSquareView, mainView)
 
+@implementation TSYSquareViewController
+
 #pragma mark -
 #pragma mark View Lifecycle
 

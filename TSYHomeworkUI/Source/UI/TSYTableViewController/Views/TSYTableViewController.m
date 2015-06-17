@@ -16,6 +16,8 @@ static const NSInteger TSYTableViewRowsCount =  5;
 
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
+@implementation TSYTableViewController
+
 #pragma mark -
 #pragma mark View Lifecycle
 
