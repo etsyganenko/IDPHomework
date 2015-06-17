@@ -12,19 +12,7 @@
 
 #import "TSYMacros.h"
 
-@interface TSYViewController ()
-@property (nonatomic, readonly)   TSYView  *mainView;
-
-@end
-
-@implementation TSYViewController
-
-@dynamic mainView;
-
-#pragma mark -
-#pragma mark Accessors
-
-TSYBaseViewPropertyGetter(TSYView, mainView)
+TSYViewControllerBaseViewProperty(TSYViewController, TSYView, mainView)
 
 #pragma mark -
 #pragma mark View Lifecycle
