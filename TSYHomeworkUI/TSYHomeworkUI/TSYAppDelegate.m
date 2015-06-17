@@ -9,6 +9,7 @@
 #import "TSYAppDelegate.h"
 
 #import "TSYViewController.h"
+#import "TSYTableViewController.h"
 
 #import "UIWindow+TSYCategories.h"
 
@@ -23,7 +24,8 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
 
-    window.rootViewController = [TSYViewController new];
+//    window.rootViewController = [TSYViewController new];
+    window.rootViewController = [TSYTableViewController new];
     
     [window makeKeyAndVisible];
     

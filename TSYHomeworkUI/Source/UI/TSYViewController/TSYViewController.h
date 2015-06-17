@@ -11,8 +11,6 @@
 @class TSYView;
 
 @interface TSYViewController : UIViewController
-@property (nonatomic, readonly)   TSYView  *mainView;
-
 - (IBAction)onButtonNext:(id)sender;
 - (IBAction)onButtonRandom:(id)sender;
 

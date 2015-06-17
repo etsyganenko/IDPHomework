@@ -14,3 +14,14 @@
         \
         return nil; \
     }
+
+#define TSYViewControllerBaseViewProperty(viewControllerClass, viewClass, property) \
+    @interface viewControllerClass () \
+    @property (nonatomic, readonly)   viewClass  *property; \
+    \
+    @end \
+    \
+    @implementation viewControllerClass \
+    @dynamic property; \
+    \
+    TSYBaseViewPropertyGetter(viewClass, property)
