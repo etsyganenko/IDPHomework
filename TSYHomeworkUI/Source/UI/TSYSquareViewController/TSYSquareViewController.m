@@ -1,18 +1,18 @@
 //
-//  TSYViewController.m
+//  TSYSquareViewController.m
 //  TSYHomeworkUI
 //
 //  Created by Admin on 11.06.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYViewController.h"
+#import "TSYSquareViewController.h"
 
-#import "TSYView.h"
+#import "TSYSquareView.h"
 
 #import "TSYMacros.h"
 
-TSYViewControllerBaseViewProperty(TSYViewController, TSYView, mainView)
+TSYViewControllerBaseViewProperty(TSYSquareViewController, TSYSquareView, mainView)
 
 #pragma mark -
 #pragma mark View Lifecycle

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#define TSYBaseViewPropertyGetterSynthesize(viewClass, property) \
-    - (viewClass *)property { \
+#define TSYBaseViewPropertyGetterSynthesize(viewClass, propertyName) \
+    - (viewClass *)propertyName { \
         if ([self isViewLoaded] && [self.view isKindOfClass:[viewClass class]]) { \
             return (viewClass *)self.view; \
         } \
@@ -15,8 +15,8 @@
         return nil; \
     }
 
-#define TSYBaseViewPropertySynthesize(viewClass, property) \
-    @property (nonatomic, readonly)   viewClass  *property;
+#define TSYBaseViewPropertySynthesize(viewClass, propertyName) \
+    @property (nonatomic, readonly)   viewClass  *propertyName;
 
 #define TSYViewControllerBaseViewProperty(viewControllerClass, viewClass, propertyName) \
     @interface viewControllerClass () \

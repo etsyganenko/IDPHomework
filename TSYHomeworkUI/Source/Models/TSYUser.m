@@ -8,33 +8,41 @@
 
 #import "TSYUser.h"
 
+#import "NSString+TSYRandomName.h"
+
 @implementation TSYUser
 
-+ (instancetype)initWithName:(NSString *)name
-                     surname:(NSString *)surname
-{
-    return [[TSYUser alloc] initWithName:name
-                                          surname:surname];
+@dynamic fullName;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)userWithRandomNameSurname {
+    return [[TSYUser alloc] init];
 }
 
-- (instancetype)initWithName:(NSString *)name
-                     surname:(NSString *)surname
-{
-    self = [super init];
-    if (self) {
-        self.name = name;
-        self.surname = surname;
-    }
-    
-    return self;
-}
+#pragma mark -
+#pragma mark Initializations and Deallocations
 
 - (void)dealloc {
     self.name = nil;
     self.surname = nil;
     
-    [super dealloc];
+    //    [super dealloc];
 }
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.name = [NSString randomName];
+        self.surname = [NSString randomName];
+    }
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
 
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];

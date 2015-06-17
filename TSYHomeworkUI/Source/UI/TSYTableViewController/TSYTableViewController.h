@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TSYTableViewController : UIViewController
+@interface TSYTableViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end

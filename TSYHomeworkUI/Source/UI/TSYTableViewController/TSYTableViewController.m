@@ -12,6 +12,8 @@
 
 #import "TSYMacros.h"
 
+static const NSInteger TSYTableViewRowsCount =  5;
+
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
 #pragma mark -
@@ -23,6 +25,16 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return TSYTableViewRowsCount;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Identifier"];
+    
+    return cell;
 }
 
 @end

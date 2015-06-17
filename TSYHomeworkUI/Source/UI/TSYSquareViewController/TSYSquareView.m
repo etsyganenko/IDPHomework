@@ -1,17 +1,17 @@
 //
-//  TSYView.m
+//  TSYSquareView.m
 //  TSYHomeworkUI
 //
 //  Created by Admin on 11.06.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYView.h"
+#import "TSYSquareView.h"
 
-static const NSUInteger TSYViewAnimationDuration   = 1;
-static const NSUInteger TSYViewAnimationDelay      = 0;
+static const NSUInteger TSYSquareViewAnimationDuration   = 1;
+static const NSUInteger TSYSquareViewAnimationDelay      = 0;
 
-@interface TSYView ()
+@interface TSYSquareView ()
 @property (nonatomic, assign) BOOL  animationShouldStop;
 
 - (TSYSquarePosition)nextPosition;
@@ -21,7 +21,7 @@ static const NSUInteger TSYViewAnimationDelay      = 0;
 
 @end
 
-@implementation TSYView
+@implementation TSYSquareView
 
 @dynamic moving;
 
@@ -61,7 +61,7 @@ static const NSUInteger TSYViewAnimationDelay      = 0;
     }];
     
 //    void (^completion)(BOOL) = ^(BOOL finished){
-//        if (finished && !TSYViewAnimationShouldStop) {
+//        if (finished && !TSYSquareViewAnimationShouldStop) {
 //            [self startMoving];
 //        }
 //    };
@@ -92,8 +92,8 @@ static const NSUInteger TSYViewAnimationDelay      = 0;
   completionHandler:(void (^)(BOOL finished))handler
 {
     if (_position != position) {
-        [UIView animateWithDuration:isAnimated ? TSYViewAnimationDuration : 0
-                              delay:isAnimated ? TSYViewAnimationDelay : 0
+        [UIView animateWithDuration:isAnimated ? TSYSquareViewAnimationDuration : 0
+                              delay:isAnimated ? TSYSquareViewAnimationDelay : 0
                             options:UIViewAnimationOptionBeginFromCurrentState
                          animations:^{
                              self.squareLabel.frame = [self frameWithPosition:position];

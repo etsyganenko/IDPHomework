@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface TSYUser : NSObject
 @property (nonatomic, readonly) NSString    *fullName;
 @property (nonatomic, copy)     NSString    *name;
 @property (nonatomic, copy)     NSString    *surname;
+@property (nonatomic, strong)   UIImage     *image;
 
 @end
