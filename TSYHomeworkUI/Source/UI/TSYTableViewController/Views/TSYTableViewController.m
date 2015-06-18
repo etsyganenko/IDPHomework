@@ -9,6 +9,7 @@
 #import "TSYTableViewController.h"
 
 #import "TSYTableView.h"
+#import "TSYTableCellView.h"
 
 #import "TSYMacros.h"
 
@@ -35,10 +36,12 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     return TSYTableViewRowsCount;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Identifier"];
-    
-    return cell;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSString *cellClass = NSStringFromClass([TSYTableCellView class]);
+//    
+//    TSYTableCellView *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
+//    
+//    return cell;
+//}
 
 @end
