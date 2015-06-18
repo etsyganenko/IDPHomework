@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class TSYUser;
+
 @interface TSYTableCellView : UITableViewCell
 @property (nonatomic, strong)   IBOutlet UIImageView    *userImageView;
 @property (nonatomic, strong)   IBOutlet UILabel        *fullNameLabel;
+
+@property (nonatomic, strong)   TSYUser                 *user;
+
+- (void)fillWithUser:(TSYUser *)user;
 
 @end

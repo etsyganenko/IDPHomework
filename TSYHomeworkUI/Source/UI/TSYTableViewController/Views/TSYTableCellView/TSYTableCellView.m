@@ -18,4 +18,8 @@
     [super setSelected:selected animated:animated];
 }
 
+- (void)fillWithUser:(TSYUser *)user {
+    
+}
+
 @end

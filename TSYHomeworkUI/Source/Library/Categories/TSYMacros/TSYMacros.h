@@ -31,3 +31,24 @@
     TSYBaseViewPropertyGetterSynthesize(viewClass, propertyName) \
     \
     @end
+
+#define TSYWeakify(variable) \
+    __weak __typeof(variable) __TSYWeakified_##variable = variable;
+
+// this method should be called only after TSYWeakify(variable) was called
+#define TSYStrongify(variable) \
+    __strong __typeof(variable) variable = __TSYWeakified_##variable; \
+
+#define TSYStrongifyAndReturnResultIfNil(variable, result) \
+    TSYStrongify(variable); \
+    if (!variable) { \
+        return result; \
+    }
+
+#define TSYEmptyResult
+
+#define TSYStrongifyAndReturnIfNil(variable) \
+    TSYStrongifyAndReturnResultIfNil(variable, TSYEmptyResult)
+
+#define TSYStrongifyAndReturnNilIfNil(variable) \
+    TSYStrongifyAndReturnResultIfNil(variable, nil)

@@ -8,6 +8,8 @@
 
 #import "TSYSquareView.h"
 
+#import "TSYMacros.h"
+
 static const NSUInteger TSYSquareViewAnimationDuration   = 1;
 static const NSUInteger TSYSquareViewAnimationDelay      = 0;
 
@@ -52,9 +54,13 @@ static const NSUInteger TSYSquareViewAnimationDelay      = 0;
     
     self.animationShouldStop = NO;
     
+    TSYWeakify(self);
+    
     [self setPosition:[self nextPosition]
              animated:YES
     completionHandler:^(BOOL finished){
+        TSYStrongifyAndReturnIfNil(self);
+        
         if (finished && !self.animationShouldStop) {
             [self startMoving];
         }

@@ -46,6 +46,22 @@
 #pragma mark -
 #pragma mark Public Methods
 
+- (void)addUser:(TSYUser *)user {
+    [self.mutableUsers addObject:user];
+}
+
+- (void)removeUser:(TSYUser *)user {
+    [self.mutableUsers removeObject:user];
+}
+
+- (TSYUser *)userAtIndex:(NSUInteger)index {
+    return [self.mutableUsers objectAtIndex:index];
+}
+
+- (NSUInteger)usersCount {
+    return [self.mutableUsers count];
+}
+
 #pragma mark -
 #pragma mark Private Methods
 

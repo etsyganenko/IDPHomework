@@ -25,13 +25,13 @@
 		84A1EFE61B31A2A30037A3B7 /* TSYSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1EFE21B31A2A30037A3B7 /* TSYSquareView.m */; };
 		84A1EFE71B31A2A30037A3B7 /* TSYSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1EFE41B31A2A30037A3B7 /* TSYSquareViewController.m */; };
 		84A1EFE81B31A2A30037A3B7 /* TSYSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1EFE51B31A2A30037A3B7 /* TSYSquareViewController.xib */; };
-		84A1EFFF1B31A8CB0037A3B7 /* NSString+TSYAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1EFF81B31A8CB0037A3B7 /* NSString+TSYAlphabet.m */; };
-		84A1F0011B31A8CB0037A3B7 /* NSString+TSYRandomName.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1EFFC1B31A8CB0037A3B7 /* NSString+TSYRandomName.m */; };
-		84A1F0021B31A8CB0037A3B7 /* NSString+TSYRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1EFFE1B31A8CB0037A3B7 /* NSString+TSYRandomString.m */; };
-		84A1F0091B31A8D80037A3B7 /* TSYMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1F0051B31A8D80037A3B7 /* TSYMacros.m */; };
-		84A1F00A1B31A8D80037A3B7 /* UIWindow+TSYCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1F0081B31A8D80037A3B7 /* UIWindow+TSYCategories.m */; };
 		84BF5F031B32D04400932154 /* TSYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F021B32D04400932154 /* TSYUser.m */; };
 		84BF5F071B32D09900932154 /* TSYUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F061B32D09900932154 /* TSYUsers.m */; };
+		84BF5F181B32FB0100932154 /* NSString+TSYAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F0C1B32FB0100932154 /* NSString+TSYAlphabet.m */; };
+		84BF5F191B32FB0100932154 /* NSString+TSYRandomName.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F0E1B32FB0100932154 /* NSString+TSYRandomName.m */; };
+		84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F101B32FB0100932154 /* NSString+TSYRandomString.m */; };
+		84BF5F1B1B32FB0100932154 /* TSYMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F131B32FB0100932154 /* TSYMacros.m */; };
+		84BF5F1C1B32FB0100932154 /* UIWindow+TSYCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F161B32FB0100932154 /* UIWindow+TSYCategories.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,20 +71,20 @@
 		84A1EFE31B31A2A30037A3B7 /* TSYSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYSquareViewController.h; sourceTree = "<group>"; };
 		84A1EFE41B31A2A30037A3B7 /* TSYSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYSquareViewController.m; sourceTree = "<group>"; };
 		84A1EFE51B31A2A30037A3B7 /* TSYSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYSquareViewController.xib; sourceTree = "<group>"; };
-		84A1EFF71B31A8CB0037A3B7 /* NSString+TSYAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYAlphabet.h"; sourceTree = "<group>"; };
-		84A1EFF81B31A8CB0037A3B7 /* NSString+TSYAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYAlphabet.m"; sourceTree = "<group>"; };
-		84A1EFFB1B31A8CB0037A3B7 /* NSString+TSYRandomName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYRandomName.h"; sourceTree = "<group>"; };
-		84A1EFFC1B31A8CB0037A3B7 /* NSString+TSYRandomName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomName.m"; sourceTree = "<group>"; };
-		84A1EFFD1B31A8CB0037A3B7 /* NSString+TSYRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYRandomString.h"; sourceTree = "<group>"; };
-		84A1EFFE1B31A8CB0037A3B7 /* NSString+TSYRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomString.m"; sourceTree = "<group>"; };
-		84A1F0041B31A8D80037A3B7 /* TSYMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMacros.h; sourceTree = "<group>"; };
-		84A1F0051B31A8D80037A3B7 /* TSYMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYMacros.m; sourceTree = "<group>"; };
-		84A1F0071B31A8D80037A3B7 /* UIWindow+TSYCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+TSYCategories.h"; sourceTree = "<group>"; };
-		84A1F0081B31A8D80037A3B7 /* UIWindow+TSYCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+TSYCategories.m"; sourceTree = "<group>"; };
 		84BF5F011B32D04400932154 /* TSYUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYUser.h; sourceTree = "<group>"; };
 		84BF5F021B32D04400932154 /* TSYUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYUser.m; sourceTree = "<group>"; };
 		84BF5F051B32D09900932154 /* TSYUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYUsers.h; sourceTree = "<group>"; };
 		84BF5F061B32D09900932154 /* TSYUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYUsers.m; sourceTree = "<group>"; };
+		84BF5F0B1B32FB0100932154 /* NSString+TSYAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYAlphabet.h"; sourceTree = "<group>"; };
+		84BF5F0C1B32FB0100932154 /* NSString+TSYAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYAlphabet.m"; sourceTree = "<group>"; };
+		84BF5F0D1B32FB0100932154 /* NSString+TSYRandomName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYRandomName.h"; sourceTree = "<group>"; };
+		84BF5F0E1B32FB0100932154 /* NSString+TSYRandomName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomName.m"; sourceTree = "<group>"; };
+		84BF5F0F1B32FB0100932154 /* NSString+TSYRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYRandomString.h"; sourceTree = "<group>"; };
+		84BF5F101B32FB0100932154 /* NSString+TSYRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomString.m"; sourceTree = "<group>"; };
+		84BF5F121B32FB0100932154 /* TSYMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMacros.h; sourceTree = "<group>"; };
+		84BF5F131B32FB0100932154 /* TSYMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYMacros.m; sourceTree = "<group>"; };
+		84BF5F151B32FB0100932154 /* UIWindow+TSYCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+TSYCategories.h"; sourceTree = "<group>"; };
+		84BF5F161B32FB0100932154 /* UIWindow+TSYCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+TSYCategories.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,21 +169,11 @@
 		849FB4AC1B28E98E0096D0AD /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				84A125F61B2EC982007887E3 /* Categories */,
+				84BF5F081B32FB0100932154 /* Library */,
 				84A1EFDC1B31679B0037A3B7 /* Models */,
 				84A1EFC91B31678A0037A3B7 /* UI */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		84A125F61B2EC982007887E3 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				84A1EFF61B31A8CB0037A3B7 /* NSString */,
-				84A1F0061B31A8D80037A3B7 /* UIWindow */,
-				84A1F0031B31A8D80037A3B7 /* TSYMacros */,
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		84A196251B321AF900C5CE0E /* Views */ = {
@@ -247,39 +237,6 @@
 			path = TSYSquareViewController;
 			sourceTree = "<group>";
 		};
-		84A1EFF61B31A8CB0037A3B7 /* NSString */ = {
-			isa = PBXGroup;
-			children = (
-				84A1EFF71B31A8CB0037A3B7 /* NSString+TSYAlphabet.h */,
-				84A1EFF81B31A8CB0037A3B7 /* NSString+TSYAlphabet.m */,
-				84A1EFFB1B31A8CB0037A3B7 /* NSString+TSYRandomName.h */,
-				84A1EFFC1B31A8CB0037A3B7 /* NSString+TSYRandomName.m */,
-				84A1EFFD1B31A8CB0037A3B7 /* NSString+TSYRandomString.h */,
-				84A1EFFE1B31A8CB0037A3B7 /* NSString+TSYRandomString.m */,
-			);
-			path = NSString;
-			sourceTree = "<group>";
-		};
-		84A1F0031B31A8D80037A3B7 /* TSYMacros */ = {
-			isa = PBXGroup;
-			children = (
-				84A1F0041B31A8D80037A3B7 /* TSYMacros.h */,
-				84A1F0051B31A8D80037A3B7 /* TSYMacros.m */,
-			);
-			name = TSYMacros;
-			path = Source/Categories/TSYMacros;
-			sourceTree = SOURCE_ROOT;
-		};
-		84A1F0061B31A8D80037A3B7 /* UIWindow */ = {
-			isa = PBXGroup;
-			children = (
-				84A1F0071B31A8D80037A3B7 /* UIWindow+TSYCategories.h */,
-				84A1F0081B31A8D80037A3B7 /* UIWindow+TSYCategories.m */,
-			);
-			name = UIWindow;
-			path = Source/Categories/UIWindow;
-			sourceTree = SOURCE_ROOT;
-		};
 		84BF5EFF1B32B24600932154 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +262,63 @@
 			name = TSYUsers;
 			path = Source/Models/TSYUsers;
 			sourceTree = SOURCE_ROOT;
+		};
+		84BF5F081B32FB0100932154 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				84BF5F091B32FB0100932154 /* Categories */,
+				84BF5F171B32FB0100932154 /* Classes */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		84BF5F091B32FB0100932154 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				84BF5F0A1B32FB0100932154 /* NSString */,
+				84BF5F111B32FB0100932154 /* TSYMacros */,
+				84BF5F141B32FB0100932154 /* UIWindow */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		84BF5F0A1B32FB0100932154 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				84BF5F0B1B32FB0100932154 /* NSString+TSYAlphabet.h */,
+				84BF5F0C1B32FB0100932154 /* NSString+TSYAlphabet.m */,
+				84BF5F0D1B32FB0100932154 /* NSString+TSYRandomName.h */,
+				84BF5F0E1B32FB0100932154 /* NSString+TSYRandomName.m */,
+				84BF5F0F1B32FB0100932154 /* NSString+TSYRandomString.h */,
+				84BF5F101B32FB0100932154 /* NSString+TSYRandomString.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		84BF5F111B32FB0100932154 /* TSYMacros */ = {
+			isa = PBXGroup;
+			children = (
+				84BF5F121B32FB0100932154 /* TSYMacros.h */,
+				84BF5F131B32FB0100932154 /* TSYMacros.m */,
+			);
+			path = TSYMacros;
+			sourceTree = "<group>";
+		};
+		84BF5F141B32FB0100932154 /* UIWindow */ = {
+			isa = PBXGroup;
+			children = (
+				84BF5F151B32FB0100932154 /* UIWindow+TSYCategories.h */,
+				84BF5F161B32FB0100932154 /* UIWindow+TSYCategories.m */,
+			);
+			path = UIWindow;
+			sourceTree = "<group>";
+		};
+		84BF5F171B32FB0100932154 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
+			sourceTree = "<group>";
 		};
 		BE30A4A9EDD4073BC4CA38A1 /* Pods */ = {
 			isa = PBXGroup;
@@ -457,18 +471,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A196311B321AF900C5CE0E /* TSYTableView.m in Sources */,
+				84BF5F181B32FB0100932154 /* NSString+TSYAlphabet.m in Sources */,
 				849FB4A01B28E9460096D0AD /* main.m in Sources */,
+				84BF5F1B1B32FB0100932154 /* TSYMacros.m in Sources */,
 				84A1962F1B321AF900C5CE0E /* TSYTableCellView.m in Sources */,
-				84A1F0021B31A8CB0037A3B7 /* NSString+TSYRandomString.m in Sources */,
+				84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */,
 				84BF5F031B32D04400932154 /* TSYUser.m in Sources */,
 				84A196321B321AF900C5CE0E /* TSYTableViewController.m in Sources */,
 				849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */,
 				84A1EFE61B31A2A30037A3B7 /* TSYSquareView.m in Sources */,
-				84A1F0091B31A8D80037A3B7 /* TSYMacros.m in Sources */,
-				84A1F00A1B31A8D80037A3B7 /* UIWindow+TSYCategories.m in Sources */,
-				84A1EFFF1B31A8CB0037A3B7 /* NSString+TSYAlphabet.m in Sources */,
+				84BF5F191B32FB0100932154 /* NSString+TSYRandomName.m in Sources */,
 				84A1EFE71B31A2A30037A3B7 /* TSYSquareViewController.m in Sources */,
-				84A1F0011B31A8CB0037A3B7 /* NSString+TSYRandomName.m in Sources */,
+				84BF5F1C1B32FB0100932154 /* UIWindow+TSYCategories.m in Sources */,
 				84BF5F071B32D09900932154 /* TSYUsers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

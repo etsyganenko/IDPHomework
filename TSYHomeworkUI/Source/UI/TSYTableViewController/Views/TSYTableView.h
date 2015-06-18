@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class TSYUsers;
+
 @interface TSYTableView : UIView
 @property (nonatomic, strong)   IBOutlet UITableView    *tableView;
+
+@property (nonatomic, strong)   TSYUsers                *users;
+
+- (void)fillWithUsers:(TSYUsers *)users;
 
 @end
