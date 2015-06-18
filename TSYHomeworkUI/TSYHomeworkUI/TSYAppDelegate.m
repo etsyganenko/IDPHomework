@@ -24,8 +24,8 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
 
-    window.rootViewController = [TSYSquareViewController new];
-//    window.rootViewController = [TSYTableViewController new];
+//    window.rootViewController = [TSYSquareViewController new];
+    window.rootViewController = [TSYTableViewController new];
     
     [window makeKeyAndVisible];
     

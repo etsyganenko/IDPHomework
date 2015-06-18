@@ -15,12 +15,12 @@
         return nil; \
     }
 
-#define TSYBaseViewPropertySynthesize(viewClass, propertyName) \
+#define TSYBaseViewPropertyDefinition(viewClass, propertyName) \
     @property (nonatomic, readonly)   viewClass  *propertyName;
 
 #define TSYViewControllerBaseViewProperty(viewControllerClass, viewClass, propertyName) \
     @interface viewControllerClass (__TSYViewControllerClassCategory) \
-    TSYBaseViewPropertySynthesize(viewClass, propertyName) \
+    TSYBaseViewPropertyDefinition(viewClass, propertyName) \
     \
     @end \
     \

@@ -24,13 +24,6 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (void)dealloc {
-    self.name = nil;
-    self.surname = nil;
-    
-    //    [super dealloc];
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {

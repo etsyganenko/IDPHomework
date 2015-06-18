@@ -84,7 +84,7 @@ static const NSUInteger TSYSquareViewAnimationDelay      = 0;
 - (void)setPosition:(TSYSquarePosition)position animated:(BOOL)isAnimated {
     [self setPosition:position
              animated:isAnimated
-    completionHandler:NULL];
+    completionHandler:nil];
 }
 
 - (void)setPosition:(TSYSquarePosition)position
@@ -154,11 +154,11 @@ static const NSUInteger TSYSquareViewAnimationDelay      = 0;
 }
 
 - (TSYSquarePosition)nextRandomPosition {
-    TSYSquarePosition randomPosition = arc4random_uniform(TSYSquarePositionCount);
+    TSYSquarePosition randomPosition = 0;
     
-    while (self.position == randomPosition) {
+    do {
         randomPosition = arc4random_uniform(TSYSquarePositionCount);
-    }
+    } while (self.position == randomPosition);
 
     return randomPosition;
 }
