@@ -58,7 +58,11 @@
     return [self.mutableUsers objectAtIndex:index];
 }
 
-- (NSUInteger)usersCount {
+- (TSYUser *)userAtIndexedSubscript:(NSUInteger)index {
+    return [self.mutableUsers objectAtIndexedSubscript:index];
+}
+
+- (NSUInteger)count {
     return [self.mutableUsers count];
 }
 

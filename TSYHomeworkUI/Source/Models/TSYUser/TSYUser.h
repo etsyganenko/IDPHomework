@@ -15,4 +15,6 @@
 @property (nonatomic, copy)     NSString    *surname;
 @property (nonatomic, strong)   UIImage     *image;
 
++ (instancetype)userWithRandomNameSurname;
+
 @end

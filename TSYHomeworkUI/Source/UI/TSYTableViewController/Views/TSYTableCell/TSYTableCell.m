@@ -6,9 +6,11 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYTableCellView.h"
+#import "TSYTableCell.h"
 
-@implementation TSYTableCellView
+#import "TSYUser.h"
+
+@implementation TSYTableCell
 
 - (void)awakeFromNib {
 
@@ -19,6 +21,14 @@
 }
 
 - (void)fillWithUser:(TSYUser *)user {
+    self.fullNameLabel.text = user.fullName;
+}
+
+- (void)setUser:(TSYUser *)user {
+    if (_user != user) {
+        _user = user;
+    }
+    
     
 }
 

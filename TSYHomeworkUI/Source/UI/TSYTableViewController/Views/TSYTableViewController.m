@@ -9,9 +9,9 @@
 #import "TSYTableViewController.h"
 
 #import "TSYTableView.h"
-#import "TSYTableCellView.h"
-
+#import "TSYTableCell.h"
 #import "TSYMacros.h"
+#import "TSYUser.h"
 
 static const NSInteger TSYTableViewRowsCount =  5;
 
@@ -36,12 +36,17 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     return TSYTableViewRowsCount;
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSString *cellClass = NSStringFromClass([TSYTableCellView class]);
-//    
-//    TSYTableCellView *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
-//    
-//    return cell;
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellClass = NSStringFromClass([TSYTableCell class]);
+    
+    TSYTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:0 reuseIdentifier:cellClass];
+    }
+    
+    cell.user = [TSYUser userWithRandomNameSurname];
+    
+    return cell;
+}
 
 @end

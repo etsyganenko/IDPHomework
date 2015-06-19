@@ -20,6 +20,8 @@
 - (void)removeUser:(TSYUser *)user;
 
 - (TSYUser *)userAtIndex:(NSUInteger)index;
-- (NSUInteger)usersCount;
+- (TSYUser *)userAtIndexedSubscript:(NSUInteger)index;
+
+- (NSUInteger)count;
 
 @end
