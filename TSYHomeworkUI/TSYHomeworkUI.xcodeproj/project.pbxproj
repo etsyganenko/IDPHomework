@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		564CE81C0870301687525CD3 /* libPods-TSYHomeworkUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */; };
+		849DAF171B3414CA0034D221 /* TSYMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DAF161B3414CA0034D221 /* TSYMacros.m */; };
 		849FB49F1B28E9460096D0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849FB49D1B28E9460096D0AD /* Info.plist */; };
 		849FB4A01B28E9460096D0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB49E1B28E9460096D0AD /* main.m */; };
 		849FB4A41B28E96E0096D0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4A21B28E96E0096D0AD /* Info.plist */; };
@@ -30,7 +31,6 @@
 		84BF5F181B32FB0100932154 /* NSString+TSYAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F0C1B32FB0100932154 /* NSString+TSYAlphabet.m */; };
 		84BF5F191B32FB0100932154 /* NSString+TSYRandomName.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F0E1B32FB0100932154 /* NSString+TSYRandomName.m */; };
 		84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F101B32FB0100932154 /* NSString+TSYRandomString.m */; };
-		84BF5F1B1B32FB0100932154 /* TSYMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F131B32FB0100932154 /* TSYMacros.m */; };
 		84BF5F1C1B32FB0100932154 /* UIWindow+TSYCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F161B32FB0100932154 /* UIWindow+TSYCategories.m */; };
 		84BF5F201B33002900932154 /* TSYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F1F1B33002900932154 /* TSYTableViewCell.m */; };
 /* End PBXBuildFile section */
@@ -49,6 +49,8 @@
 		0CF052DCE509C1B7489F499E /* Pods-TSYHomeworkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkUITests/Pods-TSYHomeworkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4758F823E14E040E645FB6A2 /* Pods-TSYHomeworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkUITests/Pods-TSYHomeworkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		849DAF151B3414CA0034D221 /* TSYMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMacros.h; sourceTree = "<group>"; };
+		849DAF161B3414CA0034D221 /* TSYMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYMacros.m; sourceTree = "<group>"; };
 		849FB4731B28E5C90096D0AD /* TSYHomeworkUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSYHomeworkUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849FB48C1B28E5C90096D0AD /* TSYHomeworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSYHomeworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		849FB49D1B28E9460096D0AD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,8 +84,6 @@
 		84BF5F0E1B32FB0100932154 /* NSString+TSYRandomName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomName.m"; sourceTree = "<group>"; };
 		84BF5F0F1B32FB0100932154 /* NSString+TSYRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSYRandomString.h"; sourceTree = "<group>"; };
 		84BF5F101B32FB0100932154 /* NSString+TSYRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSYRandomString.m"; sourceTree = "<group>"; };
-		84BF5F121B32FB0100932154 /* TSYMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMacros.h; sourceTree = "<group>"; };
-		84BF5F131B32FB0100932154 /* TSYMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYMacros.m; sourceTree = "<group>"; };
 		84BF5F151B32FB0100932154 /* UIWindow+TSYCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+TSYCategories.h"; sourceTree = "<group>"; };
 		84BF5F161B32FB0100932154 /* UIWindow+TSYCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+TSYCategories.m"; sourceTree = "<group>"; };
 		84BF5F1E1B33002900932154 /* TSYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYTableViewCell.h; sourceTree = "<group>"; };
@@ -115,6 +115,15 @@
 				40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		849DAF141B3414CA0034D221 /* TSYMacros */ = {
+			isa = PBXGroup;
+			children = (
+				849DAF151B3414CA0034D221 /* TSYMacros.h */,
+				849DAF161B3414CA0034D221 /* TSYMacros.m */,
+			);
+			path = TSYMacros;
 			sourceTree = "<group>";
 		};
 		849FB46A1B28E5C90096D0AD = {
@@ -269,6 +278,7 @@
 		84BF5F081B32FB0100932154 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				849DAF141B3414CA0034D221 /* TSYMacros */,
 				84BF5F091B32FB0100932154 /* Categories */,
 				84BF5F171B32FB0100932154 /* Classes */,
 			);
@@ -279,7 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				84BF5F0A1B32FB0100932154 /* NSString */,
-				84BF5F111B32FB0100932154 /* TSYMacros */,
 				84BF5F141B32FB0100932154 /* UIWindow */,
 			);
 			path = Categories;
@@ -296,15 +305,6 @@
 				84BF5F101B32FB0100932154 /* NSString+TSYRandomString.m */,
 			);
 			path = NSString;
-			sourceTree = "<group>";
-		};
-		84BF5F111B32FB0100932154 /* TSYMacros */ = {
-			isa = PBXGroup;
-			children = (
-				84BF5F121B32FB0100932154 /* TSYMacros.h */,
-				84BF5F131B32FB0100932154 /* TSYMacros.m */,
-			);
-			path = TSYMacros;
 			sourceTree = "<group>";
 		};
 		84BF5F141B32FB0100932154 /* UIWindow */ = {
@@ -486,7 +486,6 @@
 				84A196311B321AF900C5CE0E /* TSYTableView.m in Sources */,
 				84BF5F181B32FB0100932154 /* NSString+TSYAlphabet.m in Sources */,
 				849FB4A01B28E9460096D0AD /* main.m in Sources */,
-				84BF5F1B1B32FB0100932154 /* TSYMacros.m in Sources */,
 				84A1962F1B321AF900C5CE0E /* TSYTableCellView.m in Sources */,
 				84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */,
 				84BF5F201B33002900932154 /* TSYTableViewCell.m in Sources */,
@@ -497,6 +496,7 @@
 				84BF5F191B32FB0100932154 /* NSString+TSYRandomName.m in Sources */,
 				84A1EFE71B31A2A30037A3B7 /* TSYSquareViewController.m in Sources */,
 				84BF5F1C1B32FB0100932154 /* UIWindow+TSYCategories.m in Sources */,
+				849DAF171B3414CA0034D221 /* TSYMacros.m in Sources */,
 				84BF5F071B32D09900932154 /* TSYUsers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
