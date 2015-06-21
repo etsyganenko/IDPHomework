@@ -22,6 +22,8 @@
 
 - (void)fillWithUser:(TSYUser *)user {
     self.fullNameLabel.text = user.fullName;
+    
+    self.user = user;
 }
 
 - (void)setUser:(TSYUser *)user {
