@@ -40,12 +40,13 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     NSString *cellClass = NSStringFromClass([TSYTableCell class]);
     
     TSYTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:0 reuseIdentifier:cellClass];
+    if (!cell) {        
+        UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
+        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
+        cell = [cells firstObject];
     }
     
-//    cell.user = [TSYUser userWithRandomNameSurname];
-    [cell fillWithUser:[TSYUser userWithRandomNameSurname]];
+    cell.user = [TSYUser userWithRandomNameSurname];
     
     return cell;
 }

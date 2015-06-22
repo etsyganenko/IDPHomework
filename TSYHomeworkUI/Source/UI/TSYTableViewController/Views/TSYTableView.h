@@ -15,6 +15,6 @@
 
 @property (nonatomic, strong)   TSYUsers                *users;
 
-- (void)fillWithUsers:(TSYUsers *)users;
+//- (void)fillWithUsers:(TSYUsers *)users;
 
 @end

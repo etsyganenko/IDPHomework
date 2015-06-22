@@ -10,10 +10,4 @@
 
 @implementation TSYTableView
 
-- (void)fillWithUsers:(TSYUsers *)users {
-    self.users = users;
-    
-    
-}
-
 @end

@@ -13,7 +13,7 @@
 @implementation TSYTableCell
 
 - (void)awakeFromNib {
-
+    [super awakeFromNib];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,8 +22,7 @@
 
 - (void)fillWithUser:(TSYUser *)user {
     self.fullNameLabel.text = user.fullName;
-    
-    self.user = user;
+    self.userImageView.image = user.image;
 }
 
 - (void)setUser:(TSYUser *)user {
@@ -31,7 +30,7 @@
         _user = user;
     }
     
-    
+    [self fillWithUser:user];
 }
 
 @end
