@@ -14,15 +14,19 @@
 @implementation TSYTableView
 
 - (void)addCell {
+//    [self.tableView insertRowsAtIndexPaths: withRowAnimation:UITableViewRowAnimationFade];
     [self.users addUser:[TSYUser userWithRandomNameSurname]];
 }
 
 - (void)removeCell {
     [self.tableView setEditing:YES animated:YES];
     
-
+//    [self.tableView deleteRowsAtIndexPaths:
+//                          withRowAnimation:UITableViewRowAnimationFade];
     
-    [self.tableView setEditing:NO animated:YES];
+    [self.users removeUser:[self.users userAtIndex:0]];
+    
+//    [self.tableView setEditing:NO animated:YES];
 }
 
 - (void)moveCell {

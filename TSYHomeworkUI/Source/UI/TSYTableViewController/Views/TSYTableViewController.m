@@ -59,6 +59,13 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     return YES;
 }
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.mainView removeCell];
+}
+
 - (IBAction)onButtonAdd:(id)sender {
     [self.mainView addCell];
 }
