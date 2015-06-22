@@ -44,7 +44,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
         cell = [[UITableViewCell alloc] initWithStyle:0 reuseIdentifier:cellClass];
     }
     
-    cell.user = [TSYUser userWithRandomNameSurname];
+//    cell.user = [TSYUser userWithRandomNameSurname];
+    [cell fillWithUser:[TSYUser userWithRandomNameSurname]];
     
     return cell;
 }
