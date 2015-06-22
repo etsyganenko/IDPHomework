@@ -40,7 +40,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     NSString *cellClass = NSStringFromClass([TSYTableCell class]);
     
     TSYTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
-    if (!cell) {        
+    if (!cell) {
         UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
         NSArray *cells = [nib instantiateWithOwner:nil options:nil];
         cell = [cells firstObject];
@@ -49,6 +49,26 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     cell.user = [TSYUser userWithRandomNameSurname];
     
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (IBAction)onButtonAdd:(id)sender {
+    [self.mainView addCell];
+}
+
+- (IBAction)onButtonRemove:(id)sender {
+    [self.mainView removeCell];
+}
+
+- (IBAction)onButtonMove:(id)sender {
+    [self.mainView moveCell];
 }
 
 @end

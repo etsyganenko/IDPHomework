@@ -8,6 +8,26 @@
 
 #import "TSYTableView.h"
 
+#import "TSYUsers.h"
+#import "TSYUser.h"
+
 @implementation TSYTableView
+
+- (void)addCell {
+    [self.users addUser:[TSYUser userWithRandomNameSurname]];
+}
+
+- (void)removeCell {
+    [self.tableView setEditing:YES animated:YES];
+    
+
+    
+    [self.tableView setEditing:NO animated:YES];
+}
+
+- (void)moveCell {
+    [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]
+                           toIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+}
 
 @end

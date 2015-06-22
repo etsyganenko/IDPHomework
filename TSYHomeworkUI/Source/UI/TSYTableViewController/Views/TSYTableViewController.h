@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface TSYTableViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+- (IBAction)onButtonAdd:(id)sender;
+- (IBAction)onButtonRemove:(id)sender;
+- (IBAction)onButtonMove:(id)sender;
 
 @end
