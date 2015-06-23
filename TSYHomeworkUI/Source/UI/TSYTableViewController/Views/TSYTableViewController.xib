@@ -19,8 +19,8 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="i5M-Pr-FkT" id="n2e-Uk-R5f"/>
-                        <outlet property="delegate" destination="i5M-Pr-FkT" id="SUQ-gK-QlB"/>
+                        <outlet property="dataSource" destination="-1" id="VWd-Od-cED"/>
+                        <outlet property="delegate" destination="-1" id="ngm-LM-nig"/>
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="34C-tp-9mo">
@@ -51,7 +51,7 @@
             <connections>
                 <outlet property="addButton" destination="u7N-0Q-KaH" id="vPh-ph-9JN"/>
                 <outlet property="editButton" destination="34C-tp-9mo" id="abP-Nv-kDG"/>
-                <outlet property="tableView" destination="V35-AU-1Va" id="MF4-97-uaV"/>
+                <outlet property="tableView" destination="V35-AU-1Va" id="9PL-XP-ktM"/>
             </connections>
             <point key="canvasLocation" x="140" y="154"/>
         </view>

@@ -11,7 +11,16 @@
 @class TSYUsers;
 @class TSYTableView;
 
-@interface TSYTableViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@protocol TSYObserver <NSObject>
+
+@optional
+- (void)modelDidChange:(id<TSYObserver>)model;
+
+@end
+
+@interface TSYTableViewController : UIViewController<UITableViewDelegate,
+                                                        UITableViewDataSource,
+                                                        TSYObserver>
 @property (nonatomic, strong)   TSYUsers    *users;
 
 - (IBAction)onButtonAdd:(id)sender;

@@ -9,18 +9,30 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "TSYObservableObject.h"
+#import "TSYTableViewController.h"
+
 @class TSYUser;
 
-@interface TSYUsers : NSObject
+typedef NS_ENUM(NSUInteger, TSYUsersState) {
+    TSYUsersStateDidChange,
+    TSYUsersStateNoChanges
+};
+
+@interface TSYUsers : TSYObservableObject<TSYObserver>
 @property (nonatomic, readonly)   NSArray  *users;
 
 + (instancetype)users;
 
 - (void)addUser:(TSYUser *)user;
 - (void)removeUser:(TSYUser *)user;
+- (void)removeUserAtIndex:(NSUInteger)index;
 
 - (TSYUser *)userAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
+
+- (void)moveUserAtIndex:(NSUInteger)sourceIndex
+                toIndex:(NSUInteger)destinationIndex;
 
 - (NSUInteger)count;
 

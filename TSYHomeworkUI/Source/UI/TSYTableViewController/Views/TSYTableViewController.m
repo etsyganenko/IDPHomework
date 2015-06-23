@@ -14,11 +14,20 @@
 #import "TSYUser.h"
 #import "TSYUsers.h"
 
-static const NSInteger TSYTableViewRowsCount =  5;
-
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
 @implementation TSYTableViewController
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setUsers:(TSYUsers *)users {
+    if (_users != users) {
+        _users = users;
+        
+        [users addObserver:self];
+    }
+}
 
 #pragma mark -
 #pragma mark View Lifecycle
@@ -32,6 +41,9 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+#pragma mark -
+#pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.users count];
@@ -60,12 +72,24 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     return YES;
 }
 
-
--   (void)tableView:(UITableView *)tableView
- commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-  forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)    tableView:(UITableView *)tableView
+   commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+    forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [self.mainView removeCell];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.users removeUserAtIndex:indexPath.row];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (void)    tableView:(UITableView *)tableView
+   moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
+          toIndexPath:(NSIndexPath *)toIndexPath
+{
+    [self.users moveUserAtIndex:fromIndexPath.row
+                        toIndex:toIndexPath.row];
 }
 
 #pragma mark -
@@ -83,7 +107,18 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (IBAction)onButtonEdit:(id)sender {
-    [self.mainView setEditing:YES animated:YES];
+    TSYTableView *view = self.mainView;
+    
+    [view setEditing:!view.editing animated:YES];
+}
+
+#pragma mark -
+#pragma mark TSYObserver
+
+- (void)modelDidChange:(TSYUsers *)users {
+    [self.mainView.tableView reloadData];
+    
+    self.users.state = TSYUsersStateNoChanges;
 }
 
 @end

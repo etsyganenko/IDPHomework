@@ -31,6 +31,7 @@
     self = [super init];
     if (self) {
         self.mutableUsers = [NSMutableArray array];
+        self.state = TSYUsersStateNoChanges;
     }
     
     return self;
@@ -54,6 +55,10 @@
     [self.mutableUsers removeObject:user];
 }
 
+- (void)removeUserAtIndex:(NSUInteger)index {
+    [self.mutableUsers removeObjectAtIndex:index];
+}
+
 - (TSYUser *)userAtIndex:(NSUInteger)index {
     return [self.mutableUsers objectAtIndex:index];
 }
@@ -62,11 +67,31 @@
     return [self.mutableUsers objectAtIndexedSubscript:index];
 }
 
+- (void)moveUserAtIndex:(NSUInteger)sourceIndex
+                toIndex:(NSUInteger)destinationIndex
+{
+    [self.mutableUsers exchangeObjectAtIndex:destinationIndex
+                           withObjectAtIndex:sourceIndex];
+}
+
 - (NSUInteger)count {
     return [self.mutableUsers count];
 }
 
 #pragma mark -
 #pragma mark Private Methods
+
+#pragma mark -
+#pragma mark TSYObservableObject
+
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case TSYUsersStateDidChange:
+            return @selector(modelDidChange:);
+            
+        default:
+            return [super selectorForState:state];;
+    }
+}
 
 @end

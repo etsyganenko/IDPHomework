@@ -29,6 +29,7 @@
     if (self) {
         self.name = [NSString randomName];
         self.surname = [NSString randomName];
+        self.image = [UIImage imageNamed:@"image.jpg"];
     }
     
     return self;
