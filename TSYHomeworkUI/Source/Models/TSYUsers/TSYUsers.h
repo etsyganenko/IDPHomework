@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, TSYUsersState) {
     TSYUsersStateNoChanges
 };
 
-@interface TSYUsers : TSYObservableObject<TSYObserver>
+@interface TSYUsers : TSYObservableObject
 @property (nonatomic, readonly)   NSArray  *users;
 
 + (instancetype)users;

@@ -17,6 +17,8 @@
 
 @dynamic users;
 
+@synthesize state   = _state;
+
 #pragma mark -
 #pragma mark Class Methods
 
@@ -44,19 +46,33 @@
     return [self.mutableUsers copy];
 }
 
+- (void)setState:(NSUInteger)state {
+    if (_state != state) {
+        _state = state;
+        
+        [self notifyOfStateChange:state];
+    }
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)addUser:(TSYUser *)user {
     [self.mutableUsers addObject:user];
+    
+    self.state = TSYUsersStateDidChange;
 }
 
 - (void)removeUser:(TSYUser *)user {
     [self.mutableUsers removeObject:user];
+    
+    self.state = TSYUsersStateDidChange;
 }
 
 - (void)removeUserAtIndex:(NSUInteger)index {
     [self.mutableUsers removeObjectAtIndex:index];
+    
+    self.state = TSYUsersStateDidChange;
 }
 
 - (TSYUser *)userAtIndex:(NSUInteger)index {
@@ -72,6 +88,8 @@
 {
     [self.mutableUsers exchangeObjectAtIndex:destinationIndex
                            withObjectAtIndex:sourceIndex];
+    
+    self.state = TSYUsersStateDidChange;
 }
 
 - (NSUInteger)count {

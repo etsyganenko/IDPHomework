@@ -14,7 +14,7 @@
 @protocol TSYObserver <NSObject>
 
 @optional
-- (void)modelDidChange:(id<TSYObserver>)model;
+- (void)modelDidChange:(TSYUsers *)users;
 
 @end
 

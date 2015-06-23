@@ -19,6 +19,13 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 @implementation TSYTableViewController
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    [self.users removeObserver:self];
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setUsers:(TSYUsers *)users {
@@ -116,7 +123,12 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark TSYObserver
 
 - (void)modelDidChange:(TSYUsers *)users {
-    [self.mainView.tableView reloadData];
+    UITableView *tableView = self.mainView.tableView;
+    
+//    [tableView reloadData];
+    
+//    [tableView reloadRowsAtIndexPaths:[tableView indexPathsForVisibleRows]
+//                     withRowAnimation:UITableViewRowAnimationAutomatic];
     
     self.users.state = TSYUsersStateNoChanges;
 }
