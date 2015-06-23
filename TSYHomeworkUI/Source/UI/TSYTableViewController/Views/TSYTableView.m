@@ -13,35 +13,23 @@
 
 @implementation TSYTableView
 
-- (void)addCell {
-    [self.tableView setEditing:YES animated:YES];
+@dynamic editing;
 
-//    NSIndexPath *path1 = [NSIndexPath indexPathForRow:1 inSection:0];
-//    NSIndexPath *path2 = [NSIndexPath indexPathForRow:5 inSection:0];
-//    
-//    [self.tableView insertRowsAtIndexPaths:@[path1, path2]
-//                          withRowAnimation:UITableViewRowAnimationFade];
-    
-    [self.users addUser:[TSYUser userWithRandomNameSurname]];
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+#pragma mark -
+#pragma mark Accessors
+
+- (BOOL)isEditing {
+    return self.tableView.editing;
 }
 
-- (void)removeCell {
-    [self.tableView setEditing:YES animated:YES];
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [self.tableView setEditing:editing animated:animated];
     
-//    NSIndexPath *path1 = [NSIndexPath indexPathForRow:1 inSection:0];
-//    NSIndexPath *path2 = [NSIndexPath indexPathForRow:5 inSection:0];
-//    
-//    [self.tableView deleteRowsAtIndexPaths:@[path1, path2]
-//                          withRowAnimation:UITableViewRowAnimationFade];
-    
-    [self.users removeUser:[self.users userAtIndex:0]];
-    
-//    [self.tableView setEditing:NO animated:YES];
-}
-
-- (void)moveCell {
-    [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]
-                           toIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    [self.editButton setTitle:editing ? @"Done" : @"Edit"
+                     forState:UIControlStateNormal];
 }
 
 @end

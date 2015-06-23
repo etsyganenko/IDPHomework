@@ -58,7 +58,7 @@
     return [self.mutableUsers objectAtIndex:index];
 }
 
-- (TSYUser *)userAtIndexedSubscript:(NSUInteger)index {
+- (id)objectAtIndexedSubscript:(NSUInteger)index {
     return [self.mutableUsers objectAtIndexedSubscript:index];
 }
 

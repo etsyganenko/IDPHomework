@@ -20,7 +20,7 @@
 - (void)removeUser:(TSYUser *)user;
 
 - (TSYUser *)userAtIndex:(NSUInteger)index;
-- (TSYUser *)userAtIndexedSubscript:(NSUInteger)index;
+- (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (NSUInteger)count;
 

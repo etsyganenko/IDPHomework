@@ -17,8 +17,8 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)userWithRandomNameSurname {
-    return [[TSYUser alloc] init];
++ (instancetype)user {
+    return [TSYUser new];
 }
 
 #pragma mark -

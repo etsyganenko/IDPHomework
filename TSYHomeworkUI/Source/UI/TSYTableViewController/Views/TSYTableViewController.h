@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class TSYUsers;
+@class TSYTableView;
+
 @interface TSYTableViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong)   TSYUsers    *users;
+
 - (IBAction)onButtonAdd:(id)sender;
-- (IBAction)onButtonRemove:(id)sender;
-- (IBAction)onButtonMove:(id)sender;
+- (IBAction)onButtonEdit:(id)sender;
 
 @end

@@ -12,6 +12,7 @@
 #import "TSYTableCell.h"
 #import "TSYMacros.h"
 #import "TSYUser.h"
+#import "TSYUsers.h"
 
 static const NSInteger TSYTableViewRowsCount =  5;
 
@@ -33,7 +34,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return TSYTableViewRowsCount;
+    return [self.users count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -46,7 +47,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
         cell = [cells firstObject];
     }
     
-    cell.user = [TSYUser userWithRandomNameSurname];
+    cell.user = [self.users userAtIndex:indexPath.row];
     
     return cell;
 }
@@ -60,22 +61,29 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath
+-   (void)tableView:(UITableView *)tableView
+ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+  forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.mainView removeCell];
+//    [self.mainView removeCell];
 }
+
+#pragma mark -
+#pragma mark Interface Handling
 
 - (IBAction)onButtonAdd:(id)sender {
-    [self.mainView addCell];
+    TSYUsers *users = self.users;
+    [users addUser:[TSYUser user]];
+    
+    NSIndexPath *path = [NSIndexPath indexPathForRow:([users count] - 1)
+                                           inSection:0];
+    
+    [self.mainView.tableView insertRowsAtIndexPaths:@[path]
+                                   withRowAnimation:UITableViewRowAnimationFade];
 }
 
-- (IBAction)onButtonRemove:(id)sender {
-    [self.mainView removeCell];
-}
-
-- (IBAction)onButtonMove:(id)sender {
-    [self.mainView moveCell];
+- (IBAction)onButtonEdit:(id)sender {
+    [self.mainView setEditing:YES animated:YES];
 }
 
 @end

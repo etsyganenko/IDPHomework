@@ -10,6 +10,7 @@
 
 #import "TSYSquareViewController.h"
 #import "TSYTableViewController.h"
+#import "TSYUsers.h"
 
 #import "UIWindow+TSYCategories.h"
 
@@ -25,7 +26,10 @@
     self.window = window;
 
 //    window.rootViewController = [TSYSquareViewController new];
-    window.rootViewController = [TSYTableViewController new];
+    TSYTableViewController *tableViewController = [TSYTableViewController new];
+    tableViewController.users = [TSYUsers users];
+    
+    window.rootViewController = tableViewController;
     
     [window makeKeyAndVisible];
     

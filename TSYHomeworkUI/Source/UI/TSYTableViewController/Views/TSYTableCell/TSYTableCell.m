@@ -28,9 +28,9 @@
 - (void)setUser:(TSYUser *)user {
     if (_user != user) {
         _user = user;
-    }
     
-    [self fillWithUser:user];
+        [self fillWithUser:user];
+    }
 }
 
 @end

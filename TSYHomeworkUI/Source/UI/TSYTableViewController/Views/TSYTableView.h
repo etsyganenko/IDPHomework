@@ -11,16 +11,13 @@
 @class TSYUsers;
 
 @interface TSYTableView : UIView
-@property (nonatomic, strong)   IBOutlet UITableView    *tableView;
+@property (nonatomic, strong)   IBOutlet UITableView        *tableView;
 
-@property (nonatomic, strong)   IBOutlet UIButton       *addButton;
-@property (nonatomic, strong)   IBOutlet UIButton       *removeButton;
-@property (nonatomic, strong)   IBOutlet UIButton       *moveButton;
+@property (nonatomic, strong)   IBOutlet UIButton           *addButton;
+@property (nonatomic, strong)   IBOutlet UIButton           *editButton;
 
-@property (nonatomic, strong)   TSYUsers                *users;
+@property (nonatomic, assign, getter=isEditing)     BOOL    editing;
 
-- (void)removeCell;
-- (void)addCell;
-- (void)moveCell;
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 
 @end
