@@ -11,6 +11,7 @@
 		849DAF171B3414CA0034D221 /* TSYMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DAF161B3414CA0034D221 /* TSYMacros.m */; };
 		849F723A1B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F72391B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m */; };
 		849F723E1B3BF09200869AD4 /* TSYTableChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F723D1B3BF09200869AD4 /* TSYTableChange.m */; };
+		849F72421B3C247000869AD4 /* UITableView+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F72411B3C247000869AD4 /* UITableView+TSYCategory.m */; };
 		849FB49F1B28E9460096D0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849FB49D1B28E9460096D0AD /* Info.plist */; };
 		849FB4A01B28E9460096D0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB49E1B28E9460096D0AD /* main.m */; };
 		849FB4A41B28E96E0096D0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4A21B28E96E0096D0AD /* Info.plist */; };
@@ -58,6 +59,8 @@
 		849F72391B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+TSYCategory.m"; sourceTree = "<group>"; };
 		849F723C1B3BF09200869AD4 /* TSYTableChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYTableChange.h; sourceTree = "<group>"; };
 		849F723D1B3BF09200869AD4 /* TSYTableChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYTableChange.m; sourceTree = "<group>"; };
+		849F72401B3C247000869AD4 /* UITableView+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+TSYCategory.h"; sourceTree = "<group>"; };
+		849F72411B3C247000869AD4 /* UITableView+TSYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+TSYCategory.m"; sourceTree = "<group>"; };
 		849FB4731B28E5C90096D0AD /* TSYHomeworkUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSYHomeworkUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849FB48C1B28E5C90096D0AD /* TSYHomeworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSYHomeworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		849FB49D1B28E9460096D0AD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,6 +155,15 @@
 				849F723D1B3BF09200869AD4 /* TSYTableChange.m */,
 			);
 			path = TSYTableChange;
+			sourceTree = "<group>";
+		};
+		849F723F1B3C242D00869AD4 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				849F72401B3C247000869AD4 /* UITableView+TSYCategory.h */,
+				849F72411B3C247000869AD4 /* UITableView+TSYCategory.m */,
+			);
+			path = UITableView;
 			sourceTree = "<group>";
 		};
 		849FB46A1B28E5C90096D0AD = {
@@ -326,6 +338,7 @@
 		84BF5F091B32FB0100932154 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				849F723F1B3C242D00869AD4 /* UITableView */,
 				849F72371B3BEBCD00869AD4 /* NSMutableArray */,
 				84BF5F0A1B32FB0100932154 /* NSString */,
 				84BF5F141B32FB0100932154 /* UIWindow */,
@@ -525,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A196311B321AF900C5CE0E /* TSYTableView.m in Sources */,
+				849F72421B3C247000869AD4 /* UITableView+TSYCategory.m in Sources */,
 				84BF5F181B32FB0100932154 /* NSString+TSYAlphabet.m in Sources */,
 				849FB4A01B28E9460096D0AD /* main.m in Sources */,
 				84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */,

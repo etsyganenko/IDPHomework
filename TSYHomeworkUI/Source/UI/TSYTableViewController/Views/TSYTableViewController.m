@@ -15,6 +15,8 @@
 #import "TSYUsers.h"
 #import "TSYTableChange.h"
 
+#import "UITableView+TSYCategory.h"
+
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
 @implementation TSYTableViewController
@@ -58,14 +60,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellClass = NSStringFromClass([TSYTableCell class]);
-    
-    TSYTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
-    if (!cell) {
-        UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
-        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
-        cell = [cells firstObject];
-    }
+    TSYTableCell *cell = [tableView cellWithClass:[TSYTableCell class]];
     
     cell.user = [self.users userAtIndex:indexPath.row];
     
