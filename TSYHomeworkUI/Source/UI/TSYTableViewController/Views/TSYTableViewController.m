@@ -13,6 +13,7 @@
 #import "TSYMacros.h"
 #import "TSYUser.h"
 #import "TSYUsers.h"
+#import "TSYTableChange.h"
 
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
@@ -122,6 +123,22 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark -
 #pragma mark TSYObserver
 
+- (void)modelDidChange:(id)model withObject:(id)object {
+    UITableView *tableView = self.mainView.tableView;
+    TSYTableChange *change = object;
+    TSYTableChangeType changeType = change.changeType;
+    
+    switch (changeType) {
+        case TSYTableChangeTypeAdd:
+            [tableView insertRowsAtIndexPaths:change.indexes withRowAnimation:<#(UITableViewRowAnimation)#>]
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+}
 - (void)modelDidChange:(TSYUsers *)users {
     UITableView *tableView = self.mainView.tableView;
     

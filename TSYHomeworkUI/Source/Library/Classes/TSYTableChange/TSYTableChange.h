@@ -16,9 +16,9 @@ typedef NS_ENUM(NSUInteger, TSYTableChangeType) {
 
 @interface TSYTableChange : NSObject
 @property (nonatomic, readonly)   TSYTableChangeType    changeType;
-@property (nonatomic, readonly)   NSArray               *indexes;
+@property (nonatomic, readonly)   NSArray               *indexPathes;
 
 + (instancetype)tableChangeWithType:(TSYTableChangeType)type
-                            indexes:(NSMutableArray *)indexes;
+                        indexPathes:(NSMutableArray *)indexPathes;
 
 @end

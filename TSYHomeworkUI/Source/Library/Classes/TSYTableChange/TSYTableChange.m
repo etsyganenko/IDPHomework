@@ -10,32 +10,32 @@
 
 @interface TSYTableChange ()
 @property (nonatomic, assign)   TSYTableChangeType  changeType;
-@property (nonatomic, assign)   NSMutableArray      *mutableIndexes;
+@property (nonatomic, assign)   NSMutableArray      *mutableIndexPathes;
 
 @end
 
 @implementation TSYTableChange
 
-@dynamic indexes;
+@dynamic indexPathes;
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)tableChangeWithType:(TSYTableChangeType)type indexes:(NSMutableArray *)indexes {
++ (instancetype)tableChangeWithType:(TSYTableChangeType)type indexPathes:(NSMutableArray *)indexPathes {
     return [[TSYTableChange alloc] initWithType:type
-                                        indexes:indexes];
+                                    indexPathes:indexPathes];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (instancetype)initWithType:(TSYTableChangeType)type
-                     indexes:(NSMutableArray *)indexes
+                        indexPathes:(NSMutableArray *)indexPathes
 {
     self = [super init];
     if (self) {
         self.changeType = type;
-        self.mutableIndexes = indexes;
+        self.mutableIndexPathes = indexPathes;
     }
     
     return self;
@@ -44,8 +44,8 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)indexes {
-    return [self.mutableIndexes copy];
+- (NSArray *)indexPathes {
+    return [self.mutableIndexPathes copy];
 }
 
 @end
