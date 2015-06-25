@@ -33,7 +33,6 @@
     self = [super init];
     if (self) {
         self.mutableUsers = [NSMutableArray array];
-        self.state = TSYUsersStateNoChanges;
     }
     
     return self;
@@ -49,9 +48,9 @@
 - (void)setState:(NSUInteger)state {
     if (_state != state) {
         _state = state;
-        
-        [self notifyOfStateChange:state];
     }
+    
+    [self notifyOfStateChange:state];
 }
 
 #pragma mark -
@@ -67,6 +66,10 @@
     [self.mutableUsers removeObject:user];
     
     self.state = TSYUsersStateDidChange;
+}
+
+- (void)insertUser:(TSYUser *)user atIndex:(NSUInteger)index {
+    [self.mutableUsers insertObject:user atIndex:index];
 }
 
 - (void)removeUserAtIndex:(NSUInteger)index {
@@ -86,6 +89,8 @@
 - (void)moveUserAtIndex:(NSUInteger)sourceIndex
                 toIndex:(NSUInteger)destinationIndex
 {
+    [users mov];
+    
     [self.mutableUsers exchangeObjectAtIndex:destinationIndex
                            withObjectAtIndex:sourceIndex];
     

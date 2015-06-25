@@ -15,8 +15,7 @@
 @class TSYUser;
 
 typedef NS_ENUM(NSUInteger, TSYUsersState) {
-    TSYUsersStateDidChange,
-    TSYUsersStateNoChanges
+    TSYUsersStateDidChange
 };
 
 @interface TSYUsers : TSYObservableObject
@@ -26,6 +25,8 @@ typedef NS_ENUM(NSUInteger, TSYUsersState) {
 
 - (void)addUser:(TSYUser *)user;
 - (void)removeUser:(TSYUser *)user;
+
+- (void)insertUser:(TSYUser *)user atIndex:(NSUInteger)index;
 - (void)removeUserAtIndex:(NSUInteger)index;
 
 - (TSYUser *)userAtIndex:(NSUInteger)index;

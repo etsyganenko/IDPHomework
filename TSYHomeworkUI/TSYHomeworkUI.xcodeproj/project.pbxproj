@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		564CE81C0870301687525CD3 /* libPods-TSYHomeworkUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */; };
 		849DAF171B3414CA0034D221 /* TSYMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DAF161B3414CA0034D221 /* TSYMacros.m */; };
+		849F723A1B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F72391B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m */; };
 		849FB49F1B28E9460096D0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849FB49D1B28E9460096D0AD /* Info.plist */; };
 		849FB4A01B28E9460096D0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB49E1B28E9460096D0AD /* main.m */; };
 		849FB4A41B28E96E0096D0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4A21B28E96E0096D0AD /* Info.plist */; };
@@ -52,6 +53,8 @@
 		4758F823E14E040E645FB6A2 /* Pods-TSYHomeworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkUITests/Pods-TSYHomeworkUITests.release.xcconfig"; sourceTree = "<group>"; };
 		849DAF151B3414CA0034D221 /* TSYMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMacros.h; sourceTree = "<group>"; };
 		849DAF161B3414CA0034D221 /* TSYMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYMacros.m; sourceTree = "<group>"; };
+		849F72381B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+TSYCategory.h"; sourceTree = "<group>"; };
+		849F72391B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+TSYCategory.m"; sourceTree = "<group>"; };
 		849FB4731B28E5C90096D0AD /* TSYHomeworkUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSYHomeworkUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849FB48C1B28E5C90096D0AD /* TSYHomeworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSYHomeworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		849FB49D1B28E9460096D0AD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +131,15 @@
 				849DAF161B3414CA0034D221 /* TSYMacros.m */,
 			);
 			path = TSYMacros;
+			sourceTree = "<group>";
+		};
+		849F72371B3BEBCD00869AD4 /* NSMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				849F72381B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.h */,
+				849F72391B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m */,
+			);
+			path = NSMutableArray;
 			sourceTree = "<group>";
 		};
 		849FB46A1B28E5C90096D0AD = {
@@ -302,6 +314,7 @@
 		84BF5F091B32FB0100932154 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				849F72371B3BEBCD00869AD4 /* NSMutableArray */,
 				84BF5F0A1B32FB0100932154 /* NSString */,
 				84BF5F141B32FB0100932154 /* UIWindow */,
 			);
@@ -504,6 +517,7 @@
 				84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */,
 				84BF5F201B33002900932154 /* TSYTableViewCell.m in Sources */,
 				84BF5F031B32D04400932154 /* TSYUser.m in Sources */,
+				849F723A1B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m in Sources */,
 				84A196321B321AF900C5CE0E /* TSYTableViewController.m in Sources */,
 				849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */,
 				84A1EFE61B31A2A30037A3B7 /* TSYSquareView.m in Sources */,
