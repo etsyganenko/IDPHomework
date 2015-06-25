@@ -10,6 +10,7 @@
 
 #import "TSYTableViewController.h"
 #import "TSYTableChange.h"
+#import "TSYTableCellMovingPath.h"
 
 #import "NSMutableArray+TSYCategory.h"
 
@@ -64,10 +65,9 @@
 - (void)addUser:(TSYUser *)user {
     NSUInteger index = [self count];
     NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
-    NSMutableArray *pathes = [NSMutableArray arrayWithObject:path];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
-                                                          indexPathes:pathes];
+                                                            indexPath:path];
     
     [self.mutableUsers addObject:user];
     
@@ -82,10 +82,9 @@
 
 - (void)removeUserAtIndex:(NSUInteger)index {
     NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
-    NSMutableArray *pathes = [NSMutableArray arrayWithObject:path];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeRemove
-                                                          indexPathes:pathes];
+                                                            indexPath:path];
     
     [self.mutableUsers removeObjectAtIndex:index];
     
@@ -105,10 +104,11 @@
 {
     NSIndexPath *sourcePath = [NSIndexPath indexPathForRow:sourceIndex inSection:0];
     NSIndexPath *destinationPath = [NSIndexPath indexPathForRow:destinationIndex inSection:0];
-    NSMutableArray *pathes = [NSMutableArray arrayWithObjects:sourcePath, destinationPath, nil];
+    TSYTableCellMovingPath *movingPath = [TSYTableCellMovingPath tableCellMovingPathWithSourceIndexPath:sourcePath
+                                                                                   destinationIndexPath:destinationPath];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeMove
-                                                          indexPathes:pathes];
+                                                           indexPaths:movingPath];
     
     [self.mutableUsers moveObjectAtIndex:sourceIndex
                                  toIndex:destinationIndex];
