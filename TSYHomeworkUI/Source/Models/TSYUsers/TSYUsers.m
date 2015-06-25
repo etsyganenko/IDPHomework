@@ -8,6 +8,8 @@
 
 #import "TSYUsers.h"
 
+#import "NSMutableArray+TSYCategory.h"
+
 @interface TSYUsers ()
 @property (nonatomic, strong)   NSMutableArray  *mutableUsers;
 
@@ -68,10 +70,6 @@
     self.state = TSYUsersStateDidChange;
 }
 
-- (void)insertUser:(TSYUser *)user atIndex:(NSUInteger)index {
-    [self.mutableUsers insertObject:user atIndex:index];
-}
-
 - (void)removeUserAtIndex:(NSUInteger)index {
     [self.mutableUsers removeObjectAtIndex:index];
     
@@ -89,10 +87,8 @@
 - (void)moveUserAtIndex:(NSUInteger)sourceIndex
                 toIndex:(NSUInteger)destinationIndex
 {
-    [users mov];
-    
-    [self.mutableUsers exchangeObjectAtIndex:destinationIndex
-                           withObjectAtIndex:sourceIndex];
+    [self.mutableUsers moveObjectAtIndex:sourceIndex
+                                 toIndex:destinationIndex];
     
     self.state = TSYUsersStateDidChange;
 }
