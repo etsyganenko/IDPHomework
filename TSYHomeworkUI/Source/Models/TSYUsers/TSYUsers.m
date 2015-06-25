@@ -9,6 +9,7 @@
 #import "TSYUsers.h"
 
 #import "TSYTableViewController.h"
+#import "TSYTableChange.h"
 
 #import "NSMutableArray+TSYCategory.h"
 
@@ -63,17 +64,28 @@
 - (void)addUser:(TSYUser *)user {
     [self.mutableUsers addObject:user];
     
-    self.state = TSYUsersStateDidChange;
-}
-
-- (void)removeUser:(TSYUser *)user {
-    [self.mutableUsers removeObject:user];
+    NSUInteger index = [self count] - 1;
+    NSMutableArray *indexes = [NSMutableArray arrayWithObject:@(index)];
+    
+    TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
+                                                              indexes:indexes];
     
     self.state = TSYUsersStateDidChange;
 }
 
+- (void)removeUser:(TSYUser *)user {
+    NSUInteger index = [self.mutableUsers indexOfObject:user];
+    
+    [self removeUserAtIndex:index];
+}
+
 - (void)removeUserAtIndex:(NSUInteger)index {
+    NSMutableArray *indexes = [NSMutableArray arrayWithObject:@(index)];
+    
     [self.mutableUsers removeObjectAtIndex:index];
+    
+    TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeRemove
+                                                              indexes:indexes];
     
     self.state = TSYUsersStateDidChange;
 }
@@ -89,10 +101,16 @@
 - (void)moveUserAtIndex:(NSUInteger)sourceIndex
                 toIndex:(NSUInteger)destinationIndex
 {
+    NSMutableArray *indexes = [NSMutableArray arrayWithObjects:@(sourceIndex), @(destinationIndex), nil];
+    
     [self.mutableUsers moveObjectAtIndex:sourceIndex
                                  toIndex:destinationIndex];
     
+    TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeRemove
+                                                              indexes:indexes];
+    
     self.state = TSYUsersStateDidChange;
+    [self setState:<#(NSUInteger)#>]
 }
 
 - (NSUInteger)count {

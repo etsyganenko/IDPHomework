@@ -38,12 +38,22 @@
 #pragma mark -
 #pragma mark Accessors Methods
 
+- (void)setState:(NSUInteger)state withObject:(id)object {
+    @synchronized (self) {
+        if (_state != state) {
+            _state = state;
+            
+            [self notifyOfStateChange:state withObject:object];
+        }
+    }
+}
+
 - (void)setState:(NSUInteger)state {
     @synchronized (self) {
         if (_state != state) {
             _state = state;
 
-            [self notifyOfStateChange:state];
+            [self notifyOfStateChange:state withObject:nil];
         }
     }
 }
@@ -75,14 +85,15 @@
     }
 }
 
-- (void)notifyOfStateChange:(NSUInteger)state {
-    [self notifyOfStateWithSelector:[self selectorForState:state]];
+- (void)notifyOfStateChange:(NSUInteger)state withObject:(id)object {
+    [self notifyOfStateWithSelector:[self selectorForState:state]
+                         withObject:object];
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)notifyOfStateWithSelector:(SEL)selector {
+- (void)notifyOfStateWithSelector:(SEL)selector withObject:(id)object {
     if (NULL == selector) {
         return;
     }
