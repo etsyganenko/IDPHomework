@@ -100,7 +100,9 @@
     
     for (id observer in self.observersHashTable	) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self];
+            [observer performSelector:selector
+                           withObject:self
+                           withObject:object];
         }
     }
 }

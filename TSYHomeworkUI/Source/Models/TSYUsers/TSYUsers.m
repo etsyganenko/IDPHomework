@@ -50,27 +50,27 @@
     return [self.mutableUsers copy];
 }
 
-- (void)setState:(NSUInteger)state {
+- (void)setState:(NSUInteger)state withObject:(id)object {
     if (_state != state) {
         _state = state;
     }
     
-    [self notifyOfStateChange:state];
+    [self notifyOfStateChange:state withObject:object];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)addUser:(TSYUser *)user {
-    [self.mutableUsers addObject:user];
-    
     NSUInteger index = [self count] - 1;
     NSMutableArray *indexes = [NSMutableArray arrayWithObject:@(index)];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
                                                               indexes:indexes];
     
-    self.state = TSYUsersStateDidChange;
+    [self.mutableUsers addObject:user];
+    
+    [self setState:TSYUsersStateDidChange withObject:tableChange];
 }
 
 - (void)removeUser:(TSYUser *)user {
@@ -81,13 +81,12 @@
 
 - (void)removeUserAtIndex:(NSUInteger)index {
     NSMutableArray *indexes = [NSMutableArray arrayWithObject:@(index)];
-    
-    [self.mutableUsers removeObjectAtIndex:index];
-    
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeRemove
                                                               indexes:indexes];
     
-    self.state = TSYUsersStateDidChange;
+    [self.mutableUsers removeObjectAtIndex:index];
+    
+    [self setState:TSYUsersStateDidChange withObject:tableChange];
 }
 
 - (TSYUser *)userAtIndex:(NSUInteger)index {
@@ -102,15 +101,13 @@
                 toIndex:(NSUInteger)destinationIndex
 {
     NSMutableArray *indexes = [NSMutableArray arrayWithObjects:@(sourceIndex), @(destinationIndex), nil];
+    TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeRemove
+                                                              indexes:indexes];
     
     [self.mutableUsers moveObjectAtIndex:sourceIndex
                                  toIndex:destinationIndex];
     
-    TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeRemove
-                                                              indexes:indexes];
-    
-    self.state = TSYUsersStateDidChange;
-    [self setState:<#(NSUInteger)#>]
+    [self setState:TSYUsersStateDidChange withObject:tableChange];
 }
 
 - (NSUInteger)count {
