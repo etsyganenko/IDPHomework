@@ -65,9 +65,11 @@
 - (void)addUser:(TSYUser *)user {
     NSUInteger index = [self count];
     NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
+    NSArray *paths = [NSArray arrayWithObject:path];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
-                                                            indexPath:path];
+                                                           indexPaths:paths
+                                                           movingPath:nil];
     
     [self.mutableUsers addObject:user];
     
@@ -82,9 +84,14 @@
 
 - (void)removeUserAtIndex:(NSUInteger)index {
     NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
+    NSArray *paths = [NSArray arrayWithObject:path];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeRemove
-                                                            indexPath:path];
+                                                           indexPaths:paths
+                                                           movingPath:nil];
+    
+//    TSYTableChange *change = [TSYTableChange tableChangeWithType:type
+//                                                           index:(NSUInteger)index];
     
     [self.mutableUsers removeObjectAtIndex:index];
     
@@ -108,7 +115,8 @@
                                                                                    destinationIndexPath:destinationPath];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeMove
-                                                           indexPaths:movingPath];
+                                                           indexPaths:nil
+                                                           movingPath:movingPath];
     
     [self.mutableUsers moveObjectAtIndex:sourceIndex
                                  toIndex:destinationIndex];

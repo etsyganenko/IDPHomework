@@ -10,8 +10,8 @@
 
 @interface TSYTableChange ()
 @property (nonatomic, assign)   TSYTableChangeType          changeType;
-@property (nonatomic, assign)   NSIndexPath                 *indexPath;
-@property (nonatomic, assign)   TSYTableCellMovingPath      *indexPaths;
+@property (nonatomic, assign)   NSArray                     *indexPaths;
+@property (nonatomic, assign)   TSYTableCellMovingPath    *movingPath;
 
 @end
 
@@ -21,38 +21,27 @@
 #pragma mark Class Methods
 
 + (instancetype)tableChangeWithType:(TSYTableChangeType)type
-                          indexPath:(NSIndexPath *)indexPath
+                         indexPaths:(NSArray *)indexPaths
+                         movingPath:(TSYTableCellMovingPath *)movingPath
 {
-    return [[self alloc] initWithType:type indexPath:indexPath];
-}
-
-+ (instancetype)tableChangeWithType:(TSYTableChangeType)type
-                         indexPaths:(TSYTableCellMovingPath *)indexPaths
-{
-    return [[self alloc] initWithType:type indexPaths:indexPaths];
+    return [[self alloc] initWithType:type
+                           indexPaths:indexPaths
+                           movingPath:movingPath];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (instancetype)initWithType:(TSYTableChangeType)type
-                   indexPath:(NSIndexPath *)indexPath
+                  indexPaths:(NSArray *)indexPaths
+                  movingPath:(TSYTableCellMovingPath *)movingPath
 {
     self = [super init];
     if (self) {
         self.changeType = type;
-        self.indexPath = indexPath;
+        self.indexPaths = indexPaths;
+        self.movingPath = movingPath;
     }
-    
-    return self;
-}
-
-- (instancetype)initWithType:(TSYTableChangeType)type
-                  indexPaths:(TSYTableCellMovingPath *)indexPaths
-{
-    self = [self initWithType:type indexPath:nil];
-    
-    self.indexPaths = indexPaths;
     
     return self;
 }

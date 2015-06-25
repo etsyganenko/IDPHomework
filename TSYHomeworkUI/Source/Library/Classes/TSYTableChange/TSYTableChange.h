@@ -18,15 +18,11 @@ typedef NS_ENUM(NSUInteger, TSYTableChangeType) {
 
 @interface TSYTableChange : NSObject
 @property (nonatomic, readonly)   TSYTableChangeType        changeType;
-@property (nonatomic, readonly)   NSIndexPath               *indexPath;
-@property (nonatomic, readonly)   TSYTableCellMovingPath    *indexPaths;
+@property (nonatomic, readonly)   NSArray                   *indexPaths;
+@property (nonatomic, readonly)   TSYTableCellMovingPath    *movingPath;
 
-// returns object for Add/Remove change type
 + (instancetype)tableChangeWithType:(TSYTableChangeType)type
-                          indexPath:(NSIndexPath *)indexPath;
-
-// returns object for Move change type
-+ (instancetype)tableChangeWithType:(TSYTableChangeType)type
-                         indexPaths:(TSYTableCellMovingPath *)indexPaths;
+                         indexPaths:(NSArray *)indexPaths
+                         movingPath:(TSYTableCellMovingPath *)movingPath;
 
 @end

@@ -14,6 +14,7 @@
 #import "TSYUser.h"
 #import "TSYUsers.h"
 #import "TSYTableChange.h"
+#import "TSYTableCellMovingPath.h"
 
 #import "UITableView+TSYCategory.h"
 
@@ -110,27 +111,27 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 
 - (void)modelDidChange:(id)model withObject:(id)object {
     UITableView *tableView = self.mainView.tableView;
+    
     TSYTableChange *change = object;
     TSYTableChangeType changeType = change.changeType;
-    NSArray *pathes = change.indexPathes;
+    
+    NSArray *indexPaths = change.indexPaths;
+    TSYTableCellMovingPath *movingPath = change.movingPath;
     
     switch (changeType) {
         case TSYTableChangeTypeAdd:
-            [tableView insertRowsAtIndexPaths:pathes
+            [tableView insertRowsAtIndexPaths:indexPaths
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case TSYTableChangeTypeRemove:
-            [tableView deleteRowsAtIndexPaths:pathes
+            [tableView deleteRowsAtIndexPaths:indexPaths
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case TSYTableChangeTypeMove:
-//            NSIndexPath *sourcePath = pathes[0];
-//            NSIndexPath *destinationPath = pathes[1];
-            
-            [tableView moveRowAtIndexPath:pathes[0]
-                              toIndexPath:pathes[1]];
+            [tableView moveRowAtIndexPath:movingPath.sourceIndexPath
+                              toIndexPath:movingPath.destinationIndexPath];
 
             break;
             
