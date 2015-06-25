@@ -11,6 +11,9 @@
 #import "TSYUsers.h"
 #import "TSYUser.h"
 
+static const NSString *kDone    = @"Done";
+static const NSString *kEdit    = @"Edit";
+
 @implementation TSYTableView
 
 @dynamic editing;
@@ -28,8 +31,12 @@
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [self.tableView setEditing:editing animated:animated];
     
-    [self.editButton setTitle:editing ? @"Done" : @"Edit"
+    [self.editButton setTitle:editing ? kDone : kEdit
                      forState:UIControlStateNormal];
+}
+
+- (void)setEditing:(BOOL)editing {
+    [self.tableView setEditing:editing animated:NO];
 }
 
 @end
