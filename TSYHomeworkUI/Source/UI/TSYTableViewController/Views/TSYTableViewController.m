@@ -130,7 +130,6 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 //    [tableView reloadRowsAtIndexPaths:[tableView indexPathsForVisibleRows]
 //                     withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    self.users.state = TSYUsersStateNoChanges;
 }
 
 @end

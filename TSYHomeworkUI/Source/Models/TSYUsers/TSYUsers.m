@@ -8,6 +8,8 @@
 
 #import "TSYUsers.h"
 
+#import "TSYTableViewController.h"
+
 #import "NSMutableArray+TSYCategory.h"
 
 @interface TSYUsers ()

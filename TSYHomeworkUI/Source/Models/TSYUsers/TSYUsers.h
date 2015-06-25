@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 
 #import "TSYObservableObject.h"
-#import "TSYTableViewController.h"
 
 @class TSYUser;
 
