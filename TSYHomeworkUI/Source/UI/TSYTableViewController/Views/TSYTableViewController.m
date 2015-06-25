@@ -86,9 +86,6 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.users removeUserAtIndex:indexPath.row];
-        
-        [tableView deleteRowsAtIndexPaths:@[indexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -104,14 +101,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark Interface Handling
 
 - (IBAction)onButtonAdd:(id)sender {
-    TSYUsers *users = self.users;
-    [users addUser:[TSYUser user]];
-    
-    NSIndexPath *path = [NSIndexPath indexPathForRow:([users count] - 1)
-                                           inSection:0];
-    
-    [self.mainView.tableView insertRowsAtIndexPaths:@[path]
-                                   withRowAnimation:UITableViewRowAnimationFade];
+    [self.users addUser:[TSYUser user]];
 }
 
 - (IBAction)onButtonEdit:(id)sender {
@@ -127,26 +117,31 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     UITableView *tableView = self.mainView.tableView;
     TSYTableChange *change = object;
     TSYTableChangeType changeType = change.changeType;
+    NSArray *pathes = change.indexPathes;
     
     switch (changeType) {
         case TSYTableChangeTypeAdd:
-            [tableView insertRowsAtIndexPaths:change.indexes withRowAnimation:<#(UITableViewRowAnimation)#>]
+            [tableView insertRowsAtIndexPaths:pathes
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case TSYTableChangeTypeRemove:
+            [tableView deleteRowsAtIndexPaths:pathes
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case TSYTableChangeTypeMove:
+//            NSIndexPath *sourcePath = pathes[0];
+//            NSIndexPath *destinationPath = pathes[1];
+            
+            [tableView moveRowAtIndexPath:pathes[0]
+                              toIndexPath:pathes[1]];
+
             break;
             
         default:
             break;
     }
-    
-    
-}
-- (void)modelDidChange:(TSYUsers *)users {
-    UITableView *tableView = self.mainView.tableView;
-    
-//    [tableView reloadData];
-    
-//    [tableView reloadRowsAtIndexPaths:[tableView indexPathsForVisibleRows]
-//                     withRowAnimation:UITableViewRowAnimationAutomatic];
-    
 }
 
 @end

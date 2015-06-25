@@ -62,7 +62,7 @@
 #pragma mark Public Methods
 
 - (void)addUser:(TSYUser *)user {
-    NSUInteger index = [self count] - 1;
+    NSUInteger index = [self count];
     NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
     NSMutableArray *pathes = [NSMutableArray arrayWithObject:path];
     
