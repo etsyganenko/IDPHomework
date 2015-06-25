@@ -9,43 +9,52 @@
 #import "TSYTableChange.h"
 
 @interface TSYTableChange ()
-@property (nonatomic, assign)   TSYTableChangeType  changeType;
-@property (nonatomic, assign)   NSMutableArray      *mutableIndexPathes;
+@property (nonatomic, assign)   TSYTableChangeType          changeType;
+@property (nonatomic, assign)   NSIndexPath                 *indexPath;
+@property (nonatomic, assign)   TSYTableCellMovingPath      *indexPaths;
 
 @end
 
 @implementation TSYTableChange
 
-@dynamic indexPathes;
-
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)tableChangeWithType:(TSYTableChangeType)type indexPathes:(NSMutableArray *)indexPathes {
-    return [[TSYTableChange alloc] initWithType:type
-                                    indexPathes:indexPathes];
++ (instancetype)tableChangeWithType:(TSYTableChangeType)type
+                          indexPath:(NSIndexPath *)indexPath
+{
+    return [[self alloc] initWithType:type indexPath:indexPath];
+}
+
++ (instancetype)tableChangeWithType:(TSYTableChangeType)type
+                         indexPaths:(TSYTableCellMovingPath *)indexPaths
+{
+    return [[self alloc] initWithType:type indexPaths:indexPaths];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (instancetype)initWithType:(TSYTableChangeType)type
-                        indexPathes:(NSMutableArray *)indexPathes
+                   indexPath:(NSIndexPath *)indexPath
 {
     self = [super init];
     if (self) {
         self.changeType = type;
-        self.mutableIndexPathes = indexPathes;
+        self.indexPath = indexPath;
     }
     
     return self;
 }
 
-#pragma mark -
-#pragma mark Accessors
-
-- (NSArray *)indexPathes {
-    return [self.mutableIndexPathes copy];
+- (instancetype)initWithType:(TSYTableChangeType)type
+                  indexPaths:(TSYTableCellMovingPath *)indexPaths
+{
+    self = [self initWithType:type indexPath:nil];
+    
+    self.indexPaths = indexPaths;
+    
+    return self;
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "TSYTableCellMovingPath.h"
+
 typedef NS_ENUM(NSUInteger, TSYTableChangeType) {
     TSYTableChangeTypeAdd,
     TSYTableChangeTypeRemove,
@@ -15,10 +17,16 @@ typedef NS_ENUM(NSUInteger, TSYTableChangeType) {
 };
 
 @interface TSYTableChange : NSObject
-@property (nonatomic, readonly)   TSYTableChangeType    changeType;
-@property (nonatomic, readonly)   NSArray               *indexPathes;
+@property (nonatomic, readonly)   TSYTableChangeType        changeType;
+@property (nonatomic, readonly)   NSIndexPath               *indexPath;
+@property (nonatomic, readonly)   TSYTableCellMovingPath    *indexPaths;
 
+// returns object for Add/Remove change type
 + (instancetype)tableChangeWithType:(TSYTableChangeType)type
-                        indexPathes:(NSMutableArray *)indexPathes;
+                          indexPath:(NSIndexPath *)indexPath;
+
+// returns object for Move change type
++ (instancetype)tableChangeWithType:(TSYTableChangeType)type
+                         indexPaths:(TSYTableCellMovingPath *)indexPaths;
 
 @end
