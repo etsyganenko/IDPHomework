@@ -10,8 +10,9 @@
 
 @implementation UINib (TSYCategory)
 
-- (id)viewWithClass:(Class)cls {
-    NSArray *views = [self instantiateWithOwner:nil options:nil];
++ (id)viewWithClass:(Class)cls {
+    UINib *nib = [self nibWithNibName:NSStringFromClass(cls) bundle:nil];
+    NSArray *views = [nib instantiateWithOwner:nil options:nil];
     
     for (id view in views) {
         if ([view isMemberOfClass:cls]) {

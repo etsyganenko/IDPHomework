@@ -30,17 +30,17 @@
     
     switch (changeType) {
         case TSYTableChangeTypeAdd:
-            [tableView insertRowsAtIndexPaths:indexPaths
+            [self insertRowsAtIndexPaths:indexPaths
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case TSYTableChangeTypeRemove:
-            [tableView deleteRowsAtIndexPaths:indexPaths
+            [self deleteRowsAtIndexPaths:indexPaths
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case TSYTableChangeTypeMove:
-            [tableView moveRowAtIndexPath:movingPath.sourceIndexPath
+            [self moveRowAtIndexPath:movingPath.sourceIndexPath
                               toIndexPath:movingPath.destinationIndexPath];
             
             break;

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class TSYTableChange;
+
 @interface UITableView (TSYCategory)
 
 - (id)cellWithClass:(Class)cls;
