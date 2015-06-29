@@ -109,8 +109,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark -
 #pragma mark TSYObserver
 
-- (void)modelDidChange:(id)model withObject:(id)object {    
-    [self.mainView.tableView applyChanges:object];
+- (void)modelChanged:(id)model withObject:(id)object {    
+    [self.mainView.tableView applyTableChange:object];
 }
 
 @end

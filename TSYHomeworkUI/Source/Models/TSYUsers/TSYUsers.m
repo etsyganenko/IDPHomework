@@ -137,7 +137,7 @@
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case TSYUsersStateDidChange:
-            return @selector(modelDidChange:withObject:);
+            return @selector(modelChanged:withObject:);
             
         default:
             return [super selectorForState:state];;

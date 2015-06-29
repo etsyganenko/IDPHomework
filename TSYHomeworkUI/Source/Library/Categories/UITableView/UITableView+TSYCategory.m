@@ -14,8 +14,12 @@
 
 @implementation UITableView (TSYCategory)
 
+- (id)dequeueReusableCellWithClass:(Class)cls {
+    return [self dequeueReusableCellWithIdentifier:NSStringFromClass(cls)];
+}
+
 - (id)cellWithClass:(Class)cls {
-    UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(cls)];
+    UITableViewCell *cell = [self dequeueReusableCellWithClass::cls];
     if (!cell) {
         cell = [UINib viewWithClass:cls];
     }
@@ -23,7 +27,7 @@
     return cell;
 }
 
-- (void)applyChanges:(TSYTableChange *)change {
+- (void)applyTableChange:(TSYTableChange *)change {
     TSYTableChangeType changeType = change.changeType;
     NSArray *indexPaths = change.indexPaths;
     TSYTableCellMovingPath *movingPath = change.movingPath;

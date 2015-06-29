@@ -11,8 +11,8 @@
 #import "TSYUsers.h"
 #import "TSYUser.h"
 
-static const NSString *kDone    = @"Done";
-static const NSString *kEdit    = @"Edit";
+static NSString * const kDone    = @"Done";
+static NSString * const kEdit    = @"Edit";
 
 @implementation TSYTableView
 
