@@ -12,6 +12,8 @@
 
 @interface UITableView (TSYCategory)
 
+- (id)dequeueReusableCellWithClass:(Class)cls;
+
 - (id)cellWithClass:(Class)cls;
 
 - (void)applyTableChange:(TSYTableChange *)change;

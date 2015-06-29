@@ -11,7 +11,7 @@
 @interface TSYTableChange ()
 @property (nonatomic, assign)   TSYTableChangeType          changeType;
 @property (nonatomic, assign)   NSArray                     *indexPaths;
-@property (nonatomic, assign)   TSYTableCellMovingPath    *movingPath;
+@property (nonatomic, assign)   TSYTableCellMovingPath      *movingPath;
 
 @end
 

@@ -14,14 +14,17 @@
 
 @implementation UITableView (TSYCategory)
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (id)dequeueReusableCellWithClass:(Class)cls {
     return [self dequeueReusableCellWithIdentifier:NSStringFromClass(cls)];
 }
 
 - (id)cellWithClass:(Class)cls {
-    UITableViewCell *cell = [self dequeueReusableCellWithClass::cls];
+    UITableViewCell *cell = [self dequeueReusableCellWithClass:cls];
     if (!cell) {
-        cell = [UINib viewWithClass:cls];
+        cell = [UINib objectWithClass:cls];
     }
     
     return cell;
