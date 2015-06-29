@@ -14,21 +14,18 @@
 @implementation UITableView (TSYCategory)
 
 - (id)cellWithClass:(Class)cls {
-    NSString *identifier = NSStringFromClass(cls);
-    
-    UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:identifier];
+    UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(cls)];
     if (!cell) {
-        UINib *nib = [UINib nibWithClass:cls];
+        NSArray *cells = [UINib instantiateWithOwner:nil options:nil];
         
-        
-        
-        
-        
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:identifier];
+        for (id cell in cells) {
+            if ([cell isMemberOfClass:cls]) {
+                return cell;
+            }
+        }
     }
     
-    return cell;
+    return nil;
 }
 
 - (void)applyChanges:(TSYTableChange *)change {
