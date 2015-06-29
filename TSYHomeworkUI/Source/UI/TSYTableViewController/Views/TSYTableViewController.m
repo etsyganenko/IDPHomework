@@ -109,35 +109,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark -
 #pragma mark TSYObserver
 
-- (void)modelDidChange:(id)model withObject:(id)object {
-    UITableView *tableView = self.mainView.tableView;
-    
-    TSYTableChange *change = object;
-    TSYTableChangeType changeType = change.changeType;
-    
-    NSArray *indexPaths = change.indexPaths;
-    TSYTableCellMovingPath *movingPath = change.movingPath;
-    
-    switch (changeType) {
-        case TSYTableChangeTypeAdd:
-            [tableView insertRowsAtIndexPaths:indexPaths
-                             withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case TSYTableChangeTypeRemove:
-            [tableView deleteRowsAtIndexPaths:indexPaths
-                             withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case TSYTableChangeTypeMove:
-            [tableView moveRowAtIndexPath:movingPath.sourceIndexPath
-                              toIndexPath:movingPath.destinationIndexPath];
-
-            break;
-            
-        default:
-            break;
-    }
+- (void)modelDidChange:(id)model withObject:(id)object {    
+    [self.mainView.tableView applyChanges:object];
 }
 
 @end

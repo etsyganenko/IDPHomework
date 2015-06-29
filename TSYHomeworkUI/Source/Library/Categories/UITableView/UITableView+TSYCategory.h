@@ -12,4 +12,6 @@
 
 - (id)cellWithClass:(Class)cls;
 
+- (void)applyChanges:(TSYTableChange *)change;
+
 @end
