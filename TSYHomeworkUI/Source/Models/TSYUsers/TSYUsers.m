@@ -64,7 +64,8 @@
 
 - (void)addUser:(TSYUser *)user {
     NSUInteger index = [self count];
-    NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
+//    NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
+    NSIndexPath *path = [NSIndexPath indexPathWithIndex:index];
     NSArray *paths = [NSArray arrayWithObject:path];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
