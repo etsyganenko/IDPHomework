@@ -10,22 +10,17 @@
 
 #import "TSYTableChange.h"
 #import "TSYTableCellMovingPath.h"
+#import "UINib+TSYCategory.h"
 
 @implementation UITableView (TSYCategory)
 
 - (id)cellWithClass:(Class)cls {
     UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(cls)];
     if (!cell) {
-        NSArray *cells = [UINib instantiateWithOwner:nil options:nil];
-        
-        for (id cell in cells) {
-            if ([cell isMemberOfClass:cls]) {
-                return cell;
-            }
-        }
+        cell = [UINib viewWithClass:cls];
     }
     
-    return nil;
+    return cell;
 }
 
 - (void)applyChanges:(TSYTableChange *)change {

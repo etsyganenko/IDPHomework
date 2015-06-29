@@ -10,4 +10,6 @@
 
 @interface UINib (TSYCategory)
 
+- (id)viewWithClass:(Class)cls;
+
 @end

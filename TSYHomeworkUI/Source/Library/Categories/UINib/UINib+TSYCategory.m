@@ -10,4 +10,16 @@
 
 @implementation UINib (TSYCategory)
 
+- (id)viewWithClass:(Class)cls {
+    NSArray *views = [self instantiateWithOwner:nil options:nil];
+    
+    for (id view in views) {
+        if ([view isMemberOfClass:cls]) {
+            return view;
+        }
+    }
+    
+    return nil;
+}
+
 @end
