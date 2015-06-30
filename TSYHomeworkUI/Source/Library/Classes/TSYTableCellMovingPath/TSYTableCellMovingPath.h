@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface TSYTableCellMovingPath : NSObject
-@property (nonatomic, readonly)   NSInteger    sourceIndex;
-@property (nonatomic, readonly)   NSInteger    destinationIndex;
+@property (nonatomic, readonly)   NSIndexPath   *sourceIndexPath;
+@property (nonatomic, readonly)   NSIndexPath   *destinationIndexPath;
 
 + (instancetype)movingPathWithSourceIndex:(NSInteger)sourceIndex
                          destinationIndex:(NSInteger)destinationIndex;
+
++ (instancetype)movingPathWithSourceIndexPath:(NSIndexPath *)sourceIndexPath
+                         destinationIndexPath:(NSIndexPath *)destinationIndexPath;
 
 @end

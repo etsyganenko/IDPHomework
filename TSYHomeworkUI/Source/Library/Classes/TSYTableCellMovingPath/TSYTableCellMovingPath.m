@@ -28,6 +28,13 @@
                             destinationIndex:destinationIndex];
 }
 
++ (instancetype)movingPathWithSourceIndexPath:(NSIndexPath *)sourceIndexPath
+                         destinationIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    return [[self alloc] initWithSourceIndexPath:sourceIndexPath
+                            destinationIndexPath:destinationIndexPath];
+}
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -38,6 +45,18 @@
     if (self) {
         self.sourceIndexPath = [NSIndexPath indexPathForIndex:sourceIndex];
         self.destinationIndexPath = [NSIndexPath indexPathForIndex:destinationIndex];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithSourceIndexPath:(NSIndexPath *)sourceIndexPath
+                   destinationIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    self = [super init];
+    if (self) {
+        self.sourceIndexPath = sourceIndexPath;
+        self.destinationIndexPath = destinationIndexPath;
     }
     
     return self;

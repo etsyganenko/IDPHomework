@@ -48,8 +48,8 @@
         case TSYTableChangeTypeMove: {
             TSYTableCellMovingPath *movingPath = (TSYTableCellMovingPath *)(change.change);
             
-            [self moveRowAtIndexPath:[NSIndexPath indexPathForIndex:movingPath.sourceIndex]
-                         toIndexPath:[NSIndexPath indexPathForIndex:movingPath.destinationIndex]];
+            [self moveRowAtIndexPath:movingPath.sourceIndexPath
+                         toIndexPath:movingPath.destinationIndexPath];
             
             break;
         }
