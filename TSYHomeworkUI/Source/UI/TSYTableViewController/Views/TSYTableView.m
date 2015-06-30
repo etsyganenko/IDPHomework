@@ -28,15 +28,15 @@ static NSString * const kEdit    = @"Edit";
     return self.tableView.editing;
 }
 
+- (void)setEditing:(BOOL)editing {
+    [self setEditing:editing animated:NO];
+}
+
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [self.tableView setEditing:editing animated:animated];
     
     [self.editButton setTitle:editing ? kDone : kEdit
                      forState:UIControlStateNormal];
-}
-
-- (void)setEditing:(BOOL)editing {
-    [self setEditing:editing animated:NO];
 }
 
 @end

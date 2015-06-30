@@ -18,7 +18,6 @@
 
 @property (nonatomic, assign, getter=isEditing)     BOOL    editing;
 
-- (void)setEditing:(BOOL)editing;
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 
 @end
