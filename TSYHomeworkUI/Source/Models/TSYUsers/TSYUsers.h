@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, TSYUsersState) {
     TSYUsersStateDidChange
 };
 
-@protocol TSYObserver <NSObject>
+@protocol TSYModelObserver <NSObject>
 
 @optional
 - (void)usersChanged:(id)model withObject:(id)object;
@@ -36,8 +36,8 @@ typedef NS_ENUM(NSUInteger, TSYUsersState) {
 - (TSYUser *)userAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 
-- (void)moveUserAtIndex:(NSUInteger)sourceIndex
-                toIndex:(NSUInteger)destinationIndex;
+- (void)moveUserAtIndex:(NSInteger)sourceIndex
+                toIndex:(NSInteger)destinationIndex;
 
 - (NSUInteger)count;
 

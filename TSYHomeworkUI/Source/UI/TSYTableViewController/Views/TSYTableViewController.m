@@ -54,6 +54,19 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 #pragma mark -
+#pragma mark Interface Handling
+
+- (IBAction)onButtonAdd:(id)sender {
+    [self.users addUser:[TSYUser user]];
+}
+
+- (IBAction)onButtonEdit:(id)sender {
+    TSYTableView *view = self.mainView;
+    
+    [view setEditing:!view.editing animated:YES];
+}
+
+#pragma mark -
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -63,7 +76,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYTableCell *cell = [tableView cellWithClass:[TSYTableCell class]];
     
-    cell.user = [self.users userAtIndex:indexPath.row];
+    cell.user = self.users[indexPath.row];
     
     return cell;
 }
@@ -94,20 +107,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 #pragma mark -
-#pragma mark Interface Handling
-
-- (IBAction)onButtonAdd:(id)sender {
-    [self.users addUser:[TSYUser user]];
-}
-
-- (IBAction)onButtonEdit:(id)sender {
-    TSYTableView *view = self.mainView;
-    
-    [view setEditing:!view.editing animated:YES];
-}
-
-#pragma mark -
-#pragma mark TSYObserver
+#pragma mark TSYModelObserver
 
 - (void)usersChanged:(id)model withObject:(id)object {    
     [self.mainView.tableView applyTableChange:object];

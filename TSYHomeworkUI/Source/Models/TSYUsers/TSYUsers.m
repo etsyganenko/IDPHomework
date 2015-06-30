@@ -100,8 +100,8 @@
     return [self.mutableUsers objectAtIndexedSubscript:index];
 }
 
-- (void)moveUserAtIndex:(NSUInteger)sourceIndex
-                toIndex:(NSUInteger)destinationIndex
+- (void)moveUserAtIndex:(NSInteger)sourceIndex
+                toIndex:(NSInteger)destinationIndex
 {
     TSYTableCellMovingPath *movingPath = [TSYTableCellMovingPath movingPathWithSourceIndex:sourceIndex
                                                                           destinationIndex:destinationIndex];

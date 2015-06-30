@@ -15,7 +15,7 @@
 
 @interface TSYTableViewController : UIViewController<UITableViewDelegate,
                                                         UITableViewDataSource,
-                                                        TSYObserver>
+                                                        TSYModelObserver>
 @property (nonatomic, strong)   TSYUsers    *users;
 
 - (IBAction)onButtonAdd:(id)sender;
