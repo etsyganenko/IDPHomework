@@ -10,6 +10,7 @@
 
 #import "TSYUsers.h"
 #import "TSYUser.h"
+#import "TSYLoadingView.h"
 
 static NSString * const kDone    = @"Done";
 static NSString * const kEdit    = @"Edit";

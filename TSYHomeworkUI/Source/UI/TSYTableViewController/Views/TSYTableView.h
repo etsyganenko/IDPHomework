@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class TSYUsers;
+@class TSYLoadingView;
 
 @interface TSYTableView : UIView
 @property (nonatomic, strong)   IBOutlet UITableView        *tableView;
+@property (nonatomic, strong)   IBOutlet TSYLoadingView     *loadingView;
 
 @property (nonatomic, strong)   IBOutlet UIButton           *addButton;
 @property (nonatomic, strong)   IBOutlet UIButton           *editButton;
