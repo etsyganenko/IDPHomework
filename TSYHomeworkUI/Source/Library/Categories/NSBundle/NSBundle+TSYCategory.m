@@ -8,7 +8,7 @@
 
 #import "NSBundle+TSYCategory.h"
 
-#import "NSObject+TSYCategory.h"
+#import "NSArray+TSYCategory.h"
 
 @implementation NSBundle (TSYCategory)
 

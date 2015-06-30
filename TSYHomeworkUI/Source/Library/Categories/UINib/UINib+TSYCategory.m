@@ -8,7 +8,7 @@
 
 #import "UINib+TSYCategory.h"
 
-#import "NSObject+TSYCategory.h"
+#import "NSArray+TSYCategory.h"
 
 @implementation UINib (TSYCategory)
 

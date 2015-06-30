@@ -1,5 +1,5 @@
 //
-//  NSObject+TSYCategory.h
+//  NSArray+TSYCategory.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 30.06.15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (TSYCategory)
+@interface NSArray (TSYCategory)
 
 - (id)objectWithClass:(Class)cls;
 
