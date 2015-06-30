@@ -8,6 +8,8 @@
 
 #import "TSYTableCellMovingPath.h"
 
+#import "NSIndexPath+TSYCategory.h"
+
 @interface TSYTableCellMovingPath ()
 @property (nonatomic, assign)   NSIndexPath   *sourceIndexPath;
 @property (nonatomic, assign)   NSIndexPath   *destinationIndexPath;
@@ -19,23 +21,23 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)tableCellMovingPathWithSourceIndexPath:(NSIndexPath *)sourceIndexPath
-                                  destinationIndexPath:(NSIndexPath *)destinationIndexPath
++ (instancetype)movingPathWithSourceIndex:(NSInteger)sourceIndex
+                         destinationIndex:(NSInteger)destinationIndex
 {
-    return [[self alloc] initWithSourceIndexPath:sourceIndexPath
-                            destinationIndexPath:destinationIndexPath];
+    return [[self alloc] initWithSourceIndex:sourceIndex
+                            destinationIndex:destinationIndex];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)initWithSourceIndexPath:(NSIndexPath *)sourceIndexPath
-                   destinationIndexPath:(NSIndexPath *)destinationIndexPath
+- (instancetype)initWithSourceIndex:(NSInteger)sourceIndex
+                   destinationIndex:(NSInteger)destinationIndex
 {
     self = [super init];
     if (self) {
-        self.sourceIndexPath = sourceIndexPath;
-        self.destinationIndexPath = destinationIndexPath;
+        self.sourceIndexPath = [NSIndexPath indexPathForIndex:sourceIndex];
+        self.destinationIndexPath = [NSIndexPath indexPathForIndex:destinationIndex];
     }
     
     return self;

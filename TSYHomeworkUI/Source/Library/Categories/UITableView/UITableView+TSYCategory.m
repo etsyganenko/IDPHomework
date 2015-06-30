@@ -11,6 +11,7 @@
 #import "TSYTableChange.h"
 #import "TSYTableCellMovingPath.h"
 #import "UINib+TSYCategory.h"
+#import "NSIndexPath+TSYCategory.h"
 
 @implementation UITableView (TSYCategory)
 
@@ -32,25 +33,28 @@
 
 - (void)applyTableChange:(TSYTableChange *)change {
     TSYTableChangeType changeType = change.changeType;
-    NSArray *indexPaths = change.indexPaths;
-    TSYTableCellMovingPath *movingPath = change.movingPath;
     
     switch (changeType) {
         case TSYTableChangeTypeAdd:
-            [self insertRowsAtIndexPaths:indexPaths
+            [self insertRowsAtIndexPaths:@[change.change]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case TSYTableChangeTypeRemove:
-            [self deleteRowsAtIndexPaths:indexPaths
+            [self deleteRowsAtIndexPaths:@[change.change]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
-        case TSYTableChangeTypeMove:
-            [self moveRowAtIndexPath:movingPath.sourceIndexPath
-                              toIndexPath:movingPath.destinationIndexPath];
+        case TSYTableChangeTypeMove: {
+            TSYTableCellMovingPath *movingPath = change.change;
+            NSIndexPath *sourceIndexPath = [NSIndexPath indexPathForIndex:movingPath.sourceIndex];
+            NSIndexPath *destinationIndexPath = [NSIndexPath indexPathForIndex:movingPath.destinationIndex];
+            
+            [self moveRowAtIndexPath:sourceIndexPath
+                         toIndexPath:destinationIndexPath];
             
             break;
+        }
             
         default:
             break;

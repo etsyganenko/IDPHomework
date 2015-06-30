@@ -66,11 +66,9 @@
 - (void)addUser:(TSYUser *)user {
     NSUInteger index = [self count];
     NSIndexPath *path = [NSIndexPath indexPathForIndex:index];
-    NSArray *paths = [NSArray arrayWithObject:path];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
-                                                           indexPaths:paths
-                                                           movingPath:nil];
+                                                               change:path];
     
     [self.mutableUsers addObject:user];
     
@@ -84,15 +82,10 @@
 }
 
 - (void)removeUserAtIndex:(NSUInteger)index {
-    NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
-    NSArray *paths = [NSArray arrayWithObject:path];
+    NSIndexPath *path = [NSIndexPath indexPathForIndex:index];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeRemove
-                                                           indexPaths:paths
-                                                           movingPath:nil];
-    
-//    TSYTableChange *change = [TSYTableChange tableChangeWithType:type
-//                                                           index:(NSUInteger)index];
+                                                               change:path];
     
     [self.mutableUsers removeObjectAtIndex:index];
     
@@ -110,14 +103,11 @@
 - (void)moveUserAtIndex:(NSUInteger)sourceIndex
                 toIndex:(NSUInteger)destinationIndex
 {
-    NSIndexPath *sourcePath = [NSIndexPath indexPathForRow:sourceIndex inSection:0];
-    NSIndexPath *destinationPath = [NSIndexPath indexPathForRow:destinationIndex inSection:0];
-    TSYTableCellMovingPath *movingPath = [TSYTableCellMovingPath tableCellMovingPathWithSourceIndexPath:sourcePath
-                                                                                   destinationIndexPath:destinationPath];
+    TSYTableCellMovingPath *movingPath = [TSYTableCellMovingPath movingPathWithSourceIndex:sourceIndex
+                                                                          destinationIndex:destinationIndex];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeMove
-                                                           indexPaths:nil
-                                                           movingPath:movingPath];
+                                                               change:movingPath];
     
     [self.mutableUsers moveObjectAtIndex:sourceIndex
                                  toIndex:destinationIndex];
@@ -138,7 +128,7 @@
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case TSYUsersStateDidChange:
-            return @selector(modelChanged:withObject:);
+            return @selector(usersChanged:withObject:);
             
         default:
             return [super selectorForState:state];;

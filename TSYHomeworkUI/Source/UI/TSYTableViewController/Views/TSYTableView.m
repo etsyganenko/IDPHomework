@@ -36,7 +36,7 @@ static NSString * const kEdit    = @"Edit";
 }
 
 - (void)setEditing:(BOOL)editing {
-    [self.tableView setEditing:editing animated:NO];
+    [self setEditing:editing animated:NO];
 }
 
 @end

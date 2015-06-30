@@ -9,9 +9,8 @@
 #import "TSYTableChange.h"
 
 @interface TSYTableChange ()
-@property (nonatomic, assign)   TSYTableChangeType          changeType;
-@property (nonatomic, assign)   NSArray                     *indexPaths;
-@property (nonatomic, assign)   TSYTableCellMovingPath      *movingPath;
+@property (nonatomic, assign)   TSYTableChangeType  changeType;
+@property (nonatomic, assign)   id                  change;
 
 @end
 
@@ -21,26 +20,21 @@
 #pragma mark Class Methods
 
 + (instancetype)tableChangeWithType:(TSYTableChangeType)type
-                         indexPaths:(NSArray *)indexPaths
-                         movingPath:(TSYTableCellMovingPath *)movingPath
+                             change:(id)change
 {
-    return [[self alloc] initWithType:type
-                           indexPaths:indexPaths
-                           movingPath:movingPath];
+    return [[self alloc] initWithType:type change:change];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (instancetype)initWithType:(TSYTableChangeType)type
-                  indexPaths:(NSArray *)indexPaths
-                  movingPath:(TSYTableCellMovingPath *)movingPath
+                      change:(id)change
 {
     self = [super init];
     if (self) {
         self.changeType = type;
-        self.indexPaths = indexPaths;
-        self.movingPath = movingPath;
+        self.change = change;
     }
     
     return self;

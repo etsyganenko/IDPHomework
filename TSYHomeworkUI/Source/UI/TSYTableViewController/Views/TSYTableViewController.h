@@ -8,15 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TSYUsers.h"
+
 @class TSYUsers;
 @class TSYTableView;
-
-@protocol TSYObserver <NSObject>
-
-@optional
-- (void)modelChanged:(id)model withObject:(id)object;
-
-@end
 
 @interface TSYTableViewController : UIViewController<UITableViewDelegate,
                                                         UITableViewDataSource,

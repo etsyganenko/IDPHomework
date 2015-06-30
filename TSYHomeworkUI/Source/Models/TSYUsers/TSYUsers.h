@@ -17,6 +17,13 @@ typedef NS_ENUM(NSUInteger, TSYUsersState) {
     TSYUsersStateDidChange
 };
 
+@protocol TSYObserver <NSObject>
+
+@optional
+- (void)usersChanged:(id)model withObject:(id)object;
+
+@end
+
 @interface TSYUsers : TSYObservableObject
 @property (nonatomic, readonly)   NSArray  *users;
 
