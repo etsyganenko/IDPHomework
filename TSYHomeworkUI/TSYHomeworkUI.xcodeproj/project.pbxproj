@@ -31,6 +31,7 @@
 		84A285D61B39745B00D52615 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84A285D51B39745B00D52615 /* image.jpg */; };
 		84A285D81B3974B900D52615 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A285D71B3974B900D52615 /* LaunchScreen.xib */; };
 		84A285DC1B39781300D52615 /* TSYObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A285DB1B39781300D52615 /* TSYObservableObject.m */; };
+		84A30E5F1B42C899005F8EA6 /* NSObject+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A30E5E1B42C899005F8EA6 /* NSObject+TSYCategory.m */; };
 		84BD0D591B414F9C00349DE5 /* UINib+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BD0D581B414F9C00349DE5 /* UINib+TSYCategory.m */; };
 		84BD0D5E1B41F74200349DE5 /* NSIndexPath+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BD0D5D1B41F74200349DE5 /* NSIndexPath+TSYCategory.m */; };
 		84BD0D611B41FAA400349DE5 /* NSBundle+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BD0D601B41FAA400349DE5 /* NSBundle+TSYCategory.m */; };
@@ -93,6 +94,8 @@
 		84A285D71B3974B900D52615 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		84A285DA1B39781300D52615 /* TSYObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYObservableObject.h; sourceTree = "<group>"; };
 		84A285DB1B39781300D52615 /* TSYObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYObservableObject.m; sourceTree = "<group>"; };
+		84A30E5D1B42C899005F8EA6 /* NSObject+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TSYCategory.h"; sourceTree = "<group>"; };
+		84A30E5E1B42C899005F8EA6 /* NSObject+TSYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TSYCategory.m"; sourceTree = "<group>"; };
 		84BD0D571B414F9C00349DE5 /* UINib+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+TSYCategory.h"; sourceTree = "<group>"; };
 		84BD0D581B414F9C00349DE5 /* UINib+TSYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+TSYCategory.m"; sourceTree = "<group>"; };
 		84BD0D5C1B41F74200349DE5 /* NSIndexPath+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+TSYCategory.h"; sourceTree = "<group>"; };
@@ -327,6 +330,15 @@
 			path = TSYObservableObject;
 			sourceTree = "<group>";
 		};
+		84A30E5C1B42C885005F8EA6 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				84A30E5D1B42C899005F8EA6 /* NSObject+TSYCategory.h */,
+				84A30E5E1B42C899005F8EA6 /* NSObject+TSYCategory.m */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
 		84BD0D561B414F7100349DE5 /* UINib */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +398,7 @@
 		84BF5F091B32FB0100932154 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				84A30E5C1B42C885005F8EA6 /* NSObject */,
 				84BD0D5A1B41F6E900349DE5 /* NSBundle */,
 				84BD0D5B1B41F6E900349DE5 /* NSIndexPath */,
 				84BD0D561B414F7100349DE5 /* UINib */,
@@ -591,6 +604,7 @@
 			files = (
 				84A196311B321AF900C5CE0E /* TSYTableView.m in Sources */,
 				84BD0D591B414F9C00349DE5 /* UINib+TSYCategory.m in Sources */,
+				84A30E5F1B42C899005F8EA6 /* NSObject+TSYCategory.m in Sources */,
 				849F72421B3C247000869AD4 /* UITableView+TSYCategory.m in Sources */,
 				84BF5F181B32FB0100932154 /* NSString+TSYAlphabet.m in Sources */,
 				849FB4A01B28E9460096D0AD /* main.m in Sources */,

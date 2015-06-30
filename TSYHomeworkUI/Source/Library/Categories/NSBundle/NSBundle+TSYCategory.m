@@ -8,6 +8,8 @@
 
 #import "NSBundle+TSYCategory.h"
 
+#import "NSObject+TSYCategory.h"
+
 @implementation NSBundle (TSYCategory)
 
 - (id)objectWithClass:(Class)cls {
@@ -23,13 +25,7 @@
                                     owner:owner
                                   options:options];
     
-    for (id object in objects) {
-        if ([object isMemberOfClass:cls]) {
-            return object;
-        }
-    }
-    
-    return nil;
+    return [objects objectWithClass:cls];
 }
 
 @end

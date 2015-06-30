@@ -8,6 +8,8 @@
 
 #import "UINib+TSYCategory.h"
 
+#import "NSObject+TSYCategory.h"
+
 @implementation UINib (TSYCategory)
 
 #pragma mark -
@@ -49,13 +51,7 @@
 - (instancetype)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options {
     NSArray *objects = [self instantiateWithOwner:owner options:options];
     
-    for (id object in objects) {
-        if ([object isMemberOfClass:cls]) {
-            return object;
-        }
-    }
-    
-    return nil;
+    return [objects objectWithClass:cls];;
 }
 
 @end
