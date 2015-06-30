@@ -11,8 +11,7 @@
 @implementation NSIndexPath (TSYCategory)
 
 + (instancetype)indexPathForIndex:(NSInteger)index {
-    return [NSIndexPath indexPathWithIndex:index];
-//    return [NSIndexPath indexPathForRow:index inSection:0];
+    return [NSIndexPath indexPathForRow:index inSection:0];
 }
 
 @end

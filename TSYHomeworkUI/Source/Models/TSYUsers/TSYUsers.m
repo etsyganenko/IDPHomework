@@ -13,6 +13,7 @@
 #import "TSYTableCellMovingPath.h"
 
 #import "NSMutableArray+TSYCategory.h"
+#import "NSIndexPath+TSYCategory.h"
 
 @interface TSYUsers ()
 @property (nonatomic, strong)   NSMutableArray  *mutableUsers;
@@ -64,8 +65,7 @@
 
 - (void)addUser:(TSYUser *)user {
     NSUInteger index = [self count];
-//    NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
-    NSIndexPath *path = [NSIndexPath indexPathWithIndex:index];
+    NSIndexPath *path = [NSIndexPath indexPathForIndex:index];
     NSArray *paths = [NSArray arrayWithObject:path];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
