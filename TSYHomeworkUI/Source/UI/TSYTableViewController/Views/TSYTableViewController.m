@@ -26,7 +26,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [self.users removeObserver:self];
+    self.users = nil;
 }
 
 #pragma mark -
@@ -34,6 +34,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 
 - (void)setUsers:(TSYUsers *)users {
     if (_users != users) {
+        [_users removeObserver:self];
+        
         _users = users;
         
         [users addObserver:self];
