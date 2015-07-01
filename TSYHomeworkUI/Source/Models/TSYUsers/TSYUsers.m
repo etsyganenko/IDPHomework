@@ -15,6 +15,8 @@
 #import "NSMutableArray+TSYCategory.h"
 #import "NSIndexPath+TSYCategory.h"
 
+static NSString * const kUsersKey    = @"usersKey";
+
 @interface TSYUsers ()
 @property (nonatomic, strong)   NSMutableArray  *mutableUsers;
 
@@ -133,6 +135,22 @@
         default:
             return [super selectorForState:state];;
     }
+}
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.mutableUsers = [aDecoder decodeObjectForKey:kUsersKey];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.users forKey:kUsersKey];
 }
 
 @end

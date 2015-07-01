@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, TSYUsersState) {
 
 @end
 
-@interface TSYUsers : TSYObservableObject
+@interface TSYUsers : TSYObservableObject <NSCoding>
 @property (nonatomic, readonly)   NSArray  *users;
 
 + (instancetype)users;

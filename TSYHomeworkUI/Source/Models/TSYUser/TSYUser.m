@@ -10,6 +10,10 @@
 
 #import "NSString+TSYRandomName.h"
 
+static NSString * const kNameKey        = @"nameKey";
+static NSString * const kSurnameKey     = @"surnameKey";
+static NSString * const kImageKey       = @"imageKey";
+
 @implementation TSYUser
 
 @dynamic fullName;
@@ -40,6 +44,26 @@
 
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
+}
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.name = [aDecoder decodeObjectForKey:kNameKey];
+        self.surname = [aDecoder decodeObjectForKey:kSurnameKey];
+        self.image = [aDecoder decodeObjectForKey:kImageKey];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.name forKey:kNameKey];
+    [aCoder encodeObject:self.surname forKey:kSurnameKey];
+    [aCoder encodeObject:self.image forKey:kImageKey];
 }
 
 @end
