@@ -9,22 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "TSYObservableObject.h"
+#import "TSYModel.h"
 
 @class TSYUser;
 
-typedef NS_ENUM(NSUInteger, TSYUsersState) {
-    TSYUsersStateDidChange
-};
-
-@protocol TSYModelObserver <NSObject>
-
-@optional
-- (void)usersChanged:(id)model withObject:(id)object;
-
-@end
-
-@interface TSYUsers : TSYObservableObject <NSCoding>
+@interface TSYUsers : TSYModel
 @property (nonatomic, readonly)   NSArray  *users;
 
 + (instancetype)users;

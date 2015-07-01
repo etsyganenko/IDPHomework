@@ -111,7 +111,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)usersChanged:(id)model withObject:(id)object {    
+- (void)modelChanged:(id)model withObject:(id)object {
     [self.mainView.tableView applyTableChange:object];
 }
 

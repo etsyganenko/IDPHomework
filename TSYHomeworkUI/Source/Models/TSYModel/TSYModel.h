@@ -7,13 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TSYObservableObject.h"
 
 typedef NS_ENUM(NSUInteger, TSYModelState) {
+    TSYModelStateDidChange
+};
+
+typedef NS_ENUM(NSUInteger, TSYModelLoadingState) {
     TSYModelStateLoading,
     TSYModelStateDidLoad,
     TSYModelStateCancelled
 };
 
-@interface TSYModel : NSObject
+@protocol TSYModelObserver <NSObject, NSCoding>
+
+@optional
+- (void)modelChanged:(id)model withObject:(id)object;
+
+@end
+
+@interface TSYModel : TSYObservableObject
+
+- (void)save;
 
 @end

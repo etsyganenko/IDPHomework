@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface TSYUser : NSObject <NSCoding>
+#import "TSYModel.h"
+
+@interface TSYUser : TSYModel
 @property (nonatomic, readonly) NSString    *fullName;
 @property (nonatomic, copy)     NSString    *name;
 @property (nonatomic, copy)     NSString    *surname;

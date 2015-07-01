@@ -13,8 +13,10 @@
 #import "TSYUsers.h"
 
 #import "UIWindow+TSYCategories.h"
+#import "TSYModel.h"
 
 @interface TSYAppDelegate ()
+@property (nonatomic, assign) TSYModel  *model;
 
 @end
 
@@ -37,7 +39,7 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-
+    [self.model save];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -53,7 +55,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-
+    [self.model save];
 }
 
 @end

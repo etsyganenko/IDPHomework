@@ -15,7 +15,8 @@
 #import "NSMutableArray+TSYCategory.h"
 #import "NSIndexPath+TSYCategory.h"
 
-static NSString * const kUsersKey    = @"usersKey";
+static NSString * const kUsersKey       = @"usersKey";
+static NSString * const kSavingPath     = @"Info.plist";
 
 @interface TSYUsers ()
 @property (nonatomic, strong)   NSMutableArray  *mutableUsers;
@@ -74,7 +75,7 @@ static NSString * const kUsersKey    = @"usersKey";
     
     [self.mutableUsers addObject:user];
     
-    [self setState:TSYUsersStateDidChange withObject:tableChange];
+    [self setState:TSYModelStateDidChange withObject:tableChange];
 }
 
 - (void)removeUser:(TSYUser *)user {
@@ -91,7 +92,7 @@ static NSString * const kUsersKey    = @"usersKey";
     
     [self.mutableUsers removeObjectAtIndex:index];
     
-    [self setState:TSYUsersStateDidChange withObject:tableChange];
+    [self setState:TSYModelStateDidChange withObject:tableChange];
 }
 
 - (TSYUser *)userAtIndex:(NSUInteger)index {
@@ -114,28 +115,23 @@ static NSString * const kUsersKey    = @"usersKey";
     [self.mutableUsers moveObjectAtIndex:sourceIndex
                                  toIndex:destinationIndex];
     
-    [self setState:TSYUsersStateDidChange withObject:tableChange];
+    [self setState:TSYModelStateDidChange withObject:tableChange];
 }
 
 - (NSUInteger)count {
     return [self.mutableUsers count];
 }
 
+- (void)save {
+    //    NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:self];
+    //
+    //    [NSKeyedArchiver archiveRootObject:saved toFile:kSavingPath];
+    
+    [NSKeyedArchiver archiveRootObject:self toFile:kSavingPath];
+}
+
 #pragma mark -
 #pragma mark Private Methods
-
-#pragma mark -
-#pragma mark TSYObservableObject
-
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case TSYUsersStateDidChange:
-            return @selector(usersChanged:withObject:);
-            
-        default:
-            return [super selectorForState:state];;
-    }
-}
 
 #pragma mark -
 #pragma mark NSCoding
