@@ -36,17 +36,17 @@
     
     switch (changeType) {
         case TSYTableChangeTypeAdd:
-            [self insertRowsAtIndexPaths:@[change.change]
+            [self insertRowsAtIndexPaths:@[change.changeValue]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case TSYTableChangeTypeRemove:
-            [self deleteRowsAtIndexPaths:@[change.change]
+            [self deleteRowsAtIndexPaths:@[change.changeValue]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case TSYTableChangeTypeMove: {
-            TSYTableCellMovingPath *movingPath = (TSYTableCellMovingPath *)(change.change);
+            TSYTableCellMovingPath *movingPath = change.changeValue;
             
             [self moveRowAtIndexPath:movingPath.sourceIndexPath
                          toIndexPath:movingPath.destinationIndexPath];

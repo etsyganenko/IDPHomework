@@ -18,9 +18,9 @@ typedef NS_ENUM(NSUInteger, TSYTableChangeType) {
 
 @interface TSYTableChange : NSObject
 @property (nonatomic, readonly)   TSYTableChangeType    changeType;
-@property (nonatomic, readonly)   id                    change;
+@property (nonatomic, readonly)   id                    changeValue;
 
 + (instancetype)tableChangeWithType:(TSYTableChangeType)type
-                             change:(id)change;
+                        changeValue:(id)changeValue;
 
 @end

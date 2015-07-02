@@ -10,7 +10,7 @@
 
 @interface TSYTableChange ()
 @property (nonatomic, assign)   TSYTableChangeType  changeType;
-@property (nonatomic, assign)   id                  change;
+@property (nonatomic, assign)   id                  changeValue;
 
 @end
 
@@ -20,21 +20,21 @@
 #pragma mark Class Methods
 
 + (instancetype)tableChangeWithType:(TSYTableChangeType)type
-                             change:(id)change
+                        changeValue:(id)changeValue
 {
-    return [[self alloc] initWithType:type change:change];
+    return [[self alloc] initWithType:type changeValue:changeValue];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (instancetype)initWithType:(TSYTableChangeType)type
-                      change:(id)change
+                 changeValue:(id)changeValue
 {
     self = [super init];
     if (self) {
         self.changeType = type;
-        self.change = change;
+        self.changeValue = changeValue;
     }
     
     return self;

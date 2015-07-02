@@ -71,7 +71,7 @@ static NSString * const kSavingPath     = @"Info.plist";
     NSIndexPath *path = [NSIndexPath indexPathForIndex:index];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
-                                                               change:path];
+                                                          changeValue:path];
     
     [self.mutableUsers addObject:user];
     
@@ -88,7 +88,7 @@ static NSString * const kSavingPath     = @"Info.plist";
     NSIndexPath *path = [NSIndexPath indexPathForIndex:index];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeRemove
-                                                               change:path];
+                                                          changeValue:path];
     
     [self.mutableUsers removeObjectAtIndex:index];
     
@@ -110,7 +110,7 @@ static NSString * const kSavingPath     = @"Info.plist";
                                                                           destinationIndex:destinationIndex];
     
     TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeMove
-                                                               change:movingPath];
+                                                          changeValue:movingPath];
     
     [self.mutableUsers moveObjectAtIndex:sourceIndex
                                  toIndex:destinationIndex];
