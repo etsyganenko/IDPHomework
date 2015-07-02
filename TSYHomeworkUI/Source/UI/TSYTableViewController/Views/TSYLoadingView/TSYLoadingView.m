@@ -8,9 +8,9 @@
 
 #import "TSYLoadingView.h"
 
-static const NSUInteger TSYLoadingViewAnimationDuration     = 1;
-static const CGFloat TSYLoadingViewVisibleAlpha             = 0.5;
-static const CGFloat TSYLoadingViewInvisibleAlpha           = 1;
+static const NSTimeInterval TSYLoadingViewAnimationDuration        = 1;
+static const CGFloat        TSYLoadingViewVisibleAlpha             = 0.5;
+static const CGFloat        TSYLoadingViewInvisibleAlpha           = 1;
 
 @interface TSYLoadingView ()
 @property (nonatomic, assign, getter=isVisible)    BOOL        visible;
@@ -34,23 +34,31 @@ static const CGFloat TSYLoadingViewInvisibleAlpha           = 1;
 #pragma mark Public Methods
 
 - (void)show {
+    [self.spinner startAnimating];
+    
     [UIView animateWithDuration:TSYLoadingViewAnimationDuration
                      animations:^{
                          self.alpha = TSYLoadingViewVisibleAlpha;
-                         [self.spinner startAnimating];
-    }];
-    
-    self.visible = YES;
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished) {
+                             self.visible = YES;
+                         }
+                     }];
 }
 
 - (void)hide {
+    [self.spinner stopAnimating];
+    
     [UIView animateWithDuration:TSYLoadingViewAnimationDuration
                      animations:^{
                          self.alpha = TSYLoadingViewInvisibleAlpha;
-                         [self.spinner stopAnimating];
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished) {
+                             self.visible = NO;
+                         }
                      }];
-    
-    self.visible = NO;
 }
 
 @end

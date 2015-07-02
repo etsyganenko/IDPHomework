@@ -53,7 +53,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.mainView.tableView reloadData];
+    [self.mainView showLoadingView];
+    [self.users load];
 }
 
 - (void)didReceiveMemoryWarning {
