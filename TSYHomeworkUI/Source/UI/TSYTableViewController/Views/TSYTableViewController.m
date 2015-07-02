@@ -36,15 +36,14 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     if (_users != users) {
         [_users removeObserver:self];
         
-        [users load];
-        
-        sleep(2);
-        
-        [self.mainView showLoadingView];
-        
         _users = users;
         
         [users addObserver:self];
+        
+        [self.mainView showLoadingView];
+        [users load];
+        
+        sleep(2);
     }
 }
 
