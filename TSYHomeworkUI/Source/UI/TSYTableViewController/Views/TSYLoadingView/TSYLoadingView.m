@@ -20,6 +20,17 @@ static const CGFloat TSYLoadingViewInvisibleAlpha           = 1;
 @implementation TSYLoadingView
 
 #pragma mark -
+#pragma mark Class Methods
+
++ (TSYLoadingView *)loadingViewWithSuperview:(UIView *)superview {
+    TSYLoadingView *loadingView = [TSYLoadingView new];
+
+    [superview addSubview:loadingView];
+    
+    return loadingView;
+}
+
+#pragma mark -
 #pragma mark Public Methods
 
 - (void)show {

@@ -23,6 +23,12 @@ static NSString * const kEdit    = @"Edit";
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.loadingView = [TSYLoadingView loadingViewWithSuperview:self];
+}
+
 #pragma mark -
 #pragma mark Accessors
 

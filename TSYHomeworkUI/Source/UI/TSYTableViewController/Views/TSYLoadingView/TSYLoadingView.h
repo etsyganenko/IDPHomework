@@ -12,6 +12,8 @@
 @property (nonatomic, assign) IBOutlet UIActivityIndicatorView   *spinner;
 @property (nonatomic, readonly, getter=isVisible)    BOOL        visible;
 
++ (TSYLoadingView *)loadingViewWithSuperview:(UIView *)superview;
+
 - (void)show;
 - (void)hide;
 
