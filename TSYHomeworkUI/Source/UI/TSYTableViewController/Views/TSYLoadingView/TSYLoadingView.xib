@@ -4,13 +4,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TSYLoadingView">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
                 <outlet property="loadingView" destination="iN0-l3-epB" id="1uA-wF-Y5C"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view opaque="NO" alpha="0.49999999999999961" contentMode="scaleToFill" id="iN0-l3-epB" customClass="TSYLoadingView">
+        <view opaque="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="TSYLoadingView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>

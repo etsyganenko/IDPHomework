@@ -8,6 +8,9 @@
 
 #import "TSYLoadingView.h"
 
+#import "TSYView.h"
+#import "UINib+TSYCategory.h"
+
 static const NSTimeInterval TSYLoadingViewAnimationDuration        = 1;
 static const CGFloat        TSYLoadingViewVisibleAlpha             = 0.5;
 static const CGFloat        TSYLoadingViewInvisibleAlpha           = 1;
@@ -22,8 +25,9 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 1;
 #pragma mark -
 #pragma mark Class Methods
 
-+ (TSYLoadingView *)loadingViewWithSuperview:(UIView *)superview {
-    TSYLoadingView *loadingView = [TSYLoadingView new];
++ (TSYLoadingView *)loadingViewWithSuperview:(TSYView *)superview {
+    TSYLoadingView *loadingView = [UINib objectWithClass:[TSYLoadingView class]];
+//    TSYLoadingView *loadingView = [TSYLoadingView new];
 
     [superview addSubview:loadingView];
     

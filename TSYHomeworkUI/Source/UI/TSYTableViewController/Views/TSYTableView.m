@@ -8,7 +8,6 @@
 
 #import "TSYTableView.h"
 #import "TSYLoadingView.h"
-#import "UINib+TSYCategory.h"
 
 #import "TSYUsers.h"
 #import "TSYUser.h"
@@ -25,7 +24,7 @@ static NSString * const kEdit    = @"Edit";
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+
     self.loadingView = [TSYLoadingView loadingViewWithSuperview:self];
 }
 
