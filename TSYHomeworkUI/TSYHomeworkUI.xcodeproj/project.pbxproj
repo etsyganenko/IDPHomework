@@ -35,6 +35,8 @@
 		84A30E671B434D81005F8EA6 /* TSYLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A30E661B434D81005F8EA6 /* TSYLoadingView.m */; };
 		84A30E6B1B434DD6005F8EA6 /* TSYLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A30E6A1B434DD6005F8EA6 /* TSYLoadingView.xib */; };
 		84A30E6F1B435110005F8EA6 /* TSYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A30E6E1B435110005F8EA6 /* TSYModel.m */; };
+		84A38F6C1B45309400AEEC92 /* TSYView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F6B1B45309400AEEC92 /* TSYView.m */; };
+		84A38F6E1B45309E00AEEC92 /* TSYView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A38F6D1B45309E00AEEC92 /* TSYView.xib */; };
 		84BD0D591B414F9C00349DE5 /* UINib+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BD0D581B414F9C00349DE5 /* UINib+TSYCategory.m */; };
 		84BD0D5E1B41F74200349DE5 /* NSIndexPath+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BD0D5D1B41F74200349DE5 /* NSIndexPath+TSYCategory.m */; };
 		84BD0D611B41FAA400349DE5 /* NSBundle+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BD0D601B41FAA400349DE5 /* NSBundle+TSYCategory.m */; };
@@ -104,6 +106,9 @@
 		84A30E6A1B434DD6005F8EA6 /* TSYLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYLoadingView.xib; sourceTree = "<group>"; };
 		84A30E6D1B435110005F8EA6 /* TSYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYModel.h; sourceTree = "<group>"; };
 		84A30E6E1B435110005F8EA6 /* TSYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYModel.m; sourceTree = "<group>"; };
+		84A38F6A1B45309400AEEC92 /* TSYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSYView.h; path = ../../../../../../../Documents/TSYView.h; sourceTree = "<group>"; };
+		84A38F6B1B45309400AEEC92 /* TSYView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSYView.m; path = ../../../../../../../Documents/TSYView.m; sourceTree = "<group>"; };
+		84A38F6D1B45309E00AEEC92 /* TSYView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TSYView.xib; path = ../../../../../../../Documents/TSYView.xib; sourceTree = "<group>"; };
 		84BD0D571B414F9C00349DE5 /* UINib+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+TSYCategory.h"; sourceTree = "<group>"; };
 		84BD0D581B414F9C00349DE5 /* UINib+TSYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+TSYCategory.m"; sourceTree = "<group>"; };
 		84BD0D5C1B41F74200349DE5 /* NSIndexPath+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+TSYCategory.h"; sourceTree = "<group>"; };
@@ -254,6 +259,7 @@
 		84A196251B321AF900C5CE0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84A38F641B452FEE00AEEC92 /* TSYView */,
 				84A30E641B434CE1005F8EA6 /* TSYLoadingView */,
 				84A1C3021B341B4200DC7198 /* TSYTableCell */,
 				84A1962A1B321AF900C5CE0E /* TSYTableView.h */,
@@ -366,6 +372,16 @@
 				84A30E6E1B435110005F8EA6 /* TSYModel.m */,
 			);
 			path = TSYModel;
+			sourceTree = "<group>";
+		};
+		84A38F641B452FEE00AEEC92 /* TSYView */ = {
+			isa = PBXGroup;
+			children = (
+				84A38F6A1B45309400AEEC92 /* TSYView.h */,
+				84A38F6B1B45309400AEEC92 /* TSYView.m */,
+				84A38F6D1B45309E00AEEC92 /* TSYView.xib */,
+			);
+			path = TSYView;
 			sourceTree = "<group>";
 		};
 		84BD0D561B414F7100349DE5 /* UINib */ = {
@@ -576,6 +592,7 @@
 				84A1C3071B341B4200DC7198 /* TSYTableCell.xib in Resources */,
 				84A196331B321AF900C5CE0E /* TSYTableViewController.xib in Resources */,
 				84A285D81B3974B900D52615 /* LaunchScreen.xib in Resources */,
+				84A38F6E1B45309E00AEEC92 /* TSYView.xib in Resources */,
 				84A30E6B1B434DD6005F8EA6 /* TSYLoadingView.xib in Resources */,
 				84A285D61B39745B00D52615 /* image.jpg in Resources */,
 				84A1EFE81B31A2A30037A3B7 /* TSYSquareViewController.xib in Resources */,
@@ -654,6 +671,7 @@
 				84BD0D5E1B41F74200349DE5 /* NSIndexPath+TSYCategory.m in Sources */,
 				84A1EFE71B31A2A30037A3B7 /* TSYSquareViewController.m in Sources */,
 				849F723E1B3BF09200869AD4 /* TSYTableChange.m in Sources */,
+				84A38F6C1B45309400AEEC92 /* TSYView.m in Sources */,
 				84A285DC1B39781300D52615 /* TSYObservableObject.m in Sources */,
 				84BF5F1C1B32FB0100932154 /* UIWindow+TSYCategories.m in Sources */,
 				849DAF171B3414CA0034D221 /* TSYMacros.m in Sources */,

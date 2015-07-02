@@ -10,4 +10,12 @@
 
 @implementation TSYLoadingView
 
+- (void)show {
+    
+}
+
+- (void)hide {
+    
+}
+
 @end

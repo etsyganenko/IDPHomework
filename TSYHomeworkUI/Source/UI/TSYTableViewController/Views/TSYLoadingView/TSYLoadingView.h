@@ -11,4 +11,7 @@
 @interface TSYLoadingView : UIView
 @property (nonatomic, assign) IBOutlet UIActivityIndicatorView   *spinner;
 
+- (void)show;
+- (void)hide;
+
 @end
