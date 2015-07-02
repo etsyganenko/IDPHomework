@@ -16,7 +16,6 @@
 #import "NSIndexPath+TSYCategory.h"
 
 static NSString * const kUsersKey       = @"usersKey";
-static NSString * const kSavingPath     = @"Info.plist";
 
 @interface TSYUsers ()
 @property (nonatomic, strong)   NSMutableArray  *mutableUsers;
@@ -43,6 +42,10 @@ static NSString * const kSavingPath     = @"Info.plist";
     self = [super init];
     if (self) {
         self.mutableUsers = [NSMutableArray array];
+        self.savingPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                               NSUserDomainMask,
+                                                               YES)
+                           firstObject];
     }
     
     return self;
@@ -123,11 +126,22 @@ static NSString * const kSavingPath     = @"Info.plist";
 }
 
 - (void)save {
-    //    NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:self];
-    //
-    //    [NSKeyedArchiver archiveRootObject:saved toFile:kSavingPath];
+//    NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:self.mutableUsers];
+//
+//    [NSKeyedArchiver archiveRootObject:saved toFile:kSavingPath];
     
-    [NSKeyedArchiver archiveRootObject:self toFile:kSavingPath];
+    [NSKeyedArchiver archiveRootObject:self.mutableUsers toFile:self.savingPath];
+}
+
+- (void)load {
+    NSMutableArray *users = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
+    if (users) {
+        self.mutableUsers = users;
+    } else {
+        self.mutableUsers = [NSMutableArray array];
+    }
+    
+    self.state = TSYModelStateDidLoad;
 }
 
 #pragma mark -

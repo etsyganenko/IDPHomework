@@ -11,9 +11,13 @@
 @implementation TSYModel
 
 #pragma mark -
-#pragma mark TSYObservableObject
+#pragma mark Public Methods
 
 - (void)save {
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+- (void)load {
     [self doesNotRecognizeSelector:_cmd];
 }
 
@@ -24,6 +28,9 @@
     switch (state) {
         case TSYModelStateDidChange:
             return @selector(modelChanged:withObject:);
+            
+        case TSYModelStateDidLoad:
+//            return @selector();
             
         default:
             return [super selectorForState:state];;

@@ -10,6 +10,7 @@
 
 @interface TSYLoadingView : UIView
 @property (nonatomic, assign) IBOutlet UIActivityIndicatorView   *spinner;
+@property (nonatomic, readonly, getter=isVisible)    BOOL        visible;
 
 - (void)show;
 - (void)hide;

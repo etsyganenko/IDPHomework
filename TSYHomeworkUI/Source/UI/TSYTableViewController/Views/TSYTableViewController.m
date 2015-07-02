@@ -36,6 +36,12 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     if (_users != users) {
         [_users removeObserver:self];
         
+        [users load];
+        
+        sleep(2);
+        
+        [self.mainView showLoadingView];
+        
         _users = users;
         
         [users addObserver:self];
@@ -111,8 +117,14 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelChanged:(id)model withObject:(id)object {
+- (void)modelChanged:(TSYModel *)model withObject:(id)object {
     [self.mainView.tableView applyTableChange:object];
+}
+
+- (void)modelDidLoad:(TSYModel *)model {
+    [self.mainView hideLoadingView];
+    
+    [self.mainView.tableView reloadData];
 }
 
 @end
