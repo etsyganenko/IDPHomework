@@ -26,8 +26,7 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 1;
 #pragma mark Class Methods
 
 + (TSYLoadingView *)loadingViewWithSuperview:(TSYView *)superview {
-    TSYLoadingView *loadingView = [UINib objectWithClass:[TSYLoadingView class]];
-//    TSYLoadingView *loadingView = [TSYLoadingView new];
+    TSYLoadingView *loadingView = [UINib objectWithClass:[TSYLoadingView class] owner:superview];
 
     [superview addSubview:loadingView];
     

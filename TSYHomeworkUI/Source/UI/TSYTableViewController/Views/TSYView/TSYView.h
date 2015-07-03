@@ -11,7 +11,7 @@
 @class TSYLoadingView;
 
 @interface TSYView : UIView
-@property (nonatomic, strong)   TSYLoadingView  *loadingView;
+@property (nonatomic, strong)   IBOutlet TSYLoadingView  *loadingView;
 
 - (void)showLoadingView;
 - (void)hideLoadingView;
