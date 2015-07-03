@@ -78,7 +78,7 @@ static NSString * const kUsersKey       = @"usersKey";
     
     [self.mutableUsers addObject:user];
     
-    [self setState:TSYModelStateDidChange withObject:tableChange];
+    [self setState:TSYModelDidChange withObject:tableChange];
 }
 
 - (void)removeUser:(TSYUser *)user {
@@ -95,7 +95,7 @@ static NSString * const kUsersKey       = @"usersKey";
     
     [self.mutableUsers removeObjectAtIndex:index];
     
-    [self setState:TSYModelStateDidChange withObject:tableChange];
+    [self setState:TSYModelDidChange withObject:tableChange];
 }
 
 - (TSYUser *)userAtIndex:(NSUInteger)index {
@@ -118,7 +118,7 @@ static NSString * const kUsersKey       = @"usersKey";
     [self.mutableUsers moveObjectAtIndex:sourceIndex
                                  toIndex:destinationIndex];
     
-    [self setState:TSYModelStateDidChange withObject:tableChange];
+    [self setState:TSYModelDidChange withObject:tableChange];
 }
 
 - (NSUInteger)count {
@@ -141,7 +141,7 @@ static NSString * const kUsersKey       = @"usersKey";
         self.mutableUsers = [NSMutableArray array];
     }
     
-    self.state = TSYModelStateDidLoad;
+    self.state = TSYModelDidLoad;
 }
 
 #pragma mark -

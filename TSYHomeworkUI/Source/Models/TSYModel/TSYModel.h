@@ -12,14 +12,11 @@
 @class TSYModel;
 
 typedef NS_ENUM(NSUInteger, TSYModelState) {
-    TSYModelStateDidChange
-};
-
-typedef NS_ENUM(NSUInteger, TSYModelLoadingState) {
-    TSYModelStateUnloading,
-    TSYModelStateLoading,
-    TSYModelStateDidLoad,
-    TSYModelStateFailedLoading
+    TSYModelWillLoad,
+    TSYModelDidLoad,
+    TSYModelFailedLoading,
+    TSYModelUnloaded,
+    TSYModelDidChange
 };
 
 @protocol TSYModelObserver <NSObject, NSCoding>
@@ -33,12 +30,10 @@ typedef NS_ENUM(NSUInteger, TSYModelLoadingState) {
 @interface TSYModel : TSYObservableObject
 @property (nonatomic, assign) NSString    *savingPath;
 
-// this method is for overriding in children
-// you should never call it directly
+// this method is for overloading in children
 - (void)save;
 
-// this method is for overriding in children
-// you should never call it directly
+// this method is for overloading in children
 - (void)load;
 
 @end

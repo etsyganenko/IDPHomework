@@ -41,9 +41,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
         [users addObserver:self];
         
         [self.mainView showLoadingView];
-        [users load];
-        
-        sleep(2);
+        [_users load];
     }
 }
 
