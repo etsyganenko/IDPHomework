@@ -51,7 +51,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 
 - (void)showLoadingViewWhileModelIsLoading {
     [self.mainView showLoadingView];
-    
+//    sleep(5);
     [self.users load];
 }
 
@@ -126,9 +126,10 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (void)modelDidLoad:(TSYModel *)model {
+//    sleep(2);
     [self.mainView hideLoadingView];
     
-    [self.mainView.tableView reloadData];
+//    [self.mainView.tableView reloadData];
 }
 
 @end
