@@ -41,7 +41,7 @@ static NSString * const kUsersKey       = @"usersKey";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableUsers = [NSMutableArray array];
+        self.state = TSYModelWillLoad;
         self.savingPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                                NSUserDomainMask,
                                                                YES)
