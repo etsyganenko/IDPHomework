@@ -40,19 +40,25 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
         
         [users addObserver:self];
         
-        [self.mainView showLoadingView];
-        [_users load];
+        if (TSYModelWillLoad != _users.state) {
+            [self showLoadingViewWhileModelIsLoading];
+        }
     }
 }
 
 #pragma mark -
 #pragma mark View Lifecycle
 
+- (void)showLoadingViewWhileModelIsLoading {
+    [self.mainView showLoadingView];
+    
+    [self.users load];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.mainView showLoadingView];
-    [self.users load];
+    [self showLoadingViewWhileModelIsLoading];
 }
 
 - (void)didReceiveMemoryWarning {

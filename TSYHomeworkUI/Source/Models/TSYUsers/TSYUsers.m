@@ -141,7 +141,8 @@ static NSString * const kUsersKey       = @"usersKey";
         self.mutableUsers = [NSMutableArray array];
     }
     
-    self.state = TSYModelDidLoad;
+//    self.state = TSYModelDidLoad;
+    [self setState:TSYModelDidLoad withObject:nil];
 }
 
 #pragma mark -

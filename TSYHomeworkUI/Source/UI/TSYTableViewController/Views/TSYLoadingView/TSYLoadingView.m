@@ -11,9 +11,9 @@
 #import "TSYView.h"
 #import "UINib+TSYCategory.h"
 
-static const NSTimeInterval TSYLoadingViewAnimationDuration        = 1;
+static const NSTimeInterval TSYLoadingViewAnimationDuration        = 2;
 static const CGFloat        TSYLoadingViewVisibleAlpha             = 0.5;
-static const CGFloat        TSYLoadingViewInvisibleAlpha           = 1;
+static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
 
 @interface TSYLoadingView ()
 @property (nonatomic, assign, getter=isVisible)    BOOL        visible;
