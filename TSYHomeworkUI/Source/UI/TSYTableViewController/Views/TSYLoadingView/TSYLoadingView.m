@@ -18,6 +18,8 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
 @interface TSYLoadingView ()
 @property (nonatomic, assign, getter=isVisible)    BOOL        visible;
 
+- (void)animateVisible:(BOOL)visible;
+
 @end
 
 @implementation TSYLoadingView
@@ -29,6 +31,7 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
     TSYLoadingView *loadingView = [UINib objectWithClass:[TSYLoadingView class] owner:superview];
 
     [superview addSubview:loadingView];
+    loadingView.bounds = superview.bounds;
     
     return loadingView;
 }
@@ -37,29 +40,31 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
 #pragma mark Public Methods
 
 - (void)show {
-    [self.spinner startAnimating];
-    
-    [UIView animateWithDuration:TSYLoadingViewAnimationDuration
-                     animations:^{
-                         self.alpha = TSYLoadingViewVisibleAlpha;
-                     }
-                     completion:^(BOOL finished) {
-                         if (finished) {
-                             self.visible = YES;
-                         }
-                     }];
+    [self animateVisible:YES];
 }
 
 - (void)hide {
-    [self.spinner stopAnimating];
-    
+    [self animateVisible:NO];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)animateVisible:(BOOL)visible {
+    UIActivityIndicatorView *spinner = self.spinner;
+    if (visible) {
+        [spinner startAnimating];
+    } else {
+        [spinner stopAnimating];
+    }
+
     [UIView animateWithDuration:TSYLoadingViewAnimationDuration
                      animations:^{
-                         self.alpha = TSYLoadingViewInvisibleAlpha;
+                         self.alpha = visible ? TSYLoadingViewVisibleAlpha : TSYLoadingViewInvisibleAlpha;
                      }
                      completion:^(BOOL finished) {
                          if (finished) {
-                             self.visible = NO;
+                             self.visible = visible ? YES : NO;
                          }
                      }];
 }

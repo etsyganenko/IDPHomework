@@ -12,6 +12,18 @@
 
 @implementation TSYView
 
+@dynamic loadingViewVisible;
+
+#pragma mark -
+#pragma mark Accessors
+
+- (BOOL)isLoadingViewVisible {
+    return [self.loadingView isVisible];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
 - (void)showLoadingView {
     [self.loadingView show];
 }

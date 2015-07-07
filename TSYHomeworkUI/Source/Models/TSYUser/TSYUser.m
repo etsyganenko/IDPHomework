@@ -14,8 +14,7 @@
 static NSString * const kImageName          = @"image.jpg";
 static NSString * const kNameKey            = @"nameKey";
 static NSString * const kSurnameKey         = @"surnameKey";
-static NSString * const kImageKey           = @"imageKey";
-static NSString * const kSavingDirectory    = @"imageKey";
+static NSString * const kImagePathKey       = @"imagePathKey";
 
 @interface TSYUser ()
 @property (nonatomic, strong)   NSString    *imageName;
@@ -78,7 +77,7 @@ static NSString * const kSavingDirectory    = @"imageKey";
     self = [super init];
     if (self) {
         self.image = [UIImage imageWithContentsOfFile:self.savingPath];
-        
+//        self.image = [UIImage imageNamed:kImageName];
         self.name = [aDecoder decodeObjectForKey:kNameKey];
         self.surname = [aDecoder decodeObjectForKey:kSurnameKey];
     }
@@ -87,13 +86,7 @@ static NSString * const kSavingDirectory    = @"imageKey";
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    NSString *imagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                               NSUserDomainMask,
-                                                                NO)
-                           firstObject] stringByAppendingPathComponent:kImageName];
-    
-    [aCoder encodeObject:imagePath forKey:kImageKey];
-    
+    [aCoder encodeObject:self.savingPath forKey:kImagePathKey];
     [aCoder encodeObject:self.name forKey:kNameKey];
     [aCoder encodeObject:self.surname forKey:kSurnameKey];
 }
