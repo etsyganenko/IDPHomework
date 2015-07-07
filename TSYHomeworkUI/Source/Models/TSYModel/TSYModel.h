@@ -33,7 +33,9 @@ typedef NS_ENUM(NSUInteger, TSYModelState) {
 // this method is for overloading in children
 - (void)save;
 
-// this method is for overloading in children
 - (void)load;
+
+// this method is for overloading in children
+- (void)performLoading;
 
 @end

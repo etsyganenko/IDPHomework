@@ -133,7 +133,7 @@ static NSString * const kUsersKey       = @"usersKey";
     [NSKeyedArchiver archiveRootObject:self.mutableUsers toFile:self.savingPath];
 }
 
-- (void)load {
+- (void)performLoading {
     NSMutableArray *users = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
     if (users) {
         self.mutableUsers = users;
@@ -141,8 +141,7 @@ static NSString * const kUsersKey       = @"usersKey";
         self.mutableUsers = [NSMutableArray array];
     }
     
-//    self.state = TSYModelDidLoad;
-    [self setState:TSYModelDidLoad withObject:nil];
+    self.state = TSYModelDidLoad;
 }
 
 #pragma mark -
