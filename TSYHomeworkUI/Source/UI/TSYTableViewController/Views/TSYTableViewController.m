@@ -20,6 +20,11 @@
 
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
+@interface TSYTableViewController ()
+- (void)loadModel:(TSYModel *)model;
+
+@end
+
 @implementation TSYTableViewController
 
 #pragma mark -
@@ -38,27 +43,25 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
         
         _users = users;
         
-        [users addObserver:self];
+        [_users addObserver:self];
         
-        if (TSYModelWillLoad != _users.state) {
-            [self showLoadingViewWhileModelIsLoading];
-        }
+        [self loadModel:_users];
     }
 }
 
 #pragma mark -
 #pragma mark View Lifecycle
 
-- (void)showLoadingViewWhileModelIsLoading {
+- (void)loadModel:(TSYModel *)model {
     [self.mainView showLoadingView];
-//    sleep(5);
-    [self.users load];
+
+    [model load];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self showLoadingViewWhileModelIsLoading];
+    [self loadModel:self.users];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,10 +129,9 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (void)modelDidLoad:(TSYModel *)model {
-//    sleep(2);
     [self.mainView hideLoadingView];
     
-//    [self.mainView.tableView reloadData];
+    [self.mainView.tableView reloadData];
 }
 
 @end
