@@ -11,14 +11,15 @@
 #import "NSString+TSYRandomName.h"
 #import "NSFileManager+TSYCategory.h"
 
-static NSString * const kImageName          = @"image.jpg";
+static NSString * const kImageName          = @"image";
+static NSString * const kImageType          = @"jpg";
 static NSString * const kNameKey            = @"nameKey";
 static NSString * const kSurnameKey         = @"surnameKey";
 static NSString * const kImagePathKey       = @"imagePathKey";
 
 @interface TSYUser ()
 @property (nonatomic, strong)   NSString    *imageName;
-@property (nonatomic, strong)   NSString    *savingPath;
+@property (nonatomic, strong)   NSString    *imageSavingPath;
 
 @end
 
@@ -26,7 +27,7 @@ static NSString * const kImagePathKey       = @"imagePathKey";
 
 @dynamic fullName;
 @dynamic imageName;
-@dynamic savingPath;
+@dynamic imageSavingPath;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -60,8 +61,10 @@ static NSString * const kImagePathKey       = @"imagePathKey";
     return kImageName;
 }
 
-- (NSString *)savingPath {
-    return [[NSFileManager documentDirectoryPath] stringByAppendingPathComponent:self.imageName];
+- (NSString *)imageSavingPath {
+    return [NSBundle pathForResource:kImageName
+                              ofType:kImageType
+                         inDirectory:[[NSBundle mainBundle] bundlePath]];
 }
 
 #pragma mark -
@@ -70,8 +73,7 @@ static NSString * const kImagePathKey       = @"imagePathKey";
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        self.image = [UIImage imageWithContentsOfFile:self.savingPath];
-//        self.image = [UIImage imageNamed:kImageName];
+        self.image = [UIImage imageWithContentsOfFile:self.imageSavingPath];
         self.name = [aDecoder decodeObjectForKey:kNameKey];
         self.surname = [aDecoder decodeObjectForKey:kSurnameKey];
     }
@@ -80,7 +82,11 @@ static NSString * const kImagePathKey       = @"imagePathKey";
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.savingPath forKey:kImagePathKey];
+    NSString *imagePath = [NSBundle pathForResource:kImageName
+                                             ofType:kImageType
+                                        inDirectory:[[NSBundle mainBundle] bundlePath]];
+    
+    [aCoder encodeObject:imagePath forKey:kImagePathKey];
     [aCoder encodeObject:self.name forKey:kNameKey];
     [aCoder encodeObject:self.surname forKey:kSurnameKey];
 }

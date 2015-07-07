@@ -17,7 +17,6 @@
 #import "NSIndexPath+TSYCategory.h"
 #import "NSFileManager+TSYCategory.h"
 
-static NSString * const kUsersKey               = @"usersKey";
 static NSString * const kFileName               = @"users";
 
 static const NSUInteger TSYDefaultUsersCount    = 10;
@@ -162,22 +161,6 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
     for (NSUInteger index = 0; index < TSYDefaultUsersCount; index++) {
         [self.mutableUsers addObject:[TSYUser user]];
     }
-}
-
-#pragma mark -
-#pragma mark NSCoding
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super init];
-    if (self) {
-        self.mutableUsers = [aDecoder decodeObjectForKey:kUsersKey];
-    }
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.users forKey:kUsersKey];
 }
 
 @end
