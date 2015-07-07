@@ -18,8 +18,10 @@
 }
 
 - (void)load {
-    if (TSYModelDidLoad == self.state) {
+    if (TSYModelDidLoad == self.state || TSYModelWillLoad == self.state) {
         [self notify];
+        
+        return;
     }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -37,7 +39,7 @@
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case TSYModelWillLoad:
-            return nil;
+            return @selector(modelWillLoad:);
             
         case TSYModelDidLoad:
             return @selector(modelDidLoad:);

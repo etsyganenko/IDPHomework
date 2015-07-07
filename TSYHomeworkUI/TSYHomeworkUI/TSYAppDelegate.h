@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class TSYModel;
-
 @interface TSYAppDelegate : UIResponder <UIApplicationDelegate>
-@property (nonatomic, strong)   UIWindow  *window;
-@property (nonatomic, readonly) TSYModel  *model;
+@property (nonatomic, strong)   UIWindow    *window;
 
 @end

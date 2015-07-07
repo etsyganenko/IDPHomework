@@ -16,7 +16,7 @@
 #import "TSYModel.h"
 
 @interface TSYAppDelegate ()
-@property (nonatomic, strong) TSYModel  *model;
+@property (nonatomic, strong)   TSYModel    *model;
 
 @end
 

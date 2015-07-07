@@ -21,6 +21,7 @@
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
 @interface TSYTableViewController ()
+
 - (void)loadModel:(TSYModel *)model;
 
 @end
@@ -52,12 +53,6 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark -
 #pragma mark View Lifecycle
 
-- (void)loadModel:(TSYModel *)model {
-    [self.mainView showLoadingView];
-
-    [model load];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -79,6 +74,15 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     TSYTableView *view = self.mainView;
     
     [view setEditing:!view.editing animated:YES];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)loadModel:(TSYModel *)model {
+    [self.mainView showLoadingView];
+    
+    [model load];
 }
 
 #pragma mark -
@@ -124,14 +128,22 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark -
 #pragma mark TSYModelObserver
 
+- (void)modelWillLoad:(TSYModel *)model {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.mainView showLoadingView];
+    });
+}
+
 - (void)modelChanged:(TSYModel *)model withObject:(id)object {
     [self.mainView.tableView applyTableChange:object];
 }
 
 - (void)modelDidLoad:(TSYModel *)model {
-    [self.mainView hideLoadingView];
-    
-    [self.mainView.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.mainView hideLoadingView];
+        
+        [self.mainView.tableView reloadData];
+    });
 }
 
 @end

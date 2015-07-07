@@ -22,19 +22,20 @@ typedef NS_ENUM(NSUInteger, TSYModelState) {
 @protocol TSYModelObserver <NSObject, NSCoding>
 
 @optional
-- (void)modelChanged:(TSYModel *)model withObject:(id)object;
+- (void)modelWillLoad:(TSYModel *)model;
 - (void)modelDidLoad:(TSYModel *)model;
+- (void)modelChanged:(TSYModel *)model withObject:(id)object;
 
 @end
 
 @interface TSYModel : TSYObservableObject
 
-// this method is for overloading in children
+// this method must be overloaded in children
 - (void)save;
 
 - (void)load;
 
-// this method is for overloading in children
+// this method must be overloaded in children
 - (void)performLoading;
 
 @end
