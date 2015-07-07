@@ -27,16 +27,16 @@
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case TSYModelWillLoad:
-//            return @selector();
+            return nil;
             
         case TSYModelDidLoad:
             return @selector(modelDidLoad:);
             
         case TSYModelFailedLoading:
-//            return @selector();
+            return nil;
             
         case TSYModelUnloaded:
-//            return @selector();
+            return nil;
             
         case TSYModelDidChange:
             return @selector(modelChanged:withObject:);

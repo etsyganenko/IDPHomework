@@ -38,22 +38,16 @@
 #pragma mark -
 #pragma mark Accessors Methods
 
+- (void)setState:(NSUInteger)state {
+    [self setState:state withObject:nil];
+}
+
 - (void)setState:(NSUInteger)state withObject:(id)object {
     @synchronized (self) {
         if (_state != state) {
             _state = state;
             
             [self notifyOfStateChange:state withObject:object];
-        }
-    }
-}
-
-- (void)setState:(NSUInteger)state {
-    @synchronized (self) {
-        if (_state != state) {
-            _state = state;
-
-            [self notifyOfStateChange:state withObject:nil];
         }
     }
 }
@@ -83,6 +77,10 @@
     @synchronized (self) {
         [self.observersHashTable removeObject:observer];
     }
+}
+
+- (void)notify {
+    [self notifyOfStateChange:self.state withObject:nil];
 }
 
 - (void)notifyOfStateChange:(NSUInteger)state withObject:(id)object {
