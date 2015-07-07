@@ -15,6 +15,7 @@
 
 #import "NSMutableArray+TSYCategory.h"
 #import "NSIndexPath+TSYCategory.h"
+#import "NSFileManager+TSYCategory.h"
 
 static NSString * const kUsersKey               = @"usersKey";
 
@@ -64,9 +65,7 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 }
 
 - (NSString *)savingDirectory {
-//    NSString *savingDirectory =
-    
-    return nil;
+    return [NSFileManager documentDirectoryPath];
 }
 
 - (NSString *)fileName {

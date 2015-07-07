@@ -9,16 +9,17 @@
 #import "TSYUser.h"
 
 #import "NSString+TSYRandomName.h"
+#import "NSFileManager+TSYCategory.h"
 
-static NSString * const kImageName      = @"image.jpg";
-static NSString * const kNameKey        = @"nameKey";
-static NSString * const kSurnameKey     = @"surnameKey";
-static NSString * const kImageKey       = @"imageKey";
-static NSString * const kSavingDirectory       = @"imageKey";
+static NSString * const kImageName          = @"image.jpg";
+static NSString * const kNameKey            = @"nameKey";
+static NSString * const kSurnameKey         = @"surnameKey";
+static NSString * const kImageKey           = @"imageKey";
+static NSString * const kSavingDirectory    = @"imageKey";
 
 @interface TSYUser ()
 @property (nonatomic, strong)   NSString    *imageName;
-@property (nonatomic, strong)   NSString    *directory;
+@property (nonatomic, strong)   NSString    *savingDirectory;
 @property (nonatomic, strong)   NSString    *savingPath;
 
 @end
@@ -26,6 +27,8 @@ static NSString * const kSavingDirectory       = @"imageKey";
 @implementation TSYUser
 
 @dynamic fullName;
+@dynamic imageName;
+@dynamic savingDirectory;
 @dynamic savingPath;
 
 #pragma mark -
@@ -56,12 +59,16 @@ static NSString * const kSavingDirectory       = @"imageKey";
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
 }
 
+- (NSString *)imageName {
+    return kImageName;
+}
+
+- (NSString *)savingDirectory {
+    return [NSFileManager documentDirectoryPath];
+}
+
 - (NSString *)savingPath {
-    NSString *savingPath = [self.directory stringByAppendingPathComponent:self.imageName];
-    
-    NSLog(@"%@", self.savingPath);
-    
-    return  savingPath;
+    return [self.savingDirectory stringByAppendingPathComponent:self.imageName];
 }
 
 #pragma mark -
@@ -70,12 +77,7 @@ static NSString * const kSavingDirectory       = @"imageKey";
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        NSString *imagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                                    NSUserDomainMask,
-                                                                    NO)
-                                firstObject] stringByAppendingPathComponent:kImageName];
-        
-        self.image = [UIImage imageNamed:<#(NSString *)#> imageWithContentsOfFile:imagePath];
+        self.image = [UIImage imageWithContentsOfFile:self.savingPath];
         
         self.name = [aDecoder decodeObjectForKey:kNameKey];
         self.surname = [aDecoder decodeObjectForKey:kSurnameKey];
