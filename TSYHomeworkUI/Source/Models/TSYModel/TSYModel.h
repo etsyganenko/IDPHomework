@@ -30,9 +30,6 @@ typedef NS_ENUM(NSUInteger, TSYModelState) {
 
 @interface TSYModel : TSYObservableObject
 
-// this method must be overloaded in children
-- (void)save;
-
 - (void)load;
 
 // this method must be overloaded in children

@@ -24,6 +24,12 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
 
 @implementation TSYLoadingView
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    [self.spinner startAnimating];
+}
+
 #pragma mark -
 #pragma mark Class Methods
 
@@ -51,12 +57,12 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
 #pragma mark Private Methods
 
 - (void)animateVisible:(BOOL)visible {
-    UIActivityIndicatorView *spinner = self.spinner;
-    if (visible) {
-        [spinner startAnimating];
-    } else {
-        [spinner stopAnimating];
-    }
+//    UIActivityIndicatorView *spinner = self.spinner;
+//    if (visible) {
+//        [spinner startAnimating];
+//    } else {
+//        [spinner stopAnimating];
+//    }
 
     [UIView animateWithDuration:TSYLoadingViewAnimationDuration
                      animations:^{

@@ -18,13 +18,17 @@
 #import "NSFileManager+TSYCategory.h"
 
 static NSString * const kUsersKey               = @"usersKey";
+static NSString * const kFileName               = @"users";
 
 static const NSUInteger TSYDefaultUsersCount    = 10;
 
 @interface TSYUsers ()
-@property (nonatomic, strong)   NSMutableArray  *mutableUsers;
+@property (nonatomic, assign, getter=doesFileExist)   BOOL  fileExists;
+
 @property (nonatomic, strong)   NSString        *fileName;
 @property (nonatomic, strong)   NSString        *savingPath;
+
+@property (nonatomic, strong)   NSMutableArray  *mutableUsers;
 
 - (void)fillWithUsers;
 
@@ -35,6 +39,7 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 @dynamic users;
 @dynamic fileName;
 @dynamic savingPath;
+@dynamic fileExists;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -49,7 +54,7 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
+        self.mutableUsers = [NSMutableArray array];
     }
     
     return self;
@@ -63,11 +68,15 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 }
 
 - (NSString *)fileName {
-    return @"users";
+    return kFileName;
 }
 
 - (NSString *)savingPath {
     return [[NSFileManager documentDirectoryPath] stringByAppendingPathComponent:self.fileName];
+}
+
+- (BOOL)doesFileExist {
+    return [[NSFileManager defaultManager] fileExistsAtPath:self.savingPath];
 }
 
 #pragma mark -
@@ -134,12 +143,11 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 }
 
 - (void)performLoading {
-    NSMutableArray *users = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
-    if (users) {
-        self.mutableUsers = users;
+    if ([self doesFileExist]) {
+        NSMutableArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
+        
+        [self.mutableUsers addObjectsFromArray:savedUsers];
     } else {
-        self.mutableUsers = [NSMutableArray array];
-
         [self fillWithUsers];
     }
     

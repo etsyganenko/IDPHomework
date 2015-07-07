@@ -16,7 +16,7 @@
 #import "TSYModel.h"
 
 @interface TSYAppDelegate ()
-@property (nonatomic, strong)   TSYModel    *model;
+@property (nonatomic, strong)   TSYUsers    *users;
 
 @end
 
@@ -31,7 +31,7 @@
     TSYTableViewController *tableViewController = [TSYTableViewController new];
     TSYUsers *users = [TSYUsers users];
     
-    self.model = users;
+    self.users = users;
     
     tableViewController.users = users;
     
@@ -43,7 +43,7 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    [self.model save];
+    [self.users save];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -59,7 +59,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self.model save];
+    [self.users save];
 }
 
 @end

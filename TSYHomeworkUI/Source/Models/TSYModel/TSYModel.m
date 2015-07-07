@@ -13,16 +13,14 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)save {
-    [self doesNotRecognizeSelector:_cmd];
-}
-
 - (void)load {
     if (TSYModelDidLoad == self.state || TSYModelWillLoad == self.state) {
         [self notify];
         
         return;
     }
+    
+    self.state = TSYModelWillLoad;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         [self performLoading];
@@ -45,10 +43,10 @@
             return @selector(modelDidLoad:);
             
         case TSYModelFailedLoading:
-            return nil;
+            return NULL;
             
         case TSYModelUnloaded:
-            return nil;
+            return NULL;
             
         case TSYModelDidChange:
             return @selector(modelChanged:withObject:);

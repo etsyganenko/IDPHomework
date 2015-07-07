@@ -30,4 +30,6 @@
 
 - (NSUInteger)count;
 
+- (void)save;
+
 @end
