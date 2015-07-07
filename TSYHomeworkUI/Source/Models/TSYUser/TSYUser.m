@@ -18,7 +18,6 @@ static NSString * const kImagePathKey       = @"imagePathKey";
 
 @interface TSYUser ()
 @property (nonatomic, strong)   NSString    *imageName;
-@property (nonatomic, strong)   NSString    *savingDirectory;
 @property (nonatomic, strong)   NSString    *savingPath;
 
 @end
@@ -27,7 +26,6 @@ static NSString * const kImagePathKey       = @"imagePathKey";
 
 @dynamic fullName;
 @dynamic imageName;
-@dynamic savingDirectory;
 @dynamic savingPath;
 
 #pragma mark -
@@ -62,12 +60,8 @@ static NSString * const kImagePathKey       = @"imagePathKey";
     return kImageName;
 }
 
-- (NSString *)savingDirectory {
-    return [NSFileManager documentDirectoryPath];
-}
-
 - (NSString *)savingPath {
-    return [self.savingDirectory stringByAppendingPathComponent:self.imageName];
+    return [[NSFileManager documentDirectoryPath] stringByAppendingPathComponent:self.imageName];
 }
 
 #pragma mark -

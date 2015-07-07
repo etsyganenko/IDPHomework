@@ -23,7 +23,6 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 
 @interface TSYUsers ()
 @property (nonatomic, strong)   NSMutableArray  *mutableUsers;
-@property (nonatomic, strong)   NSString        *savingDirectory;
 @property (nonatomic, strong)   NSString        *fileName;
 @property (nonatomic, strong)   NSString        *savingPath;
 
@@ -34,7 +33,6 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 @implementation TSYUsers
 
 @dynamic users;
-@dynamic savingDirectory;
 @dynamic fileName;
 @dynamic savingPath;
 
@@ -64,16 +62,12 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
     return [self.mutableUsers copy];
 }
 
-- (NSString *)savingDirectory {
-    return [NSFileManager documentDirectoryPath];
-}
-
 - (NSString *)fileName {
     return @"users";
 }
 
 - (NSString *)savingPath {
-    return [self.savingDirectory stringByAppendingPathComponent:self.fileName];
+    return [[NSFileManager documentDirectoryPath] stringByAppendingPathComponent:self.fileName];
 }
 
 #pragma mark -
@@ -145,7 +139,7 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
         self.mutableUsers = users;
     } else {
         self.mutableUsers = [NSMutableArray array];
-        
+
         [self fillWithUsers];
     }
     
