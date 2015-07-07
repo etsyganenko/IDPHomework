@@ -14,10 +14,19 @@ static NSString * const kImageName      = @"image.jpg";
 static NSString * const kNameKey        = @"nameKey";
 static NSString * const kSurnameKey     = @"surnameKey";
 static NSString * const kImageKey       = @"imageKey";
+static NSString * const kSavingDirectory       = @"imageKey";
+
+@interface TSYUser ()
+@property (nonatomic, strong)   NSString    *imageName;
+@property (nonatomic, strong)   NSString    *directory;
+@property (nonatomic, strong)   NSString    *savingPath;
+
+@end
 
 @implementation TSYUser
 
 @dynamic fullName;
+@dynamic savingPath;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -47,6 +56,14 @@ static NSString * const kImageKey       = @"imageKey";
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
 }
 
+- (NSString *)savingPath {
+    NSString *savingPath = [self.directory stringByAppendingPathComponent:self.imageName];
+    
+    NSLog(@"%@", self.savingPath);
+    
+    return  savingPath;
+}
+
 #pragma mark -
 #pragma mark NSCoding
 
@@ -58,7 +75,7 @@ static NSString * const kImageKey       = @"imageKey";
                                                                     NO)
                                 firstObject] stringByAppendingPathComponent:kImageName];
         
-        self.image = [UIImage imageWithContentsOfFile:imagePath];
+        self.image = [UIImage imageNamed:<#(NSString *)#> imageWithContentsOfFile:imagePath];
         
         self.name = [aDecoder decodeObjectForKey:kNameKey];
         self.surname = [aDecoder decodeObjectForKey:kSurnameKey];

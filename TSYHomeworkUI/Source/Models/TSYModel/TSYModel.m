@@ -27,6 +27,10 @@
     });
 }
 
+- (void)performLoading {
+    [self doesNotRecognizeSelector:_cmd];
+}
+
 #pragma mark -
 #pragma mark TSYObservableObject
 

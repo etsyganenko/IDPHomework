@@ -28,7 +28,6 @@ typedef NS_ENUM(NSUInteger, TSYModelState) {
 @end
 
 @interface TSYModel : TSYObservableObject
-@property (nonatomic, assign) NSString    *savingPath;
 
 // this method is for overloading in children
 - (void)save;

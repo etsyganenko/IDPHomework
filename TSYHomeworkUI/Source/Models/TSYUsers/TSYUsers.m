@@ -11,22 +11,31 @@
 #import "TSYTableViewController.h"
 #import "TSYTableChange.h"
 #import "TSYTableCellMovingPath.h"
+#import "TSYUser.h"
 
 #import "NSMutableArray+TSYCategory.h"
 #import "NSIndexPath+TSYCategory.h"
 
-static NSString * const kUsersKey       = @"usersKey";
+static NSString * const kUsersKey               = @"usersKey";
+
+static const NSUInteger TSYDefaultUsersCount    = 10;
 
 @interface TSYUsers ()
 @property (nonatomic, strong)   NSMutableArray  *mutableUsers;
+@property (nonatomic, strong)   NSString        *savingDirectory;
+@property (nonatomic, strong)   NSString        *fileName;
+@property (nonatomic, strong)   NSString        *savingPath;
+
+- (void)fillWithUsers;
 
 @end
 
 @implementation TSYUsers
 
 @dynamic users;
-
-@synthesize state   = _state;
+@dynamic savingDirectory;
+@dynamic fileName;
+@dynamic savingPath;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -41,11 +50,7 @@ static NSString * const kUsersKey       = @"usersKey";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.state = TSYModelWillLoad;
-        self.savingPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                               NSUserDomainMask,
-                                                               YES)
-                           firstObject];
+        
     }
     
     return self;
@@ -58,12 +63,18 @@ static NSString * const kUsersKey       = @"usersKey";
     return [self.mutableUsers copy];
 }
 
-- (void)setState:(NSUInteger)state withObject:(id)object {
-    if (_state != state) {
-        _state = state;
-    }
+- (NSString *)savingDirectory {
+//    NSString *savingDirectory =
     
-    [self notifyOfStateChange:state withObject:object];
+    return nil;
+}
+
+- (NSString *)fileName {
+    return @"users";
+}
+
+- (NSString *)savingPath {
+    return [self.savingDirectory stringByAppendingPathComponent:self.fileName];
 }
 
 #pragma mark -
@@ -126,10 +137,6 @@ static NSString * const kUsersKey       = @"usersKey";
 }
 
 - (void)save {
-//    NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:self.mutableUsers];
-//
-//    [NSKeyedArchiver archiveRootObject:saved toFile:kSavingPath];
-    
     [NSKeyedArchiver archiveRootObject:self.mutableUsers toFile:self.savingPath];
 }
 
@@ -139,6 +146,8 @@ static NSString * const kUsersKey       = @"usersKey";
         self.mutableUsers = users;
     } else {
         self.mutableUsers = [NSMutableArray array];
+        
+        [self fillWithUsers];
     }
     
     self.state = TSYModelDidLoad;
@@ -146,6 +155,12 @@ static NSString * const kUsersKey       = @"usersKey";
 
 #pragma mark -
 #pragma mark Private Methods
+
+- (void)fillWithUsers {
+    for (NSUInteger index = 0; index < TSYDefaultUsersCount; index++) {
+        [self.mutableUsers addObject:[TSYUser user]];
+    }
+}
 
 #pragma mark -
 #pragma mark NSCoding

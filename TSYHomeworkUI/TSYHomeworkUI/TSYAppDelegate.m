@@ -16,7 +16,7 @@
 #import "TSYModel.h"
 
 @interface TSYAppDelegate ()
-@property (nonatomic, assign) TSYModel  *model;
+@property (nonatomic, strong) TSYModel  *model;
 
 @end
 
@@ -29,7 +29,11 @@
 
 //    window.rootViewController = [TSYSquareViewController new];
     TSYTableViewController *tableViewController = [TSYTableViewController new];
-    tableViewController.users = [TSYUsers users];
+    TSYUsers *users = [TSYUsers users];
+    
+    self.model = users;
+    
+    tableViewController.users = users;
     
     window.rootViewController = tableViewController;
     
