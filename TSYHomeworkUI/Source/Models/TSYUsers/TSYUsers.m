@@ -150,7 +150,7 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
         [self fillWithUsers];
     }
     
-//    sleep(2);
+    sleep(2);
     self.state = TSYModelDidLoad;
 }
 

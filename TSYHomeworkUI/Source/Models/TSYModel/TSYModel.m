@@ -14,13 +14,15 @@
 #pragma mark Public Methods
 
 - (void)load {
-    if (TSYModelDidLoad == self.state || TSYModelWillLoad == self.state) {
+    if (TSYModelDidLoad == self.state) {
         [self notify];
         
         return;
     }
     
-    self.state = TSYModelWillLoad;
+    if (TSYModelWillLoad == self.state) {
+        [self notify];
+    }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         [self performLoading];

@@ -38,6 +38,13 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
+- (instancetype)initWithSourceIndexPath:(NSIndexPath *)sourceIndexPath
+                   destinationIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    return [self initWithSourceIndex:sourceIndexPath.row
+                    destinationIndex:destinationIndexPath.row];
+}
+
 - (instancetype)initWithSourceIndex:(NSInteger)sourceIndex
                    destinationIndex:(NSInteger)destinationIndex
 {
@@ -45,18 +52,6 @@
     if (self) {
         self.sourceIndexPath = [NSIndexPath indexPathForIndex:sourceIndex];
         self.destinationIndexPath = [NSIndexPath indexPathForIndex:destinationIndex];
-    }
-    
-    return self;
-}
-
-- (instancetype)initWithSourceIndexPath:(NSIndexPath *)sourceIndexPath
-                   destinationIndexPath:(NSIndexPath *)destinationIndexPath
-{
-    self = [super init];
-    if (self) {
-        self.sourceIndexPath = sourceIndexPath;
-        self.destinationIndexPath = destinationIndexPath;
     }
     
     return self;
