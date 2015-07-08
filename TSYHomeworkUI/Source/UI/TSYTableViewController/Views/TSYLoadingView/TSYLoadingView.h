@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TSYLoadingView : UIView
-@property (nonatomic, assign) IBOutlet UIActivityIndicatorView   *spinner;
+@protocol TSYLoadingView
+@property (nonatomic, assign, getter=isVisible)    BOOL        visible;
 
-@property (nonatomic, readonly, getter=isVisible)    BOOL        visible;
-
-+ (instancetype)loadingViewWithSuperview:(UIView *)superview;
-
+@required
 - (void)show;
 - (void)hide;
+
+@end
+
+@interface TSYLoadingView : UIView <TSYLoadingView>
+@property (nonatomic, assign) IBOutlet UIActivityIndicatorView   *spinner;
+
++ (instancetype)loadingViewWithSuperview:(UIView *)superview;
 
 @end

@@ -16,7 +16,6 @@ static const CGFloat        TSYLoadingViewVisibleAlpha             = 1.0;
 static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
 
 @interface TSYLoadingView ()
-@property (nonatomic, assign, getter=isVisible)    BOOL        visible;
 
 - (void)animateVisible:(BOOL)visible;
 
@@ -24,11 +23,7 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
 
 @implementation TSYLoadingView
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    [self.spinner startAnimating];
-}
+@synthesize visible;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -40,17 +35,6 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
     loadingView.bounds = superview.bounds;
     
     return loadingView;
-}
-
-#pragma mark -
-#pragma mark Public Methods
-
-- (void)show {
-    [self animateVisible:YES];
-}
-
-- (void)hide {
-    [self animateVisible:NO];
 }
 
 #pragma mark -
@@ -66,6 +50,17 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
                              self.visible = visible ? YES : NO;
                          }
                      }];
+}
+
+#pragma mark -
+#pragma mark TSYLoadingView
+
+- (void)show {
+    [self animateVisible:YES];
+}
+
+- (void)hide {
+    [self animateVisible:NO];
 }
 
 @end
