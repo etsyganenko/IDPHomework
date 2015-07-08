@@ -12,6 +12,7 @@
 #import "TSYTableChange.h"
 #import "TSYTableCellMovingPath.h"
 #import "TSYUser.h"
+#import "TSYMacros.h"
 
 #import "NSMutableArray+TSYCategory.h"
 #import "NSIndexPath+TSYCategory.h"
@@ -150,7 +151,8 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
         [self fillWithUsers];
     }
     
-    sleep(2);
+    TSYSleep;
+    
     self.state = TSYModelDidLoad;
 }
 
