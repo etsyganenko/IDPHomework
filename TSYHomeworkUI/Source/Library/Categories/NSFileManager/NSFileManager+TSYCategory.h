@@ -11,6 +11,10 @@
 @interface NSFileManager (TSYCategory)
 
 + (NSString *)documentDirectoryPath;
-+ (NSString *)pathToDirectory:(NSSearchPathDirectory)directory;
++ (NSString *)directoryPathWithType:(NSSearchPathDirectory)type;
+
++ (NSString *)documentDirectoryFilePathWithFileName:(NSString *)fileName;
++ (NSString *)filePathWithDirectoryType:(NSSearchPathDirectory)directoryType
+                               fileName:(NSString *)fileName;
 
 @end

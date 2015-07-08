@@ -11,13 +11,28 @@
 @implementation NSFileManager (TSYCategory)
 
 + (NSString *)documentDirectoryPath {
-    return [self pathToDirectory:NSDocumentDirectory];
+    return [self directoryPathWithType:NSDocumentDirectory];
 }
 
-+ (NSString *)pathToDirectory:(NSSearchPathDirectory)directory {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(directory, NSUserDomainMask, YES);
++ (NSString *)directoryPathWithType:(NSSearchPathDirectory)type {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(type, NSUserDomainMask, YES);
     
     return [paths firstObject];
+}
+
++ (NSString *)documentDirectoryFilePathWithFileName:(NSString *)fileName {
+    return [NSFileManager filePathWithDirectoryType:NSDocumentDirectory
+                                           fileName:fileName];
+}
+
++ (NSString *)filePathWithDirectoryType:(NSSearchPathDirectory)directoryType
+                               fileName:(NSString *)fileName
+{
+    NSString *directoryPath = [NSFileManager directoryPathWithType:directoryType];
+    
+    NSString *filePath = [directoryPath stringByAppendingPathComponent:fileName];
+    
+    return filePath;
 }
 
 @end
