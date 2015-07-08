@@ -20,12 +20,6 @@
 
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
-@interface TSYTableViewController ()
-
-- (void)loadModel:(TSYModel *)model;
-
-@end
-
 @implementation TSYTableViewController
 
 #pragma mark -
@@ -46,7 +40,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
         
         [_users addObserver:self];
         
-        [self loadModel:_users];
+        [_users load];
     }
 }
 
@@ -56,7 +50,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self loadModel:self.users];
+    [self.users load];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,15 +68,6 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     TSYTableView *view = self.mainView;
     
     [view setEditing:!view.editing animated:YES];
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (void)loadModel:(TSYModel *)model {
-    [self.mainView showLoadingView];
-    
-    [model load];
 }
 
 #pragma mark -
