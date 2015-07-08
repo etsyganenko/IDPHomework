@@ -20,6 +20,7 @@
 
 static NSString * const kFileName               = @"users";
 
+static const NSUInteger TSYUsersSleepingTime    = 2;
 static const NSUInteger TSYDefaultUsersCount    = 10;
 
 @interface TSYUsers ()
@@ -143,15 +144,15 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 }
 
 - (void)performLoading {
-    if ([self doesFileExist]) {
-        NSMutableArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
-        
-        [self.mutableUsers addObjectsFromArray:savedUsers];
-    } else {
-        [self fillWithUsers];
-    }
+//    if ([self doesFileExist]) {
+//        NSMutableArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
+//        
+//        [self.mutableUsers addObjectsFromArray:savedUsers];
+//    } else {
+//        [self fillWithUsers];
+//    }
     
-    TSYSleep;
+    TSYSleep(TSYUsersSleepingTime)
     
     self.state = TSYModelDidLoad;
 }

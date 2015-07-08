@@ -47,8 +47,10 @@
         if (_state != state) {
             _state = state;
             
-            [self notifyOfStateChange:state withObject:object];
+//            [self notifyOfStateChange:state withObject:object];
         }
+        
+        [self notifyOfStateChange:state withObject:object];
     }
 }
 

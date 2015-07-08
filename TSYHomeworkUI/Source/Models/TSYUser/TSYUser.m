@@ -44,7 +44,7 @@ static NSString * const kImagePathKey       = @"imagePathKey";
     if (self) {
         self.name = [NSString randomName];
         self.surname = [NSString randomName];
-        self.image = [UIImage imageNamed:kImageName];
+        self.image = [UIImage imageNamed:self.imageName];
     }
     
     return self;
@@ -58,7 +58,7 @@ static NSString * const kImagePathKey       = @"imagePathKey";
 }
 
 - (NSString *)imageName {
-    return kImageName;
+    return [kImageName stringByAppendingPathExtension:kImageType];
 }
 
 - (NSString *)imageSavingPath {
