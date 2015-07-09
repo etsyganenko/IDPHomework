@@ -39,11 +39,11 @@
 #pragma mark Accessors Methods
 
 - (void)setState:(NSUInteger)state {
-    [self setState:state notify:NO];
+    [self setState:state notify:YES];
 }
 
 - (void)setState:(NSUInteger)state withObject:(id)object {
-    [self setState:state withObject:object notify:NO];
+    [self setState:state withObject:object notify:YES];
 }
 
 - (void)setState:(NSUInteger)state notify:(BOOL)shouldNotify {
@@ -52,15 +52,27 @@
 
 - (void)setState:(NSUInteger)state withObject:(id)object notify:(BOOL)shouldNotify {
     @synchronized (self) {
-        if (_state != state) {
-            _state = state;
-        }
+        _state = state;
         
         if (shouldNotify) {
             [self notifyOfStateChange:state withObject:object];
         }
     }
 }
+
+//- (void)setState:(NSUInteger)state withObject:(id)object notify:(BOOL)shouldNotify {
+//    @synchronized (self) {
+//        if (_state != state) {
+//            _state = state;
+//
+//            [self notifyOfStateChange:state withObject:object];
+//        }
+//
+//        if (shouldNotify) {
+//            [self notifyOfStateChange:state withObject:object];
+//        }
+//    }
+//}
 
 - (NSUInteger)state {
     @synchronized (self) {
