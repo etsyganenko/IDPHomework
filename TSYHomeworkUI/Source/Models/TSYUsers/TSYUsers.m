@@ -73,7 +73,7 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 }
 
 - (NSString *)savingPath {
-    return [[NSFileManager documentDirectoryPath] stringByAppendingPathComponent:self.fileName];
+    return [NSFileManager documentsPathWithFileName:self.fileName];
 }
 
 - (BOOL)fileExists {
