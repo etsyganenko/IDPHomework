@@ -53,14 +53,13 @@
 #define TSYStrongifyAndReturnNilIfNil(variable) \
     TSYStrongifyAndReturnResultIfNil(variable, nil)
 
-#define TSYShouldSleep 1
+#define TSYSHOULD_SLEEP 0
 
-#define TSYSleep(sleepingTime) \
-	if (TSYShouldSleep) { \
-        sleep(sleepingTime); \
-    }
+#if TSYSHOULD_SLEEP
+    #define TSYSleep(sleepingTime)  sleep(sleepingTime);
+    #define TSYUsleep(sleepingTime)  usleep(sleepingTime);
+#else
+    #define TSYSleep(sleepingTime)
+    #define TSYUsleep(sleepingTime)
 
-#define TSYUSleep(sleepingTime) \
-    if (TSYShouldSleep) { \
-        usleep(sleepingTime); \
-    }
+#endif
