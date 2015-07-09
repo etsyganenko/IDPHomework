@@ -124,10 +124,12 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (void)modelDidLoad:(TSYModel *)model {
+    TSYTableView *mainView = self.mainView;
+    
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mainView hideLoadingView];
+        [mainView hideLoadingView];
         
-        [self.mainView.tableView reloadData];
+        [mainView.tableView reloadData];
     });
 }
 
