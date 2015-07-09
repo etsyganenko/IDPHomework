@@ -131,4 +131,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     });
 }
 
+- (void)modelDidFailLoading:(TSYModel *)model {
+    [self.users load];
+}
+
 @end
