@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class TSYLoadingView;
+#import "TSYLoadingViewProtocol.h"
 
 @interface TSYView : UIView
 @property (nonatomic, readonly, getter=isloadingViewVisible)    BOOL        loadingViewVisible;
 
-@property (nonatomic, strong)   IBOutlet TSYLoadingView  *loadingView;
+@property (nonatomic, strong)   IBOutlet UIView<TSYLoadingViewProtocol>  *loadingView;
 
 - (void)showLoadingView;
 - (void)hideLoadingView;

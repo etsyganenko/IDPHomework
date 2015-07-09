@@ -88,6 +88,7 @@
 		84A1C3031B341B4200DC7198 /* TSYTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYTableCell.h; sourceTree = "<group>"; };
 		84A1C3041B341B4200DC7198 /* TSYTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYTableCell.m; sourceTree = "<group>"; };
 		84A1C3051B341B4200DC7198 /* TSYTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYTableCell.xib; sourceTree = "<group>"; };
+		84A1C4E11B4E67D900A596F5 /* TSYLoadingViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYLoadingViewProtocol.h; sourceTree = "<group>"; };
 		84A1EFE11B31A2A30037A3B7 /* TSYSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYSquareView.h; sourceTree = "<group>"; };
 		84A1EFE21B31A2A30037A3B7 /* TSYSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYSquareView.m; sourceTree = "<group>"; };
 		84A1EFE31B31A2A30037A3B7 /* TSYSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYSquareViewController.h; sourceTree = "<group>"; };
@@ -280,6 +281,14 @@
 				84A1C3051B341B4200DC7198 /* TSYTableCell.xib */,
 			);
 			path = TSYTableCell;
+			sourceTree = "<group>";
+		};
+		84A1C4E01B4E67BD00A596F5 /* TSYLoadingViewProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				84A1C4E11B4E67D900A596F5 /* TSYLoadingViewProtocol.h */,
+			);
+			path = TSYLoadingViewProtocol;
 			sourceTree = "<group>";
 		};
 		84A1EFC91B31678A0037A3B7 /* UI */ = {
@@ -490,6 +499,7 @@
 		84BF5F171B32FB0100932154 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				84A1C4E01B4E67BD00A596F5 /* TSYLoadingViewProtocol */,
 				84A26DF51B3CA4B200812575 /* TSYTableCellMovingPath */,
 				849F723B1B3BF07700869AD4 /* TSYTableChange */,
 				84A285D91B39781300D52615 /* TSYObservableObject */,
