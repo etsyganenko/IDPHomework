@@ -12,10 +12,10 @@
 @class TSYModel;
 
 typedef NS_ENUM(NSUInteger, TSYModelState) {
+    TSYModelUnloaded,
     TSYModelWillLoad,
     TSYModelDidLoad,
     TSYModelFailedLoading,
-    TSYModelUnloaded,
     TSYModelDidChange
 };
 
@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, TSYModelState) {
 @optional
 - (void)modelWillLoad:(TSYModel *)model;
 - (void)modelDidLoad:(TSYModel *)model;
+- (void)modelDidFailLoading:(TSYModel *)model;
 - (void)modelChanged:(TSYModel *)model withObject:(id)object;
 
 @end

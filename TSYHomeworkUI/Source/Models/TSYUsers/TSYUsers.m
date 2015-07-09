@@ -144,13 +144,13 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 }
 
 - (void)performLoading {
-//    if ([self doesFileExist]) {
-//        NSMutableArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
-//        
-//        [self.mutableUsers addObjectsFromArray:savedUsers];
-//    } else {
-//        [self fillWithUsers];
-//    }
+    if ([self doesFileExist]) {
+        NSMutableArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
+        
+        [self.mutableUsers addObjectsFromArray:savedUsers];
+    } else {
+        [self fillWithUsers];
+    }
     
     TSYSleep(TSYUsersSleepingTime)
     

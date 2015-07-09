@@ -14,14 +14,16 @@
 #pragma mark Public Methods
 
 - (void)load {
-    if (TSYModelDidLoad == self.state) {
-        [self notify];
+    @synchronized (self) {
+        NSUInteger state = self.state;
         
-        return;
-    }
-    
-    if (TSYModelWillLoad == self.state) {
-        [self notify];
+        if (TSYModelDidLoad == state || TSYModelWillLoad == state) {
+            [self notify];
+            
+            return;
+        }
+        
+        self.state = TSYModelWillLoad;
     }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -38,6 +40,9 @@
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
+        case TSYModelUnloaded:
+            return NULL;
+            
         case TSYModelWillLoad:
             return @selector(modelWillLoad:);
             
@@ -45,10 +50,7 @@
             return @selector(modelDidLoad:);
             
         case TSYModelFailedLoading:
-            return NULL;
-            
-        case TSYModelUnloaded:
-            return NULL;
+            return @selector(modelDidFailLoading:);
             
         case TSYModelDidChange:
             return @selector(modelChanged:withObject:);
