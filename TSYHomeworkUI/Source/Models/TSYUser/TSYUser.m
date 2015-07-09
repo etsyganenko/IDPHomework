@@ -18,8 +18,8 @@ static NSString * const kSurnameKey         = @"surnameKey";
 static NSString * const kImagePathKey       = @"imagePathKey";
 
 @interface TSYUser ()
-@property (nonatomic, strong)   NSString    *imageName;
-@property (nonatomic, strong)   NSString    *imageSavingPath;
+@property (nonatomic, readonly)   NSString    *imageName;
+@property (nonatomic, readonly)   NSString    *imageSavingPath;
 
 @end
 

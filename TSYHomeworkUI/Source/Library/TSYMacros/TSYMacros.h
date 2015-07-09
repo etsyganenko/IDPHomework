@@ -53,7 +53,7 @@
 #define TSYStrongifyAndReturnNilIfNil(variable) \
     TSYStrongifyAndReturnResultIfNil(variable, nil)
 
-#define TSYSHOULD_SLEEP 0
+#define TSYSHOULD_SLEEP 1
 
 #if TSYSHOULD_SLEEP
     #define TSYSleep(sleepingTime)  sleep(sleepingTime);

@@ -23,7 +23,7 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
 
 @implementation TSYLoadingView
 
-@synthesize visible;
+@synthesize visible = _visible;
 
 #pragma mark -
 #pragma mark Class Methods

@@ -24,12 +24,12 @@ static const NSUInteger TSYUsersSleepingTime    = 2;
 static const NSUInteger TSYDefaultUsersCount    = 10;
 
 @interface TSYUsers ()
-@property (nonatomic, assign, getter=doesFileExist)   BOOL  fileExists;
+@property (nonatomic, readonly, getter=fileExists)   BOOL  fileExists;
 
-@property (nonatomic, strong)   NSString        *fileName;
-@property (nonatomic, strong)   NSString        *savingPath;
+@property (nonatomic, readonly)     NSString        *fileName;
+@property (nonatomic, readonly)     NSString        *savingPath;
 
-@property (nonatomic, strong)   NSMutableArray  *mutableUsers;
+@property (nonatomic, strong)       NSMutableArray  *mutableUsers;
 
 - (void)fillWithUsers;
 
@@ -76,7 +76,7 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
     return [[NSFileManager documentDirectoryPath] stringByAppendingPathComponent:self.fileName];
 }
 
-- (BOOL)doesFileExist {
+- (BOOL)fileExists {
     return [[NSFileManager defaultManager] fileExistsAtPath:self.savingPath];
 }
 
@@ -144,7 +144,7 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 }
 
 - (void)performLoading {
-    if ([self doesFileExist]) {
+    if ([self fileExists]) {
         NSMutableArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
         
         [self.mutableUsers addObjectsFromArray:savedUsers];

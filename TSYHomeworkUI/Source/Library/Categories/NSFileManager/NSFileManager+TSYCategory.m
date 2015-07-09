@@ -10,8 +10,13 @@
 
 @implementation NSFileManager (TSYCategory)
 
-+ (NSString *)documentDirectoryPath {
++ (NSString *)documentsPath {
     return [self directoryPathWithType:NSDocumentDirectory];
+}
+
++ (NSString *)documentsPathWithFileName:(NSString *)fileName {
+    return [NSFileManager filePathWithDirectoryType:NSDocumentDirectory
+                                           fileName:fileName];
 }
 
 + (NSString *)directoryPathWithType:(NSSearchPathDirectory)type {
@@ -20,19 +25,12 @@
     return [paths firstObject];
 }
 
-+ (NSString *)documentDirectoryFilePathWithFileName:(NSString *)fileName {
-    return [NSFileManager filePathWithDirectoryType:NSDocumentDirectory
-                                           fileName:fileName];
-}
-
 + (NSString *)filePathWithDirectoryType:(NSSearchPathDirectory)directoryType
                                fileName:(NSString *)fileName
 {
     NSString *directoryPath = [NSFileManager directoryPathWithType:directoryType];
     
-    NSString *filePath = [directoryPath stringByAppendingPathComponent:fileName];
-    
-    return filePath;
+    return [directoryPath stringByAppendingPathComponent:fileName];
 }
 
 @end
