@@ -24,6 +24,7 @@
         }
         
         self.state = TSYModelWillLoad;
+        [self setst]
     }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{

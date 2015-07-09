@@ -39,18 +39,26 @@
 #pragma mark Accessors Methods
 
 - (void)setState:(NSUInteger)state {
-    [self setState:state withObject:nil];
+    [self setState:state notify:NO];
 }
 
 - (void)setState:(NSUInteger)state withObject:(id)object {
+    [self setState:state withObject:object notify:NO];
+}
+
+- (void)setState:(NSUInteger)state notify:(BOOL)shouldNotify {
+    [self setState:state withObject:nil notify:shouldNotify];
+}
+
+- (void)setState:(NSUInteger)state withObject:(id)object notify:(BOOL)shouldNotify {
     @synchronized (self) {
         if (_state != state) {
             _state = state;
-            
-//            [self notifyOfStateChange:state withObject:object];
         }
         
-        [self notifyOfStateChange:state withObject:object];
+        if (shouldNotify) {
+            [self notifyOfStateChange:state withObject:object];
+        }
     }
 }
 

@@ -20,5 +20,7 @@
 - (SEL)selectorForState:(NSUInteger)state;
 
 - (void)setState:(NSUInteger)state withObject:(id)object;
+- (void)setState:(NSUInteger)state notify:(BOOL)shouldNotify;
+- (void)setState:(NSUInteger)state withObject:(id)object notify:(BOOL)shouldNotify;
 
 @end
