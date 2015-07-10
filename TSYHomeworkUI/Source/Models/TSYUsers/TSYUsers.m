@@ -146,25 +146,6 @@ static NSString * const kFileName               = @"users";
 
 - (void)addUsersFromArray:(TSYArray *)array {
     [self.users addModelsFromArray:array];
-    
-    self.state = TSYModelDidChange;
-    
-//    NSUInteger count = array.count;
-////
-//    for (NSUInteger index = 0; index < count; index++) {
-//        [self addUser:array[index]];
-//    }
-//
-//
-//    NSUInteger index = self.count;
-//    NSIndexPath *path = [NSIndexPath indexPathForIndex:index];
-//    
-//    TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
-//                                                          changeValue:path];
-//    
-//    [self.users addModel:user];
-//    
-//    [self setState:TSYModelDidChange withObject:tableChange];
 }
 
 - (void)save {
@@ -172,15 +153,15 @@ static NSString * const kFileName               = @"users";
 }
 
 - (void)performLoading {
-//    if ([self fileExists]) {
-//        TSYArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
-//        
-//        [self addUsersFromArray:savedUsers];
-//    } else {
-//        [self fillWithUsers];
-//    }
+    if ([self fileExists]) {
+        TSYArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
+        
+        [self addUsersFromArray:savedUsers];
+    } else {
+        [self fillWithUsers];
+    }
     
-    [self fillWithUsers];
+//    [self fillWithUsers];
     
     TSYSleep(TSYUsersSleepingTime)
     
