@@ -12,23 +12,25 @@
 #import "TSYModel.h"
 
 @class TSYUser;
+@class TSYArray;
 
 @interface TSYUsers : TSYModel
-@property (nonatomic, readonly)   NSArray  *users;
+@property (nonatomic, readonly)   NSUInteger    count;
 
 + (instancetype)users;
 
 - (void)addUser:(TSYUser *)user;
 - (void)removeUser:(TSYUser *)user;
+
+- (void)insertUser:(TSYUser *)user atIndex:(NSUInteger)index;
 - (void)removeUserAtIndex:(NSUInteger)index;
 
 - (TSYUser *)userAtIndex:(NSUInteger)index;
-- (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (void)moveUserAtIndex:(NSInteger)sourceIndex
                 toIndex:(NSInteger)destinationIndex;
 
-- (NSUInteger)count;
+- (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (void)save;
 

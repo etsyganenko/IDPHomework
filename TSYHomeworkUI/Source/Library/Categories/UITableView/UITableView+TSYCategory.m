@@ -35,10 +35,16 @@
     TSYTableChangeType changeType = change.changeType;
     
     switch (changeType) {
-        case TSYTableChangeTypeAdd:
-            [self insertRowsAtIndexPaths:@[change.changeValue]
-                             withRowAnimation:UITableViewRowAnimationFade];
+        case TSYTableChangeTypeAdd:{
+            NSIndexPath *indexPath = change.changeValue;
+            
+            [self insertRowsAtIndexPaths:@[indexPath]
+                        withRowAnimation:UITableViewRowAnimationFade];
+            
+            [self scrollToRowAtIndexPath:indexPath
+                        atScrollPosition:UITableViewScrollPositionBottom animated:YES];
             break;
+        }
             
         case TSYTableChangeTypeRemove:
             [self deleteRowsAtIndexPaths:@[change.changeValue]
