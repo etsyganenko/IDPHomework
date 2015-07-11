@@ -140,12 +140,16 @@ static NSString * const kFileName               = @"users";
     [self setState:TSYModelDidChange withObject:tableChange];
 }
 
-- (id)objectAtIndexedSubscript:(NSUInteger)index {
-    return self.users[index];
-}
+//- (id)objectAtIndexedSubscript:(NSUInteger)index {
+//    return self.users[index];
+//}
 
 - (void)addUsersFromArray:(TSYArray *)array {
-    [self.users addModelsFromArray:array];
+//    [self.users addModelsFromArray:array];
+    
+    for (NSUInteger index = 0; index < array.count; index++) {
+        [self.users addModel:[array modelAtIndex:index]];
+    }
 }
 
 - (void)save {
@@ -160,8 +164,6 @@ static NSString * const kFileName               = @"users";
     } else {
         [self fillWithUsers];
     }
-    
-//    [self fillWithUsers];
     
     TSYSleep(TSYUsersSleepingTime)
     

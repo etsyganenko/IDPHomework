@@ -80,7 +80,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYTableCell *cell = [tableView cellWithClass:[TSYTableCell class]];
     
-    cell.user = self.users[indexPath.row];
+//    cell.user = self.users[indexPath.row];
+    cell.user = [self.users userAtIndex:indexPath.row];
     
     return cell;
 }

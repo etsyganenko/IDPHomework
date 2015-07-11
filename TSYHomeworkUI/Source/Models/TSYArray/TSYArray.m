@@ -84,9 +84,9 @@ static NSString * const kModelsKey               = @"modelsKey";
     return [self.models objectAtIndex:index];
 }
 
-- (id)objectAtIndexedSubscript:(NSUInteger)index {
-    return [self.models objectAtIndexedSubscript:index];
-}
+//- (id)objectAtIndexedSubscript:(NSUInteger)index {
+//    return [self.models objectAtIndexedSubscript:index];
+//}
 
 - (void)moveModelAtIndex:(NSInteger)sourceIndex
                  toIndex:(NSInteger)destinationIndex

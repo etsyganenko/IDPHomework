@@ -25,7 +25,7 @@
 
 - (NSUInteger)indexOfModel:(id)model;
 - (id)modelAtIndex:(NSUInteger)index;
-- (id)objectAtIndexedSubscript:(NSUInteger)index;
+//- (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (void)moveModelAtIndex:(NSInteger)sourceIndex
                 toIndex:(NSInteger)destinationIndex;

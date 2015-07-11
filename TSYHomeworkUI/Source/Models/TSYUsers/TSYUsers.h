@@ -30,7 +30,7 @@
 - (void)moveUserAtIndex:(NSInteger)sourceIndex
                 toIndex:(NSInteger)destinationIndex;
 
-- (id)objectAtIndexedSubscript:(NSUInteger)index;
+//- (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (void)save;
 
