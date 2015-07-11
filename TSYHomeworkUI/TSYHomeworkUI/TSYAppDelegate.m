@@ -35,7 +35,11 @@
     
     tableViewController.users = users;
     
-    window.rootViewController = tableViewController;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
+
+//    window.rootViewController = tableViewController;
+    window.rootViewController = navigationController;
+
     
     [window makeKeyAndVisible];
     

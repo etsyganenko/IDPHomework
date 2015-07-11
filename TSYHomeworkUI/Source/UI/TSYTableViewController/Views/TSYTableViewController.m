@@ -15,6 +15,7 @@
 #import "TSYUsers.h"
 #import "TSYTableChange.h"
 #import "TSYTableCellMovingPath.h"
+#import "TSYSquareViewController.h"
 
 #import "UITableView+TSYCategory.h"
 
@@ -72,6 +73,15 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 
 #pragma mark -
 #pragma mark UITableViewDataSource
+
+- (void)        tableView:(UITableView *)tableView
+  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TSYSquareViewController *controller = [TSYSquareViewController new];
+    
+    [self.navigationController pushViewController:controller animated:YES];
+    //    [self presentViewController:controller animated:YES completion:nil];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.users count];
