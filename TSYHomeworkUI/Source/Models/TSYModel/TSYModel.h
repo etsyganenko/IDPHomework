@@ -32,6 +32,7 @@ typedef NS_ENUM(NSUInteger, TSYModelState) {
 @interface TSYModel : TSYObservableObject
 
 - (void)load;
+- (void)setupLoading;
 
 // this method must be overloaded in children
 - (void)performLoading;

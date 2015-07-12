@@ -11,7 +11,6 @@
 @protocol TSYLoadingViewProtocol <NSObject>
 @property (nonatomic, assign, getter=isVisible)    BOOL        visible;
 
-@required
 - (void)show;
 - (void)hide;
 

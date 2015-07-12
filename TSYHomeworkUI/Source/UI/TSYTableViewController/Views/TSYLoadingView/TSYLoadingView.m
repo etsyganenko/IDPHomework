@@ -47,7 +47,7 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
                      }
                      completion:^(BOOL finished) {
                          if (finished) {
-                             self.visible = visible ? YES : NO;
+                             self.visible = visible;
                          }
                      }];
 }

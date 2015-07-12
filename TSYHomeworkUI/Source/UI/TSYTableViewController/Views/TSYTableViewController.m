@@ -18,6 +18,7 @@
 #import "TSYSquareViewController.h"
 
 #import "UITableView+TSYCategory.h"
+#import "NSIndexPath+TSYCategory.h"
 
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
@@ -69,6 +70,14 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     TSYTableView *view = self.mainView;
     
     [view setEditing:!view.editing animated:YES];
+}
+
+- (IBAction)onButtonUp:(id)sender {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForIndex:0];
+    
+    [self.mainView.tableView scrollToRowAtIndexPath:indexPath
+                                   atScrollPosition:UITableViewScrollPositionTop
+                                           animated:YES];
 }
 
 #pragma mark -

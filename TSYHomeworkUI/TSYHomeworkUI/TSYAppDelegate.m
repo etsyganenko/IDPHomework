@@ -39,7 +39,6 @@
 
 //    window.rootViewController = tableViewController;
     window.rootViewController = navigationController;
-
     
     [window makeKeyAndVisible];
     

@@ -20,5 +20,6 @@
 
 - (IBAction)onButtonAdd:(id)sender;
 - (IBAction)onButtonEdit:(id)sender;
+- (IBAction)onButtonUp:(id)sender;
 
 @end

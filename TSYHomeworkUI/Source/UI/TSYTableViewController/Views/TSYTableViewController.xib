@@ -46,14 +46,25 @@
                         <action selector="onButtonAdd:" destination="-1" eventType="touchUpInside" id="qvT-6W-ksp"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Edb-PH-0vn">
+                    <rect key="frame" x="289" y="210" width="31" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Up">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onButtonUp:" destination="-1" eventType="touchUpInside" id="ceg-mh-uNA"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="addButton" destination="u7N-0Q-KaH" id="vPh-ph-9JN"/>
                 <outlet property="editButton" destination="34C-tp-9mo" id="abP-Nv-kDG"/>
                 <outlet property="tableView" destination="V35-AU-1Va" id="9PL-XP-ktM"/>
+                <outlet property="upButton" destination="Edb-PH-0vn" id="tPg-UI-wDL"/>
             </connections>
-            <point key="canvasLocation" x="140" y="154"/>
+            <point key="canvasLocation" x="160" y="160"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
