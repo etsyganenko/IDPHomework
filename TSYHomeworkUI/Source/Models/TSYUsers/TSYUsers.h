@@ -25,12 +25,13 @@
 - (void)insertUser:(TSYUser *)user atIndex:(NSUInteger)index;
 - (void)removeUserAtIndex:(NSUInteger)index;
 
+- (void)addUsers:(NSArray *)users;
+- (void)removeUsers:(NSArray *)users;
+
 - (TSYUser *)userAtIndex:(NSUInteger)index;
 
 - (void)moveUserAtIndex:(NSInteger)sourceIndex
                 toIndex:(NSInteger)destinationIndex;
-
-//- (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (void)save;
 

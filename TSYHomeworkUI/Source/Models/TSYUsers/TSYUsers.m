@@ -122,6 +122,14 @@ static NSString * const kFileName               = @"users";
     [self setState:TSYModelDidChange withObject:tableChange];
 }
 
+- (void)addUsers:(NSArray *)users {
+    
+}
+
+- (void)removeUsers:(NSArray *)users {
+    
+}
+
 - (TSYUser *)userAtIndex:(NSUInteger)index {
     return [self.users modelAtIndex:index];
 }
@@ -140,13 +148,7 @@ static NSString * const kFileName               = @"users";
     [self setState:TSYModelDidChange withObject:tableChange];
 }
 
-//- (id)objectAtIndexedSubscript:(NSUInteger)index {
-//    return self.users[index];
-//}
-
-- (void)addUsersFromArray:(TSYArray *)array {
-//    [self.users addModelsFromArray:array];
-    
+- (void)addUsersFromArray:(TSYArray *)array {    
     for (NSUInteger index = 0; index < array.count; index++) {
         [self.users addModel:[array modelAtIndex:index]];
     }
