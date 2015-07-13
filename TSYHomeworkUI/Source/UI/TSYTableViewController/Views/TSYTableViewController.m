@@ -80,26 +80,27 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (IBAction)onButtonAdd:(id)sender {
-    if (!self.mainView.tableView.editing) {
-        [self.users addUser:[TSYUser user]];
-        
-        [self hideUpButtonIfNeeded];
+    UITableView *tableView = self.mainView.tableView;
+    TSYUsers *users = self.users;
+    
+    if (!tableView.editing) {
+        [users addUser:[TSYUser user]];
     } else {
-        NSArray *indexPaths = [self.mainView.tableView indexPathsForSelectedRows];
+        NSArray *indexPaths = [tableView indexPathsForSelectedRows];
         NSUInteger count = indexPaths.count;
 
-        [self.mainView.tableView beginUpdates];
+        [tableView beginUpdates];
         
         for (NSUInteger index = 0; index < count; index++) {
             NSIndexPath *path = indexPaths[index];
             
-            [self.users removeUserAtIndex:path.row];
+            [users removeUserAtIndex:path.row];
         }
         
-        [self.mainView.tableView endUpdates];
-        
-        [self hideUpButtonIfNeeded];
+        [tableView endUpdates];
     }
+    
+    [self hideUpButtonIfNeeded];
 }
 
 - (IBAction)onButtonEdit:(id)sender {

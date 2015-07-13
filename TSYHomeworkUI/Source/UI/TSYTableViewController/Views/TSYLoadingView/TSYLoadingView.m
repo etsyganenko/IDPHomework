@@ -34,6 +34,8 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
     [superview addSubview:loadingView];
     loadingView.bounds = superview.bounds;
     
+    [superview bringSubviewToFront:loadingView];
+    
     return loadingView;
 }
 
