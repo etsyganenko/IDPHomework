@@ -57,7 +57,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self.users load];
 }
 
@@ -69,13 +69,30 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark Interface Handling
 
 - (IBAction)onButtonAdd:(id)sender {
-    [self.users addUser:[TSYUser user]];
+    if (!self.mainView.tableView.editing) {
+        [self.users addUser:[TSYUser user]];
+    } else {
+        NSArray *indexPaths = [self.mainView.tableView indexPathsForSelectedRows];
+        NSUInteger count = indexPaths.count;
+
+        [self.mainView.tableView beginUpdates];
+        
+        for (NSUInteger index = 0; index < count; index++) {
+            NSIndexPath *path = indexPaths[index];
+            
+            [self.users removeUserAtIndex:path.row];
+        }
+        
+        [self.mainView.tableView endUpdates];
+    }
 }
 
 - (IBAction)onButtonEdit:(id)sender {
     TSYTableView *view = self.mainView;
     
     [view setEditing:!view.editing animated:YES];
+    
+    view.tableView.allowsMultipleSelection = YES;
 }
 
 - (IBAction)onButtonUp:(id)sender {
@@ -92,17 +109,13 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 - (void)        tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TSYTableCell *cell = [self.mainView.tableView cellForRowAtIndexPath:indexPath];
-    
-    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        [selected]
+    if (!tableView.editing) {
+        TSYSquareViewController *controller = [TSYSquareViewController new];
+        
+        [self.navigationController pushViewController:controller animated:YES];
+        
+        //    [self presentViewController:controller animated:YES completion:nil];
     }
-    
-    TSYSquareViewController *controller = [TSYSquareViewController new];
-    
-    [self.navigationController pushViewController:controller animated:YES];
-    
-    //    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

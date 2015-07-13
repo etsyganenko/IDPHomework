@@ -12,8 +12,10 @@
 #import "TSYUsers.h"
 #import "TSYUser.h"
 
-static NSString * const kDone    = @"Done";
-static NSString * const kEdit    = @"Edit";
+static NSString * const kDone       = @"Done";
+static NSString * const kEdit       = @"Edit";
+static NSString * const kAdd        = @"Add";
+static NSString * const kDelete     = @"Delete";
 
 @implementation TSYTableView
 
@@ -41,6 +43,9 @@ static NSString * const kEdit    = @"Edit";
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [self.tableView setEditing:editing animated:animated];
+    
+    [self.addButton setTitle:editing ? kDelete : kAdd
+                    forState:UIControlStateNormal];
     
     [self.editButton setTitle:editing ? kDone : kEdit
                      forState:UIControlStateNormal];
