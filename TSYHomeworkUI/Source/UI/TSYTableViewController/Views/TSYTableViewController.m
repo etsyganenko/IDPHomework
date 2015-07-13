@@ -20,6 +20,8 @@
 #import "UITableView+TSYCategory.h"
 #import "NSIndexPath+TSYCategory.h"
 
+static const NSUInteger TSYMaxDisplayedCellsCount    = 15;
+
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
 @implementation TSYTableViewController
@@ -27,10 +29,12 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES];
+    
+    [self hideUpButtonIfNeeded];
 }
 
 - (void)dealloc {
@@ -68,9 +72,18 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark -
 #pragma mark Interface Handling
 
+- (void)hideUpButtonIfNeeded {
+    UIButton *upButton = self.mainView.upButton;
+    NSUInteger cellsCount = self.users.count;
+    
+    cellsCount < TSYMaxDisplayedCellsCount ? [upButton setHidden:YES] : [upButton setHidden:NO];
+}
+
 - (IBAction)onButtonAdd:(id)sender {
     if (!self.mainView.tableView.editing) {
         [self.users addUser:[TSYUser user]];
+        
+        [self hideUpButtonIfNeeded];
     } else {
         NSArray *indexPaths = [self.mainView.tableView indexPathsForSelectedRows];
         NSUInteger count = indexPaths.count;
@@ -84,6 +97,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
         }
         
         [self.mainView.tableView endUpdates];
+        
+        [self hideUpButtonIfNeeded];
     }
 }
 
@@ -145,6 +160,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.users removeUserAtIndex:indexPath.row];
+        
+        [self hideUpButtonIfNeeded];
     }
 }
 

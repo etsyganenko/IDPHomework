@@ -12,8 +12,8 @@
 #import "TSYUsers.h"
 #import "TSYUser.h"
 
-static NSString * const kDone       = @"Done";
 static NSString * const kEdit       = @"Edit";
+static NSString * const kDone       = @"Done";
 static NSString * const kAdd        = @"Add";
 static NSString * const kDelete     = @"Delete";
 
@@ -27,7 +27,7 @@ static NSString * const kDelete     = @"Delete";
 - (void)awakeFromNib {
     [super awakeFromNib];
 
-    self.loadingView = [TSYLoadingView loadingViewWithSuperview:self];
+    self.loadingView = [TSYLoadingView loadingViewWithSuperview:self];    
 }
 
 #pragma mark -
