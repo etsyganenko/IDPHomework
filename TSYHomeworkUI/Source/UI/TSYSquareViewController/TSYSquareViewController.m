@@ -23,6 +23,11 @@ TSYViewControllerBaseViewProperty(TSYSquareViewController, TSYSquareView, mainVi
     [super viewDidLoad];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.hidesBarsOnTap = YES;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -32,6 +37,7 @@ TSYViewControllerBaseViewProperty(TSYSquareViewController, TSYSquareView, mainVi
 
 - (IBAction)onButtonNext:(id)sender {
     [self.mainView moveToNextPosition];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (IBAction)onButtonRandom:(id)sender {

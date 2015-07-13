@@ -27,6 +27,12 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 - (void)dealloc {
     self.users = nil;
 }
@@ -86,9 +92,16 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 - (void)        tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    TSYTableCell *cell = [self.mainView.tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        [selected]
+    }
+    
     TSYSquareViewController *controller = [TSYSquareViewController new];
     
     [self.navigationController pushViewController:controller animated:YES];
+    
     //    [self presentViewController:controller animated:YES completion:nil];
 }
 
