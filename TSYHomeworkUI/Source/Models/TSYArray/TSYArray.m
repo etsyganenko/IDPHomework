@@ -72,8 +72,12 @@ static NSString * const kModelsKey               = @"modelsKey";
     [self.models removeObjectAtIndex:index];
 }
 
-- (void)addModelsFromArray:(TSYArray *)array {
-    [self.models addObjectsFromArray:array.array];
+- (void)addModelsFromArray:(NSArray *)array {
+    [self.models addObjectsFromArray:array];
+}
+
+- (void)removeModels:(NSArray *)models {
+    [self.models removeObjectsInArray:models];
 }
 
 - (NSUInteger)indexOfModel:(id)model {
@@ -84,9 +88,9 @@ static NSString * const kModelsKey               = @"modelsKey";
     return [self.models objectAtIndex:index];
 }
 
-//- (id)objectAtIndexedSubscript:(NSUInteger)index {
-//    return [self.models objectAtIndexedSubscript:index];
-//}
+- (id)objectAtIndexedSubscript:(NSUInteger)index {
+    return [self.models objectAtIndexedSubscript:index];
+}
 
 - (void)moveModelAtIndex:(NSInteger)sourceIndex
                  toIndex:(NSInteger)destinationIndex

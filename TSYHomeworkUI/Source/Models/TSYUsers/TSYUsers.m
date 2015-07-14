@@ -122,6 +122,26 @@ static NSString * const kFileName               = @"users";
     [self setState:TSYModelDidChange withObject:tableChange];
 }
 
+- (void)addUsers:(TSYArray *)array {
+    NSUInteger count = array.count;
+    
+    for (NSUInteger index = 0; index < count; index++) {
+        [self.users addModel:[array modelAtIndex:index]];
+    }
+}
+
+//- (void)addUsers:(NSArray *)users {
+//    for (TSYUser *user in users) {
+//        [self.users addModel:user];
+//    }
+//}
+
+- (void)removeUsers:(NSArray *)users {
+    for (TSYUser *user in users) {
+        [self removeUser:user];
+    }
+}
+
 - (TSYUser *)userAtIndex:(NSUInteger)index {
     return [self.users modelAtIndex:index];
 }
@@ -140,18 +160,6 @@ static NSString * const kFileName               = @"users";
     [self setState:TSYModelDidChange withObject:tableChange];
 }
 
-//- (id)objectAtIndexedSubscript:(NSUInteger)index {
-//    return self.users[index];
-//}
-
-- (void)addUsersFromArray:(TSYArray *)array {
-//    [self.users addModelsFromArray:array];
-    
-    for (NSUInteger index = 0; index < array.count; index++) {
-        [self.users addModel:[array modelAtIndex:index]];
-    }
-}
-
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self.users toFile:self.savingPath];
 }
@@ -160,7 +168,8 @@ static NSString * const kFileName               = @"users";
     if ([self fileExists]) {
         TSYArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
         
-        [self addUsersFromArray:savedUsers];
+        [self addUsers:savedUsers];
+//        [self addUsers:savedUsers.array];
     } else {
         [self fillWithUsers];
     }

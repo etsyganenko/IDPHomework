@@ -87,17 +87,16 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
         [users addUser:[TSYUser user]];
     } else {
         NSArray *indexPaths = [tableView indexPathsForSelectedRows];
+        NSMutableArray *selectedUsers = [NSMutableArray array];
         NSUInteger count = indexPaths.count;
-
-        [tableView beginUpdates];
         
         for (NSUInteger index = 0; index < count; index++) {
             NSIndexPath *path = indexPaths[index];
             
-            [users removeUserAtIndex:path.row];
+            [selectedUsers addObject:[users userAtIndex:path.row]];
         }
         
-        [tableView endUpdates];
+        [users removeUsers:selectedUsers];
     }
     
     [self hideUpButtonIfNeeded];
