@@ -130,6 +130,12 @@ static NSString * const kFileName               = @"users";
     }
 }
 
+//- (void)addUsers:(NSArray *)users {
+//    for (TSYUser *user in users) {
+//        [self.users addModel:user];
+//    }
+//}
+
 - (void)removeUsers:(NSArray *)users {
     for (TSYUser *user in users) {
         [self removeUser:user];

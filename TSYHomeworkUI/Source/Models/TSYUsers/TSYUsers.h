@@ -15,7 +15,7 @@
 @class TSYArray;
 
 @interface TSYUsers : TSYModel
-@property (nonatomic, readonly)   NSUInteger    count;
+@property (nonatomic, readonly)     NSUInteger  count;
 
 + (instancetype)users;
 

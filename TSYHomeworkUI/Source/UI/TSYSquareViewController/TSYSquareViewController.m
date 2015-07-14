@@ -32,6 +32,10 @@ TSYViewControllerBaseViewProperty(TSYSquareViewController, TSYSquareView, mainVi
     [super didReceiveMemoryWarning];
 }
 
+- (void)didMoveToParentViewController:(UIViewController *)parent {
+    [parent.navigationController setNavigationBarHidden:YES];
+}
+
 #pragma mark -
 #pragma mark Interface Handling
 

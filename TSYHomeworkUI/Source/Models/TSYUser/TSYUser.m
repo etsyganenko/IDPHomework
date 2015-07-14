@@ -18,8 +18,8 @@ static NSString * const kSurnameKey         = @"surnameKey";
 static NSString * const kImagePathKey       = @"imagePathKey";
 
 @interface TSYUser ()
-@property (nonatomic, readonly)   NSString    *imageName;
-@property (nonatomic, readonly)   NSString    *imageSavingPath;
+@property (nonatomic, readonly) NSString    *imageName;
+@property (nonatomic, readonly) NSString    *imageSavingPath;
 
 @end
 
@@ -74,6 +74,7 @@ static NSString * const kImagePathKey       = @"imagePathKey";
     self = [super init];
     if (self) {
         self.image = [UIImage imageWithContentsOfFile:self.imageSavingPath];
+//        self.image = [UIImage imageWithContentsOfFile:[aDecoder decodeObjectForKey:kImagePathKey]];
         self.name = [aDecoder decodeObjectForKey:kNameKey];
         self.surname = [aDecoder decodeObjectForKey:kSurnameKey];
     }
@@ -82,11 +83,7 @@ static NSString * const kImagePathKey       = @"imagePathKey";
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    NSString *imagePath = [NSBundle pathForResource:kImageName
-                                             ofType:kImageType
-                                        inDirectory:[[NSBundle mainBundle] bundlePath]];
-    
-    [aCoder encodeObject:imagePath forKey:kImagePathKey];
+    [aCoder encodeObject:self.imageSavingPath forKey:kImagePathKey];
     [aCoder encodeObject:self.name forKey:kNameKey];
     [aCoder encodeObject:self.surname forKey:kSurnameKey];
 }
