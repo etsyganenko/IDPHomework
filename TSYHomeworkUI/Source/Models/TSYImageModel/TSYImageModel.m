@@ -9,7 +9,8 @@
 #import "TSYImageModel.h"
 
 @interface TSYImageModel ()
-@property (nonatomic, strong)   NSURL   *url;
+@property (nonatomic, strong)   NSURL       *url;
+@property (nonatomic, strong)   UIImage     *image;
 
 @end
 
