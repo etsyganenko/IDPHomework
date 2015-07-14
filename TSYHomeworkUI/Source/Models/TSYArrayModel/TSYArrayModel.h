@@ -1,5 +1,5 @@
 //
-//  TSYArray.h
+//  TSYArrayModel.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 09.07.15.
@@ -10,9 +10,9 @@
 
 #import "TSYModel.h"
 
-@interface TSYArray : TSYModel <NSCoding>
-@property (nonatomic, readonly)   NSArray       *array;
+@interface TSYArrayModel : TSYModel <NSCoding>
 @property (nonatomic, readonly)   NSUInteger    count;
+@property (nonatomic, readonly)   NSArray       *array;
 
 + (instancetype)array;
 
@@ -22,7 +22,7 @@
 - (void)insertModel:(id)model atIndex:(NSUInteger)index;
 - (void)removeModelAtIndex:(NSUInteger)index;
 
-- (void)addModelsFromArray:(NSArray *)array;
+- (void)addModelsFromArray:(NSArray *)models;
 - (void)removeModels:(NSArray *)models;
 
 - (NSUInteger)indexOfModel:(id)model;

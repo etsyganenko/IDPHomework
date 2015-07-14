@@ -32,28 +32,31 @@ TSYViewControllerBaseViewProperty(TSYSquareViewController, TSYSquareView, mainVi
     [super didReceiveMemoryWarning];
 }
 
-- (void)didMoveToParentViewController:(UIViewController *)parent {
-    [parent.navigationController setNavigationBarHidden:YES];
-}
-
 #pragma mark -
 #pragma mark Interface Handling
 
 - (IBAction)onButtonNext:(id)sender {
     [self.mainView moveToNextPosition];
+    
     self.navigationController.navigationBarHidden = YES;
 }
 
 - (IBAction)onButtonRandom:(id)sender {
     [self.mainView moveToRandomPosition];
+    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (IBAction)onButtonStart:(id)sender {
     [self.mainView startMoving];
+    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (IBAction)onButtonStop:(id)sender {
     [self.mainView stopMoving];
+    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 @end

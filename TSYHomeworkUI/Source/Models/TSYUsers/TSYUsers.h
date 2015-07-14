@@ -10,12 +10,11 @@
 #import <UIKit/UIKit.h>
 
 #import "TSYModel.h"
+#import "TSYArrayModel.h"
 
 @class TSYUser;
-@class TSYArray;
 
-@interface TSYUsers : TSYModel
-@property (nonatomic, readonly)     NSUInteger  count;
+@interface TSYUsers : TSYArrayModel
 
 + (instancetype)users;
 
@@ -25,8 +24,8 @@
 - (void)insertUser:(TSYUser *)user atIndex:(NSUInteger)index;
 - (void)removeUserAtIndex:(NSUInteger)index;
 
-- (void)addUsers:(TSYArray *)array;
-- (void)removeUsers:(NSArray *)users;
+- (void)addUsersFromArray:(NSArray *)array;
+- (void)removeUsers:(NSArray *)array;
 
 - (TSYUser *)userAtIndex:(NSUInteger)index;
 

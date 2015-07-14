@@ -13,13 +13,12 @@
 #import "TSYTableCellMovingPath.h"
 #import "TSYUser.h"
 #import "TSYMacros.h"
-#import "TSYArray.h"
 
 #import "NSMutableArray+TSYCategory.h"
 #import "NSIndexPath+TSYCategory.h"
 #import "NSFileManager+TSYCategory.h"
 
-static const NSUInteger TSYUsersSleepingTime    = 2;
+static const NSUInteger TSYUsersSleepingTime    = 1;
 static const NSUInteger TSYDefaultUsersCount    = 10;
 static NSString * const kFileName               = @"users";
 
@@ -27,7 +26,6 @@ static NSString * const kFileName               = @"users";
 @property (nonatomic, readonly, getter=fileExists)   BOOL  fileExists;
 
 @property (nonatomic, readonly)     NSString    *savingPath;
-@property (nonatomic, strong)       TSYArray    *users;
 @property (nonatomic, readonly)     NSString    *fileName;
 
 - (void)fillWithUsers;
@@ -36,7 +34,6 @@ static NSString * const kFileName               = @"users";
 
 @implementation TSYUsers
 
-@dynamic count;
 @dynamic savingPath;
 @dynamic fileExists;
 @dynamic fileName;
@@ -54,7 +51,7 @@ static NSString * const kFileName               = @"users";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.users = [TSYArray array];
+        
     }
     
     return self;
@@ -62,10 +59,6 @@ static NSString * const kFileName               = @"users";
 
 #pragma mark -
 #pragma mark Accessors
-
-- (NSUInteger)count {
-    return self.users.count;
-}
 
 - (NSString *)savingPath {
     return [NSFileManager documentsPathWithFileName:self.fileName];
@@ -83,95 +76,61 @@ static NSString * const kFileName               = @"users";
 #pragma mark Public Methods
 
 - (void)addUser:(TSYUser *)user {
-    NSUInteger index = self.count;
-    NSIndexPath *path = [NSIndexPath indexPathForIndex:index];
-    
-    TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
-                                                          changeValue:path];
-    
-    [self.users addModel:user];
-    
-    [self setState:TSYModelDidChange withObject:tableChange];
+    [self addModel:user];
 }
 
 - (void)removeUser:(TSYUser *)user {
-    NSUInteger index = [self.users indexOfModel:user];
-    
-    [self removeUserAtIndex:index];
+    [self removeModelAtIndex:[self indexOfModel:user]];
 }
 
 - (void)insertUser:(TSYUser *)user atIndex:(NSUInteger)index {
-    NSIndexPath *path = [NSIndexPath indexPathForIndex:index];
-    
-    TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeAdd
-                                                          changeValue:path];
-    
-    [self.users insertModel:user atIndex:index];
-    
-    [self setState:TSYModelDidChange withObject:tableChange];
+    [self insertModel:user atIndex:index];
 }
 
 - (void)removeUserAtIndex:(NSUInteger)index {
-    NSIndexPath *path = [NSIndexPath indexPathForIndex:index];
-    
-    TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeRemove
-                                                          changeValue:path];
-    
-    [self.users removeModelAtIndex:index];
-    
-    [self setState:TSYModelDidChange withObject:tableChange];
+    [self removeModelAtIndex:index];
 }
 
-- (void)addUsers:(TSYArray *)array {
-    NSUInteger count = array.count;
-    
-    for (NSUInteger index = 0; index < count; index++) {
-        [self.users addModel:[array modelAtIndex:index]];
-    }
-}
-
-//- (void)addUsers:(NSArray *)users {
-//    for (TSYUser *user in users) {
-//        [self.users addModel:user];
+- (void)addUsersFromArray:(NSArray *)array {
+//    for (TSYUser *user in array) {
+//        [self addUser:user];
 //    }
-//}
 
-- (void)removeUsers:(NSArray *)users {
-    for (TSYUser *user in users) {
-        [self removeUser:user];
-    }
+    [self addModelsFromArray:array];
+}
+
+- (void)removeUsers:(NSArray *)array {
+//    for (TSYUser *user in users) {
+//        [self removeUser:user];
+//    }
+    
+    [self removeModels:array];
 }
 
 - (TSYUser *)userAtIndex:(NSUInteger)index {
-    return [self.users modelAtIndex:index];
+    return [self modelAtIndex:index];
 }
 
 - (void)moveUserAtIndex:(NSInteger)sourceIndex
                 toIndex:(NSInteger)destinationIndex
 {
-    TSYTableCellMovingPath *movingPath = [TSYTableCellMovingPath movingPathWithSourceIndex:sourceIndex
-                                                                          destinationIndex:destinationIndex];
-    
-    TSYTableChange *tableChange = [TSYTableChange tableChangeWithType:TSYTableChangeTypeMove
-                                                          changeValue:movingPath];
-    
-    [self.users moveModelAtIndex:sourceIndex toIndex:destinationIndex];
-    
-    [self setState:TSYModelDidChange withObject:tableChange];
+    [self moveModelAtIndex:sourceIndex toIndex:destinationIndex];
 }
 
 - (void)save {
-    [NSKeyedArchiver archiveRootObject:self.users toFile:self.savingPath];
+    [NSKeyedArchiver archiveRootObject:self.array toFile:self.savingPath];
 }
 
 - (void)performLoading {
     if ([self fileExists]) {
-        TSYArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
-        
-        [self addUsers:savedUsers];
+        NSArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
+
+        [self addUsersFromArray:savedUsers];
     } else {
         [self fillWithUsers];
     }
+    
+//    [self fillWithUsers];
     
     TSYSleep(TSYUsersSleepingTime)
     
@@ -183,7 +142,7 @@ static NSString * const kFileName               = @"users";
 
 - (void)fillWithUsers {
     for (NSUInteger index = 0; index < TSYDefaultUsersCount; index++) {
-        [self.users addModel:[TSYUser user]];
+        [self addUser:[TSYUser user]];
     }
 }
 
