@@ -25,8 +25,6 @@
 - (void)insertUser:(TSYUser *)user atIndex:(NSUInteger)index;
 - (void)removeUserAtIndex:(NSUInteger)index;
 
-//- (void)addUsers:(NSArray *)users;
-
 - (void)addUsers:(TSYArray *)array;
 - (void)removeUsers:(NSArray *)users;
 

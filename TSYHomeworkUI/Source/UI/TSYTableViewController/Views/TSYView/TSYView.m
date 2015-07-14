@@ -26,6 +26,8 @@
 
 - (void)showLoadingView {
     [self.loadingView show];
+    
+    [self bringSubviewToFront:self.loadingView];
 }
 
 - (void)hideLoadingView {
