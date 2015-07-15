@@ -15,12 +15,12 @@
 
 + (instancetype)cache;
 
-- (void)addImage:(id)image withURL:(NSURL *)url;
-- (void)removeImageWithURL:(NSURL *)url;
+- (void)addImageModel:(TSYImageModel *)image withURL:(NSURL *)url;
+- (void)removeImageModelWithURL:(NSURL *)url;
 
-- (id)imageWithURL:(NSURL *)url;
+- (id)imageModelWithURL:(NSURL *)url;
 
-- (BOOL)containsImageWithURL:(NSURL *)url;
+- (BOOL)containsImageModelWithURL:(NSURL *)url;
 
 - (void)clearCache;
 

@@ -60,20 +60,6 @@
     }
 }
 
-//- (void)setState:(NSUInteger)state withObject:(id)object notify:(BOOL)shouldNotify {
-//    @synchronized (self) {
-//        if (_state != state) {
-//            _state = state;
-//
-//            [self notifyOfStateChange:state withObject:object];
-//        }
-//
-//        if (shouldNotify) {
-//            [self notifyOfStateChange:state withObject:object];
-//        }
-//    }
-//}
-
 - (NSUInteger)state {
     @synchronized (self) {
         return _state;
