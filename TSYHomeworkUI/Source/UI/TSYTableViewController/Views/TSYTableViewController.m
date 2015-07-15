@@ -94,9 +94,9 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
         for (NSUInteger index = 0; index < count; index++) {
             NSIndexPath *path = indexPaths[index];
             
-            [selectedUsers addObject:[users userAtIndex:path.row]];
+            [selectedUsers addObject:users[path.row]];
         }
-        
+
         [users removeUsers:selectedUsers];
     }
     
@@ -141,8 +141,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYTableCell *cell = [tableView cellWithClass:[TSYTableCell class]];
     
-//    cell.user = self.users[indexPath.row];
-    cell.user = [self.users userAtIndex:indexPath.row];
+    cell.user = self.users[indexPath.row];
     
     return cell;
 }

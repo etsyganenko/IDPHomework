@@ -28,6 +28,7 @@
 - (void)removeUsers:(NSArray *)array;
 
 - (TSYUser *)userAtIndex:(NSUInteger)index;
+- (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (void)moveUserAtIndex:(NSInteger)sourceIndex
                 toIndex:(NSInteger)destinationIndex;

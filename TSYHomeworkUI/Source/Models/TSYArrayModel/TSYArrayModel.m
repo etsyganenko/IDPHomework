@@ -101,10 +101,6 @@ static NSString * const kModelsKey               = @"modelsKey";
 
 - (void)addModelsFromArray:(NSArray *)models {
     [self.models addObjectsFromArray:models];
-    
-//    for (id model in models) {
-//        [self addModel:model];
-//    }
 }
 
 - (void)removeModels:(NSArray *)models {

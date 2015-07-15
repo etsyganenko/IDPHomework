@@ -92,23 +92,19 @@ static NSString * const kFileName               = @"users";
 }
 
 - (void)addUsersFromArray:(NSArray *)array {
-//    for (TSYUser *user in array) {
-//        [self addUser:user];
-//    }
-
     [self addModelsFromArray:array];
 }
 
 - (void)removeUsers:(NSArray *)array {
-//    for (TSYUser *user in users) {
-//        [self removeUser:user];
-//    }
-    
     [self removeModels:array];
 }
 
 - (TSYUser *)userAtIndex:(NSUInteger)index {
     return [self modelAtIndex:index];
+}
+
+- (id)objectAtIndexedSubscript:(NSUInteger)index {
+    return [self.array objectAtIndexedSubscript:index];
 }
 
 - (void)moveUserAtIndex:(NSInteger)sourceIndex
@@ -129,8 +125,6 @@ static NSString * const kFileName               = @"users";
     } else {
         [self fillWithUsers];
     }
-    
-//    [self fillWithUsers];
     
     TSYSleep(TSYUsersSleepingTime)
     
