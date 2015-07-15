@@ -21,6 +21,7 @@
 		849FB4B61B28E98E0096D0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4AB1B28E98E0096D0AD /* Images.xcassets */; };
 		849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB4BD1B28ED760096D0AD /* TSYAppDelegate.m */; };
 		84A10F8B1B5651A5007CE765 /* TSYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A10F8A1B5651A5007CE765 /* TSYCache.m */; };
+		84A10F8F1B5657A9007CE765 /* TSYImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A10F8E1B5657A9007CE765 /* TSYImageView.m */; };
 		84A1467B1B55A87700439875 /* TSYArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1467A1B55A87700439875 /* TSYArrayModel.m */; };
 		84A196311B321AF900C5CE0E /* TSYTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1962B1B321AF900C5CE0E /* TSYTableView.m */; };
 		84A196321B321AF900C5CE0E /* TSYTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1962D1B321AF900C5CE0E /* TSYTableViewController.m */; };
@@ -87,6 +88,8 @@
 		849FB4BD1B28ED760096D0AD /* TSYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAppDelegate.m; sourceTree = "<group>"; };
 		84A10F891B5651A5007CE765 /* TSYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYCache.h; sourceTree = "<group>"; };
 		84A10F8A1B5651A5007CE765 /* TSYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYCache.m; sourceTree = "<group>"; };
+		84A10F8D1B5657A9007CE765 /* TSYImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYImageView.h; sourceTree = "<group>"; };
+		84A10F8E1B5657A9007CE765 /* TSYImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYImageView.m; sourceTree = "<group>"; };
 		84A146791B55A87700439875 /* TSYArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYArrayModel.h; sourceTree = "<group>"; };
 		84A1467A1B55A87700439875 /* TSYArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYArrayModel.m; sourceTree = "<group>"; };
 		84A1962A1B321AF900C5CE0E /* TSYTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYTableView.h; sourceTree = "<group>"; };
@@ -285,6 +288,15 @@
 			path = TSYCache;
 			sourceTree = "<group>";
 		};
+		84A10F8C1B56575E007CE765 /* TSYImageView */ = {
+			isa = PBXGroup;
+			children = (
+				84A10F8D1B5657A9007CE765 /* TSYImageView.h */,
+				84A10F8E1B5657A9007CE765 /* TSYImageView.m */,
+			);
+			path = TSYImageView;
+			sourceTree = "<group>";
+		};
 		84A146781B55A87700439875 /* TSYArrayModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +309,7 @@
 		84A196251B321AF900C5CE0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84A10F8C1B56575E007CE765 /* TSYImageView */,
 				84A3D3601B45D66D00140504 /* TSYView */,
 				84A30E641B434CE1005F8EA6 /* TSYLoadingView */,
 				84A1C3021B341B4200DC7198 /* TSYTableCell */,
@@ -714,6 +727,7 @@
 				849F68B31B55438A007DCFDE /* TSYImageModel.m in Sources */,
 				849F72421B3C247000869AD4 /* UITableView+TSYCategory.m in Sources */,
 				84BF5F181B32FB0100932154 /* NSString+TSYAlphabet.m in Sources */,
+				84A10F8F1B5657A9007CE765 /* TSYImageView.m in Sources */,
 				84A10F8B1B5651A5007CE765 /* TSYCache.m in Sources */,
 				849FB4A01B28E9460096D0AD /* main.m in Sources */,
 				84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */,

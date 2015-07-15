@@ -11,7 +11,7 @@
 #import "TSYImageModel.h"
 
 @interface TSYCache ()
-@property (nonatomic, strong)   NSHashTable     *imageModels;
+@property (nonatomic, strong)   NSMapTable     *imageModels;
 
 @end
 
@@ -32,7 +32,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.imageModels = [NSHashTable weakObjectsHashTable];
+        self.imageModels = [NSMapTable strongToWeakObjectsMapTable];
     }
     
     return self;
@@ -42,30 +42,34 @@
 #pragma mark Accessors
 
 - (NSUInteger)count {
-    return [self.imageModels count];
+    return self.imageModels.count;
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addImageModel:(TSYImageModel *)imageModel {
+- (void)addImageModel:(TSYImageModel *)imageModel withURL:(NSURL *)url {
     @synchronized (self) {
-        [self.imageModels addObject:imageModel];
+        [self.imageModels setObject:imageModel forKey:url];
     }
 }
 
-- (void)removeImageModel:(TSYImageModel *)imageModel {
+- (void)removeImageModelWithURL:(NSURL *)url {
     @synchronized (self) {
-        [self.imageModels removeObject:imageModel];
+        [self.imageModels removeObjectForKey:url];
     }
 }
 
 - (TSYImageModel *)imageModelWithURL:(NSURL *)url {
-    return nil;
+    @synchronized (self) {
+        return [self.imageModels objectForKey:url];
+    }
 }
 
 - (BOOL)containsImageModelWithURL:(NSURL *)url {
-    return NO;
+    @synchronized (self) {
+        return nil != [self.imageModels objectForKey:url];
+    }
 }
 
 - (void)clearCache {

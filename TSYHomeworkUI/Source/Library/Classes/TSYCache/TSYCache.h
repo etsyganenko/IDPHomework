@@ -15,8 +15,8 @@
 
 + (instancetype)cache;
 
-- (void)addImageModel:(TSYImageModel *)imageModel;
-- (void)removeImageModel:(TSYImageModel *)imageModel;
+- (void)addImageModel:(TSYImageModel *)imageModel withURL:(NSURL *)url;
+- (void)removeImageModelWithURL:(NSURL *)url;
 
 - (TSYImageModel *)imageModelWithURL:(NSURL *)url;
 
