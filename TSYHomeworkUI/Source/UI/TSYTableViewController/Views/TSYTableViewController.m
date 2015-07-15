@@ -74,10 +74,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark Interface Handling
 
 - (void)hideUpButtonIfNeeded {
-    UIButton *upButton = self.mainView.upButton;
-    NSUInteger cellsCount = self.users.count;
-    
-    cellsCount < TSYMaxDisplayedCellsCount ? [upButton setHidden:YES] : [upButton setHidden:NO];
+    self.mainView.upButton.hidden = self.users.count < TSYMaxDisplayedCellsCount;
 }
 
 - (IBAction)onButtonAdd:(id)sender {
@@ -85,7 +82,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     TSYUsers *users = self.users;
     
     if (!tableView.editing) {
-        [users addUser:[TSYUser user]];
+        [users addModel:[TSYUser new]];
     } else {
         NSArray *indexPaths = [tableView indexPathsForSelectedRows];
         NSMutableArray *selectedUsers = [NSMutableArray array];
@@ -97,7 +94,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
             [selectedUsers addObject:users[path.row]];
         }
 
-        [users removeUsers:selectedUsers];
+        [users removeModels:selectedUsers];
     }
     
     [self hideUpButtonIfNeeded];
@@ -159,7 +156,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.users removeUserAtIndex:indexPath.row];
+        [self.users removeModelAtIndex:indexPath.row];
         
         [self hideUpButtonIfNeeded];
     }
@@ -169,8 +166,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
    moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
           toIndexPath:(NSIndexPath *)toIndexPath
 {
-    [self.users moveUserAtIndex:fromIndexPath.row
-                        toIndex:toIndexPath.row];
+    [self.users moveModelAtIndex:fromIndexPath.row
+                         toIndex:toIndexPath.row];
 }
 
 #pragma mark -

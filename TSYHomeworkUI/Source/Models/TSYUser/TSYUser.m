@@ -59,18 +59,6 @@ static NSString * const kImageURL           = @"https://d1u1p2xjjiahg3.cloudfron
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setImageModel:(TSYImageModel *)imageModel {
-    if (_imageModel != imageModel) {
-        [_imageModel removeObserver:self];
-        
-        _imageModel = imageModel;
-        
-        [_imageModel addObserver:self];
-        
-        [_imageModel load];
-    }
-}
-
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
 }
@@ -87,26 +75,6 @@ static NSString * const kImageURL           = @"https://d1u1p2xjjiahg3.cloudfron
 
 - (NSURL *)imageURL {
     return [NSURL URLWithString:kImageURL];
-}
-
-#pragma mark -
-#pragma mark Public Methods
-
-- (void)performLoading {
-    [self.imageModel load];
-}
-
-#pragma mark -
-#pragma mark TSYModelObserver
-
-- (void)modelDidLoad:(TSYImageModel *)imageModel {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.state = TSYModelDidLoad;
-    });
-}
-
-- (void)modelDidFailLoading:(TSYImageModel *)imageModel {
-    [self.imageModel load];
 }
 
 #pragma mark -

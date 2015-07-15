@@ -29,37 +29,10 @@
 
 - (void)setUser:(TSYUser *)user {
     if (_user != user) {
-        [_user removeObserver:self];
-        
         _user = user;
         
-        [_user addObserver:self];
-        
-        [_user load];
-    }
-}
-
-#pragma mark -
-#pragma mark TSYModelObserver
-
-- (void)modelWillLoad:(TSYUser *)user {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.userImageView showLoadingView];
-    });
-}
-
-- (void)modelDidLoad:(TSYUser *)user {
-    TSYImageView *imageView = self.userImageView;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [imageView hideLoadingView];
-        
         [self fillWithUser:user];
-    });
-}
-
-- (void)modelDidFailLoading:(TSYUser *)user {
-    [self.user load];
+    }
 }
 
 @end
