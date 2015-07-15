@@ -29,7 +29,7 @@
 
 //    window.rootViewController = [TSYSquareViewController new];
     TSYTableViewController *tableViewController = [TSYTableViewController new];
-    TSYUsers *users = [TSYUsers users];
+    TSYUsers *users = [TSYUsers new];
     
     self.users = users;
     

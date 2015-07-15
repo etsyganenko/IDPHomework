@@ -16,23 +16,6 @@
 
 @interface TSYUsers : TSYArrayModel
 
-+ (instancetype)users;
-
-- (void)addUser:(TSYUser *)user;
-- (void)removeUser:(TSYUser *)user;
-
-- (void)insertUser:(TSYUser *)user atIndex:(NSUInteger)index;
-- (void)removeUserAtIndex:(NSUInteger)index;
-
-- (void)addUsersFromArray:(NSArray *)array;
-- (void)removeUsers:(NSArray *)array;
-
-- (TSYUser *)userAtIndex:(NSUInteger)index;
-- (id)objectAtIndexedSubscript:(NSUInteger)index;
-
-- (void)moveUserAtIndex:(NSInteger)sourceIndex
-                toIndex:(NSInteger)destinationIndex;
-
 - (void)save;
 
 @end

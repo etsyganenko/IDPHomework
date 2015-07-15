@@ -39,25 +39,6 @@ static NSString * const kFileName               = @"users";
 @dynamic fileName;
 
 #pragma mark -
-#pragma mark Class Methods
-
-+ (instancetype)users {
-    return [TSYUsers new];
-}
-
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        
-    }
-    
-    return self;
-}
-
-#pragma mark -
 #pragma mark Accessors
 
 - (NSString *)savingPath {
@@ -75,44 +56,6 @@ static NSString * const kFileName               = @"users";
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addUser:(TSYUser *)user {
-    [self addModel:user];
-}
-
-- (void)removeUser:(TSYUser *)user {
-    [self removeModelAtIndex:[self indexOfModel:user]];
-}
-
-- (void)insertUser:(TSYUser *)user atIndex:(NSUInteger)index {
-    [self insertModel:user atIndex:index];
-}
-
-- (void)removeUserAtIndex:(NSUInteger)index {
-    [self removeModelAtIndex:index];
-}
-
-- (void)addUsersFromArray:(NSArray *)array {
-    [self addModelsFromArray:array];
-}
-
-- (void)removeUsers:(NSArray *)array {
-    [self removeModels:array];
-}
-
-- (TSYUser *)userAtIndex:(NSUInteger)index {
-    return [self modelAtIndex:index];
-}
-
-- (id)objectAtIndexedSubscript:(NSUInteger)index {
-    return [self.array objectAtIndexedSubscript:index];
-}
-
-- (void)moveUserAtIndex:(NSInteger)sourceIndex
-                toIndex:(NSInteger)destinationIndex
-{
-    [self moveModelAtIndex:sourceIndex toIndex:destinationIndex];
-}
-
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self.array toFile:self.savingPath];
 }
@@ -121,7 +64,7 @@ static NSString * const kFileName               = @"users";
     if ([self fileExists]) {
         NSArray *savedUsers = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savingPath];
 
-        [self addUsersFromArray:savedUsers];
+        [self addModelsFromArray:savedUsers];
     } else {
         [self fillWithUsers];
     }
@@ -136,7 +79,7 @@ static NSString * const kFileName               = @"users";
 
 - (void)fillWithUsers {
     for (NSUInteger index = 0; index < TSYDefaultUsersCount; index++) {
-        [self addUser:[TSYUser user]];
+        [self addModel:[TSYUser new]];
     }
 }
 
