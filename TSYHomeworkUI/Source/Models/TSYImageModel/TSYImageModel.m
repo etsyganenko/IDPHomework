@@ -8,9 +8,13 @@
 
 #import "TSYImageModel.h"
 
+#import "TSYCache.h"
+
 @interface TSYImageModel ()
 @property (nonatomic, strong)   NSURL       *url;
 @property (nonatomic, strong)   UIImage     *image;
+
+@property (nonatomic, strong)   TSYCache    *cache;
 
 @end
 
@@ -19,7 +23,7 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)imageWithURL:(NSURL *)url {
++ (instancetype)imageModelWithURL:(NSURL *)url {
     return [[self alloc] initWithURL:url];
 }
 

@@ -11,11 +11,14 @@
 
 #import "TSYModel.h"
 
-@interface TSYUser : TSYModel
-@property (nonatomic, readonly) NSString    *fullName;
-@property (nonatomic, copy)     NSString    *name;
-@property (nonatomic, copy)     NSString    *surname;
-@property (nonatomic, strong)   UIImage     *image;
+@class TSYImageModel;
+
+@interface TSYUser : TSYModel <TSYModelObserver>
+@property (nonatomic, readonly)     NSString        *fullName;
+@property (nonatomic, copy)         NSString        *name;
+@property (nonatomic, copy)         NSString        *surname;
+
+@property (nonatomic, readonly)     TSYImageModel   *imageModel;
 
 // returns user with random name and surname
 + (instancetype)user;

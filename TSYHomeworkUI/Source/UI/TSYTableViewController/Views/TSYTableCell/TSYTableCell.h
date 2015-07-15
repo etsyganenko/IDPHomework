@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import "TSYTableViewCell.h"
+#import "TSYModel.h"
 
 @class TSYUser;
+@class TSYImageView;
 
-@interface TSYTableCell : UITableViewCell
-@property (nonatomic, strong)   IBOutlet UIImageView    *userImageView;
+@interface TSYTableCell : UITableViewCell <TSYModelObserver>
+@property (nonatomic, strong)   IBOutlet TSYImageView   *userImageView;
 @property (nonatomic, strong)   IBOutlet UILabel        *fullNameLabel;
 
 @property (nonatomic, strong)   TSYUser                 *user;

@@ -23,7 +23,21 @@
 #pragma mark Class Methods
 
 + (instancetype)cache {
-    return [TSYCache new];
+    static TSYCache *cache = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        cache = [TSYCache new];
+    });
+
+    return cache;
+    
+    
+//    if (nil == cache) {
+//        cache = [TSYCache new];
+//    }
+//    
+//    return cache;
 }
 
 #pragma mark -
