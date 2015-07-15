@@ -20,15 +20,14 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="30k-OP-r5f">
-                        <rect key="frame" x="0.0" y="0.0" width="60" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jDj-bN-Dsj">
+                        <rect key="frame" x="0.0" y="0.0" width="61" height="43"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="fullNameLabel" destination="agR-UB-BaR" id="lys-t7-kFJ"/>
-                <outlet property="userImageView" destination="30k-OP-r5f" id="dMJ-vC-KSp"/>
             </connections>
             <point key="canvasLocation" x="140" y="155"/>
         </tableViewCell>

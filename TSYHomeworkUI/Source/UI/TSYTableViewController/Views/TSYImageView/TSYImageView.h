@@ -7,8 +7,12 @@
 //
 
 #import "TSYView.h"
+#import "TSYModel.h"
 
-@interface TSYImageView : TSYView
-@property (nonatomic, strong)   IBOutlet UIImage     *image;
+@class TSYImageModel;
+
+@interface TSYImageView : TSYView <TSYModelObserver>
+@property (nonatomic, strong)   IBOutlet UIImageView        *imageView;
+@property (nonatomic, strong)   IBOutlet TSYImageModel      *imageModel;
 
 @end

@@ -8,6 +8,42 @@
 
 #import "TSYImageView.h"
 
+#import "TSYImageModel.h"
+
 @implementation TSYImageView
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setImageModel:(TSYImageModel *)imageModel {
+    if (_imageModel != imageModel) {
+        [_imageModel removeObserver:self];
+        
+        _imageModel = imageModel;
+        
+        [_imageModel addObserver:self];
+        
+        [_imageModel load];
+    }
+}
+
+#pragma mark -
+#pragma mark TSYModelObserver
+
+- (void)modelWillLoad:(TSYImageModel *)imageModel {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self showLoadingView];
+    });
+}
+
+- (void)modelDidLoad:(TSYImageModel *)imageModel {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self hideLoadingView];
+    });
+}
+
+- (void)modelDidFailLoading:(TSYModel *)model {
+    [self.imageModel load];
+}
 
 @end
