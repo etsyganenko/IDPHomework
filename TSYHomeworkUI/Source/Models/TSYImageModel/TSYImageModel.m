@@ -10,6 +10,8 @@
 
 #import "TSYCache.h"
 
+static NSString * const kIdentifier   = @"identifier";
+
 @interface TSYImageModel ()
 @property (nonatomic, strong)   NSURL       *url;
 @property (nonatomic, strong)   UIImage     *image;
@@ -39,8 +41,30 @@
     return self;
 }
 
-- (void)load {
+- (void)performLoading {
+    TSYCache *cache = self.cache;
+    NSURL *url = self.url;
     
+    if ([cache containsImageWithURL:url]) {
+        self.image = [cache imageWithURL:url];
+    } else {
+        UIImage *image = [self imageFromURL];
+        
+        [self.cache addImage:image withURL:self.url];
+    }
+}
+
+- (id)imageFromURL {
+    NSURL *url = self.url;
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:kIdentifier];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    
+    NSURLSessionDownloadTask *task = [session downloadTaskWithURL:url];
+    
+    [task resume];
+    
+    return [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
 }
 
 @end

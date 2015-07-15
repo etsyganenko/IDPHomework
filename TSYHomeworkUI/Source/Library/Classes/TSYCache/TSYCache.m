@@ -11,7 +11,7 @@
 #import "TSYImageModel.h"
 
 @interface TSYCache ()
-@property (nonatomic, strong)   NSMapTable     *imageModels;
+@property (nonatomic, strong)   NSMapTable     *images;
 
 @end
 
@@ -46,7 +46,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.imageModels = [NSMapTable strongToWeakObjectsMapTable];
+        self.images = [NSMapTable strongToWeakObjectsMapTable];
     }
     
     return self;
@@ -56,39 +56,39 @@
 #pragma mark Accessors
 
 - (NSUInteger)count {
-    return self.imageModels.count;
+    return self.images.count;
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addImageModel:(TSYImageModel *)imageModel withURL:(NSURL *)url {
+- (void)addImage:(id)image withURL:(NSURL *)url {
     @synchronized (self) {
-        [self.imageModels setObject:imageModel forKey:url];
+        [self.images setObject:image forKey:url];
     }
 }
 
-- (void)removeImageModelWithURL:(NSURL *)url {
+- (void)removeImageWithURL:(NSURL *)url {
     @synchronized (self) {
-        [self.imageModels removeObjectForKey:url];
+        [self.images removeObjectForKey:url];
     }
 }
 
-- (TSYImageModel *)imageModelWithURL:(NSURL *)url {
+- (id)imageWithURL:(NSURL *)url {
     @synchronized (self) {
-        return [self.imageModels objectForKey:url];
+        return [self.images objectForKey:url];
     }
 }
 
-- (BOOL)containsImageModelWithURL:(NSURL *)url {
+- (BOOL)containsImageWithURL:(NSURL *)url {
     @synchronized (self) {
-        return nil != [self.imageModels objectForKey:url];
+        return nil != [self.images objectForKey:url];
     }
 }
 
 - (void)clearCache {
     @synchronized (self) {
-        [self.imageModels removeAllObjects];
+        [self.images removeAllObjects];
     }
 }
 
