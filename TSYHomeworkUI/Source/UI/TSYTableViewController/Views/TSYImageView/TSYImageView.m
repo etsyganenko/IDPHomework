@@ -21,10 +21,19 @@
         
         _imageModel = imageModel;
         
+        [self fillWithModel:imageModel];
+        
         [_imageModel addObserver:self];
         
         [_imageModel load];
     }
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)fillWithModel:(TSYImageModel *)model {
+    self.imageView.image = model.image;
 }
 
 #pragma mark -
@@ -39,6 +48,8 @@
 - (void)modelDidLoad:(TSYImageModel *)imageModel {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self hideLoadingView];
+        
+        [self fillWithModel:imageModel];
     });
 }
 
