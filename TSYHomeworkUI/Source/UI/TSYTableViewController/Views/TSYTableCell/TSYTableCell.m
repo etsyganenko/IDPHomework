@@ -24,8 +24,7 @@
 
 - (void)fillWithUser:(TSYUser *)user {
     self.fullNameLabel.text = user.fullName;
-//    self.userImageView.imageModel = user.imageModel;
-    self.userImageView.imageModel = [TSYImageModel imageModelWithURL:[NSURL URLWithString:@"https://d1u1p2xjjiahg3.cloudfront.net/30916648-2ea7-494f-8ceb-5aa2bb1b98b6.jpg"]];
+    self.userImageView.imageModel = user.imageModel;
 }
 
 - (void)setUser:(TSYUser *)user {

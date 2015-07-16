@@ -9,12 +9,22 @@
 #import "TSYImageModel.h"
 
 #import "TSYCache.h"
+#import "TSYMacros.h"
+
+#import "NSFileManager+TSYCategory.h"
+
+static NSString * const kFileName       = @"image";
 
 @interface TSYImageModel ()
-@property (nonatomic, strong)   NSURL       *url;
-@property (nonatomic, strong)   UIImage     *image;
+@property (nonatomic, strong)   NSURLSession    *session;
+@property (nonatomic, strong)   TSYCache        *cache;
+@property (nonatomic, strong)   NSURL           *url;
+@property (nonatomic, readonly) NSString        *fileName;
+@property (nonatomic, strong)   UIImage         *image;
+@property (nonatomic, readonly) NSString        *savingPath;
 
-@property (nonatomic, strong)   TSYCache    *cache;
+- (void)performDownloading;
+- (void)cancel;
 
 @end
 
@@ -34,9 +44,31 @@
     self = [super init];
     if (self) {
         self.url = url;
+        
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+        
+        self.session = [NSURLSession sessionWithConfiguration:configuration];
+        
+        self.cache = [TSYCache cache];
+        [self.cache addImageModel:self withURL:url];
     }
     
     return self;
+}
+
+- (void)dealloc {
+    [self.cache removeImageModelWithURL:self.url];
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSString *)savingPath {
+    return [NSFileManager documentsPathWithFileName:self.fileName];
+}
+
+- (NSString *)fileName {
+    return kFileName;
 }
 
 - (void)performLoading {
@@ -46,25 +78,27 @@
     if ([cache containsImageModelWithURL:url]) {
         self.image = [cache imageModelWithURL:url];
     } else {
-        UIImage *image = [self imageFromURL];
-        
-//        [self.cache addImageModel:image withURL:self.url];
+        UIImage *image = [UIImage imageWithContentsOfFile:self.savingPath];
     }
 }
 
-- (id)imageFromURL {
-    NSURL *url = self.url;
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-    
-    NSURLSessionDownloadTask *task = [session downloadTaskWithURL:url
+- (void)performDownloading {
+    NSURLSessionDownloadTask *task = [self.session downloadTaskWithURL:self.url
                                                 completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error){
+                                                    NSData *data = [NSData dataWithContentsOfURL:location];
+                                                    
+                                                    [[NSFileManager defaultManager] createFileAtPath:self.savingPath
+                                                                                            contents:data
+                                                                                          attributes:nil];
+                                                    
                                                     self.state = TSYModelDidLoad;
                                                 }];
     
     [task resume];
-    return nil;
+}
+
+- (void)cancel {
+    
 }
 
 @end

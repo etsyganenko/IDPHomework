@@ -12,7 +12,7 @@
 @class TSYImageModel;
 
 @interface TSYImageView : TSYView <TSYModelObserver>
-@property (nonatomic, strong)   IBOutlet UIImageView        *imageView;
-@property (nonatomic, strong)   IBOutlet TSYImageModel      *imageModel;
+@property (nonatomic, strong)   IBOutlet UIImageView    *imageView;
+@property (nonatomic, strong)   TSYImageModel           *imageModel;
 
 @end
