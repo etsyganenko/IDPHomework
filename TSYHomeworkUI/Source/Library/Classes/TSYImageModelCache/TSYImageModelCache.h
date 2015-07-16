@@ -1,5 +1,5 @@
 //
-//  TSYCache.h
+//  TSYImageModelCache.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 15.07.15.
@@ -10,10 +10,10 @@
 
 @class TSYImageModel;
 
-@interface TSYCache : NSObject
+@interface TSYImageModelCache : NSObject
 @property (nonatomic, readonly) NSUInteger  count;
 
-+ (instancetype)cache;
++ (instancetype)sharedCache;
 
 - (void)addImageModel:(TSYImageModel *)image withURL:(NSURL *)url;
 - (void)removeImageModelWithURL:(NSURL *)url;
@@ -21,7 +21,5 @@
 - (id)imageModelWithURL:(NSURL *)url;
 
 - (BOOL)containsImageModelWithURL:(NSURL *)url;
-
-- (void)clearCache;
 
 @end

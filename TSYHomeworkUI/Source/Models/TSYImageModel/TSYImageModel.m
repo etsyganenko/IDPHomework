@@ -8,7 +8,7 @@
 
 #import "TSYImageModel.h"
 
-#import "TSYCache.h"
+#import "TSYImageModelCache.h"
 #import "TSYMacros.h"
 
 #import "NSFileManager+TSYCategory.h"
@@ -17,7 +17,7 @@ static NSString * const kFileName       = @"image";
 
 @interface TSYImageModel ()
 @property (nonatomic, strong)   NSURLSession    *session;
-@property (nonatomic, strong)   TSYCache        *cache;
+@property (nonatomic, strong)   TSYImageModelCache        *cache;
 @property (nonatomic, strong)   NSURL           *url;
 @property (nonatomic, readonly) NSString        *fileName;
 @property (nonatomic, strong)   UIImage         *image;
@@ -49,7 +49,7 @@ static NSString * const kFileName       = @"image";
         
         self.session = [NSURLSession sessionWithConfiguration:configuration];
         
-        self.cache = [TSYCache cache];
+        self.cache = [TSYImageModelCache sharedCache];
         [self.cache addImageModel:self withURL:url];
     }
     
@@ -72,7 +72,7 @@ static NSString * const kFileName       = @"image";
 }
 
 - (void)performLoading {
-    TSYCache *cache = self.cache;
+    TSYImageModelCache *cache = self.cache;
     NSURL *url = self.url;
     
     if ([cache containsImageModelWithURL:url]) {

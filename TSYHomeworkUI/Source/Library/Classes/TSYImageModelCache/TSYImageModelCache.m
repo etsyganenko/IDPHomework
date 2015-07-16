@@ -1,33 +1,35 @@
 //
-//  TSYCache.m
+//  TSYImageModelCache.m
 //  TSYHomeworkUI
 //
 //  Created by Admin on 15.07.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYCache.h"
+#import "TSYImageModelCache.h"
 
 #import "TSYImageModel.h"
 
-@interface TSYCache ()
+@interface TSYImageModelCache ()
 @property (nonatomic, strong)   NSMapTable     *imageModels;
+
+- (void)clearCache;
 
 @end
 
-@implementation TSYCache
+@implementation TSYImageModelCache
 
 @dynamic count;
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)cache {
-    static TSYCache *cache = nil;
++ (instancetype)sharedCache {
+    static TSYImageModelCache *cache = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        cache = [TSYCache new];
+        cache = [TSYImageModelCache new];
     });
 
     return cache;
@@ -78,6 +80,9 @@
         return nil != [self.imageModels objectForKey:url];
     }
 }
+
+#pragma mark -
+#pragma mark Private Methods
 
 - (void)clearCache {
     @synchronized (self) {
