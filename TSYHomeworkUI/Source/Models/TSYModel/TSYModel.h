@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, TSYModelState) {
     TSYModelUnloaded,
     TSYModelWillLoad,
     TSYModelDidLoad,
-    TSYModelFailedLoading,
+    TSYModelDidFailLoading,
     TSYModelDidChange
 };
 

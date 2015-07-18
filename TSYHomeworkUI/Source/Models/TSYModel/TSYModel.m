@@ -55,7 +55,7 @@
         case TSYModelDidLoad:
             return @selector(modelDidLoad:);
             
-        case TSYModelFailedLoading:
+        case TSYModelDidFailLoading:
             return @selector(modelDidFailLoading:);
             
         case TSYModelDidChange:

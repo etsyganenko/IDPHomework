@@ -12,16 +12,16 @@
 #import "TSYMacros.h"
 
 #import "NSFileManager+TSYCategory.h"
-
-static NSString * const kFileName       = @"image";
+#import "NSURLSession+TSYCategory.h"
 
 @interface TSYImageModel ()
-@property (nonatomic, strong)   TSYImageModelCache  *cache;
-@property (nonatomic, strong)   NSURLSession        *session;
-@property (nonatomic, strong)   NSURL               *url;
-@property (nonatomic, readonly) NSString            *fileName;
-@property (nonatomic, strong)   UIImage             *image;
-@property (nonatomic, readonly) NSString            *savingPath;
+@property (nonatomic, strong)   TSYImageModelCache          *sharedCache;
+@property (nonatomic, strong)   NSURLSession                *sharedSession;
+@property (nonatomic, strong)   NSURLSessionDownloadTask    *downloadTask;
+@property (nonatomic, strong)   NSURL                       *url;
+@property (nonatomic, readonly) NSString                    *fileName;
+@property (nonatomic, strong)   UIImage                     *image;
+@property (nonatomic, readonly) NSString                    *savingPath;
 
 - (void)performDownloading;
 - (void)cancel;
@@ -29,6 +29,9 @@ static NSString * const kFileName       = @"image";
 @end
 
 @implementation TSYImageModel
+
+@dynamic sharedCache;
+@dynamic sharedSession;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -44,36 +47,54 @@ static NSString * const kFileName       = @"image";
     dispatch_once(&onceToken, ^{
         session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     });
+    
+    return session;
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.downloadTask = nil;
+    
+    [self.sharedCache removeImageModelWithURL:self.url];
+}
 
 - (instancetype)initWithURL:(NSURL *)url {
     self = [super init];
     if (self) {
         self.url = url;
         
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-        
-        self.session = [NSURLSession sessionWithConfiguration:configuration];
-        
-        self.cache = [TSYImageModelCache sharedCache];
-        [self.cache addImageModel:self withURL:url];
+        TSYImageModelCache *sharedCache = self.sharedCache;
+        if (![sharedCache containsImageModelWithURL:url]) {
+            [sharedCache addImageModel:self withURL:url];
+        }
     }
     
     return self;
 }
 
-- (void)dealloc {
-    [self.cache removeImageModelWithURL:self.url];
-}
-
 #pragma mark -
 #pragma mark Accessors
 
-- (NSURLSession *)session {
-    return [];
+- (void)setDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
+    if (_downloadTask != downloadTask) {
+        [_downloadTask cancel];
+
+        _downloadTask = downloadTask;
+        
+        [_downloadTask resume];
+    }
+}
+
+- (NSURLSession *)sharedSession {
+//    return [NSURLSession sharedEphemeralSessionForClass:[self class]];
+    
+    return [TSYImageModel sharedSession];
+}
+
+- (TSYImageModelCache *)sharedCache {
+    return [TSYImageModelCache sharedCache];
 }
 
 - (NSString *)fileName {
@@ -99,33 +120,30 @@ static NSString * const kFileName       = @"image";
 
 
 - (void)performLoading {
-    TSYImageModelCache *cache = self.cache;
     NSURL *url = self.url;
-    
-    if ([cache containsImageModelWithURL:url]) {
-        self.image = [cache imageModelWithURL:url];
-    } else {
-        UIImage *image = [UIImage imageWithContentsOfFile:self.savingPath];
-    }
+
+    UIImage *image = [UIImage imageWithContentsOfFile:self.savingPath];
 }
 
 - (void)performDownloading {
-    NSURLSessionDownloadTask *task = [self.session downloadTaskWithURL:self.url
+    self.downloadTask = [self.sharedSession downloadTaskWithURL:self.url
                                                 completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error){
-                                                    NSData *data = [NSData dataWithContentsOfURL:location];
+                                                    if (200 != ((NSHTTPURLResponse *)response).statusCode || nil != error) {
+                                                        self.state = TSYModelDidFailLoading;
+                                                        
+                                                        return;
+                                                    }
                                                     
-                                                    [[NSFileManager defaultManager] createFileAtPath:self.savingPath
-                                                                                            contents:data
-                                                                                          attributes:nil];
+                                                    [[NSFileManager defaultManager] copyItemAtURL:location
+                                                                                            toURL:[NSURL URLWithString:self.savingPath]
+                                                                                            error:nil];
                                                     
                                                     self.state = TSYModelDidLoad;
                                                 }];
-    
-    [task resume];
 }
 
 - (void)cancel {
-    
+    self.downloadTask = nil;
 }
 
 @end
