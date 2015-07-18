@@ -14,6 +14,8 @@
 #import "NSFileManager+TSYCategory.h"
 #import "NSURLSession+TSYCategory.h"
 
+static const NSUInteger TSYImageModelSleepingTime    = 2;
+
 @interface TSYImageModel ()
 @property (nonatomic, strong)   TSYImageModelCache          *sharedCache;
 @property (nonatomic, strong)   NSURLSession                *sharedSession;
@@ -23,7 +25,6 @@
 @property (nonatomic, strong)   UIImage                     *image;
 @property (nonatomic, readonly) NSString                    *savingPath;
 
-- (void)performDownloading;
 - (void)cancel;
 
 @end
@@ -106,26 +107,10 @@
 }
 
 #pragma mark -
-#pragma mark Private Methods
-
-
-
-
-
-
-
-
-
-
-
+#pragma mark Public Methods
 
 - (void)performLoading {
-    NSURL *url = self.url;
-
-    UIImage *image = [UIImage imageWithContentsOfFile:self.savingPath];
-}
-
-- (void)performDownloading {
+    TSYSleep(TSYImageModelSleepingTime);
     self.downloadTask = [self.sharedSession downloadTaskWithURL:self.url
                                                 completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error){
                                                     if (200 != ((NSHTTPURLResponse *)response).statusCode || nil != error) {
@@ -134,9 +119,14 @@
                                                         return;
                                                     }
                                                     
-                                                    [[NSFileManager defaultManager] copyItemAtURL:location
-                                                                                            toURL:[NSURL URLWithString:self.savingPath]
-                                                                                            error:nil];
+                                                    NSData *data = [NSData dataWithContentsOfURL:location];
+                                                    [data writeToFile:self.savingPath atomically:YES];
+                                                    
+//                                                    [[NSFileManager defaultManager] copyItemAtURL:location
+//                                                                                            toURL:[NSURL URLWithString:self.savingPath]
+//                                                                                            error:nil];
+                                                    
+                                                    self.image = [UIImage imageWithContentsOfFile:self.savingPath];
                                                     
                                                     self.state = TSYModelDidLoad;
                                                 }];
