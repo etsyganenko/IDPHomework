@@ -16,12 +16,12 @@
 static NSString * const kFileName       = @"image";
 
 @interface TSYImageModel ()
-@property (nonatomic, strong)   NSURLSession    *session;
-@property (nonatomic, strong)   TSYImageModelCache        *cache;
-@property (nonatomic, strong)   NSURL           *url;
-@property (nonatomic, readonly) NSString        *fileName;
-@property (nonatomic, strong)   UIImage         *image;
-@property (nonatomic, readonly) NSString        *savingPath;
+@property (nonatomic, strong)   TSYImageModelCache  *cache;
+@property (nonatomic, strong)   NSURLSession        *session;
+@property (nonatomic, strong)   NSURL               *url;
+@property (nonatomic, readonly) NSString            *fileName;
+@property (nonatomic, strong)   UIImage             *image;
+@property (nonatomic, readonly) NSString            *savingPath;
 
 - (void)performDownloading;
 - (void)cancel;
@@ -35,6 +35,15 @@ static NSString * const kFileName       = @"image";
 
 + (instancetype)imageModelWithURL:(NSURL *)url {
     return [[self alloc] initWithURL:url];
+}
+
++ (NSURLSession *)sharedSession {
+    static NSURLSession *session = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    });
 }
 
 #pragma mark -
@@ -63,13 +72,31 @@ static NSString * const kFileName       = @"image";
 #pragma mark -
 #pragma mark Accessors
 
+- (NSURLSession *)session {
+    return [];
+}
+
+- (NSString *)fileName {
+    return [NSString stringWithContentsOfURL:self.url encoding:NSUnicodeStringEncoding error:nil];
+}
+
 - (NSString *)savingPath {
     return [NSFileManager documentsPathWithFileName:self.fileName];
 }
 
-- (NSString *)fileName {
-    return kFileName;
-}
+#pragma mark -
+#pragma mark Private Methods
+
+
+
+
+
+
+
+
+
+
+
 
 - (void)performLoading {
     TSYImageModelCache *cache = self.cache;
