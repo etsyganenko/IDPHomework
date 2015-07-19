@@ -32,7 +32,9 @@ static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
     TSYLoadingView *loadingView = [UINib objectWithClass:[TSYLoadingView class] owner:superview];
 
     [superview addSubview:loadingView];
-    loadingView.bounds = superview.bounds;
+    
+//    loadingView.bounds = superview.bounds;
+    loadingView.frame = superview.frame;
     
     return loadingView;
 }
