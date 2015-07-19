@@ -101,13 +101,13 @@ static NSString * const kModelsKey               = @"modelsKey";
 
 - (void)addModelsFromArray:(NSArray *)models {
     [self.models addObjectsFromArray:models];
-    
-    //notify
 }
 
 - (void)removeModels:(NSArray *)models {
-    for (id model in models) {
-        [self removeModel:model];
+    NSUInteger count = models.count;
+    
+    for (NSUInteger index = 0; index < count; index++) {
+        [self removeModel:models[index]];
     }
 }
 

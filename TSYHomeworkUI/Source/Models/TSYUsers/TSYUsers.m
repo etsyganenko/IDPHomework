@@ -78,9 +78,13 @@ static NSString * const kFileName               = @"users";
 #pragma mark Private Methods
 
 - (void)fillWithUsers {
+    NSMutableArray *users = [NSMutableArray array];
+    
     for (NSUInteger index = 0; index < TSYDefaultUsersCount; index++) {
-        [self addModel:[TSYUser new]];
+        [users addObject:[TSYUser new]];
     }
+    
+    [self addModelsFromArray:users];
 }
 
 @end
