@@ -99,7 +99,7 @@ static const NSUInteger TSYImageModelSleepingTime    = 1;
 }
 
 - (NSString *)fileName {
-    return [NSString stringWithContentsOfURL:self.url encoding:NSUnicodeStringEncoding error:nil];
+    return [NSString stringWithFormat:@"%@%@", self.url.path, self.url.query];
 }
 
 - (NSString *)savingPath {
@@ -119,14 +119,9 @@ static const NSUInteger TSYImageModelSleepingTime    = 1;
                                                         return;
                                                     }
                                                     
-//                                                    self.image = [UIImage imageNamed:@"image.jpg"];
-                                                    
-                                                    NSData *data = [NSData dataWithContentsOfURL:location];
-                                                    [data writeToFile:self.savingPath atomically:YES];
-                                                    
-//                                                    [[NSFileManager defaultManager] copyItemAtURL:location
-//                                                                                            toURL:[NSURL URLWithString:self.savingPath]
-//                                                                                            error:nil];
+                                                    [[NSFileManager defaultManager] copyItemAtURL:location
+                                                                                            toURL:[NSURL fileURLWithPath:self.savingPath]
+                                                                                            error:nil];
                                                     
                                                     self.image = [UIImage imageWithContentsOfFile:self.savingPath];
                                                     

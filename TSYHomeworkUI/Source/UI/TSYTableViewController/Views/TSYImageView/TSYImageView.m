@@ -42,8 +42,8 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)fillWithModel:(TSYImageModel *)model {
-    self.imageView.image = model.image;
+- (void)fillWithModel:(TSYImageModel *)imageModel {
+    self.imageView.image = imageModel.image;
 }
 
 #pragma mark -
