@@ -14,7 +14,7 @@
 #import "NSFileManager+TSYCategory.h"
 #import "NSURLSession+TSYCategory.h"
 
-static const NSUInteger TSYImageModelSleepingTime    = 2;
+static const NSUInteger TSYImageModelSleepingTime    = 1;
 
 @interface TSYImageModel ()
 @property (nonatomic, strong)   TSYImageModelCache          *sharedCache;
@@ -118,6 +118,8 @@ static const NSUInteger TSYImageModelSleepingTime    = 2;
                                                         
                                                         return;
                                                     }
+                                                    
+//                                                    self.image = [UIImage imageNamed:@"image.jpg"];
                                                     
                                                     NSData *data = [NSData dataWithContentsOfURL:location];
                                                     [data writeToFile:self.savingPath atomically:YES];

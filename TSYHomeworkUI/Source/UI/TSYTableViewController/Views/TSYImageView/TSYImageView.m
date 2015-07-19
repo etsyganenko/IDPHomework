@@ -9,8 +9,18 @@
 #import "TSYImageView.h"
 
 #import "TSYImageModel.h"
+#import "TSYLoadingView.h"
 
 @implementation TSYImageView
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.loadingView = [TSYLoadingView loadingViewWithSuperview:self];
+}
 
 #pragma mark -
 #pragma mark Accessors
