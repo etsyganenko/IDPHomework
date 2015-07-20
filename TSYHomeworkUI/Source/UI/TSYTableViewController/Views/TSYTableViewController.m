@@ -20,8 +20,6 @@
 #import "UITableView+TSYCategory.h"
 #import "NSIndexPath+TSYCategory.h"
 
-static const NSUInteger TSYMaxDisplayedCellsCount    = 15;
-
 TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
 
 @implementation TSYTableViewController
@@ -70,12 +68,19 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     [super didReceiveMemoryWarning];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self hideUpButtonIfNeeded];
+}
+
 #pragma mark -
 #pragma mark Interface Handling
 
 - (void)hideUpButtonIfNeeded {
-//    self.mainView.upButton.hidden = self.users.count < TSYMaxDisplayedCellsCount;
-    self.mainView.upButton.hidden = (((TSYTableCell *)(self.mainView.tableView.visibleCells.firstObject)).user == self.users.array.firstObject);
+    TSYTableView *mainView = self.mainView;
+    UIButton *upButton = mainView.upButton;
+    NSIndexPath *indexPath = [[mainView.tableView indexPathsForVisibleRows] firstObject];
+
+    upButton.hidden = (indexPath.row == 0);
 }
 
 - (IBAction)onButtonAdd:(id)sender {

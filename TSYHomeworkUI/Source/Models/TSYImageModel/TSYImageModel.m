@@ -89,9 +89,9 @@ static const NSUInteger TSYImageModelSleepingTime    = 1;
 }
 
 - (NSURLSession *)sharedSession {
-//    return [NSURLSession sharedEphemeralSessionForClass:[self class]];
+    return [NSURLSession sharedEphemeralSessionForClass:[self class]];
     
-    return [TSYImageModel sharedSession];
+//    return [TSYImageModel sharedSession];
 }
 
 - (TSYImageModelCache *)sharedCache {
