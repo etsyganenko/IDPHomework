@@ -74,6 +74,10 @@ static NSString * const kFileName               = @"users";
 #pragma mark -
 #pragma mark Public Methods
 
+- (void)saveWithNotification:(NSNotification *)notification {
+    [self save];
+}
+
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self.array toFile:self.savingPath];
 }
