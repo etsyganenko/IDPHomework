@@ -25,9 +25,9 @@
 #pragma mark Public Methods
 
 - (void)showLoadingView {
-    [self.loadingView show];
-    
     [self bringSubviewToFront:self.loadingView];
+    
+    [self.loadingView show];
 }
 
 - (void)hideLoadingView {

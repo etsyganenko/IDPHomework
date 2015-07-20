@@ -42,31 +42,15 @@ static NSString * const kFileName               = @"users";
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    UIApplication *application = [UIApplication sharedApplication];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"applicationWillTerminate"
-                                                  object:application];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"applicationWillResignActive"
-                                                  object:application];
+    [self unsubscribeFromApplicationNotifications:@[UIApplicationWillTerminateNotification,
+                                                    UIApplicationWillResignActiveNotification]];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        UIApplication *application = [UIApplication sharedApplication];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(save)
-                                                     name:@"applicationWillTerminate"
-                                                   object:application];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(save)
-                                                     name:@"applicationWillResignActive"
-                                                   object:application];
+        [self subscribeToApplicationNotifications:@[UIApplicationWillTerminateNotification,
+                                                    UIApplicationWillResignActiveNotification]];
     }
     
     return self;
@@ -110,6 +94,23 @@ static NSString * const kFileName               = @"users";
 
 #pragma mark -
 #pragma mark Private Methods
+
+- (void)subscribeToApplicationNotifications:(NSArray *)notifications {
+    for (NSString *notificationName in notifications) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(save)
+                                                     name:notificationName
+                                                   object:nil];
+    }
+}
+
+- (void)unsubscribeFromApplicationNotifications:(NSArray *)notifications {
+    for (NSString *notificationName in notifications) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:notificationName
+                                                      object:nil];
+    }
+}
 
 - (void)fillWithUsers {
     NSMutableArray *users = [NSMutableArray array];
