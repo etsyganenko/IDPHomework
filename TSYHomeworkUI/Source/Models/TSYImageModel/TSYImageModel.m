@@ -110,7 +110,10 @@ static const NSUInteger TSYImageModelSleepingTime    = 1;
 #pragma mark Public Methods
 
 - (void)performLoading {
+    NSString *savingPath = self.savingPath;
+    
     TSYSleep(TSYImageModelSleepingTime);
+    
     self.downloadTask = [self.sharedSession downloadTaskWithURL:self.url
                                                 completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error){
                                                     if (200 != ((NSHTTPURLResponse *)response).statusCode || nil != error) {
@@ -120,10 +123,10 @@ static const NSUInteger TSYImageModelSleepingTime    = 1;
                                                     }
                                                     
                                                     [[NSFileManager defaultManager] copyItemAtURL:location
-                                                                                            toURL:[NSURL fileURLWithPath:self.savingPath]
+                                                                                            toURL:[NSURL fileURLWithPath:savingPath]
                                                                                             error:nil];
                                                     
-                                                    self.image = [UIImage imageWithContentsOfFile:self.savingPath];
+                                                    self.image = [UIImage imageWithContentsOfFile:savingPath];
                                                     
                                                     self.state = TSYModelDidLoad;
                                                 }];

@@ -74,7 +74,8 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark Interface Handling
 
 - (void)hideUpButtonIfNeeded {
-    self.mainView.upButton.hidden = self.users.count < TSYMaxDisplayedCellsCount;
+//    self.mainView.upButton.hidden = self.users.count < TSYMaxDisplayedCellsCount;
+    self.mainView.upButton.hidden = (((TSYTableCell *)(self.mainView.tableView.visibleCells.firstObject)).user == self.users.array.firstObject);
 }
 
 - (IBAction)onButtonAdd:(id)sender {
@@ -122,9 +123,9 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 - (void)        tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!tableView.editing) {
+    if (!tableView.editing) {        
         TSYSquareViewController *controller = [TSYSquareViewController new];
-        
+    
         [self.navigationController pushViewController:controller animated:YES];
         
         //    [self presentViewController:controller animated:YES completion:nil];

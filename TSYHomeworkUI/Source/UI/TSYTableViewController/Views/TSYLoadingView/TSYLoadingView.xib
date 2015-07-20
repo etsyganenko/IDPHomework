@@ -19,7 +19,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" red="0.35285794005102045" green="0.35285794005102045" blue="0.35285794005102045" alpha="0.5" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.35285794005102045" green="0.35285794005102045" blue="0.35285794005102045" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="spinner" destination="dcE-GN-bCX" id="LLy-CU-P1w"/>
             </connections>
