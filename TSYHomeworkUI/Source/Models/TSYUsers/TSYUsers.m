@@ -39,6 +39,40 @@ static NSString * const kFileName               = @"users";
 @dynamic fileName;
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    UIApplication *application = [UIApplication sharedApplication];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"applicationWillTerminate"
+                                                  object:application];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"applicationWillResignActive"
+                                                  object:application];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        UIApplication *application = [UIApplication sharedApplication];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(save)
+                                                     name:@"applicationWillTerminate"
+                                                   object:application];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(save)
+                                                     name:@"applicationWillResignActive"
+                                                   object:application];
+    }
+    
+    return self;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (NSString *)savingPath {
@@ -86,5 +120,7 @@ static NSString * const kFileName               = @"users";
     
     [self addModelsFromArray:users];
 }
+
+
 
 @end

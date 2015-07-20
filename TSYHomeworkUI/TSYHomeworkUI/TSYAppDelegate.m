@@ -46,7 +46,9 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    [self.users save];
+    //    [self.users save];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"applicationWillResignActive" object:application];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -62,7 +64,9 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self.users save];
+    //    [self.users save];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"applicationWillTerminate" object:application];
 }
 
 @end
