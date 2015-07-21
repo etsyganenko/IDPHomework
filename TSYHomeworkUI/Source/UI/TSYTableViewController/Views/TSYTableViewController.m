@@ -121,6 +121,24 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
                                    atScrollPosition:UITableViewScrollPositionTop
                                            animated:YES];
 }
+#pragma mark -
+#pragma mark UITableViewDelegate
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)    tableView:(UITableView *)tableView
+ didEndDisplayingCell:(TSYTableCell *)cell
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.imageView.image = [UIImage imageNamed:@"image.jpg"];
+    
+}
 
 #pragma mark -
 #pragma mark UITableViewDataSource
@@ -147,14 +165,6 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
     cell.user = self.users[indexPath.row];
     
     return cell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
 }
 
 - (void)    tableView:(UITableView *)tableView

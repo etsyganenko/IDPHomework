@@ -16,6 +16,4 @@
 
 + (instancetype)imageModelWithURL:(NSURL *)url;
 
-- (void)cancel;
-
 @end

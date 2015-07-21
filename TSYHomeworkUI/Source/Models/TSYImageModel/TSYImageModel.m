@@ -16,6 +16,8 @@
 
 static const NSUInteger TSYImageModelSleepingTime    = 1;
 
+typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
+
 @interface TSYImageModel ()
 @property (nonatomic, strong)   TSYImageModelCache          *sharedCache;
 @property (nonatomic, strong)   NSURLSession                *sharedSession;
@@ -25,6 +27,12 @@ static const NSUInteger TSYImageModelSleepingTime    = 1;
 @property (nonatomic, strong)   UIImage                     *image;
 @property (nonatomic, readonly) NSString                    *savingPath;
 
++ (NSURLSession *)sharedSession;
+
+- (instancetype)initWithURL:(NSURL *)url;
+
+- (BOOL)imageCached;
+- (TSYLoadingCompletionHandler)loadingCompletionHandler;
 - (void)cancel;
 
 @end
@@ -38,8 +46,31 @@ static const NSUInteger TSYImageModelSleepingTime    = 1;
 #pragma mark Class Methods
 
 + (instancetype)imageModelWithURL:(NSURL *)url {
-    return [[self alloc] initWithURL:url];
+    TSYSleep(TSYImageModelSleepingTime);
+    
+    TSYImageModelCache *sharedCache = [TSYImageModelCache sharedCache];
+    
+    if ([sharedCache containsImageModelWithURL:url]) {
+        return [sharedCache imageModelWithURL:url];
+    }
+    
+    TSYImageModel *imageModel = [[TSYImageModel alloc] initWithURL:url];
+    [sharedCache addImageModel:imageModel withURL:url];
+    
+    return imageModel;
 }
+
+//+ (instancetype)imageModelWithURL:(NSURL *)url {
+//    TSYImageModelCache *sharedCache = [TSYImageModelCache sharedCache];
+//    TSYImageModel *imageModel = [sharedCache imageModelWithURL:url];
+//    
+//    if (!imageModel) {
+//        imageModel = [[TSYImageModel alloc] initWithURL:url];
+//        [sharedCache addImageModel:imageModel withURL:url];
+//    }
+//    
+//    return imageModel;
+//}
 
 + (NSURLSession *)sharedSession {
     static NSURLSession *session = nil;
@@ -65,11 +96,6 @@ static const NSUInteger TSYImageModelSleepingTime    = 1;
     self = [super init];
     if (self) {
         self.url = url;
-        
-        TSYImageModelCache *sharedCache = self.sharedCache;
-        if (![sharedCache containsImageModelWithURL:url]) {
-            [sharedCache addImageModel:self withURL:url];
-        }
     }
     
     return self;
@@ -110,26 +136,64 @@ static const NSUInteger TSYImageModelSleepingTime    = 1;
 #pragma mark Public Methods
 
 - (void)performLoading {
+    if (![self imageCached]) {
+        self.downloadTask = [self.sharedSession downloadTaskWithURL:self.url
+                                                  completionHandler:[self loadingCompletionHandler]];
+    }
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (BOOL)imageCached {
     NSString *savingPath = self.savingPath;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    TSYSleep(TSYImageModelSleepingTime);
+    if ([fileManager fileExistsAtPath:savingPath]) {
+        UIImage *image = [UIImage imageWithContentsOfFile:savingPath];
+        
+        if (nil == image) {
+            self.state = TSYModelDidFailLoading;
+            return NO;
+        }
+        
+        self.image = image;
+        self.state = TSYModelDidLoad;
+    }
     
-    self.downloadTask = [self.sharedSession downloadTaskWithURL:self.url
-                                                completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error){
-                                                    if (200 != ((NSHTTPURLResponse *)response).statusCode || nil != error) {
-                                                        self.state = TSYModelDidFailLoading;
-                                                        
-                                                        return;
-                                                    }
-                                                    
-                                                    [[NSFileManager defaultManager] copyItemAtURL:location
-                                                                                            toURL:[NSURL fileURLWithPath:savingPath]
-                                                                                            error:nil];
-                                                    
-                                                    self.image = [UIImage imageWithContentsOfFile:savingPath];
-                                                    
-                                                    self.state = TSYModelDidLoad;
-                                                }];
+    return YES;
+}
+
+- (TSYLoadingCompletionHandler)loadingCompletionHandler {
+    NSString *savingPath = self.savingPath;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    TSYWeakify(self);
+    TSYLoadingCompletionHandler handler = ^(NSURL *location, NSHTTPURLResponse *response, NSError *error) {
+        TSYStrongify(self);
+        
+        if (200 != response.statusCode || nil != error) {
+            self.state = TSYModelDidFailLoading;
+            
+            return;
+        }
+        
+        [fileManager copyItemAtURL:location
+                             toURL:[NSURL fileURLWithPath:savingPath]
+                             error:nil];
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:savingPath];
+        
+        if (image) {
+            self.image = image;
+            
+            self.state = TSYModelDidLoad;
+        } else {
+            self.state = TSYModelDidFailLoading;
+        }
+    };
+    
+    return handler;
 }
 
 - (void)cancel {

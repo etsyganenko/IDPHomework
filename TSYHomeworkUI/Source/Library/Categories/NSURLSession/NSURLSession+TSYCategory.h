@@ -11,7 +11,5 @@
 @interface NSURLSession (TSYCategory)
 
 + (instancetype)sharedEphemeralSessionForClass:(Class)cls;
-+ (instancetype)sharedSessionWithConfiguration:(NSURLSessionConfiguration *)configuration
-                                      forClass:(Class)cls;
 
 @end

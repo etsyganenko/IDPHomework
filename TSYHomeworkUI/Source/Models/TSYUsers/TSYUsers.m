@@ -74,7 +74,7 @@ static NSString * const kFileName               = @"users";
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)saveWithNotification:(NSNotification *)notification {
+- (void)saveWithNotification:(id)notification {
     [self save];
 }
 
