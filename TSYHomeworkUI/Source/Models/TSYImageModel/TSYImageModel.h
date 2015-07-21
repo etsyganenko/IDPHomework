@@ -16,4 +16,6 @@
 
 + (instancetype)imageModelWithURL:(NSURL *)url;
 
+- (void)performLoadingIfNeeded;
+
 @end

@@ -27,8 +27,12 @@ static NSString * const kFileName               = @"users";
 
 @property (nonatomic, readonly)     NSString    *savingPath;
 @property (nonatomic, readonly)     NSString    *fileName;
+@property (nonatomic, readonly)     NSArray     *notificationNames;
 
 - (void)fillWithUsers;
+
+- (void)subscribeToApplicationNotifications:(NSArray *)notificationNames;
+- (void)unsubscribeFromApplicationNotifications:(NSArray *)notificationNames;
 
 @end
 
@@ -37,20 +41,19 @@ static NSString * const kFileName               = @"users";
 @dynamic savingPath;
 @dynamic fileExists;
 @dynamic fileName;
+@dynamic notificationNames;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [self unsubscribeFromApplicationNotifications:@[UIApplicationWillTerminateNotification,
-                                                    UIApplicationWillResignActiveNotification]];
+    [self unsubscribeFromApplicationNotifications:self.notificationNames];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self subscribeToApplicationNotifications:@[UIApplicationWillTerminateNotification,
-                                                    UIApplicationWillResignActiveNotification]];
+        [self subscribeToApplicationNotifications:self.notificationNames];
     }
     
     return self;
@@ -69,6 +72,10 @@ static NSString * const kFileName               = @"users";
 
 - (NSString *)fileName {
     return kFileName;
+}
+
+- (NSArray *)notificationNames {
+    return @[UIApplicationWillTerminateNotification, UIApplicationWillResignActiveNotification];
 }
 
 #pragma mark -
@@ -99,8 +106,8 @@ static NSString * const kFileName               = @"users";
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)subscribeToApplicationNotifications:(NSArray *)notifications {
-    for (NSString *notificationName in notifications) {
+- (void)subscribeToApplicationNotifications:(NSArray *)notificationNames {
+    for (NSString *notificationName in notificationNames) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(save)
                                                      name:notificationName
@@ -108,8 +115,8 @@ static NSString * const kFileName               = @"users";
     }
 }
 
-- (void)unsubscribeFromApplicationNotifications:(NSArray *)notifications {
-    for (NSString *notificationName in notifications) {
+- (void)unsubscribeFromApplicationNotifications:(NSArray *)notificationNames {
+    for (NSString *notificationName in notificationNames) {
         [[NSNotificationCenter defaultCenter] removeObserver:self
                                                         name:notificationName
                                                       object:nil];

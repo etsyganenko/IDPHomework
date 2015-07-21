@@ -136,7 +136,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
  didEndDisplayingCell:(TSYTableCell *)cell
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.imageView.image = nil;
+    cell.user = nil;
 }
 
 #pragma mark -
