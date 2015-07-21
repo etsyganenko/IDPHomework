@@ -46,8 +46,6 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
 #pragma mark Class Methods
 
 + (instancetype)imageModelWithURL:(NSURL *)url {
-    TSYSleep(TSYImageModelSleepingTime);
-    
     TSYImageModelCache *sharedCache = [TSYImageModelCache sharedCache];
     
     if ([sharedCache containsImageModelWithURL:url]) {
@@ -153,15 +151,18 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
         UIImage *image = [UIImage imageWithContentsOfFile:savingPath];
         
         if (nil == image) {
-            self.state = TSYModelDidFailLoading;
+            [fileManager removeItemAtPath:savingPath
+                                    error:nil];
             return NO;
         }
         
         self.image = image;
         self.state = TSYModelDidLoad;
+        
+        return YES;
     }
     
-    return YES;
+    return NO;
 }
 
 - (TSYLoadingCompletionHandler)loadingCompletionHandler {

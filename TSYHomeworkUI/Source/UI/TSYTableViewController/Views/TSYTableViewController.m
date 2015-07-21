@@ -136,8 +136,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
  didEndDisplayingCell:(TSYTableCell *)cell
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.imageView.image = [UIImage imageNamed:@"image.jpg"];
-    
+    cell.imageView.image = nil;
 }
 
 #pragma mark -
