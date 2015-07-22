@@ -17,17 +17,24 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DB7-l6-om6" customClass="FBSDKLoginButton">
                     <rect key="frame" x="33" y="292" width="255" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="FBSDKLoginButton">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hTV-TL-4CB">
+                    <rect key="frame" x="33" y="381" width="255" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Log in">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onButtonLogin:" destination="-1" eventType="touchUpInside" id="pYW-pl-yJE"/>
+                        <action selector="onButtonLogin:" destination="-1" eventType="touchUpInside" id="cnp-iJ-CHo"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="loginButton" destination="DB7-l6-om6" id="TIr-ti-7oi"/>
+                <outlet property="loginButton" destination="hTV-TL-4CB" id="Ive-st-nwt"/>
             </connections>
             <point key="canvasLocation" x="140" y="155"/>
         </view>

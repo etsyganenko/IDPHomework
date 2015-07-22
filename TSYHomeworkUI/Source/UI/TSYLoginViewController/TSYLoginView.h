@@ -12,6 +12,9 @@
 #import "TSYView.h"
 
 @interface TSYLoginView : TSYView
-@property (nonatomic, strong)   IBOutlet FBSDKLoginButton   *loginButton;
+@property (nonatomic, strong)   IBOutlet FBSDKLoginButton   *facebookLoginButton;
+
+@property (nonatomic, strong)   IBOutlet UIButton           *loginButton;
+
 
 @end

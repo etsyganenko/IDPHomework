@@ -40,8 +40,8 @@
     
     tableViewController.users = users;
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
 
 //    window.rootViewController = tableViewController;
     window.rootViewController = navigationController;
