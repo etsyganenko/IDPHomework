@@ -9,6 +9,7 @@
 #import "TSYObservableObject.h"
 
 @interface TSYObservableObject ()
+@property (atomic, assign)      BOOL            shouldNotify;
 @property (nonatomic, retain)   NSHashTable     *observersHashTable;
 
 @end
@@ -90,12 +91,16 @@
 }
 
 - (void)performBlock:(void(^)(void))block notify:(BOOL)shouldNotify {
-    BOOL currentShouldNotify = self.shouldNotify;
-    self.shouldNotify = shouldNotify;
-    
-    block();
-    
-    self.shouldNotify = currentShouldNotify;
+    @synchronized (self) {
+        BOOL currentShouldNotify = self.shouldNotify;
+        self.shouldNotify = shouldNotify;
+        
+        if (block) {
+            block();
+        }
+        
+        self.shouldNotify = currentShouldNotify;
+    }
 }
 
 #pragma mark -

@@ -10,7 +10,7 @@
 
 @interface TSYObservableObject : NSObject
 @property (atomic, assign)      NSUInteger  state;
-@property (atomic, assign)      BOOL        shouldNotify;
+@property (atomic, readonly)    BOOL        shouldNotify;
 
 @property (nonatomic, readonly) NSSet       *observersSet;
 
