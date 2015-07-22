@@ -23,16 +23,15 @@ static const NSUInteger TSYDefaultUsersCount    = 10;
 static NSString * const kFileName               = @"users";
 
 @interface TSYUsers ()
-@property (nonatomic, readonly, getter=fileExists)   BOOL  fileExists;
-
+@property (nonatomic, readonly)     BOOL        fileExists;
 @property (nonatomic, readonly)     NSString    *savingPath;
 @property (nonatomic, readonly)     NSString    *fileName;
 @property (nonatomic, readonly)     NSArray     *notificationNames;
 
 - (void)fillWithUsers;
 
-- (void)subscribeToApplicationNotifications:(NSArray *)notificationNames;
-- (void)unsubscribeFromApplicationNotifications:(NSArray *)notificationNames;
+- (void)subscribeToApplicationNotifications;
+- (void)unsubscribeFromApplicationNotifications;
 
 @end
 
@@ -47,13 +46,13 @@ static NSString * const kFileName               = @"users";
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [self unsubscribeFromApplicationNotifications:self.notificationNames];
+    [self unsubscribeFromApplicationNotifications];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self subscribeToApplicationNotifications:self.notificationNames];
+        [self subscribeToApplicationNotifications];
     }
     
     return self;
@@ -106,7 +105,9 @@ static NSString * const kFileName               = @"users";
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)subscribeToApplicationNotifications:(NSArray *)notificationNames {
+- (void)subscribeToApplicationNotifications {
+    NSArray *notificationNames = self.notificationNames;
+    
     for (NSString *notificationName in notificationNames) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(save)
@@ -115,7 +116,9 @@ static NSString * const kFileName               = @"users";
     }
 }
 
-- (void)unsubscribeFromApplicationNotifications:(NSArray *)notificationNames {
+- (void)unsubscribeFromApplicationNotifications {
+    NSArray *notificationNames = self.notificationNames;
+    
     for (NSString *notificationName in notificationNames) {
         [[NSNotificationCenter defaultCenter] removeObserver:self
                                                         name:notificationName
