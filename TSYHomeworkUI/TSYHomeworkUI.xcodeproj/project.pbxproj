@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		564CE81C0870301687525CD3 /* libPods-TSYHomeworkUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */; };
 		849DAF171B3414CA0034D221 /* TSYMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DAF161B3414CA0034D221 /* TSYMacros.m */; };
+		849F4AFE1B5FA0EA00B9DEED /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849F4AFC1B5FA0E900B9DEED /* FBSDKCoreKit.framework */; };
+		849F4AFF1B5FA0EA00B9DEED /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849F4AFD1B5FA0EA00B9DEED /* FBSDKLoginKit.framework */; };
 		849F68B31B55438A007DCFDE /* TSYImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F68B21B55438A007DCFDE /* TSYImageModel.m */; };
 		849F723A1B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F72391B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m */; };
 		849F723E1B3BF09200869AD4 /* TSYTableChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F723D1B3BF09200869AD4 /* TSYTableChange.m */; };
@@ -70,6 +72,8 @@
 		4758F823E14E040E645FB6A2 /* Pods-TSYHomeworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkUITests/Pods-TSYHomeworkUITests.release.xcconfig"; sourceTree = "<group>"; };
 		849DAF151B3414CA0034D221 /* TSYMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMacros.h; sourceTree = "<group>"; };
 		849DAF161B3414CA0034D221 /* TSYMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYMacros.m; sourceTree = "<group>"; };
+		849F4AFC1B5FA0E900B9DEED /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		849F4AFD1B5FA0EA00B9DEED /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		849F68B11B55438A007DCFDE /* TSYImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYImageModel.h; sourceTree = "<group>"; };
 		849F68B21B55438A007DCFDE /* TSYImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYImageModel.m; sourceTree = "<group>"; };
 		849F72381B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+TSYCategory.h"; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849F4AFF1B5FA0EA00B9DEED /* FBSDKLoginKit.framework in Frameworks */,
+				849F4AFE1B5FA0EA00B9DEED /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +188,34 @@
 				849DAF161B3414CA0034D221 /* TSYMacros.m */,
 			);
 			path = TSYMacros;
+			sourceTree = "<group>";
+		};
+		849F4B001B5FAB5300B9DEED /* TSYLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TSYLoginViewController;
+			sourceTree = "<group>";
+		};
+		849F4B011B5FAB7F00B9DEED /* TSYViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TSYViewController;
+			sourceTree = "<group>";
+		};
+		849F4B021B5FABB500B9DEED /* TSYFriendsViewCOntroller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TSYFriendsViewCOntroller;
+			sourceTree = "<group>";
+		};
+		849F4B031B5FABC400B9DEED /* TSYFriendDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TSYFriendDetailViewController;
 			sourceTree = "<group>";
 		};
 		849F68B01B554367007DCFDE /* TSYImageModel */ = {
@@ -275,6 +309,8 @@
 		849FB4AC1B28E98E0096D0AD /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				849F4AFC1B5FA0E900B9DEED /* FBSDKCoreKit.framework */,
+				849F4AFD1B5FA0EA00B9DEED /* FBSDKLoginKit.framework */,
 				84BF5F081B32FB0100932154 /* Library */,
 				84A1EFDC1B31679B0037A3B7 /* Models */,
 				84A1EFC91B31678A0037A3B7 /* UI */,
@@ -337,6 +373,10 @@
 		84A1EFC91B31678A0037A3B7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				849F4B011B5FAB7F00B9DEED /* TSYViewController */,
+				849F4B001B5FAB5300B9DEED /* TSYLoginViewController */,
+				849F4B021B5FABB500B9DEED /* TSYFriendsViewCOntroller */,
+				849F4B031B5FABC400B9DEED /* TSYFriendDetailViewController */,
 				84A1EFE01B31A2A30037A3B7 /* TSYSquareViewController */,
 				84A1EFCA1B31678A0037A3B7 /* TSYTableViewController */,
 			);
@@ -868,6 +908,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Source",
+				);
 				INFOPLIST_FILE = TSYHomeworkUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -878,6 +922,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Source",
+				);
 				INFOPLIST_FILE = TSYHomeworkUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

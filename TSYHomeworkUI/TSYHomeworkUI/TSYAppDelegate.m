@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "TSYAppDelegate.h"
 
 #import "TSYSquareViewController.h"
@@ -42,7 +44,9 @@
     
     [window makeKeyAndVisible];
     
-    return YES;
+//    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                   didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -58,11 +62,22 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     //    [self.users save];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 @end
