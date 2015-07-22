@@ -9,5 +9,6 @@
 #import "TSYViewController.h"
 
 @interface TSYLoginViewController : TSYViewController
+- (IBAction)onButtonLogin:(id)sender;
 
 @end

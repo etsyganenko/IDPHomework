@@ -12,6 +12,7 @@
 
 #import "TSYSquareViewController.h"
 #import "TSYTableViewController.h"
+#import "TSYLoginViewController.h"
 #import "TSYUsers.h"
 
 #import "UIWindow+TSYCategories.h"
@@ -33,11 +34,14 @@
     TSYTableViewController *tableViewController = [TSYTableViewController new];
     TSYUsers *users = [TSYUsers new];
     
+    TSYLoginViewController *loginViewController = [TSYLoginViewController new];
+    
     self.users = users;
     
     tableViewController.users = users;
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
 
 //    window.rootViewController = tableViewController;
     window.rootViewController = navigationController;

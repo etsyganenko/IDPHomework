@@ -8,30 +8,40 @@
 
 #import "TSYLoginViewController.h"
 
-@interface TSYLoginViewController ()
+#import "TSYLoginView.h"
+#import "TSYMacros.h"
 
-@end
+TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView)
 
 @implementation TSYLoginViewController
 
+#pragma mark -
+#pragma mark View Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark -
+#pragma mark Interface Handling
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)onButtonLogin:(id)sender {
+    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+    
+    [loginManager logInWithReadPermissions:@[@"public_profile", @"user_friends"]
+                                   handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
+                                       if (error) {
+                                           
+                                       }
+                                   }];
 }
-*/
 
 @end
