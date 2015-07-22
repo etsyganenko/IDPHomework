@@ -34,14 +34,14 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Interface Handling
 
 - (IBAction)onButtonLogin:(id)sender {
-    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
-    
-    [loginManager logInWithReadPermissions:@[@"public_profile", @"user_friends"]
-                                   handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
-                                       if (error) {
-                                           
-                                       }
-                                   }];
+//    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+//    
+//    [loginManager logInWithReadPermissions:@[@"public_profile", @"user_friends"]
+//                                   handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
+//                                       if (error) {
+//                                           
+//                                       }
+//                                   }];
 }
 
 @end

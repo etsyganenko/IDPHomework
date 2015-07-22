@@ -18,8 +18,8 @@
 		849F4B191B5FAEE800B9DEED /* TSYLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849F4B171B5FAEE800B9DEED /* TSYLoginViewController.xib */; };
 		849F4B1D1B5FAF3100B9DEED /* TSYLoadingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B1C1B5FAF3100B9DEED /* TSYLoadingContext.m */; };
 		849F4B211B5FAF4300B9DEED /* TSYLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B201B5FAF4300B9DEED /* TSYLoginContext.m */; };
-		849F4B251B5FAFA400B9DEED /* TSYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B231B5FAFA400B9DEED /* TSYLoginViewController.m */; };
-		849F4B261B5FAFA400B9DEED /* TSYLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849F4B241B5FAFA400B9DEED /* TSYLoginViewController.xib */; };
+		849F4B251B5FAFA400B9DEED /* TSYFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B231B5FAFA400B9DEED /* TSYFriendsViewController.m */; };
+		849F4B261B5FAFA400B9DEED /* TSYFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849F4B241B5FAFA400B9DEED /* TSYFriendsViewController.xib */; };
 		849F4B2A1B5FAFCA00B9DEED /* TSYFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B281B5FAFCA00B9DEED /* TSYFriendDetailViewController.m */; };
 		849F4B2B1B5FAFCA00B9DEED /* TSYFriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849F4B291B5FAFCA00B9DEED /* TSYFriendDetailViewController.xib */; };
 		849F4B2E1B5FB9C800B9DEED /* TSYLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B2D1B5FB9C800B9DEED /* TSYLoginView.m */; };
@@ -99,9 +99,9 @@
 		849F4B1C1B5FAF3100B9DEED /* TSYLoadingContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYLoadingContext.m; sourceTree = "<group>"; };
 		849F4B1F1B5FAF4300B9DEED /* TSYLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYLoginContext.h; sourceTree = "<group>"; };
 		849F4B201B5FAF4300B9DEED /* TSYLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYLoginContext.m; sourceTree = "<group>"; };
-		849F4B221B5FAFA400B9DEED /* TSYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYLoginViewController.h; sourceTree = "<group>"; };
-		849F4B231B5FAFA400B9DEED /* TSYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYLoginViewController.m; sourceTree = "<group>"; };
-		849F4B241B5FAFA400B9DEED /* TSYLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYLoginViewController.xib; sourceTree = "<group>"; };
+		849F4B221B5FAFA400B9DEED /* TSYFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFriendsViewController.h; sourceTree = "<group>"; };
+		849F4B231B5FAFA400B9DEED /* TSYFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFriendsViewController.m; sourceTree = "<group>"; };
+		849F4B241B5FAFA400B9DEED /* TSYFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYFriendsViewController.xib; sourceTree = "<group>"; };
 		849F4B271B5FAFCA00B9DEED /* TSYFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFriendDetailViewController.h; sourceTree = "<group>"; };
 		849F4B281B5FAFCA00B9DEED /* TSYFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFriendDetailViewController.m; sourceTree = "<group>"; };
 		849F4B291B5FAFCA00B9DEED /* TSYFriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYFriendDetailViewController.xib; sourceTree = "<group>"; };
@@ -250,9 +250,9 @@
 		849F4B021B5FABB500B9DEED /* TSYFriendsViewCOntroller */ = {
 			isa = PBXGroup;
 			children = (
-				849F4B221B5FAFA400B9DEED /* TSYLoginViewController.h */,
-				849F4B231B5FAFA400B9DEED /* TSYLoginViewController.m */,
-				849F4B241B5FAFA400B9DEED /* TSYLoginViewController.xib */,
+				849F4B221B5FAFA400B9DEED /* TSYFriendsViewController.h */,
+				849F4B231B5FAFA400B9DEED /* TSYFriendsViewController.m */,
+				849F4B241B5FAFA400B9DEED /* TSYFriendsViewController.xib */,
 			);
 			path = TSYFriendsViewCOntroller;
 			sourceTree = "<group>";
@@ -804,7 +804,7 @@
 			files = (
 				849FB4B51B28E98E0096D0AD /* Images.xcassets in Resources */,
 				84A1C3071B341B4200DC7198 /* TSYTableCell.xib in Resources */,
-				849F4B261B5FAFA400B9DEED /* TSYLoginViewController.xib in Resources */,
+				849F4B261B5FAFA400B9DEED /* TSYFriendsViewController.xib in Resources */,
 				84A196331B321AF900C5CE0E /* TSYTableViewController.xib in Resources */,
 				849F4B2B1B5FAFCA00B9DEED /* TSYFriendDetailViewController.xib in Resources */,
 				84A285D81B3974B900D52615 /* LaunchScreen.xib in Resources */,
@@ -898,7 +898,7 @@
 				849F4B2A1B5FAFCA00B9DEED /* TSYFriendDetailViewController.m in Sources */,
 				849F4B091B5FADA800B9DEED /* TSYContext.m in Sources */,
 				84AE8DD91B586537003C808D /* TSYImageModelCache.m in Sources */,
-				849F4B251B5FAFA400B9DEED /* TSYLoginViewController.m in Sources */,
+				849F4B251B5FAFA400B9DEED /* TSYFriendsViewController.m in Sources */,
 				84A39E6D1B4BD9FD00BFDFB0 /* NSFileManager+TSYCategory.m in Sources */,
 				849F4B1D1B5FAF3100B9DEED /* TSYLoadingContext.m in Sources */,
 				84A285DC1B39781300D52615 /* TSYObservableObject.m in Sources */,
@@ -1016,6 +1016,7 @@
 				);
 				INFOPLIST_FILE = TSYHomeworkUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1030,6 +1031,7 @@
 				);
 				INFOPLIST_FILE = TSYHomeworkUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

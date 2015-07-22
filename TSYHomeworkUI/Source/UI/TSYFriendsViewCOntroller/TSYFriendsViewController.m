@@ -1,18 +1,18 @@
 //
-//  TSYFriendDetailViewController.m
+//  TSYLoginViewController.m
 //  TSYHomeworkUI
 //
 //  Created by Admin on 22.07.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYFriendDetailViewController.h"
+#import "TSYFriendsViewController.h"
 
-@interface TSYFriendDetailViewController ()
+@interface TSYFriendsViewController ()
 
 @end
 
-@implementation TSYFriendDetailViewController
+@implementation TSYFriendsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

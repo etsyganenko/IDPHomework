@@ -1,5 +1,5 @@
 //
-//  TSYLoginViewController.h
+//  TSYFriendsViewController.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 22.07.15.
@@ -8,6 +8,6 @@
 
 #import "TSYViewController.h"
 
-@interface TSYLoginViewController : TSYViewController
+@interface TSYFriendsViewController : TSYViewController
 
 @end
