@@ -11,6 +11,7 @@
 @interface TSYObservableObject : NSObject
 @property (atomic, assign)      NSUInteger  state;
 @property (atomic, assign)      BOOL        shouldNotify;
+
 @property (nonatomic, readonly) NSSet       *observersSet;
 
 - (void)addObserver:(id)observer;
@@ -21,7 +22,7 @@
 - (SEL)selectorForState:(NSUInteger)state;
 
 - (void)setState:(NSUInteger)state withObject:(id)object;
-- (void)setState:(NSUInteger)state notify:(BOOL)shouldNotify;
-- (void)setState:(NSUInteger)state withObject:(id)object notify:(BOOL)shouldNotify;
+
+- (void)performBlock:(void(^)(void))block notify:(BOOL)shouldNotify;
 
 @end

@@ -25,8 +25,6 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
 @property (nonatomic, readonly) NSString                    *fileName;
 @property (nonatomic, readonly) NSString                    *savingPath;
 
-+ (NSURLSession *)sharedSession;
-
 - (instancetype)initWithURL:(NSURL *)url;
 
 - (BOOL)imageCached;
@@ -59,17 +57,6 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
         
         return imageModel;
     }
-}
-
-+ (NSURLSession *)sharedSession {
-    static NSURLSession *__session = nil;
-    static dispatch_once_t __onceToken;
-    
-    dispatch_once(&__onceToken, ^{
-        __session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-    });
-    
-    return __session;
 }
 
 #pragma mark -
@@ -105,8 +92,6 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
 
 - (NSURLSession *)sharedSession {
     return [NSURLSession sharedEphemeralSessionForClass:[self class]];
-    
-//    return [TSYImageModel sharedSession];
 }
 
 - (TSYImageModelCache *)sharedCache {

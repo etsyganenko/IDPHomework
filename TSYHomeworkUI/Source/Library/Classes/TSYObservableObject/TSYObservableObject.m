@@ -29,6 +29,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.shouldNotify = YES;
         self.observersHashTable = [NSHashTable weakObjectsHashTable];
     }
     
@@ -39,22 +40,14 @@
 #pragma mark Accessors Methods
 
 - (void)setState:(NSUInteger)state {
-    [self setState:state notify:YES];
+    [self setState:state withObject:nil];
 }
 
 - (void)setState:(NSUInteger)state withObject:(id)object {
-    [self setState:state withObject:object notify:YES];
-}
-
-- (void)setState:(NSUInteger)state notify:(BOOL)shouldNotify {
-    [self setState:state withObject:nil notify:shouldNotify];
-}
-
-- (void)setState:(NSUInteger)state withObject:(id)object notify:(BOOL)shouldNotify {
     @synchronized (self) {
         _state = state;
         
-        if (shouldNotify) {
+        if (self.shouldNotify) {
             [self notifyOfStateChange:state withObject:object];
         }
     }
@@ -94,6 +87,15 @@
 - (void)notifyOfStateChange:(NSUInteger)state withObject:(id)object {
     [self notifyOfStateWithSelector:[self selectorForState:state]
                          withObject:object];
+}
+
+- (void)performBlock:(void(^)(void))block notify:(BOOL)shouldNotify {
+    BOOL currentShouldNotify = self.shouldNotify;
+    self.shouldNotify = shouldNotify;
+    
+    block();
+    
+    self.shouldNotify = currentShouldNotify;
 }
 
 #pragma mark -
