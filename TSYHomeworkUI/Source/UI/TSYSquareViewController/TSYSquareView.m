@@ -1,17 +1,19 @@
 //
-//  TSYView.m
+//  TSYSquareView.m
 //  TSYHomeworkUI
 //
 //  Created by Admin on 11.06.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYView.h"
+#import "TSYSquareView.h"
 
-static const NSUInteger TSYViewAnimationDuration   = 1;
-static const NSUInteger TSYViewAnimationDelay      = 0;
+#import "TSYMacros.h"
 
-@interface TSYView ()
+static const NSUInteger TSYSquareViewAnimationDuration   = 1;
+static const NSUInteger TSYSquareViewAnimationDelay      = 0;
+
+@interface TSYSquareView ()
 @property (nonatomic, assign) BOOL  animationShouldStop;
 
 - (TSYSquarePosition)nextPosition;
@@ -21,7 +23,7 @@ static const NSUInteger TSYViewAnimationDelay      = 0;
 
 @end
 
-@implementation TSYView
+@implementation TSYSquareView
 
 @dynamic moving;
 
@@ -52,16 +54,20 @@ static const NSUInteger TSYViewAnimationDelay      = 0;
     
     self.animationShouldStop = NO;
     
+    TSYWeakify(self);
+    
     [self setPosition:[self nextPosition]
              animated:YES
     completionHandler:^(BOOL finished){
+        TSYStrongifyAndReturnIfNil(self);
+        
         if (finished && !self.animationShouldStop) {
             [self startMoving];
         }
     }];
     
 //    void (^completion)(BOOL) = ^(BOOL finished){
-//        if (finished && !TSYViewAnimationShouldStop) {
+//        if (finished && !TSYSquareViewAnimationShouldStop) {
 //            [self startMoving];
 //        }
 //    };
@@ -84,7 +90,7 @@ static const NSUInteger TSYViewAnimationDelay      = 0;
 - (void)setPosition:(TSYSquarePosition)position animated:(BOOL)isAnimated {
     [self setPosition:position
              animated:isAnimated
-    completionHandler:NULL];
+    completionHandler:nil];
 }
 
 - (void)setPosition:(TSYSquarePosition)position
@@ -92,8 +98,8 @@ static const NSUInteger TSYViewAnimationDelay      = 0;
   completionHandler:(void (^)(BOOL finished))handler
 {
     if (_position != position) {
-        [UIView animateWithDuration:isAnimated ? TSYViewAnimationDuration : 0
-                              delay:isAnimated ? TSYViewAnimationDelay : 0
+        [UIView animateWithDuration:isAnimated ? TSYSquareViewAnimationDuration : 0
+                              delay:isAnimated ? TSYSquareViewAnimationDelay : 0
                             options:UIViewAnimationOptionBeginFromCurrentState
                          animations:^{
                              self.squareLabel.frame = [self frameWithPosition:position];
@@ -154,11 +160,11 @@ static const NSUInteger TSYViewAnimationDelay      = 0;
 }
 
 - (TSYSquarePosition)nextRandomPosition {
-    TSYSquarePosition randomPosition = arc4random_uniform(TSYSquarePositionCount);
+    TSYSquarePosition randomPosition = 0;
     
-    while (self.position == randomPosition) {
+    do {
         randomPosition = arc4random_uniform(TSYSquarePositionCount);
-    }
+    } while (self.position == randomPosition);
 
     return randomPosition;
 }

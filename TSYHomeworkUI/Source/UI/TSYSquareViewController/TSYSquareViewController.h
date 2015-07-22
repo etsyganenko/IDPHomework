@@ -1,5 +1,5 @@
 //
-//  TSYViewController.h
+//  TSYSquareViewController.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 11.06.15.
@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class TSYView;
-
-@interface TSYViewController : UIViewController
-@property (nonatomic, readonly)   TSYView  *mainView;
-
+@interface TSYSquareViewController : UIViewController
 - (IBAction)onButtonNext:(id)sender;
 - (IBAction)onButtonRandom:(id)sender;
 

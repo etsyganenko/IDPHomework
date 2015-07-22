@@ -1,31 +1,31 @@
 //
-//  TSYViewController.m
+//  TSYSquareViewController.m
 //  TSYHomeworkUI
 //
 //  Created by Admin on 11.06.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYViewController.h"
+#import "TSYSquareViewController.h"
 
-#import "TSYView.h"
+#import "TSYSquareView.h"
 
 #import "TSYMacros.h"
 
-@implementation TSYViewController
+TSYViewControllerBaseViewProperty(TSYSquareViewController, TSYSquareView, mainView)
 
-@dynamic mainView;
-
-#pragma mark -
-#pragma mark Accessors
-
-TSYBaseViewPropertyGetter(TSYView, mainView)
+@implementation TSYSquareViewController
 
 #pragma mark -
 #pragma mark View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.hidesBarsOnTap = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,18 +37,26 @@ TSYBaseViewPropertyGetter(TSYView, mainView)
 
 - (IBAction)onButtonNext:(id)sender {
     [self.mainView moveToNextPosition];
+    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (IBAction)onButtonRandom:(id)sender {
     [self.mainView moveToRandomPosition];
+    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (IBAction)onButtonStart:(id)sender {
     [self.mainView startMoving];
+    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (IBAction)onButtonStop:(id)sender {
     [self.mainView stopMoving];
+    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 @end

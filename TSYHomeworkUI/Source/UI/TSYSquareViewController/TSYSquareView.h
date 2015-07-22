@@ -1,5 +1,5 @@
 //
-//  TSYView.h
+//  TSYSquareView.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 11.06.15.
@@ -16,11 +16,7 @@ typedef NS_ENUM(NSUInteger, TSYSquarePosition) {
     TSYSquarePositionCount
 };
 
-@interface TSYView : UIView
-@property (nonatomic, readonly, getter=isMoving)    BOOL    moving;
-
-@property (nonatomic, assign)   TSYSquarePosition   position;
-
+@interface TSYSquareView : UIView
 @property (nonatomic, strong)   IBOutlet UILabel    *squareLabel;
 
 @property (nonatomic, strong)   IBOutlet UIButton   *nextButton;
@@ -28,6 +24,10 @@ typedef NS_ENUM(NSUInteger, TSYSquarePosition) {
 
 @property (nonatomic, strong)   IBOutlet UIButton   *startButton;
 @property (nonatomic, strong)   IBOutlet UIButton   *stopButton;
+
+@property (nonatomic, readonly, getter=isMoving)    BOOL    moving;
+
+@property (nonatomic, assign)   TSYSquarePosition   position;
 
 - (void)moveToNextPosition;
 - (void)moveToRandomPosition;

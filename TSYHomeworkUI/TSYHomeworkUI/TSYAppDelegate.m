@@ -8,11 +8,15 @@
 
 #import "TSYAppDelegate.h"
 
-#import "TSYViewController.h"
+#import "TSYSquareViewController.h"
+#import "TSYTableViewController.h"
+#import "TSYUsers.h"
 
 #import "UIWindow+TSYCategories.h"
+#import "TSYModel.h"
 
 @interface TSYAppDelegate ()
+@property (nonatomic, strong)   TSYUsers    *users;
 
 @end
 
@@ -23,7 +27,18 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
 
-    window.rootViewController = [TSYViewController new];
+//    window.rootViewController = [TSYSquareViewController new];
+    TSYTableViewController *tableViewController = [TSYTableViewController new];
+    TSYUsers *users = [TSYUsers new];
+    
+    self.users = users;
+    
+    tableViewController.users = users;
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
+
+//    window.rootViewController = tableViewController;
+    window.rootViewController = navigationController;
     
     [window makeKeyAndVisible];
     
@@ -31,7 +46,7 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-
+    //    [self.users save];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -47,7 +62,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-
+    //    [self.users save];
 }
 
 @end
