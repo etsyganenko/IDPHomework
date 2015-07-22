@@ -133,6 +133,4 @@ static NSString * const kFileName               = @"users";
     [self addModelsFromArray:users];
 }
 
-
-
 @end
