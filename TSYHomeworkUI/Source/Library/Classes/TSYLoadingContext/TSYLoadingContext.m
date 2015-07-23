@@ -50,21 +50,25 @@
 - (void)execute {
     TSYFBUserModel *model = self.model;
     
-    NSString *graphPath = @"";
+    NSString *graphPath = @"me";
     FBSDKGraphRequest *graphRequest = [[FBSDKGraphRequest alloc] initWithGraphPath:graphPath parameters:nil];
     
     if ([FBSDKAccessToken currentAccessToken]) {
         [graphRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-             if (error) {
-                 model.state = TSYModelDidFailLoading;
-                 
-                 return;
-             }
+            if (error) {
+                model.state = TSYModelDidFailLoading;
+
+                return;
+            }
+            
+            NSLog(@"%@", result);
+            NSLog(@"%@", result[@"id"]);
+            NSLog(@"%@", result[@"name"]);
+            
+            [self fillModelWithResult:result];
              
-             [self fillModelWithResult:result];
-             
-             model.state = TSYModelDidLoad;
-         }];
+            model.state = TSYModelDidLoad;
+        }];
     }
 }
 
@@ -72,7 +76,7 @@
 #pragma mark Private Methods
 
 - (void)fillModelWithResult:(id)result {
-
+    self.model.name = result[@"name"];
 }
 
 @end

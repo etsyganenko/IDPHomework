@@ -9,16 +9,18 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import "TSYLoginViewController.h"
-#import "TSYFriendDetailViewController.h"
 
+#import "TSYFriendDetailViewController.h"
 #import "TSYLoginView.h"
 #import "TSYMacros.h"
 #import "TSYLoginContext.h"
+#import "TSYFBUserModel.h"
 
 TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView)
 
 @interface TSYLoginViewController ()
 
+//- (void)showUser:(TSYFBUserModel *)user ifLoggedInAnimated:(BOOL)animated;
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated;
 
 @end
@@ -59,8 +61,21 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
         UINavigationController *navigationController = self.navigationController;
         TSYFriendDetailViewController *controller = [TSYFriendDetailViewController new];
         
+        controller.userModel = [TSYFBUserModel new];
+        
         [navigationController pushViewController:controller animated:animated];
     }
 }
+
+//- (void)showUser:(TSYFBUserModel *)user ifLoggedInAnimated:(BOOL)animated {
+//    if ([FBSDKAccessToken currentAccessToken]) {
+//        UINavigationController *navigationController = self.navigationController;
+//        TSYFriendDetailViewController *controller = [TSYFriendDetailViewController new];
+//        
+//        controller.userModel = user;
+//        
+//        [navigationController pushViewController:controller animated:animated];
+//    }
+//}
 
 @end

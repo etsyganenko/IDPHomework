@@ -8,7 +8,12 @@
 
 #import "TSYFriendDetailView.h"
 
+#import "TSYFBUserModel.h"
+
 @implementation TSYFriendDetailView
 
+- (void)fillWithModel:(TSYFBUserModel *)model {
+    self.fullNameLabel.text = model.name;
+}
 
 @end

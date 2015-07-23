@@ -10,6 +10,7 @@
 
 #import "TSYArrayModel.h"
 #import "TSYImageModel.h"
+#import "TSYLoadingContext.h"
 
 @implementation TSYFBUserModel
 
@@ -20,6 +21,12 @@
 
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
+}
+
+- (void)performLoading {
+    TSYLoadingContext *context = [TSYLoadingContext loadingContextWithModel:self];
+    
+    [context execute];
 }
 
 @end

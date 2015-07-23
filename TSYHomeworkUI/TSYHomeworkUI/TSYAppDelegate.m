@@ -31,14 +31,14 @@
     self.window = window;
 
 //    window.rootViewController = [TSYSquareViewController new];
-    TSYTableViewController *tableViewController = [TSYTableViewController new];
-    TSYUsers *users = [TSYUsers new];
+//    TSYTableViewController *tableViewController = [TSYTableViewController new];
+//    TSYUsers *users = [TSYUsers new];
     
     TSYLoginViewController *loginViewController = [TSYLoginViewController new];
     
-    self.users = users;
+//    self.users = users;
     
-    tableViewController.users = users;
+//    tableViewController.users = users;
     
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];

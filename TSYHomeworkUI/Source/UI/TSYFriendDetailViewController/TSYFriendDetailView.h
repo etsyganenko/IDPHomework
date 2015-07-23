@@ -10,8 +10,12 @@
 
 #import "TSYImageView.h"
 
+@class TSYFBUserModel;
+
 @interface TSYFriendDetailView : TSYView
 @property (nonatomic, strong)   IBOutlet TSYImageView   *userImageView;
 @property (nonatomic, strong)   IBOutlet UILabel        *fullNameLabel;
+
+- (void)fillWithModel:(TSYFBUserModel *)model;
 
 @end
