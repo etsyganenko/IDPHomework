@@ -8,7 +8,11 @@
 
 #import "TSYViewController.h"
 
+@class TSYFBUserModel;
+
 @interface TSYLoginViewController : TSYViewController
+@property (nonatomic, strong)   TSYFBUserModel  *model;
+
 - (IBAction)onButtonLogin:(id)sender;
 - (IBAction)onButtonShowUserProfile:(id)sender;
 

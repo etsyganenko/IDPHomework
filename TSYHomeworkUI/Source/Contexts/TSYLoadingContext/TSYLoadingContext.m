@@ -62,8 +62,6 @@
             }
             
             NSLog(@"%@", result);
-            NSLog(@"%@", result[@"id"]);
-            NSLog(@"%@", result[@"name"]);
             
             [self fillModelWithResult:result];
              

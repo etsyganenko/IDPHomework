@@ -28,6 +28,19 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 @implementation TSYLoginViewController
 
 #pragma mark -
+#pragma mark Accessors
+
+- (void)setModel:(TSYFBUserModel *)model {
+    if (_model != model) {
+        [_model removeObserver:self];
+        
+        _model = model;
+        
+        [_model addObserver:self];
+    }
+}
+
+#pragma mark -
 #pragma mark View Lifecycle
 
 - (void)viewDidLoad {
@@ -77,5 +90,22 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 //        [navigationController pushViewController:controller animated:animated];
 //    }
 //}
+
+- (void)fillWithModel:(TSYFBUserModel *)model {
+    self.model.ID = model.ID;
+}
+
+#pragma mark -
+#pragma mark TSYModelObserver
+
+- (void)modelDidLoad:(TSYFBUserModel *)model {
+    TSYLoginView *mainView = self.mainView;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self fillWithModel:model];
+        
+        [mainView hideLoadingView];
+    });
+}
 
 @end
