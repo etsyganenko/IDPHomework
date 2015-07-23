@@ -17,6 +17,12 @@
 
 TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView)
 
+@interface TSYLoginViewController ()
+
+- (void)showUserProfileIfLoggedInAnimated:(BOOL)animated;
+
+@end
+
 @implementation TSYLoginViewController
 
 #pragma mark -
@@ -25,12 +31,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([FBSDKAccessToken currentAccessToken]) {
-        UINavigationController *navigationController = self.navigationController;
-        TSYFriendDetailViewController *controller = [TSYFriendDetailViewController new];
-        
-        [navigationController pushViewController:controller animated:NO];
-    }
+    [self showUserProfileIfLoggedInAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +45,22 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
     TSYLoginContext *loginContext = [TSYLoginContext new];
     
     [loginContext execute];
+}
+
+- (IBAction)onButtonShowUserProfile:(id)sender {
+    [self showUserProfileIfLoggedInAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)showUserProfileIfLoggedInAnimated:(BOOL)animated {
+    if ([FBSDKAccessToken currentAccessToken]) {
+        UINavigationController *navigationController = self.navigationController;
+        TSYFriendDetailViewController *controller = [TSYFriendDetailViewController new];
+        
+        [navigationController pushViewController:controller animated:animated];
+    }
 }
 
 @end

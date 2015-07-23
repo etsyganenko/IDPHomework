@@ -14,6 +14,7 @@
 @property (nonatomic, strong)   IBOutlet FBSDKLoginButton   *facebookLoginButton;
 
 @property (nonatomic, strong)   IBOutlet UIButton           *loginButton;
+@property (nonatomic, strong)   IBOutlet UIButton           *showUserProfile;
 
 
 @end

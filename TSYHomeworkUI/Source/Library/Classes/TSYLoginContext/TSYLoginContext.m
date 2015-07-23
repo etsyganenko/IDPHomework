@@ -18,8 +18,10 @@
     [loginManager logInWithReadPermissions:@[@"public_profile", @"user_friends"]
                                    handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
                                        if (error) {
-                                           
+                                           return;
                                        }
+                                       
+                                       
                                    }];
 }
 

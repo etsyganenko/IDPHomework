@@ -10,5 +10,6 @@
 
 @interface TSYLoginViewController : TSYViewController
 - (IBAction)onButtonLogin:(id)sender;
+- (IBAction)onButtonShowUserProfile:(id)sender;
 
 @end

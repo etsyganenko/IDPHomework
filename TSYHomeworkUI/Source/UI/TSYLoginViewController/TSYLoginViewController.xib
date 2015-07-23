@@ -31,10 +31,21 @@
                         <action selector="onButtonLogin:" destination="-1" eventType="touchUpInside" id="cnp-iJ-CHo"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fzV-ZG-fKD">
+                    <rect key="frame" x="70" y="68" width="179" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Profile">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onButtonShowUserProfile:" destination="-1" eventType="touchUpInside" id="WXo-5T-xcj"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="loginButton" destination="hTV-TL-4CB" id="Ive-st-nwt"/>
+                <outlet property="showUserProfile" destination="fzV-ZG-fKD" id="Ya0-8V-eAt"/>
             </connections>
             <point key="canvasLocation" x="140" y="155"/>
         </view>
