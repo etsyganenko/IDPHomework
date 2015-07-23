@@ -11,12 +11,6 @@
 #import "TSYArrayModel.h"
 #import "TSYImageModel.h"
 
-@interface TSYFBUserModel ()
-@property (nonatomic, assign)     NSUInteger      ID;
-@property (nonatomic, strong)     TSYArrayModel   *friends;
-
-@end
-
 @implementation TSYFBUserModel
 
 @dynamic fullName;

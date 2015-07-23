@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "TSYLoginViewController.h"
 #import "TSYFriendDetailViewController.h"
 

@@ -23,8 +23,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" id="2jc-eY-L4d" customClass="TSYImageView">
-                    <rect key="frame" x="80" y="60" width="160" height="160"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="80" y="90" width="160" height="160"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BPc-JA-4V5">
                             <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>

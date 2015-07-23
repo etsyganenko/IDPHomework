@@ -12,9 +12,9 @@
 @class TSYImageModel;
 
 @interface TSYFBUserModel : TSYModel
-@property (nonatomic, readonly)     NSUInteger      ID;
-@property (nonatomic, readonly)     NSString        *name;
-@property (nonatomic, readonly)     NSString        *surname;
+@property (nonatomic, strong)       NSString        *ID;
+@property (nonatomic, strong)       NSString        *name;
+@property (nonatomic, strong)       NSString        *surname;
 @property (nonatomic, readonly)     NSString        *fullName;
 @property (nonatomic, readonly)     TSYImageModel   *imageModel;
 @property (nonatomic, readonly)     TSYArrayModel   *friends;

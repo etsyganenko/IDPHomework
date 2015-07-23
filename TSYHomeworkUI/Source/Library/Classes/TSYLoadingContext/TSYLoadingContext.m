@@ -10,10 +10,12 @@
 
 #import "TSYLoadingContext.h"
 
-#import "TSYModel.h"
+#import "TSYFBUserModel.h"
 
 @interface TSYLoadingContext ()
-@property (nonatomic, strong)   TSYModel    *model;
+@property (nonatomic, strong)   TSYFBUserModel    *model;
+
+- (void)fillModelWithResult:(id)result;
 
 @end
 
@@ -22,7 +24,7 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)loadingContextWithModel:(TSYModel *)model {
++ (instancetype)loadingContextWithModel:(TSYFBUserModel *)model {
     return [[[self class] alloc] initWithModel:model];
 }
 
@@ -33,7 +35,7 @@
     [self cancel];
 }
 
-- (instancetype)initWithModel:(TSYModel *)model {
+- (instancetype)initWithModel:(TSYFBUserModel *)model {
     self = [super init];
     if (self) {
         self.model = model;
@@ -46,14 +48,31 @@
 #pragma mark Public Methods
 
 - (void)execute {
+    TSYFBUserModel *model = self.model;
+    
+    NSString *graphPath = @"";
+    FBSDKGraphRequest *graphRequest = [[FBSDKGraphRequest alloc] initWithGraphPath:graphPath parameters:nil];
+    
     if ([FBSDKAccessToken currentAccessToken]) {
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"" parameters:nil]
-         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-             if (!error) {
+        [graphRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (error) {
+                 model.state = TSYModelDidFailLoading;
                  
+                 return;
              }
+             
+             [self fillModelWithResult:result];
+             
+             model.state = TSYModelDidLoad;
          }];
     }
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)fillModelWithResult:(id)result {
+
 }
 
 @end
