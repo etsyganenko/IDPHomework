@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		564CE81C0870301687525CD3 /* libPods-TSYHomeworkUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */; };
 		849DAF171B3414CA0034D221 /* TSYMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DAF161B3414CA0034D221 /* TSYMacros.m */; };
-		849F4AFE1B5FA0EA00B9DEED /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849F4AFC1B5FA0E900B9DEED /* FBSDKCoreKit.framework */; };
-		849F4AFF1B5FA0EA00B9DEED /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849F4AFD1B5FA0EA00B9DEED /* FBSDKLoginKit.framework */; };
 		849F4B091B5FADA800B9DEED /* TSYContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B081B5FADA800B9DEED /* TSYContext.m */; };
 		849F4B131B5FAE8E00B9DEED /* TSYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B111B5FAE8E00B9DEED /* TSYViewController.m */; };
 		849F4B141B5FAE8E00B9DEED /* TSYViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849F4B121B5FAE8E00B9DEED /* TSYViewController.xib */; };
@@ -68,6 +66,7 @@
 		84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F101B32FB0100932154 /* NSString+TSYRandomString.m */; };
 		84BF5F1C1B32FB0100932154 /* UIWindow+TSYCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F161B32FB0100932154 /* UIWindow+TSYCategories.m */; };
 		84BF5F201B33002900932154 /* TSYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F1F1B33002900932154 /* TSYTableViewCell.m */; };
+		B66C1EB5621F627838B6B349 /* libPods-TSYHomeworkUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,12 +81,12 @@
 
 /* Begin PBXFileReference section */
 		0CF052DCE509C1B7489F499E /* Pods-TSYHomeworkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkUITests/Pods-TSYHomeworkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1D345500940DBD8BDD778371 /* Pods-TSYHomeworkUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkUI/Pods-TSYHomeworkUI.debug.xcconfig"; sourceTree = "<group>"; };
 		40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4758F823E14E040E645FB6A2 /* Pods-TSYHomeworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkUITests/Pods-TSYHomeworkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5621AA98C7DC7518DA3488F2 /* Pods-TSYHomeworkUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSYHomeworkUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSYHomeworkUI/Pods-TSYHomeworkUI.release.xcconfig"; sourceTree = "<group>"; };
 		849DAF151B3414CA0034D221 /* TSYMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYMacros.h; sourceTree = "<group>"; };
 		849DAF161B3414CA0034D221 /* TSYMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYMacros.m; sourceTree = "<group>"; };
-		849F4AFC1B5FA0E900B9DEED /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		849F4AFD1B5FA0EA00B9DEED /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		849F4B071B5FADA800B9DEED /* TSYContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYContext.h; sourceTree = "<group>"; };
 		849F4B081B5FADA800B9DEED /* TSYContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYContext.m; sourceTree = "<group>"; };
 		849F4B101B5FAE8E00B9DEED /* TSYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYViewController.h; sourceTree = "<group>"; };
@@ -188,6 +187,7 @@
 		84BF5F161B32FB0100932154 /* UIWindow+TSYCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+TSYCategories.m"; sourceTree = "<group>"; };
 		84BF5F1E1B33002900932154 /* TSYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYTableViewCell.h; sourceTree = "<group>"; };
 		84BF5F1F1B33002900932154 /* TSYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYTableViewCell.m; sourceTree = "<group>"; };
+		C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,8 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849F4AFF1B5FA0EA00B9DEED /* FBSDKLoginKit.framework in Frameworks */,
-				849F4AFE1B5FA0EA00B9DEED /* FBSDKCoreKit.framework in Frameworks */,
+				B66C1EB5621F627838B6B349 /* libPods-TSYHomeworkUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				40611F751661DB17CE194DA3 /* libPods-TSYHomeworkUITests.a */,
+				C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -399,8 +399,6 @@
 		849FB4AC1B28E98E0096D0AD /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				849F4AFC1B5FA0E900B9DEED /* FBSDKCoreKit.framework */,
-				849F4AFD1B5FA0EA00B9DEED /* FBSDKLoginKit.framework */,
 				84BF5F081B32FB0100932154 /* Library */,
 				84A1EFDC1B31679B0037A3B7 /* Models */,
 				84A1EFC91B31678A0037A3B7 /* UI */,
@@ -721,6 +719,8 @@
 			children = (
 				0CF052DCE509C1B7489F499E /* Pods-TSYHomeworkUITests.debug.xcconfig */,
 				4758F823E14E040E645FB6A2 /* Pods-TSYHomeworkUITests.release.xcconfig */,
+				1D345500940DBD8BDD778371 /* Pods-TSYHomeworkUI.debug.xcconfig */,
+				5621AA98C7DC7518DA3488F2 /* Pods-TSYHomeworkUI.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -732,9 +732,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 849FB4961B28E5C90096D0AD /* Build configuration list for PBXNativeTarget "TSYHomeworkUI" */;
 			buildPhases = (
+				DB6BA145ACD53783C5338A20 /* Check Pods Manifest.lock */,
 				849FB46F1B28E5C90096D0AD /* Sources */,
 				849FB4701B28E5C90096D0AD /* Frameworks */,
 				849FB4711B28E5C90096D0AD /* Resources */,
+				46EB334EF649844B34A4BE4D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -834,6 +836,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		46EB334EF649844B34A4BE4D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSYHomeworkUI/Pods-TSYHomeworkUI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C0A3D7065E90A0E1D84D1DDE /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -847,6 +864,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSYHomeworkUITests/Pods-TSYHomeworkUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB6BA145ACD53783C5338A20 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E87E383DDA26CA1BBB9E539A /* Check Pods Manifest.lock */ = {
@@ -1014,6 +1046,7 @@
 		};
 		849FB4971B28E5C90096D0AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D345500940DBD8BDD778371 /* Pods-TSYHomeworkUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1022,13 +1055,14 @@
 				);
 				INFOPLIST_FILE = TSYHomeworkUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		849FB4981B28E5C90096D0AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5621AA98C7DC7518DA3488F2 /* Pods-TSYHomeworkUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1037,7 +1071,7 @@
 				);
 				INFOPLIST_FILE = TSYHomeworkUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
