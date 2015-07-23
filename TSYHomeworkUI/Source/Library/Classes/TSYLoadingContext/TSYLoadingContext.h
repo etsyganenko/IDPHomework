@@ -8,6 +8,10 @@
 
 #import "TSYContext.h"
 
+@class TSYModel;
+
 @interface TSYLoadingContext : TSYContext
+
++ (instancetype)loadingContextWithModel:(TSYModel *)model;
 
 @end

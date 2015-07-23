@@ -40,6 +40,7 @@
 		84A196311B321AF900C5CE0E /* TSYTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1962B1B321AF900C5CE0E /* TSYTableView.m */; };
 		84A196321B321AF900C5CE0E /* TSYTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1962D1B321AF900C5CE0E /* TSYTableViewController.m */; };
 		84A196331B321AF900C5CE0E /* TSYTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1962E1B321AF900C5CE0E /* TSYTableViewController.xib */; };
+		84A1BBA11B60E2EB00E3A890 /* TSYFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1BBA01B60E2EB00E3A890 /* TSYFriendDetailView.m */; };
 		84A1C3061B341B4200DC7198 /* TSYTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1C3041B341B4200DC7198 /* TSYTableCell.m */; };
 		84A1C3071B341B4200DC7198 /* TSYTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1C3051B341B4200DC7198 /* TSYTableCell.xib */; };
 		84A1EFE61B31A2A30037A3B7 /* TSYSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1EFE21B31A2A30037A3B7 /* TSYSquareView.m */; };
@@ -135,6 +136,8 @@
 		84A1962C1B321AF900C5CE0E /* TSYTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYTableViewController.h; sourceTree = "<group>"; };
 		84A1962D1B321AF900C5CE0E /* TSYTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYTableViewController.m; sourceTree = "<group>"; };
 		84A1962E1B321AF900C5CE0E /* TSYTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYTableViewController.xib; sourceTree = "<group>"; };
+		84A1BB9F1B60E2EB00E3A890 /* TSYFriendDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFriendDetailView.h; sourceTree = "<group>"; };
+		84A1BBA01B60E2EB00E3A890 /* TSYFriendDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFriendDetailView.m; sourceTree = "<group>"; };
 		84A1C3031B341B4200DC7198 /* TSYTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYTableCell.h; sourceTree = "<group>"; };
 		84A1C3041B341B4200DC7198 /* TSYTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYTableCell.m; sourceTree = "<group>"; };
 		84A1C3051B341B4200DC7198 /* TSYTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYTableCell.xib; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 				849F4B271B5FAFCA00B9DEED /* TSYFriendDetailViewController.h */,
 				849F4B281B5FAFCA00B9DEED /* TSYFriendDetailViewController.m */,
 				849F4B291B5FAFCA00B9DEED /* TSYFriendDetailViewController.xib */,
+				84A1BB9F1B60E2EB00E3A890 /* TSYFriendDetailView.h */,
+				84A1BBA01B60E2EB00E3A890 /* TSYFriendDetailView.m */,
 			);
 			path = TSYFriendDetailViewController;
 			sourceTree = "<group>";
@@ -891,6 +896,7 @@
 				84BF5F191B32FB0100932154 /* NSString+TSYRandomName.m in Sources */,
 				84BD0D5E1B41F74200349DE5 /* NSIndexPath+TSYCategory.m in Sources */,
 				84A1EFE71B31A2A30037A3B7 /* TSYSquareViewController.m in Sources */,
+				84A1BBA11B60E2EB00E3A890 /* TSYFriendDetailView.m in Sources */,
 				849F4B331B5FD01200B9DEED /* TSYFBUserModel.m in Sources */,
 				849F723E1B3BF09200869AD4 /* TSYTableChange.m in Sources */,
 				84A3336A1B5A5FD500F44720 /* NSURLSession+TSYCategory.m in Sources */,

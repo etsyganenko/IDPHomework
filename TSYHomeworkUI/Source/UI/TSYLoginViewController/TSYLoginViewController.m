@@ -7,9 +7,11 @@
 //
 
 #import "TSYLoginViewController.h"
+#import "TSYFriendDetailViewController.h"
 
 #import "TSYLoginView.h"
 #import "TSYMacros.h"
+#import "TSYLoginContext.h"
 
 TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView)
 
@@ -22,7 +24,10 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
     [super viewDidLoad];
     
     if ([FBSDKAccessToken currentAccessToken]) {
+        UINavigationController *navigationController = self.navigationController;
+        TSYFriendDetailViewController *controller = [TSYFriendDetailViewController new];
         
+        [navigationController pushViewController:controller animated:NO];
     }
 }
 
@@ -34,14 +39,9 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Interface Handling
 
 - (IBAction)onButtonLogin:(id)sender {
-    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+    TSYLoginContext *loginContext = [TSYLoginContext new];
     
-    [loginManager logInWithReadPermissions:@[@"public_profile", @"user_friends"]
-                                   handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
-                                       if (error) {
-                                           
-                                       }
-                                   }];
+    [loginContext execute];
 }
 
 @end

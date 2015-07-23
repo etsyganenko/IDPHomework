@@ -8,6 +8,19 @@
 
 #import "TSYLoginContext.h"
 
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 @implementation TSYLoginContext
+
+- (void)execute {
+    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+    
+    [loginManager logInWithReadPermissions:@[@"public_profile", @"user_friends"]
+                                   handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
+                                       if (error) {
+                                           
+                                       }
+                                   }];
+}
 
 @end

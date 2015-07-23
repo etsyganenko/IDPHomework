@@ -8,6 +8,9 @@
 
 #import "TSYViewController.h"
 
+@class TSYFBUserModel;
+
 @interface TSYFriendDetailViewController : TSYViewController
+@property (nonatomic, strong)   TSYFBUserModel  *userModel;
 
 @end

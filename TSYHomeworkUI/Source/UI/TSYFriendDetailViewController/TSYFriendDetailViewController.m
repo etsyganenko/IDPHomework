@@ -8,9 +8,10 @@
 
 #import "TSYFriendDetailViewController.h"
 
-@interface TSYFriendDetailViewController ()
+#import "TSYFriendDetailView.h"
+#import "TSYMacros.h"
 
-@end
+TSYViewControllerBaseViewProperty(TSYFriendDetailViewController, TSYFriendDetailView, mainView)
 
 @implementation TSYFriendDetailViewController
 
