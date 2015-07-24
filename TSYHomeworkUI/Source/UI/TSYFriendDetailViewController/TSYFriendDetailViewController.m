@@ -11,6 +11,7 @@
 #import "TSYFBUserModel.h"
 #import "TSYFriendDetailView.h"
 #import "TSYMacros.h"
+#import "TSYLoadingContext.h"
 
 TSYViewControllerBaseViewProperty(TSYFriendDetailViewController, TSYFriendDetailView, mainView)
 
@@ -27,8 +28,8 @@ TSYViewControllerBaseViewProperty(TSYFriendDetailViewController, TSYFriendDetail
         
         [_userModel addObserver:self];
         
-//        [_userModel load];
-        [_userModel performLoading];
+        TSYLoadingContext *context = [TSYLoadingContext loadingContextWithModel:userModel];
+        [context execute];
     }
 }
 
@@ -46,13 +47,13 @@ TSYViewControllerBaseViewProperty(TSYFriendDetailViewController, TSYFriendDetail
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelWillLoad:(TSYModel *)model {
+- (void)modelWillLoad:(TSYFBUserModel *)model {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.mainView showLoadingView];
     });
 }
 
-- (void)modelDidLoad:(TSYModel *)model {
+- (void)modelDidLoad:(TSYFBUserModel *)model {
     TSYFriendDetailView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{
