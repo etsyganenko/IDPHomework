@@ -18,7 +18,7 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
 
 @interface TSYImageModel ()
 @property (nonatomic, strong)   NSURL                       *url;
-@property (nonatomic, strong)   UIImage                     *image;
+//@property (nonatomic, strong)   UIImage                     *image;
 @property (nonatomic, strong)   NSURLSessionDownloadTask    *downloadTask;
 @property (nonatomic, readonly) TSYImageModelCache          *sharedCache;
 @property (nonatomic, readonly) NSURLSession                *sharedSession;

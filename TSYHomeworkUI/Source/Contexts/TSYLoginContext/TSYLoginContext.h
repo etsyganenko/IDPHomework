@@ -8,6 +8,11 @@
 
 #import "TSYContext.h"
 
+@class TSYFBUserModel;
+
 @interface TSYLoginContext : TSYContext
+@property (nonatomic, strong)   TSYFBUserModel    *model;
+
++ (instancetype)logingContextWithModel:(TSYFBUserModel *)model;
 
 @end

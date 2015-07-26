@@ -11,6 +11,7 @@
 @class TSYFBUserModel;
 
 @interface TSYLoadingContext : TSYContext
+@property (nonatomic, strong)   TSYFBUserModel    *model;
 
 + (instancetype)loadingContextWithModel:(TSYFBUserModel *)model;
 

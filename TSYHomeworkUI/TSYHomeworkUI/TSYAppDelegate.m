@@ -14,9 +14,10 @@
 #import "TSYTableViewController.h"
 #import "TSYLoginViewController.h"
 #import "TSYUsers.h"
+#import "TSYModel.h"
+#import "TSYFBUserModel.h"
 
 #import "UIWindow+TSYCategories.h"
-#import "TSYModel.h"
 
 @interface TSYAppDelegate ()
 @property (nonatomic, strong)   TSYUsers    *users;
@@ -35,6 +36,7 @@
 //    TSYUsers *users = [TSYUsers new];
     
     TSYLoginViewController *loginViewController = [TSYLoginViewController new];
+    loginViewController.model = [TSYFBUserModel new];
     
 //    self.users = users;
     

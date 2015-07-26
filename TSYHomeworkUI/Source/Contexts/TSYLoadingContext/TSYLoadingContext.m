@@ -11,9 +11,9 @@
 #import "TSYLoadingContext.h"
 
 #import "TSYFBUserModel.h"
+#import "TSYImageModel.h"
 
 @interface TSYLoadingContext ()
-@property (nonatomic, strong)   TSYFBUserModel    *model;
 
 - (void)fillModelWithResult:(id)result;
 
@@ -61,7 +61,7 @@
                 return;
             }
             
-            NSLog(@"%@", result);
+            NSLog(@"loading context: %@", result);
             
             [self fillModelWithResult:result];
              
@@ -75,6 +75,11 @@
 
 - (void)fillModelWithResult:(id)result {
     self.model.name = result[@"name"];
+
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=normal",result[@"id"]]];
+    NSData  *data = [NSData dataWithContentsOfURL:url];
+    self.model.imageModel.image = [UIImage imageWithData:data];
+
 }
 
 @end

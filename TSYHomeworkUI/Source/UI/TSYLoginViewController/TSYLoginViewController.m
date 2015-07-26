@@ -14,13 +14,13 @@
 #import "TSYLoginView.h"
 #import "TSYMacros.h"
 #import "TSYLoginContext.h"
+#import "TSYLoadingContext.h"
 #import "TSYFBUserModel.h"
 
 TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView)
 
 @interface TSYLoginViewController ()
 
-//- (void)showUser:(TSYFBUserModel *)user ifLoggedInAnimated:(BOOL)animated;
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated;
 
 @end
@@ -57,7 +57,10 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Interface Handling
 
 - (IBAction)onButtonLogin:(id)sender {
-    TSYLoginContext *loginContext = [TSYLoginContext new];
+    TSYFBUserModel *model = [TSYFBUserModel new];
+    self.model = model;
+    
+    TSYLoginContext *loginContext = [TSYLoginContext logingContextWithModel:model];
     
     [loginContext execute];
 }
@@ -74,22 +77,11 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
         UINavigationController *navigationController = self.navigationController;
         TSYFriendDetailViewController *controller = [TSYFriendDetailViewController new];
         
-        controller.userModel = [TSYFBUserModel new];
+        controller.userModel = self.model;
         
         [navigationController pushViewController:controller animated:animated];
     }
 }
-
-//- (void)showUser:(TSYFBUserModel *)user ifLoggedInAnimated:(BOOL)animated {
-//    if ([FBSDKAccessToken currentAccessToken]) {
-//        UINavigationController *navigationController = self.navigationController;
-//        TSYFriendDetailViewController *controller = [TSYFriendDetailViewController new];
-//        
-//        controller.userModel = user;
-//        
-//        [navigationController pushViewController:controller animated:animated];
-//    }
-//}
 
 - (void)fillWithModel:(TSYFBUserModel *)model {
     self.model.ID = model.ID;
