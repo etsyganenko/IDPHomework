@@ -1,5 +1,5 @@
 //
-//  TSYLoginContext.m
+//  TSYFacebookLoginContext.m
 //  TSYHomeworkUI
 //
 //  Created by Admin on 22.07.15.
@@ -9,20 +9,18 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-#import "TSYLoginContext.h"
+#import "TSYFacebookLoginContext.h"
 
 #import "TSYFBUserModel.h"
 
-@interface TSYLoginContext ()
-@property (nonatomic, strong)   FBSDKGraphRequestConnection     *connection;
-@property (nonatomic, strong)   FBSDKGraphRequest               *request;
+@interface TSYFacebookLoginContext ()
 @property (nonatomic, readonly) NSArray                         *permissions;
 
 - (void)fillModelWithResult:(id)result;
 
 @end
 
-@implementation TSYLoginContext
+@implementation TSYFacebookLoginContext
 
 @dynamic permissions;
 
@@ -53,7 +51,7 @@
 #pragma mark Accessors
 
 - (NSArray *)permissions {
-    return @[@"public_profile", @"user_friends"];
+    return @[@"public_profile", @"email", @"user_friends"];
 }
 
 #pragma mark -
@@ -64,27 +62,13 @@
     
     [loginManager logInWithReadPermissions:self.permissions
                                    handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
-                                       if (error) {
+                                       if (error || result.isCancelled) {
                                            self.model.state = TSYModelDidFailLoading;
                                            
                                            return;
                                        }
                                        
-                                       FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me"
-                                                                                                      parameters:nil];
-                                       self.request = request;
-                                       
-                                       if ([FBSDKAccessToken currentAccessToken]) {
-                                           [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                                               if (error) {
-                                                   self.model.state = TSYModelDidFailLoading;
-                                                   
-                                                   return;
-                                               }
-                                               
-                                               [self fillModelWithResult:result];
-                                           }];
-                                       }
+                                       [self fillModelWithResult:result];
                                        
                                        self.model.state = TSYModelDidLoad;
                                    }];
@@ -93,10 +77,8 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)fillModelWithResult:(id)result {
-    self.model.ID = result[@"id"];
-    
-    NSLog(@"login: ID: %@", result[@"id"]);
+- (void)fillModelWithResult:(FBSDKLoginManagerLoginResult *)result {
+    self.model.ID = result.token.userID;
 }
 
 @end

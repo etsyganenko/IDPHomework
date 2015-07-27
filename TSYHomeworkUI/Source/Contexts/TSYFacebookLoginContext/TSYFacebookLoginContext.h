@@ -1,5 +1,5 @@
 //
-//  TSYLoginContext.h
+//  TSYFacebookLoginContext.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 22.07.15.
@@ -10,7 +10,7 @@
 
 @class TSYFBUserModel;
 
-@interface TSYLoginContext : TSYContext
+@interface TSYFacebookLoginContext : TSYContext
 @property (nonatomic, strong)   TSYFBUserModel    *model;
 
 + (instancetype)logingContextWithModel:(TSYFBUserModel *)model;

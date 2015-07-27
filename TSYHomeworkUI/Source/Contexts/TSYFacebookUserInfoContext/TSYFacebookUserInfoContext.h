@@ -1,5 +1,5 @@
 //
-//  TSYLoadingContext.h
+//  TSYFacebookUserInfoContext.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 22.07.15.
@@ -10,7 +10,7 @@
 
 @class TSYFBUserModel;
 
-@interface TSYLoadingContext : TSYContext
+@interface TSYFacebookUserInfoContext : TSYContext
 @property (nonatomic, strong)   TSYFBUserModel    *model;
 
 + (instancetype)loadingContextWithModel:(TSYFBUserModel *)model;

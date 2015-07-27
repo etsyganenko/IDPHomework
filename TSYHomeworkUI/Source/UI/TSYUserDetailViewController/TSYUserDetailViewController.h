@@ -1,5 +1,5 @@
 //
-//  TSYFriendDetailViewController.h
+//  TSYUserDetailViewController.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 22.07.15.
@@ -10,7 +10,7 @@
 
 @class TSYFBUserModel;
 
-@interface TSYFriendDetailViewController : TSYViewController
+@interface TSYUserDetailViewController : TSYViewController
 @property (nonatomic, strong)   TSYFBUserModel  *userModel;
 
 @end

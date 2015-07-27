@@ -1,21 +1,21 @@
 //
-//  TSYFriendDetailViewController.m
+//  TSYUserDetailViewController.m
 //  TSYHomeworkUI
 //
 //  Created by Admin on 22.07.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYFriendDetailViewController.h"
+#import "TSYUserDetailViewController.h"
 
 #import "TSYFBUserModel.h"
-#import "TSYFriendDetailView.h"
+#import "TSYUserDetailView.h"
 #import "TSYMacros.h"
-#import "TSYLoadingContext.h"
+#import "TSYFacebookUserInfoContext.h"
 
-TSYViewControllerBaseViewProperty(TSYFriendDetailViewController, TSYFriendDetailView, mainView)
+TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView, mainView)
 
-@implementation TSYFriendDetailViewController
+@implementation TSYUserDetailViewController
 
 #pragma mark -
 #pragma mark Accessors
@@ -28,7 +28,7 @@ TSYViewControllerBaseViewProperty(TSYFriendDetailViewController, TSYFriendDetail
         
         [_userModel addObserver:self];
         
-        TSYLoadingContext *context = [TSYLoadingContext loadingContextWithModel:userModel];
+        TSYFacebookUserInfoContext *context = [TSYFacebookUserInfoContext loadingContextWithModel:userModel];
         [context execute];
     }
 }
@@ -54,7 +54,7 @@ TSYViewControllerBaseViewProperty(TSYFriendDetailViewController, TSYFriendDetail
 }
 
 - (void)modelDidLoad:(TSYFBUserModel *)model {
-    TSYFriendDetailView *mainView = self.mainView;
+    TSYUserDetailView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [mainView fillWithModel:model];

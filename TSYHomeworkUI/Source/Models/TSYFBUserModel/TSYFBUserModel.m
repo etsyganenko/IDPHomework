@@ -10,7 +10,7 @@
 
 #import "TSYArrayModel.h"
 #import "TSYImageModel.h"
-#import "TSYLoadingContext.h"
+#import "TSYFacebookUserInfoContext.h"
 
 @implementation TSYFBUserModel
 
@@ -24,7 +24,7 @@
 }
 
 - (void)performLoading {
-    TSYLoadingContext *context = [TSYLoadingContext loadingContextWithModel:self];
+    TSYFacebookUserInfoContext *context = [TSYFacebookUserInfoContext loadingContextWithModel:self];
     
     [context execute];
 }

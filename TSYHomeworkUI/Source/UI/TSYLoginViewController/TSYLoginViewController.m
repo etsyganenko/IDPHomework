@@ -10,11 +10,11 @@
 
 #import "TSYLoginViewController.h"
 
-#import "TSYFriendDetailViewController.h"
+#import "TSYUserDetailViewController.h"
 #import "TSYLoginView.h"
 #import "TSYMacros.h"
-#import "TSYLoginContext.h"
-#import "TSYLoadingContext.h"
+#import "TSYFacebookLoginContext.h"
+#import "TSYFacebookUserInfoContext.h"
 #import "TSYFBUserModel.h"
 
 TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView)
@@ -60,7 +60,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
     TSYFBUserModel *model = [TSYFBUserModel new];
     self.model = model;
     
-    TSYLoginContext *loginContext = [TSYLoginContext logingContextWithModel:model];
+    TSYFacebookLoginContext *loginContext = [TSYFacebookLoginContext logingContextWithModel:model];
     
     [loginContext execute];
 }
@@ -75,7 +75,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated {
     if ([FBSDKAccessToken currentAccessToken]) {
         UINavigationController *navigationController = self.navigationController;
-        TSYFriendDetailViewController *controller = [TSYFriendDetailViewController new];
+        TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         
         controller.userModel = self.model;
         

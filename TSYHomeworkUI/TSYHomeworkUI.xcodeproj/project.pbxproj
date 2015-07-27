@@ -15,8 +15,6 @@
 		849F4B191B5FAEE800B9DEED /* TSYLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849F4B171B5FAEE800B9DEED /* TSYLoginViewController.xib */; };
 		849F4B251B5FAFA400B9DEED /* TSYFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B231B5FAFA400B9DEED /* TSYFriendsViewController.m */; };
 		849F4B261B5FAFA400B9DEED /* TSYFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849F4B241B5FAFA400B9DEED /* TSYFriendsViewController.xib */; };
-		849F4B2A1B5FAFCA00B9DEED /* TSYFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B281B5FAFCA00B9DEED /* TSYFriendDetailViewController.m */; };
-		849F4B2B1B5FAFCA00B9DEED /* TSYFriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849F4B291B5FAFCA00B9DEED /* TSYFriendDetailViewController.xib */; };
 		849F4B2E1B5FB9C800B9DEED /* TSYLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B2D1B5FB9C800B9DEED /* TSYLoginView.m */; };
 		849F4B331B5FD01200B9DEED /* TSYFBUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4B321B5FD01200B9DEED /* TSYFBUserModel.m */; };
 		849F68B31B55438A007DCFDE /* TSYImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F68B21B55438A007DCFDE /* TSYImageModel.m */; };
@@ -36,9 +34,6 @@
 		84A196321B321AF900C5CE0E /* TSYTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1962D1B321AF900C5CE0E /* TSYTableViewController.m */; };
 		84A196331B321AF900C5CE0E /* TSYTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1962E1B321AF900C5CE0E /* TSYTableViewController.xib */; };
 		84A1A3471B618C65007C980C /* TSYContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1A3401B618C65007C980C /* TSYContext.m */; };
-		84A1A3481B618C65007C980C /* TSYLoadingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1A3431B618C65007C980C /* TSYLoadingContext.m */; };
-		84A1A3491B618C65007C980C /* TSYLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1A3461B618C65007C980C /* TSYLoginContext.m */; };
-		84A1BBA11B60E2EB00E3A890 /* TSYFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1BBA01B60E2EB00E3A890 /* TSYFriendDetailView.m */; };
 		84A1C3061B341B4200DC7198 /* TSYTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1C3041B341B4200DC7198 /* TSYTableCell.m */; };
 		84A1C3071B341B4200DC7198 /* TSYTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1C3051B341B4200DC7198 /* TSYTableCell.xib */; };
 		84A1EFE61B31A2A30037A3B7 /* TSYSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1EFE21B31A2A30037A3B7 /* TSYSquareView.m */; };
@@ -55,6 +50,11 @@
 		84A3336A1B5A5FD500F44720 /* NSURLSession+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A333691B5A5FD500F44720 /* NSURLSession+TSYCategory.m */; };
 		84A39E6D1B4BD9FD00BFDFB0 /* NSFileManager+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A39E6C1B4BD9FD00BFDFB0 /* NSFileManager+TSYCategory.m */; };
 		84A8D3611B64C8730083FE71 /* TSYView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D3601B64C8730083FE71 /* TSYView.m */; };
+		84A8E1B71B6625CD004B9394 /* TSYUserDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8E1B31B6625CD004B9394 /* TSYUserDetailView.m */; };
+		84A8E1B81B6625CD004B9394 /* TSYUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8E1B51B6625CD004B9394 /* TSYUserDetailViewController.m */; };
+		84A8E1B91B6625CD004B9394 /* TSYUserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A8E1B61B6625CD004B9394 /* TSYUserDetailViewController.xib */; };
+		84A8E1BD1B662A07004B9394 /* TSYFacebookUserInfoContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8E1BC1B662A07004B9394 /* TSYFacebookUserInfoContext.m */; };
+		84A8E1C11B662DAD004B9394 /* TSYFacebookLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8E1C01B662DAD004B9394 /* TSYFacebookLoginContext.m */; };
 		84AE8DD91B586537003C808D /* TSYImageModelCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE8DD81B586537003C808D /* TSYImageModelCache.m */; };
 		84BD0D591B414F9C00349DE5 /* UINib+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BD0D581B414F9C00349DE5 /* UINib+TSYCategory.m */; };
 		84BD0D5E1B41F74200349DE5 /* NSIndexPath+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BD0D5D1B41F74200349DE5 /* NSIndexPath+TSYCategory.m */; };
@@ -96,9 +96,6 @@
 		849F4B221B5FAFA400B9DEED /* TSYFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFriendsViewController.h; sourceTree = "<group>"; };
 		849F4B231B5FAFA400B9DEED /* TSYFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFriendsViewController.m; sourceTree = "<group>"; };
 		849F4B241B5FAFA400B9DEED /* TSYFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYFriendsViewController.xib; sourceTree = "<group>"; };
-		849F4B271B5FAFCA00B9DEED /* TSYFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFriendDetailViewController.h; sourceTree = "<group>"; };
-		849F4B281B5FAFCA00B9DEED /* TSYFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFriendDetailViewController.m; sourceTree = "<group>"; };
-		849F4B291B5FAFCA00B9DEED /* TSYFriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYFriendDetailViewController.xib; sourceTree = "<group>"; };
 		849F4B2C1B5FB9C800B9DEED /* TSYLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYLoginView.h; sourceTree = "<group>"; };
 		849F4B2D1B5FB9C800B9DEED /* TSYLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYLoginView.m; sourceTree = "<group>"; };
 		849F4B311B5FD01200B9DEED /* TSYFBUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFBUserModel.h; sourceTree = "<group>"; };
@@ -131,12 +128,6 @@
 		84A1962E1B321AF900C5CE0E /* TSYTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYTableViewController.xib; sourceTree = "<group>"; };
 		84A1A33F1B618C65007C980C /* TSYContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYContext.h; sourceTree = "<group>"; };
 		84A1A3401B618C65007C980C /* TSYContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYContext.m; sourceTree = "<group>"; };
-		84A1A3421B618C65007C980C /* TSYLoadingContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYLoadingContext.h; sourceTree = "<group>"; };
-		84A1A3431B618C65007C980C /* TSYLoadingContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYLoadingContext.m; sourceTree = "<group>"; };
-		84A1A3451B618C65007C980C /* TSYLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYLoginContext.h; sourceTree = "<group>"; };
-		84A1A3461B618C65007C980C /* TSYLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYLoginContext.m; sourceTree = "<group>"; };
-		84A1BB9F1B60E2EB00E3A890 /* TSYFriendDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFriendDetailView.h; sourceTree = "<group>"; };
-		84A1BBA01B60E2EB00E3A890 /* TSYFriendDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFriendDetailView.m; sourceTree = "<group>"; };
 		84A1C3031B341B4200DC7198 /* TSYTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYTableCell.h; sourceTree = "<group>"; };
 		84A1C3041B341B4200DC7198 /* TSYTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYTableCell.m; sourceTree = "<group>"; };
 		84A1C3051B341B4200DC7198 /* TSYTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYTableCell.xib; sourceTree = "<group>"; };
@@ -165,6 +156,15 @@
 		84A39E6C1B4BD9FD00BFDFB0 /* NSFileManager+TSYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+TSYCategory.m"; sourceTree = "<group>"; };
 		84A8D35F1B64C8730083FE71 /* TSYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYView.h; sourceTree = "<group>"; };
 		84A8D3601B64C8730083FE71 /* TSYView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYView.m; sourceTree = "<group>"; };
+		84A8E1B21B6625CD004B9394 /* TSYUserDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYUserDetailView.h; sourceTree = "<group>"; };
+		84A8E1B31B6625CD004B9394 /* TSYUserDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYUserDetailView.m; sourceTree = "<group>"; };
+		84A8E1B41B6625CD004B9394 /* TSYUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYUserDetailViewController.h; sourceTree = "<group>"; };
+		84A8E1B51B6625CD004B9394 /* TSYUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYUserDetailViewController.m; sourceTree = "<group>"; };
+		84A8E1B61B6625CD004B9394 /* TSYUserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYUserDetailViewController.xib; sourceTree = "<group>"; };
+		84A8E1BB1B662A07004B9394 /* TSYFacebookUserInfoContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFacebookUserInfoContext.h; sourceTree = "<group>"; };
+		84A8E1BC1B662A07004B9394 /* TSYFacebookUserInfoContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFacebookUserInfoContext.m; sourceTree = "<group>"; };
+		84A8E1BF1B662DAD004B9394 /* TSYFacebookLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFacebookLoginContext.h; sourceTree = "<group>"; };
+		84A8E1C01B662DAD004B9394 /* TSYFacebookLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFacebookLoginContext.m; sourceTree = "<group>"; };
 		84AE8DD71B586537003C808D /* TSYImageModelCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYImageModelCache.h; sourceTree = "<group>"; };
 		84AE8DD81B586537003C808D /* TSYImageModelCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYImageModelCache.m; sourceTree = "<group>"; };
 		84BD0D571B414F9C00349DE5 /* UINib+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+TSYCategory.h"; sourceTree = "<group>"; };
@@ -260,18 +260,6 @@
 				849F4B241B5FAFA400B9DEED /* TSYFriendsViewController.xib */,
 			);
 			path = TSYFriendsViewCOntroller;
-			sourceTree = "<group>";
-		};
-		849F4B031B5FABC400B9DEED /* TSYFriendDetailViewController */ = {
-			isa = PBXGroup;
-			children = (
-				849F4B271B5FAFCA00B9DEED /* TSYFriendDetailViewController.h */,
-				849F4B281B5FAFCA00B9DEED /* TSYFriendDetailViewController.m */,
-				849F4B291B5FAFCA00B9DEED /* TSYFriendDetailViewController.xib */,
-				84A1BB9F1B60E2EB00E3A890 /* TSYFriendDetailView.h */,
-				84A1BBA01B60E2EB00E3A890 /* TSYFriendDetailView.m */,
-			);
-			path = TSYFriendDetailViewController;
 			sourceTree = "<group>";
 		};
 		849F4B301B5FCFF700B9DEED /* TSYFBUserModel */ = {
@@ -418,9 +406,9 @@
 		84A1A33D1B618C65007C980C /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				84A8E1BE1B662DAD004B9394 /* TSYFacebookLoginContext */,
+				84A8E1BA1B662A07004B9394 /* TSYFacebookUserInfoContext */,
 				84A1A33E1B618C65007C980C /* TSYContext */,
-				84A1A3411B618C65007C980C /* TSYLoadingContext */,
-				84A1A3441B618C65007C980C /* TSYLoginContext */,
 			);
 			path = Contexts;
 			sourceTree = "<group>";
@@ -432,24 +420,6 @@
 				84A1A3401B618C65007C980C /* TSYContext.m */,
 			);
 			path = TSYContext;
-			sourceTree = "<group>";
-		};
-		84A1A3411B618C65007C980C /* TSYLoadingContext */ = {
-			isa = PBXGroup;
-			children = (
-				84A1A3421B618C65007C980C /* TSYLoadingContext.h */,
-				84A1A3431B618C65007C980C /* TSYLoadingContext.m */,
-			);
-			path = TSYLoadingContext;
-			sourceTree = "<group>";
-		};
-		84A1A3441B618C65007C980C /* TSYLoginContext */ = {
-			isa = PBXGroup;
-			children = (
-				84A1A3451B618C65007C980C /* TSYLoginContext.h */,
-				84A1A3461B618C65007C980C /* TSYLoginContext.m */,
-			);
-			path = TSYLoginContext;
 			sourceTree = "<group>";
 		};
 		84A1C3021B341B4200DC7198 /* TSYTableCell */ = {
@@ -473,10 +443,10 @@
 		84A1EFC91B31678A0037A3B7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				84A8E1B11B6625CD004B9394 /* TSYUserDetailViewController */,
 				849F4B011B5FAB7F00B9DEED /* TSYViewController */,
 				849F4B001B5FAB5300B9DEED /* TSYLoginViewController */,
 				849F4B021B5FABB500B9DEED /* TSYFriendsViewCOntroller */,
-				849F4B031B5FABC400B9DEED /* TSYFriendDetailViewController */,
 				84A1EFE01B31A2A30037A3B7 /* TSYSquareViewController */,
 				84A1EFCA1B31678A0037A3B7 /* TSYTableViewController */,
 			);
@@ -586,6 +556,36 @@
 				84A39E6C1B4BD9FD00BFDFB0 /* NSFileManager+TSYCategory.m */,
 			);
 			path = NSFileManager;
+			sourceTree = "<group>";
+		};
+		84A8E1B11B6625CD004B9394 /* TSYUserDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84A8E1B21B6625CD004B9394 /* TSYUserDetailView.h */,
+				84A8E1B31B6625CD004B9394 /* TSYUserDetailView.m */,
+				84A8E1B41B6625CD004B9394 /* TSYUserDetailViewController.h */,
+				84A8E1B51B6625CD004B9394 /* TSYUserDetailViewController.m */,
+				84A8E1B61B6625CD004B9394 /* TSYUserDetailViewController.xib */,
+			);
+			path = TSYUserDetailViewController;
+			sourceTree = "<group>";
+		};
+		84A8E1BA1B662A07004B9394 /* TSYFacebookUserInfoContext */ = {
+			isa = PBXGroup;
+			children = (
+				84A8E1BB1B662A07004B9394 /* TSYFacebookUserInfoContext.h */,
+				84A8E1BC1B662A07004B9394 /* TSYFacebookUserInfoContext.m */,
+			);
+			path = TSYFacebookUserInfoContext;
+			sourceTree = "<group>";
+		};
+		84A8E1BE1B662DAD004B9394 /* TSYFacebookLoginContext */ = {
+			isa = PBXGroup;
+			children = (
+				84A8E1BF1B662DAD004B9394 /* TSYFacebookLoginContext.h */,
+				84A8E1C01B662DAD004B9394 /* TSYFacebookLoginContext.m */,
+			);
+			path = TSYFacebookLoginContext;
 			sourceTree = "<group>";
 		};
 		84AE8DD61B586537003C808D /* TSYImageModelCache */ = {
@@ -813,7 +813,7 @@
 				84A1C3071B341B4200DC7198 /* TSYTableCell.xib in Resources */,
 				849F4B261B5FAFA400B9DEED /* TSYFriendsViewController.xib in Resources */,
 				84A196331B321AF900C5CE0E /* TSYTableViewController.xib in Resources */,
-				849F4B2B1B5FAFCA00B9DEED /* TSYFriendDetailViewController.xib in Resources */,
+				84A8E1B91B6625CD004B9394 /* TSYUserDetailViewController.xib in Resources */,
 				84A285D81B3974B900D52615 /* LaunchScreen.xib in Resources */,
 				849F4B141B5FAE8E00B9DEED /* TSYViewController.xib in Resources */,
 				84A30E6B1B434DD6005F8EA6 /* TSYLoadingView.xib in Resources */,
@@ -903,18 +903,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A8E1B81B6625CD004B9394 /* TSYUserDetailViewController.m in Sources */,
 				84A196311B321AF900C5CE0E /* TSYTableView.m in Sources */,
 				84BD0D591B414F9C00349DE5 /* UINib+TSYCategory.m in Sources */,
 				84A30E6F1B435110005F8EA6 /* TSYModel.m in Sources */,
 				84A30E631B433092005F8EA6 /* NSArray+TSYCategory.m in Sources */,
 				849F68B31B55438A007DCFDE /* TSYImageModel.m in Sources */,
+				84A8E1C11B662DAD004B9394 /* TSYFacebookLoginContext.m in Sources */,
 				849F72421B3C247000869AD4 /* UITableView+TSYCategory.m in Sources */,
-				84A1A3491B618C65007C980C /* TSYLoginContext.m in Sources */,
 				84BF5F181B32FB0100932154 /* NSString+TSYAlphabet.m in Sources */,
 				84A10F8F1B5657A9007CE765 /* TSYImageView.m in Sources */,
 				84A8D3611B64C8730083FE71 /* TSYView.m in Sources */,
 				849FB4A01B28E9460096D0AD /* main.m in Sources */,
 				84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */,
+				84A8E1B71B6625CD004B9394 /* TSYUserDetailView.m in Sources */,
 				849F4B181B5FAEE800B9DEED /* TSYLoginViewController.m in Sources */,
 				84BF5F201B33002900932154 /* TSYTableViewCell.m in Sources */,
 				84BF5F031B32D04400932154 /* TSYUser.m in Sources */,
@@ -923,23 +925,21 @@
 				84A30E671B434D81005F8EA6 /* TSYLoadingView.m in Sources */,
 				84BD0D611B41FAA400349DE5 /* NSBundle+TSYCategory.m in Sources */,
 				849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */,
+				84A8E1BD1B662A07004B9394 /* TSYFacebookUserInfoContext.m in Sources */,
 				84A1EFE61B31A2A30037A3B7 /* TSYSquareView.m in Sources */,
 				84A1C3061B341B4200DC7198 /* TSYTableCell.m in Sources */,
 				84A26DF81B3CA4B200812575 /* TSYTableCellMovingPath.m in Sources */,
 				84BF5F191B32FB0100932154 /* NSString+TSYRandomName.m in Sources */,
 				84BD0D5E1B41F74200349DE5 /* NSIndexPath+TSYCategory.m in Sources */,
 				84A1EFE71B31A2A30037A3B7 /* TSYSquareViewController.m in Sources */,
-				84A1BBA11B60E2EB00E3A890 /* TSYFriendDetailView.m in Sources */,
 				849F4B331B5FD01200B9DEED /* TSYFBUserModel.m in Sources */,
 				849F723E1B3BF09200869AD4 /* TSYTableChange.m in Sources */,
 				84A1A3471B618C65007C980C /* TSYContext.m in Sources */,
 				84A3336A1B5A5FD500F44720 /* NSURLSession+TSYCategory.m in Sources */,
-				849F4B2A1B5FAFCA00B9DEED /* TSYFriendDetailViewController.m in Sources */,
 				84AE8DD91B586537003C808D /* TSYImageModelCache.m in Sources */,
 				849F4B251B5FAFA400B9DEED /* TSYFriendsViewController.m in Sources */,
 				84A39E6D1B4BD9FD00BFDFB0 /* NSFileManager+TSYCategory.m in Sources */,
 				84A285DC1B39781300D52615 /* TSYObservableObject.m in Sources */,
-				84A1A3481B618C65007C980C /* TSYLoadingContext.m in Sources */,
 				849F4B131B5FAE8E00B9DEED /* TSYViewController.m in Sources */,
 				84BF5F1C1B32FB0100932154 /* UIWindow+TSYCategories.m in Sources */,
 				849DAF171B3414CA0034D221 /* TSYMacros.m in Sources */,
