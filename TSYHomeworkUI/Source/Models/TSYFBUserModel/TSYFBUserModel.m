@@ -24,7 +24,7 @@
 }
 
 - (void)performLoading {
-    TSYFacebookUserInfoContext *context = [TSYFacebookUserInfoContext loadingContextWithModel:self];
+    TSYFacebookUserInfoContext *context = [TSYFacebookUserInfoContext facebookUserInfoContextWithModel:self];
     
     [context execute];
 }

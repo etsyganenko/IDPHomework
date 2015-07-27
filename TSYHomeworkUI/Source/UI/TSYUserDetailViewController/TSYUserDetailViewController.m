@@ -28,7 +28,7 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
         
         [_userModel addObserver:self];
         
-        TSYFacebookUserInfoContext *context = [TSYFacebookUserInfoContext loadingContextWithModel:userModel];
+        TSYFacebookUserInfoContext *context = [TSYFacebookUserInfoContext facebookUserInfoContextWithModel:userModel];
         [context execute];
     }
 }

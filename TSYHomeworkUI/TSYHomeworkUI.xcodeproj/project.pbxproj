@@ -252,13 +252,14 @@
 			path = TSYViewController;
 			sourceTree = "<group>";
 		};
-		849F4B021B5FABB500B9DEED /* TSYFriendsViewCOntroller */ = {
+		849F4B021B5FABB500B9DEED /* TSYFriendsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				849F4B221B5FAFA400B9DEED /* TSYFriendsViewController.h */,
 				849F4B231B5FAFA400B9DEED /* TSYFriendsViewController.m */,
 				849F4B241B5FAFA400B9DEED /* TSYFriendsViewController.xib */,
 			);
+			name = TSYFriendsViewController;
 			path = TSYFriendsViewCOntroller;
 			sourceTree = "<group>";
 		};
@@ -406,9 +407,9 @@
 		84A1A33D1B618C65007C980C /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				84A1A33E1B618C65007C980C /* TSYContext */,
 				84A8E1BE1B662DAD004B9394 /* TSYFacebookLoginContext */,
 				84A8E1BA1B662A07004B9394 /* TSYFacebookUserInfoContext */,
-				84A1A33E1B618C65007C980C /* TSYContext */,
 			);
 			path = Contexts;
 			sourceTree = "<group>";
@@ -446,7 +447,7 @@
 				84A8E1B11B6625CD004B9394 /* TSYUserDetailViewController */,
 				849F4B011B5FAB7F00B9DEED /* TSYViewController */,
 				849F4B001B5FAB5300B9DEED /* TSYLoginViewController */,
-				849F4B021B5FABB500B9DEED /* TSYFriendsViewCOntroller */,
+				849F4B021B5FABB500B9DEED /* TSYFriendsViewController */,
 				84A1EFE01B31A2A30037A3B7 /* TSYSquareViewController */,
 				84A1EFCA1B31678A0037A3B7 /* TSYTableViewController */,
 			);

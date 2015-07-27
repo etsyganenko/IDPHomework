@@ -14,7 +14,7 @@
 #import "TSYFBUserModel.h"
 
 @interface TSYFacebookLoginContext ()
-@property (nonatomic, readonly) NSArray                         *permissions;
+@property (nonatomic, readonly)     NSArray     *permissions;
 
 - (void)fillModelWithResult:(id)result;
 

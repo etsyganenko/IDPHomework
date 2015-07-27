@@ -13,6 +13,7 @@
 @implementation TSYUserDetailView
 
 - (void)fillWithModel:(TSYFBUserModel *)model {
+    self.IDLabel.text = model.ID;
     self.fullNameLabel.text = model.name;
 }
 

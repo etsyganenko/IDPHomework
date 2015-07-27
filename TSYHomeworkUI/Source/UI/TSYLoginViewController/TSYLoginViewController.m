@@ -83,21 +83,11 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
     }
 }
 
-- (void)fillWithModel:(TSYFBUserModel *)model {
-    self.model.ID = model.ID;
-}
-
 #pragma mark -
 #pragma mark TSYModelObserver
 
 - (void)modelDidLoad:(TSYFBUserModel *)model {
-    TSYLoginView *mainView = self.mainView;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self fillWithModel:model];
-        
-        [mainView hideLoadingView];
-    });
+
 }
 
 @end

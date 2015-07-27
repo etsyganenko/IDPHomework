@@ -13,6 +13,6 @@
 @interface TSYFacebookUserInfoContext : TSYContext
 @property (nonatomic, strong)   TSYFBUserModel    *model;
 
-+ (instancetype)loadingContextWithModel:(TSYFBUserModel *)model;
++ (instancetype)facebookUserInfoContextWithModel:(TSYFBUserModel *)model;
 
 @end
