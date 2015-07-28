@@ -12,11 +12,18 @@
 
 @implementation TSYContext
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (void)execute {
     
 }
 
 - (void)cancel {
+    
+}
+
+- (void)fillModelWithResult:(id)result {
     
 }
 

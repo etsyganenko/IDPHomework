@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYContext.h"
+#import "TSYFacebookContext.h"
 
 @class TSYFBUserModel;
 
-@interface TSYFacebookUserInfoContext : TSYContext
+@interface TSYFacebookUserInfoContext : TSYFacebookContext
 
 @end

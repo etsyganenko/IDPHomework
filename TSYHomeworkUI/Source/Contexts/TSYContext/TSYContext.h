@@ -16,4 +16,6 @@
 - (void)execute;
 - (void)cancel;
 
+- (void)fillModelWithResult:(id)result;
+
 @end

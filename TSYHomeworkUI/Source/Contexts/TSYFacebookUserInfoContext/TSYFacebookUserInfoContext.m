@@ -16,60 +16,13 @@
 static NSString * const kGraphPath              = @"me?fields=name,picture{url}";
 static NSString * const kUserNameKey            = @"name";
 
-@interface TSYFacebookUserInfoContext ()
-@property (nonatomic, strong)   FBSDKGraphRequest               *request;
-@property (nonatomic, strong)   FBSDKGraphRequestConnection     *connection;
-
-@property (nonatomic, readonly) NSString                        *graphPath;
-
-- (void)fillModelWithResult:(id)result;
-
-@end
-
 @implementation TSYFacebookUserInfoContext
 
 #pragma mark -
 #pragma mark Accessors
 
-- (FBSDKGraphRequest *)request {
-    return [[FBSDKGraphRequest alloc] initWithGraphPath:self.graphPath parameters:nil];
-}
-
 - (NSString *)graphPath {
     return kGraphPath;
-}
-
-#pragma mark -
-#pragma mark Public Methods
-
-- (void)execute {
-    TSYFBUserModel *model = self.model;
-    
-    FBSDKGraphRequest *request = self.request;
-    
-    if ([FBSDKAccessToken currentAccessToken]) {
-        FBSDKGraphRequestConnection *connection = [FBSDKGraphRequestConnection new];
-        self.connection = connection;
-        
-        [connection addRequest:request
-             completionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                 if (error) {
-                     model.state = TSYModelDidFailLoading;
-                     
-                     return;
-                 }
-                 
-                 [self fillModelWithResult:result];
-                 
-                 model.state = TSYModelDidLoad;
-             }];
-        
-        [connection start];
-    }
-}
-            
-- (void)cancel {
-    [self.connection cancel];
 }
 
 #pragma mark -

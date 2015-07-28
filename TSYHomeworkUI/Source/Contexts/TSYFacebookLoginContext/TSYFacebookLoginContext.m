@@ -16,8 +16,6 @@
 @interface TSYFacebookLoginContext ()
 @property (nonatomic, strong)   FBSDKLoginManager   *loginManager;
 
-- (void)fillModelWithResult:(id)result;
-
 @end
 
 @implementation TSYFacebookLoginContext
@@ -42,7 +40,7 @@
     FBSDKLoginManager *loginManager = self.loginManager;
     
     [loginManager logInWithReadPermissions:self.permissions
-                                   handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
+                                   handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                        if (error || result.isCancelled) {
                                            self.model.state = TSYModelDidFailLoading;
                                            
@@ -54,9 +52,6 @@
                                        self.model.state = TSYModelDidLoad;
                                    }];
 }
-
-#pragma mark -
-#pragma mark Private Methods
 
 - (void)fillModelWithResult:(FBSDKLoginManagerLoginResult *)result {
     ((TSYFBUserModel *)(self.model)).ID = result.token.userID;
