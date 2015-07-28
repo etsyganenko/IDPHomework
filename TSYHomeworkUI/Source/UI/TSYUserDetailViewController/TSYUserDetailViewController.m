@@ -12,6 +12,7 @@
 #import "TSYUserDetailView.h"
 #import "TSYMacros.h"
 #import "TSYFacebookUserInfoContext.h"
+#import "TSYFacebookUserFriendsContext.h"
 #import "TSYFriendsViewController.h"
 #import "TSYArrayModel.h"
 
@@ -36,8 +37,13 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 - (IBAction)onFriendsButton:(id)sender {
     TSYFriendsViewController *friendsController = [TSYFriendsViewController new];
     UINavigationController *navigationController = self.navigationController;
+    TSYArrayModel *model = [TSYArrayModel new];
+    TSYFacebookUserFriendsContext *context = [TSYFacebookUserFriendsContext new];
     
-    friendsController.model = [TSYArrayModel new];
+    friendsController.model = model;
+    context.model = model;
+    
+    friendsController.context = context;
     
     [navigationController pushViewController:friendsController animated:YES];
 }
