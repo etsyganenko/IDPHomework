@@ -323,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				849FB4A61B28E98E0096D0AD /* Resources */,
+				84BF5F081B32FB0100932154 /* Library */,
 				849FB4AC1B28E98E0096D0AD /* Source */,
 				849FB4A11B28E96E0096D0AD /* TSYHomeworkUITests */,
 				849FB49C1B28E9460096D0AD /* TSYHomeworkUI */,
@@ -375,7 +376,6 @@
 			isa = PBXGroup;
 			children = (
 				84A1A33D1B618C65007C980C /* Contexts */,
-				84BF5F081B32FB0100932154 /* Library */,
 				84A1EFDC1B31679B0037A3B7 /* Models */,
 				84A1EFC91B31678A0037A3B7 /* UI */,
 			);
@@ -418,11 +418,11 @@
 		84A1A33D1B618C65007C980C /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
-				84E600621B67ADCD009FF52A /* TSYFacebookContext */,
-				84E6005E1B67A97C009FF52A /* TSYFacebookUserFriendsContext */,
 				84A1A33E1B618C65007C980C /* TSYContext */,
+				84E600621B67ADCD009FF52A /* TSYFacebookContext */,
 				84A8E1BE1B662DAD004B9394 /* TSYFacebookLoginContext */,
 				84A8E1BA1B662A07004B9394 /* TSYFacebookUserInfoContext */,
+				84E6005E1B67A97C009FF52A /* TSYFacebookUserFriendsContext */,
 			);
 			path = Contexts;
 			sourceTree = "<group>";
@@ -664,7 +664,8 @@
 				84BF5F091B32FB0100932154 /* Categories */,
 				84BF5F171B32FB0100932154 /* Classes */,
 			);
-			path = Library;
+			name = Library;
+			path = Source/Library;
 			sourceTree = "<group>";
 		};
 		84BF5F091B32FB0100932154 /* Categories */ = {

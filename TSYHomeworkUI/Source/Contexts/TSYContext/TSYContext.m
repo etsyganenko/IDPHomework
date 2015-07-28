@@ -8,8 +8,6 @@
 
 #import "TSYContext.h"
 
-#import "TSYModel.h"
-
 @implementation TSYContext
 
 #pragma mark -

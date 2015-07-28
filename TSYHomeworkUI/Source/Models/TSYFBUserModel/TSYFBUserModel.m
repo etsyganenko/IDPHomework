@@ -21,7 +21,13 @@
 #pragma mark Accessors
 
 - (TSYImageModel *)imageModel {
-    return [TSYImageModel imageModelWithURL:self.imageUrl];
+    NSURL *url = self.imageUrl;
+    
+    if (url) {
+        return [TSYImageModel imageModelWithURL:url];
+    }
+    
+    return nil;
 }
 
 - (NSString *)fullName {

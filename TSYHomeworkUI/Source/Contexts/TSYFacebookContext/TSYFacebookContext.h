@@ -13,9 +13,9 @@
 typedef void(^TSYContextCompletionHandler)(FBSDKGraphRequestConnection *connection, id result, NSError *error);
 
 @interface TSYFacebookContext : TSYContext
-@property (nonatomic, strong)   FBSDKGraphRequest               *request;
 @property (nonatomic, strong)   FBSDKGraphRequestConnection     *connection;
 
+@property (nonatomic, readonly) FBSDKGraphRequest               *request;
 @property (nonatomic, readonly) NSString                        *graphPath;
 
 - (TSYContextCompletionHandler)completionHandler;

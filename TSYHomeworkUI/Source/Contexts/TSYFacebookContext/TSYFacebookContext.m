@@ -9,18 +9,16 @@
 #import "TSYFacebookContext.h"
 
 #import "TSYMacros.h"
-#import "TSYModel.h"
+#import "TSYFBUserModel.h"
+
+static NSString * const kHTTPMethod    = @"GET";
+
+@interface TSYFacebookContext ()
+@property (nonatomic, strong) FBSDKGraphRequest   *request;
+
+@end
 
 @implementation TSYFacebookContext
-
-#pragma mark -
-#pragma mark Accessors
-
-- (FBSDKGraphRequest *)request {
-    return [[FBSDKGraphRequest alloc] initWithGraphPath:self.graphPath
-                                             parameters:nil
-                                             HTTPMethod:@"GET"];
-}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -30,13 +28,12 @@
 }
 
 - (void)execute {
-    FBSDKGraphRequest *request = self.request;
+    self.request = [[FBSDKGraphRequest alloc] initWithGraphPath:self.graphPath
+                                                     parameters:nil
+                                                     HTTPMethod:kHTTPMethod];
     
     if ([FBSDKAccessToken currentAccessToken]) {
-        FBSDKGraphRequestConnection *connection = [FBSDKGraphRequestConnection new];
-        self.connection = connection;
-        
-        [request startWithCompletionHandler:[self completionHandler]];
+        self.connection = [self.request startWithCompletionHandler:[self completionHandler]];
     }
 }
 
@@ -45,15 +42,16 @@
     TSYContextCompletionHandler handler = ^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         TSYStrongify(self);
         
+        TSYFBUserModel *model = self.model;
         if (error) {
-            self.model.state = TSYModelDidFailLoading;
+            model.state = TSYModelDidFailLoading;
             
             return;
         }
         
         [self fillModelWithResult:result];
         
-        self.model.state = TSYModelDidLoad;
+        model.state = TSYModelDidLoad;
     };
     
     return handler;

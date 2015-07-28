@@ -12,6 +12,7 @@
 #import "TSYFacebookLoginContext.h"
 
 #import "TSYFBUserModel.h"
+#import "TSYMacros.h"
 
 @interface TSYFacebookLoginContext ()
 @property (nonatomic, strong)   FBSDKLoginManager   *loginManager;
@@ -25,10 +26,6 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (FBSDKLoginManager *)loginManager {
-    return [FBSDKLoginManager new];
-}
-
 - (NSArray *)permissions {
     return @[@"public_profile", @"email", @"user_friends"];
 }
@@ -37,24 +34,31 @@
 #pragma mark Public Methods
 
 - (void)execute {
-    FBSDKLoginManager *loginManager = self.loginManager;
+    self.loginManager = [FBSDKLoginManager new];
     
-    [loginManager logInWithReadPermissions:self.permissions
+    TSYWeakify(self);
+    [self.loginManager logInWithReadPermissions:self.permissions
                                    handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                                       TSYStrongify(self);
+                                       
+                                       TSYFBUserModel *model = self.model;
+                                       
                                        if (error || result.isCancelled) {
-                                           self.model.state = TSYModelDidFailLoading;
+                                           model.state = TSYModelDidFailLoading;
                                            
                                            return;
                                        }
                                        
                                        [self fillModelWithResult:result];
                                        
-                                       self.model.state = TSYModelDidLoad;
+                                       model.state = TSYModelDidLoad;
                                    }];
 }
 
 - (void)fillModelWithResult:(FBSDKLoginManagerLoginResult *)result {
-    ((TSYFBUserModel *)(self.model)).ID = result.token.userID;
+    TSYFBUserModel *model = self.model;
+    
+    model.ID = result.token.userID;
 }
 
 @end
