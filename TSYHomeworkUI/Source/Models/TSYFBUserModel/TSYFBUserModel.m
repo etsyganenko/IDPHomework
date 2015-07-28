@@ -14,10 +14,15 @@
 
 @implementation TSYFBUserModel
 
+@dynamic imageModel;
 @dynamic fullName;
 
 #pragma mark -
 #pragma mark Accessors
+
+- (TSYImageModel *)imageModel {
+    return [TSYImageModel imageModelWithURL:self.imageUrl];
+}
 
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];

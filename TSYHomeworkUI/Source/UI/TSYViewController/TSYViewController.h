@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class TSYContext;
+@class TSYModel;
+
 @interface TSYViewController : UIViewController
+@property (nonatomic, strong)   TSYContext  *context;
+@property (nonatomic, strong)   TSYModel    *model;
 
 @end

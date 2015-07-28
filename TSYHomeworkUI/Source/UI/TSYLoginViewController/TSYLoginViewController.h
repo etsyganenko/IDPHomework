@@ -8,12 +8,12 @@
 
 #import "TSYViewController.h"
 
+@class TSYFacebookLoginContext;
 @class TSYFBUserModel;
 
 @interface TSYLoginViewController : TSYViewController
-@property (nonatomic, strong)   TSYFBUserModel  *model;
 
-- (IBAction)onButtonLogin:(id)sender;
-- (IBAction)onButtonShowUserProfile:(id)sender;
+- (IBAction)onLoginButton:(id)sender;
+- (IBAction)onUserProfileButton:(id)sender;
 
 @end

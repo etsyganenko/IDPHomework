@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class TSYModel;
+
 @interface TSYContext : NSObject
+@property (nonatomic, strong)   TSYModel    *model;
 
 - (void)execute;
 - (void)cancel;

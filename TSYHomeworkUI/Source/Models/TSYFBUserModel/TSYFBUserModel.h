@@ -15,6 +15,7 @@
 @property (nonatomic, strong)       NSString        *ID;
 @property (nonatomic, strong)       NSString        *name;
 @property (nonatomic, strong)       NSString        *surname;
+@property (nonatomic, strong)       NSURL           *imageUrl;
 @property (nonatomic, readonly)     NSString        *fullName;
 @property (nonatomic, readonly)     TSYImageModel   *imageModel;
 @property (nonatomic, readonly)     TSYArrayModel   *friends;

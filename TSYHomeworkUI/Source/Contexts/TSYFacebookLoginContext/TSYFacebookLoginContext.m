@@ -14,7 +14,7 @@
 #import "TSYFBUserModel.h"
 
 @interface TSYFacebookLoginContext ()
-@property (nonatomic, readonly)     NSArray     *permissions;
+@property (nonatomic, strong)   FBSDKLoginManager   *loginManager;
 
 - (void)fillModelWithResult:(id)result;
 
@@ -25,30 +25,11 @@
 @dynamic permissions;
 
 #pragma mark -
-#pragma mark Class Methods
-
-+ (instancetype)logingContextWithModel:(TSYFBUserModel *)model {
-    return [[self alloc] initWithModel:model];
-}
-
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (void)dealloc {
-    [self cancel];
-}
-
-- (instancetype)initWithModel:(TSYFBUserModel *)model {
-    self = [super init];
-    if (self) {
-        self.model = model;
-    }
-    
-    return self;
-}
-
-#pragma mark -
 #pragma mark Accessors
+
+- (FBSDKLoginManager *)loginManager {
+    return [FBSDKLoginManager new];
+}
 
 - (NSArray *)permissions {
     return @[@"public_profile", @"email", @"user_friends"];
@@ -58,7 +39,7 @@
 #pragma mark Public Methods
 
 - (void)execute {
-    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+    FBSDKLoginManager *loginManager = self.loginManager;
     
     [loginManager logInWithReadPermissions:self.permissions
                                    handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
@@ -78,7 +59,7 @@
 #pragma mark Private Methods
 
 - (void)fillModelWithResult:(FBSDKLoginManagerLoginResult *)result {
-    self.model.ID = result.token.userID;
+    ((TSYFBUserModel *)(self.model)).ID = result.token.userID;
 }
 
 @end

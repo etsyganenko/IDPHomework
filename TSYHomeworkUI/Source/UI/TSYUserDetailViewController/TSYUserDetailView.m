@@ -9,12 +9,17 @@
 #import "TSYUserDetailView.h"
 
 #import "TSYFBUserModel.h"
+#import "TSYImageModel.h"
 
 @implementation TSYUserDetailView
+
+#pragma mark -
+#pragma mark Public Methods
 
 - (void)fillWithModel:(TSYFBUserModel *)model {
     self.IDLabel.text = model.ID;
     self.fullNameLabel.text = model.name;
+    self.userImageView.imageView.image = model.imageModel.image;
 }
 
 @end

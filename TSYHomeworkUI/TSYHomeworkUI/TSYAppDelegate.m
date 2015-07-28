@@ -28,35 +28,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    BOOL result  = [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+    
     UIWindow *window = [UIWindow window];
     self.window = window;
-
-//    window.rootViewController = [TSYSquareViewController new];
-//    TSYTableViewController *tableViewController = [TSYTableViewController new];
-//    TSYUsers *users = [TSYUsers new];
     
     TSYLoginViewController *loginViewController = [TSYLoginViewController new];
-    loginViewController.model = [TSYFBUserModel new];
     
-//    self.users = users;
-    
-//    tableViewController.users = users;
-    
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
 
-//    window.rootViewController = tableViewController;
     window.rootViewController = navigationController;
     
     [window makeKeyAndVisible];
     
-//    return YES;
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                   didFinishLaunchingWithOptions:launchOptions];
+    return result;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    //    [self.users save];
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -72,7 +62,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    //    [self.users save];
+
 }
 
 - (BOOL)application:(UIApplication *)application

@@ -8,9 +8,9 @@
 
 #import "TSYViewController.h"
 
+@class TSYFacebookUserInfoContext;
 @class TSYFBUserModel;
 
 @interface TSYUserDetailViewController : TSYViewController
-@property (nonatomic, strong)   TSYFBUserModel  *userModel;
 
 @end

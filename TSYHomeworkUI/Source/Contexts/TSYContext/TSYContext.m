@@ -8,6 +8,8 @@
 
 #import "TSYContext.h"
 
+#import "TSYModel.h"
+
 @implementation TSYContext
 
 - (void)execute {

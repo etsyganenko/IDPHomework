@@ -13,8 +13,8 @@
 #import "TSYFBUserModel.h"
 #import "TSYImageModel.h"
 
-static NSString * const kGraphPath      = @"me";
-static NSString * const kUserNameKey    = @"name";
+static NSString * const kGraphPath              = @"me?fields=name,picture{url}";
+static NSString * const kUserNameKey            = @"name";
 
 @interface TSYFacebookUserInfoContext ()
 @property (nonatomic, strong)   FBSDKGraphRequest               *request;
@@ -29,29 +29,6 @@ static NSString * const kUserNameKey    = @"name";
 @implementation TSYFacebookUserInfoContext
 
 #pragma mark -
-#pragma mark Class Methods
-
-+ (instancetype)facebookUserInfoContextWithModel:(TSYFBUserModel *)model {
-    return [[[self class] alloc] initWithModel:model];
-}
-
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (void)dealloc {
-    [self cancel];
-}
-
-- (instancetype)initWithModel:(TSYFBUserModel *)model {
-    self = [super init];
-    if (self) {
-        self.model = model;
-    }
-    
-    return self;
-}
-
-#pragma mark -
 #pragma mark Accessors
 
 - (FBSDKGraphRequest *)request {
@@ -63,7 +40,7 @@ static NSString * const kUserNameKey    = @"name";
 }
 
 - (NSString *)graphPath {
-    return [NSString stringWithString:kGraphPath];
+    return kGraphPath;
 }
 
 #pragma mark -
@@ -102,7 +79,8 @@ static NSString * const kUserNameKey    = @"name";
 #pragma mark Private Methods
 
 - (void)fillModelWithResult:(id)result {
-    self.model.name = result[kUserNameKey];
+    ((TSYFBUserModel *)(self.model)).imageUrl = result[@"picture"][@"data"][@"url"];
+    ((TSYFBUserModel *)(self.model)).name = result[kUserNameKey];
 }
 
 @end

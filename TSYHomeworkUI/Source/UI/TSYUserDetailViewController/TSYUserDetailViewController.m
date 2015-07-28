@@ -18,22 +18,6 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 @implementation TSYUserDetailViewController
 
 #pragma mark -
-#pragma mark Accessors
-
-- (void)setUserModel:(TSYFBUserModel *)userModel {
-    if (_userModel != userModel) {
-        [_userModel removeObserver:self];
-        
-        _userModel = userModel;
-        
-        [_userModel addObserver:self];
-        
-        TSYFacebookUserInfoContext *context = [TSYFacebookUserInfoContext facebookUserInfoContextWithModel:userModel];
-        [context execute];
-    }
-}
-
-#pragma mark -
 #pragma mark View Lifecycle
 
 - (void)viewDidLoad {

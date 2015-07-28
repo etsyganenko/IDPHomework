@@ -28,23 +28,10 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 @implementation TSYLoginViewController
 
 #pragma mark -
-#pragma mark Accessors
-
-- (void)setModel:(TSYFBUserModel *)model {
-    if (_model != model) {
-        [_model removeObserver:self];
-        
-        _model = model;
-        
-        [_model addObserver:self];
-    }
-}
-
-#pragma mark -
 #pragma mark View Lifecycle
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     [self showUserProfileIfLoggedInAnimated:NO];
 }
@@ -56,16 +43,13 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark -
 #pragma mark Interface Handling
 
-- (IBAction)onButtonLogin:(id)sender {
+- (IBAction)onLoginButton:(id)sender {
     TSYFBUserModel *model = [TSYFBUserModel new];
+    
     self.model = model;
-    
-    TSYFacebookLoginContext *loginContext = [TSYFacebookLoginContext logingContextWithModel:model];
-    
-    [loginContext execute];
 }
 
-- (IBAction)onButtonShowUserProfile:(id)sender {
+- (IBAction)onUserProfileButton:(id)sender {
     [self showUserProfileIfLoggedInAnimated:YES];
 }
 
@@ -77,17 +61,10 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
         UINavigationController *navigationController = self.navigationController;
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         
-        controller.userModel = self.model;
+        controller.model = self.model;
         
         [navigationController pushViewController:controller animated:animated];
     }
-}
-
-#pragma mark -
-#pragma mark TSYModelObserver
-
-- (void)modelDidLoad:(TSYFBUserModel *)model {
-
 }
 
 @end
