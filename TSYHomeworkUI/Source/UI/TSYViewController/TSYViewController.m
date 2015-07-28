@@ -18,6 +18,13 @@
 @implementation TSYViewController
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.context = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setModel:(TSYModel *)model {
@@ -36,9 +43,11 @@
         
         _context = context;
         
-        _context.model = self.model;
-        
-        [_context execute];
+        if (context) {
+            _context.model = self.model;
+            
+            [_context execute];
+        }
     }
 }
 
