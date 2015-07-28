@@ -44,10 +44,21 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uE0-Ye-JwC">
+                    <rect key="frame" x="127" y="359" width="65" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Friends">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onFriendsButton:" destination="-1" eventType="touchUpInside" id="AaA-1P-8Zm"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="IDLabel" destination="NfO-Xp-llU" id="fqG-zd-TYa"/>
+                <outlet property="friendsButton" destination="uE0-Ye-JwC" id="98V-qn-E7U"/>
                 <outlet property="fullNameLabel" destination="pTJ-2Q-EKZ" id="NZt-Q2-1Jt"/>
                 <outlet property="userImageView" destination="2jc-eY-L4d" id="lL0-om-qZL"/>
             </connections>

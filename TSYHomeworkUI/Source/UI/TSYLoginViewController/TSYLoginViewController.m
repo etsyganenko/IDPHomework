@@ -30,11 +30,11 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark -
 #pragma mark View Lifecycle
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self showUserProfileIfLoggedInAnimated:NO];
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    
+//    [self showUserProfileIfLoggedInAnimated:NO];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,8 +45,12 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 
 - (IBAction)onLoginButton:(id)sender {
     TSYFBUserModel *model = [TSYFBUserModel new];
+    TSYFacebookLoginContext *context = [TSYFacebookLoginContext new];
     
     self.model = model;
+    context.model = model;
+    
+    self.context = context;
 }
 
 - (IBAction)onUserProfileButton:(id)sender {
@@ -62,6 +66,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         
         controller.model = self.model;
+        controller.context = [TSYFacebookUserInfoContext new];
         
         [navigationController pushViewController:controller animated:animated];
     }

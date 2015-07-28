@@ -27,8 +27,6 @@
         _model = model;
         
         [_model addObserver:self];
-        
-        self.context = [TSYContext new];
     }
 }
 

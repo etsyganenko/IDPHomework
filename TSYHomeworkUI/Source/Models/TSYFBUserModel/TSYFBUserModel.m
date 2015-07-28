@@ -28,10 +28,4 @@
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
 }
 
-- (void)performLoading {
-    TSYFacebookUserInfoContext *context = [TSYFacebookUserInfoContext facebookUserInfoContextWithModel:self];
-    
-    [context execute];
-}
-
 @end

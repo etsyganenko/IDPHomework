@@ -13,4 +13,6 @@
 
 @interface TSYUserDetailViewController : TSYViewController
 
+- (IBAction)onFriendsButton:(id)sender;
+
 @end

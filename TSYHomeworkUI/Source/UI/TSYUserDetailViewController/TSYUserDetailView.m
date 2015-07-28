@@ -19,7 +19,7 @@
 - (void)fillWithModel:(TSYFBUserModel *)model {
     self.IDLabel.text = model.ID;
     self.fullNameLabel.text = model.name;
-    self.userImageView.imageView.image = model.imageModel.image;
+    self.userImageView.imageModel = model.imageModel;
 }
 
 @end

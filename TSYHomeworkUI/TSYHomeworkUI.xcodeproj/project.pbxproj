@@ -66,6 +66,7 @@
 		84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F101B32FB0100932154 /* NSString+TSYRandomString.m */; };
 		84BF5F1C1B32FB0100932154 /* UIWindow+TSYCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F161B32FB0100932154 /* UIWindow+TSYCategories.m */; };
 		84BF5F201B33002900932154 /* TSYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF5F1F1B33002900932154 /* TSYTableViewCell.m */; };
+		84E6005D1B67A3B7009FF52A /* TSYFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E6005C1B67A3B7009FF52A /* TSYFriendsView.m */; };
 		B66C1EB5621F627838B6B349 /* libPods-TSYHomeworkUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +188,8 @@
 		84BF5F161B32FB0100932154 /* UIWindow+TSYCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+TSYCategories.m"; sourceTree = "<group>"; };
 		84BF5F1E1B33002900932154 /* TSYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYTableViewCell.h; sourceTree = "<group>"; };
 		84BF5F1F1B33002900932154 /* TSYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYTableViewCell.m; sourceTree = "<group>"; };
+		84E6005B1B67A3B7009FF52A /* TSYFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSYFriendsView.h; path = Source/UI/TSYFriendsViewController/TSYFriendsView.h; sourceTree = SOURCE_ROOT; };
+		84E6005C1B67A3B7009FF52A /* TSYFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSYFriendsView.m; path = Source/UI/TSYFriendsViewController/TSYFriendsView.m; sourceTree = SOURCE_ROOT; };
 		C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -258,6 +261,8 @@
 				849F4B221B5FAFA400B9DEED /* TSYFriendsViewController.h */,
 				849F4B231B5FAFA400B9DEED /* TSYFriendsViewController.m */,
 				849F4B241B5FAFA400B9DEED /* TSYFriendsViewController.xib */,
+				84E6005B1B67A3B7009FF52A /* TSYFriendsView.h */,
+				84E6005C1B67A3B7009FF52A /* TSYFriendsView.m */,
 			);
 			name = TSYFriendsViewController;
 			path = TSYFriendsViewCOntroller;
@@ -937,6 +942,7 @@
 				849F723E1B3BF09200869AD4 /* TSYTableChange.m in Sources */,
 				84A1A3471B618C65007C980C /* TSYContext.m in Sources */,
 				84A3336A1B5A5FD500F44720 /* NSURLSession+TSYCategory.m in Sources */,
+				84E6005D1B67A3B7009FF52A /* TSYFriendsView.m in Sources */,
 				84AE8DD91B586537003C808D /* TSYImageModelCache.m in Sources */,
 				849F4B251B5FAFA400B9DEED /* TSYFriendsViewController.m in Sources */,
 				84A39E6D1B4BD9FD00BFDFB0 /* NSFileManager+TSYCategory.m in Sources */,

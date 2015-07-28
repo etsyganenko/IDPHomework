@@ -12,6 +12,8 @@
 #import "TSYUserDetailView.h"
 #import "TSYMacros.h"
 #import "TSYFacebookUserInfoContext.h"
+#import "TSYFriendsViewController.h"
+#import "TSYArrayModel.h"
 
 TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView, mainView)
 
@@ -26,6 +28,18 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark -
+#pragma mark Interface Handling
+
+- (IBAction)onFriendsButton:(id)sender {
+    TSYFriendsViewController *friendsController = [TSYFriendsViewController new];
+    UINavigationController *navigationController = self.navigationController;
+    
+    friendsController.model = [TSYArrayModel new];
+    
+    [navigationController pushViewController:friendsController animated:YES];
 }
 
 #pragma mark -

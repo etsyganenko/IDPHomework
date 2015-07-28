@@ -11,8 +11,8 @@
 #import "TSYView.h"
 
 @interface TSYLoginView : TSYView
-@property (nonatomic, strong)   IBOutlet UIButton           *loginButton;
-@property (nonatomic, strong)   IBOutlet UIButton           *showUserProfile;
+@property (nonatomic, strong)   IBOutlet UIButton   *loginButton;
+@property (nonatomic, strong)   IBOutlet UIButton   *showUserProfile;
 
 
 @end

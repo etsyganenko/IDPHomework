@@ -35,10 +35,6 @@ static NSString * const kUserNameKey            = @"name";
     return [[FBSDKGraphRequest alloc] initWithGraphPath:self.graphPath parameters:nil];
 }
 
-- (FBSDKGraphRequestConnection *)connection {
-    return [FBSDKGraphRequestConnection new];
-}
-
 - (NSString *)graphPath {
     return kGraphPath;
 }
@@ -52,7 +48,8 @@ static NSString * const kUserNameKey            = @"name";
     FBSDKGraphRequest *request = self.request;
     
     if ([FBSDKAccessToken currentAccessToken]) {
-        FBSDKGraphRequestConnection *connection = self.connection;
+        FBSDKGraphRequestConnection *connection = [FBSDKGraphRequestConnection new];
+        self.connection = connection;
         
         [connection addRequest:request
              completionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
