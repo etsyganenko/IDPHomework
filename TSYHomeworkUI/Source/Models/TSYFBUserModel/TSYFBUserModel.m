@@ -12,10 +12,26 @@
 #import "TSYImageModel.h"
 #import "TSYFacebookUserInfoContext.h"
 
+@interface TSYFBUserModel ()
+@property (nonatomic, strong)     TSYArrayModel   *friends;
+
+@end
 @implementation TSYFBUserModel
 
 @dynamic imageModel;
 @dynamic fullName;
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.friends = [TSYArrayModel new];
+    }
+    
+    return self;
+}
 
 #pragma mark -
 #pragma mark Accessors

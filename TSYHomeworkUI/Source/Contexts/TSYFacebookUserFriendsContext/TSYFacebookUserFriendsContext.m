@@ -15,6 +15,10 @@
 static NSString * const kGraphPath      = @"me?fields=friends";
 static NSString * const kFriendsKey     = @"friends";
 static NSString * const kDataKey        = @"data";
+static NSString * const kNameKey        = @"name";
+static NSString * const kPictureKey     = @"picture";
+static NSString * const kUrlKey         = @"url";
+static NSString * const kIDKey          = @"id";
 
 @implementation TSYFacebookUserFriendsContext
 
@@ -33,7 +37,15 @@ static NSString * const kDataKey        = @"data";
     TSYArrayModel *friends = model.friends;
     NSArray *userFriends = result[kFriendsKey][kDataKey];
     
-    [friends addModelsFromArray:userFriends];
+    for (NSUInteger index = 0; index < userFriends.count; index++) {
+        TSYFBUserModel *friend = [TSYFBUserModel new];
+
+        friend.name = userFriends[index][kNameKey];
+        friend.ID = userFriends[index][kIDKey];
+//        friend.imageUrl = [NSURL URLWithString:userFriends[index][kPictureKey][kDataKey][kUrlKey]];
+
+        [friends addModel:friend];
+    }
 }
 
 @end

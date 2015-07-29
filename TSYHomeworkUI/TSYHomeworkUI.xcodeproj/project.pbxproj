@@ -28,8 +28,8 @@
 		849FB4B51B28E98E0096D0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4AB1B28E98E0096D0AD /* Images.xcassets */; };
 		849FB4B61B28E98E0096D0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849FB4AB1B28E98E0096D0AD /* Images.xcassets */; };
 		849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FB4BD1B28ED760096D0AD /* TSYAppDelegate.m */; };
-		84A062461B68D6DB00751FB5 /* TSYFriendsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A062441B68D6DB00751FB5 /* TSYFriendsViewCell.m */; };
-		84A062471B68D6DB00751FB5 /* TSYFriendsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A062451B68D6DB00751FB5 /* TSYFriendsViewCell.xib */; };
+		84A0624C1B68EBBF00751FB5 /* TSYFriendsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0624A1B68EBBF00751FB5 /* TSYFriendsViewCell.m */; };
+		84A0624D1B68EBBF00751FB5 /* TSYFriendsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A0624B1B68EBBF00751FB5 /* TSYFriendsViewCell.xib */; };
 		84A10F8F1B5657A9007CE765 /* TSYImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A10F8E1B5657A9007CE765 /* TSYImageView.m */; };
 		84A1467B1B55A87700439875 /* TSYArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1467A1B55A87700439875 /* TSYArrayModel.m */; };
 		84A196311B321AF900C5CE0E /* TSYTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1962B1B321AF900C5CE0E /* TSYTableView.m */; };
@@ -122,9 +122,9 @@
 		849FB4AB1B28E98E0096D0AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		849FB4BC1B28ED760096D0AD /* TSYAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAppDelegate.h; sourceTree = "<group>"; };
 		849FB4BD1B28ED760096D0AD /* TSYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAppDelegate.m; sourceTree = "<group>"; };
-		84A062431B68D6DB00751FB5 /* TSYFriendsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSYFriendsViewCell.h; path = ../../../../../../Documents/TSYFriendsViewCell.h; sourceTree = "<group>"; };
-		84A062441B68D6DB00751FB5 /* TSYFriendsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSYFriendsViewCell.m; path = ../../../../../../Documents/TSYFriendsViewCell.m; sourceTree = "<group>"; };
-		84A062451B68D6DB00751FB5 /* TSYFriendsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TSYFriendsViewCell.xib; path = ../../../../../../Documents/TSYFriendsViewCell.xib; sourceTree = "<group>"; };
+		84A062491B68EBBF00751FB5 /* TSYFriendsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFriendsViewCell.h; sourceTree = "<group>"; };
+		84A0624A1B68EBBF00751FB5 /* TSYFriendsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFriendsViewCell.m; sourceTree = "<group>"; };
+		84A0624B1B68EBBF00751FB5 /* TSYFriendsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYFriendsViewCell.xib; sourceTree = "<group>"; };
 		84A10F8D1B5657A9007CE765 /* TSYImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYImageView.h; sourceTree = "<group>"; };
 		84A10F8E1B5657A9007CE765 /* TSYImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYImageView.m; sourceTree = "<group>"; };
 		84A146791B55A87700439875 /* TSYArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYArrayModel.h; sourceTree = "<group>"; };
@@ -269,7 +269,7 @@
 		849F4B021B5FABB500B9DEED /* TSYFriendsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84A062421B68D64D00751FB5 /* TSYFriendsViewCell */,
+				84A062481B68EBBF00751FB5 /* TSYFriendsViewCell */,
 				849F4B221B5FAFA400B9DEED /* TSYFriendsViewController.h */,
 				849F4B231B5FAFA400B9DEED /* TSYFriendsViewController.m */,
 				849F4B241B5FAFA400B9DEED /* TSYFriendsViewController.xib */,
@@ -388,15 +388,15 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		84A062421B68D64D00751FB5 /* TSYFriendsViewCell */ = {
+		84A062481B68EBBF00751FB5 /* TSYFriendsViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				84A062431B68D6DB00751FB5 /* TSYFriendsViewCell.h */,
-				84A062441B68D6DB00751FB5 /* TSYFriendsViewCell.m */,
-				84A062451B68D6DB00751FB5 /* TSYFriendsViewCell.xib */,
+				84A062491B68EBBF00751FB5 /* TSYFriendsViewCell.h */,
+				84A0624A1B68EBBF00751FB5 /* TSYFriendsViewCell.m */,
+				84A0624B1B68EBBF00751FB5 /* TSYFriendsViewCell.xib */,
 			);
 			name = TSYFriendsViewCell;
-			path = Source/UI/TSYFriendsViewController/TSYFriendsCellView;
+			path = Source/UI/TSYFriendsViewController/TSYFriendsViewCell;
 			sourceTree = SOURCE_ROOT;
 		};
 		84A10F8C1B56575E007CE765 /* TSYImageView */ = {
@@ -869,7 +869,7 @@
 				84A30E6B1B434DD6005F8EA6 /* TSYLoadingView.xib in Resources */,
 				84A285D61B39745B00D52615 /* image.jpg in Resources */,
 				84A1EFE81B31A2A30037A3B7 /* TSYSquareViewController.xib in Resources */,
-				84A062471B68D6DB00751FB5 /* TSYFriendsViewCell.xib in Resources */,
+				84A0624D1B68EBBF00751FB5 /* TSYFriendsViewCell.xib in Resources */,
 				849FB49F1B28E9460096D0AD /* Info.plist in Resources */,
 				849F4B191B5FAEE800B9DEED /* TSYLoginViewController.xib in Resources */,
 			);
@@ -977,7 +977,7 @@
 				84A30E671B434D81005F8EA6 /* TSYLoadingView.m in Sources */,
 				84BD0D611B41FAA400349DE5 /* NSBundle+TSYCategory.m in Sources */,
 				849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */,
-				84A062461B68D6DB00751FB5 /* TSYFriendsViewCell.m in Sources */,
+				84A0624C1B68EBBF00751FB5 /* TSYFriendsViewCell.m in Sources */,
 				84E600611B67A9B1009FF52A /* TSYFacebookUserFriendsContext.m in Sources */,
 				84A8E1BD1B662A07004B9394 /* TSYFacebookUserInfoContext.m in Sources */,
 				84A1EFE61B31A2A30037A3B7 /* TSYSquareView.m in Sources */,

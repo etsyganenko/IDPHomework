@@ -30,11 +30,11 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark -
 #pragma mark View Lifecycle
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
 //    [self showUserProfileIfLoggedInAnimated:NO];
-//}
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -59,11 +59,13 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Private Methods
 
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated {
+    TSYFBUserModel *model = self.model;
+    
     if ([FBSDKAccessToken currentAccessToken]) {
         UINavigationController *navigationController = self.navigationController;
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         
-        controller.model = self.model;
+        controller.model = model;
         
         [navigationController pushViewController:controller animated:animated];
     }

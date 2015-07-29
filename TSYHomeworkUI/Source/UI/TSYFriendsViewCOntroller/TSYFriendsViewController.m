@@ -63,14 +63,16 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     TSYFBUserModel *model = self.model;
-    
+
     return model.friends.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYFriendsViewCell *cell = [tableView cellWithClass:[TSYFriendsViewCell class]];
+    TSYFBUserModel *model = self.model;
+    TSYFBUserModel *cellModel = model.friends[indexPath.row];
     
-    cell.model = [TSYFBUserModel new];
+    [cell fillWithModel:cellModel];
     
     return cell;
 }
