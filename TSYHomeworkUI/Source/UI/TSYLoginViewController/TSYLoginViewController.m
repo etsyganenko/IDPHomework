@@ -64,7 +64,6 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         
         controller.model = self.model;
-        controller.context = [TSYFacebookUserInfoContext new];
         
         [navigationController pushViewController:controller animated:animated];
     }

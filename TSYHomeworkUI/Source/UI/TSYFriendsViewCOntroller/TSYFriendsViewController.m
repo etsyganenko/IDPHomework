@@ -12,10 +12,26 @@
 #import "TSYFriendsView.h"
 #import "TSYFBUserModel.h"
 #import "TSYArrayModel.h"
+#import "TSYFacebookUserFriendsContext.h"
+#import "TSYFriendsViewCell.h"
+
+#import "UITableView+TSYCategory.h"
 
 TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, mainView)
 
 @implementation TSYFriendsViewController
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.context = [TSYFacebookUserFriendsContext new];
+}
+
+#pragma mark -
+#pragma mark View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +39,17 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
 
 #pragma mark -
@@ -41,9 +68,9 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TSYTableCell *cell = [tableView cellWithClass:[TSYTableCell class]];
+    TSYFriendsViewCell *cell = [tableView cellWithClass:[TSYFriendsViewCell class]];
     
-    cell.user = self.users[indexPath.row];
+    cell.model = [TSYFBUserModel new];
     
     return cell;
 }

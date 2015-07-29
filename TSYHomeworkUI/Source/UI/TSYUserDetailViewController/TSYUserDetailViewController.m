@@ -21,6 +21,15 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 @implementation TSYUserDetailViewController
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.context = [TSYFacebookUserInfoContext new];
+}
+
+#pragma mark -
 #pragma mark View Lifecycle
 
 - (void)viewDidLoad {
@@ -37,11 +46,8 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 - (IBAction)onFriendsButton:(id)sender {
     TSYFriendsViewController *friendsController = [TSYFriendsViewController new];
     UINavigationController *navigationController = self.navigationController;
-    TSYFacebookUserFriendsContext *context = [TSYFacebookUserFriendsContext new];
-    TSYFBUserModel *model = self.model;
     
-    friendsController.model = model;    
-    friendsController.context = context;
+    friendsController.model = self.model;
     
     [navigationController pushViewController:friendsController animated:YES];
 }
