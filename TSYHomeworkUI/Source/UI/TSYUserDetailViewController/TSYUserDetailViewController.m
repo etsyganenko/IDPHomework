@@ -37,12 +37,10 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 - (IBAction)onFriendsButton:(id)sender {
     TSYFriendsViewController *friendsController = [TSYFriendsViewController new];
     UINavigationController *navigationController = self.navigationController;
-    TSYArrayModel *model = [TSYArrayModel new];
     TSYFacebookUserFriendsContext *context = [TSYFacebookUserFriendsContext new];
+    TSYFBUserModel *model = self.model;
     
-    friendsController.model = model;
-    context.model = model;
-    
+    friendsController.model = model;    
     friendsController.context = context;
     
     [navigationController pushViewController:friendsController animated:YES];

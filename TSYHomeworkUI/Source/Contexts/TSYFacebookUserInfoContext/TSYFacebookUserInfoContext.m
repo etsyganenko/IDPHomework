@@ -29,7 +29,7 @@ static NSString * const kUrlKey         = @"url";
 }
 
 #pragma mark -
-#pragma mark Private Methods
+#pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
     TSYFBUserModel *model = self.model;

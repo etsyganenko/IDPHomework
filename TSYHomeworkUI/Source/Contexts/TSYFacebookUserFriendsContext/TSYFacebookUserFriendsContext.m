@@ -9,9 +9,12 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import "TSYFacebookUserFriendsContext.h"
+#import "TSYFBUserModel.h"
 #import "TSYArrayModel.h"
 
 static NSString * const kGraphPath      = @"me?fields=friends";
+static NSString * const kFriendsKey     = @"friends";
+static NSString * const kDataKey        = @"data";
 
 @implementation TSYFacebookUserFriendsContext
 
@@ -23,10 +26,14 @@ static NSString * const kGraphPath      = @"me?fields=friends";
 }
 
 #pragma mark -
-#pragma mark Private Methods
+#pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
+    TSYFBUserModel *model = self.model;
+    TSYArrayModel *friends = model.friends;
+    NSArray *userFriends = result[kFriendsKey][kDataKey];
     
+    [friends addModelsFromArray:userFriends];
 }
 
 @end

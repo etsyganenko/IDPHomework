@@ -48,8 +48,6 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
     TSYFacebookLoginContext *context = [TSYFacebookLoginContext new];
     
     self.model = model;
-    context.model = model;
-    
     self.context = context;
 }
 
