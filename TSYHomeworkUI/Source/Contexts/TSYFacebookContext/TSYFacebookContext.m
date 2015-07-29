@@ -28,11 +28,11 @@ static NSString * const kHTTPMethod    = @"GET";
 }
 
 - (void)execute {
-    self.request = [[FBSDKGraphRequest alloc] initWithGraphPath:self.graphPath
-                                                     parameters:nil
-                                                     HTTPMethod:kHTTPMethod];
-    
     if ([FBSDKAccessToken currentAccessToken]) {
+        self.request = [[FBSDKGraphRequest alloc] initWithGraphPath:self.graphPath
+                                                         parameters:nil
+                                                         HTTPMethod:kHTTPMethod];
+        
         self.connection = [self.request startWithCompletionHandler:[self completionHandler]];
     }
 }

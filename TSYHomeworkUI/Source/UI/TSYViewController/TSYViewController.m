@@ -11,10 +11,6 @@
 #import "TSYContext.h"
 #import "TSYModel.h"
 
-@interface TSYViewController ()
-
-@end
-
 @implementation TSYViewController
 
 #pragma mark -
@@ -49,17 +45,6 @@
             [_context execute];
         }
     }
-}
-
-#pragma mark -
-#pragma mark View Lifecycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 @end

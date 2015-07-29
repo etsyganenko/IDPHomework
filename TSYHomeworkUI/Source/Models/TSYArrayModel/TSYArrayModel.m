@@ -111,6 +111,10 @@ static NSString * const kModelsKey               = @"modelsKey";
     }
 }
 
+- (void)removeAllModels {
+    [self.models removeAllObjects];
+}
+
 - (NSUInteger)indexOfModel:(id)model {
     return [self.models indexOfObject:model];
 }

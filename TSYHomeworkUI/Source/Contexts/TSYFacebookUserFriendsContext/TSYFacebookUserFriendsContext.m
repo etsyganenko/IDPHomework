@@ -12,8 +12,7 @@
 #import "TSYFBUserModel.h"
 #import "TSYArrayModel.h"
 
-static NSString * const kGraphPath      = @"me?fields=friends";
-static NSString * const kFriendsKey     = @"friends";
+static NSString * const kGraphPath      = @"/friends?fields=name,picture,id";
 static NSString * const kDataKey        = @"data";
 static NSString * const kNameKey        = @"name";
 static NSString * const kPictureKey     = @"picture";
@@ -26,7 +25,9 @@ static NSString * const kIDKey          = @"id";
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    return kGraphPath;
+    TSYFBUserModel *model = self.model;
+    
+    return [model.ID stringByAppendingString:kGraphPath];
 }
 
 #pragma mark -
@@ -35,14 +36,16 @@ static NSString * const kIDKey          = @"id";
 - (void)fillModelWithResult:(id)result {
     TSYFBUserModel *model = self.model;
     TSYArrayModel *friends = model.friends;
-    NSArray *userFriends = result[kFriendsKey][kDataKey];
+    NSArray *userFriends = result[kDataKey];
+    
+    [friends removeAllModels];
     
     for (NSUInteger index = 0; index < userFriends.count; index++) {
         TSYFBUserModel *friend = [TSYFBUserModel new];
 
         friend.name = userFriends[index][kNameKey];
         friend.ID = userFriends[index][kIDKey];
-//        friend.imageUrl = [NSURL URLWithString:userFriends[index][kPictureKey][kDataKey][kUrlKey]];
+        friend.imageUrl = [NSURL URLWithString:userFriends[index][kPictureKey][kDataKey][kUrlKey]];
 
         [friends addModel:friend];
     }

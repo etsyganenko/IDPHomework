@@ -34,10 +34,11 @@
 #pragma mark Public Methods
 
 - (void)execute {
-    self.loginManager = [FBSDKLoginManager new];
+    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+    self.loginManager = loginManager;
     
     TSYWeakify(self);
-    [self.loginManager logInWithReadPermissions:self.permissions
+    [loginManager logInWithReadPermissions:self.permissions
                                    handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                        TSYStrongify(self);
                                        

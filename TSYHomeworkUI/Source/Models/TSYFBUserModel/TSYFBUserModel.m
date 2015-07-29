@@ -16,6 +16,7 @@
 @property (nonatomic, strong)     TSYArrayModel   *friends;
 
 @end
+
 @implementation TSYFBUserModel
 
 @dynamic imageModel;
@@ -38,12 +39,8 @@
 
 - (TSYImageModel *)imageModel {
     NSURL *url = self.imageUrl;
-    
-    if (url) {
-        return [TSYImageModel imageModelWithURL:url];
-    }
-    
-    return nil;
+
+    return url ? [TSYImageModel imageModelWithURL:url] : nil;
 }
 
 - (NSString *)fullName {

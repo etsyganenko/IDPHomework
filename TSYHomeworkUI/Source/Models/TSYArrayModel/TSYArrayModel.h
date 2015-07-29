@@ -24,6 +24,7 @@
 
 - (void)addModelsFromArray:(NSArray *)models;
 - (void)removeModels:(NSArray *)models;
+- (void)removeAllModels;
 
 - (NSUInteger)indexOfModel:(id)model;
 - (id)modelAtIndex:(NSUInteger)index;

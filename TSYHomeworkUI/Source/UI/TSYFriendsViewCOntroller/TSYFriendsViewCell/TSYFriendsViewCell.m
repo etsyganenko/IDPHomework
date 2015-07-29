@@ -30,19 +30,6 @@
 - (void)fillWithModel:(TSYFBUserModel *)model {
     self.fullNameLabel.text = model.name;
     
-    TSYFacebookUserInfoContext *context = [TSYFacebookUserInfoContext new];
-    context.model = model;
-    [model addObserver:self];
-    self.context = context;
-    [context execute];
-    
-    [self.friendImageView setImageModel:model.imageModel];
-}
-
-#pragma mark -
-#pragma mark TSYModelObserver
-
-- (void)modelDidLoad:(TSYFBUserModel *)model {
     [self.friendImageView setImageModel:model.imageModel];
 }
 

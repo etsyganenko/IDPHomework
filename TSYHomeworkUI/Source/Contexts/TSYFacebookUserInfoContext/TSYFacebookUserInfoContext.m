@@ -13,7 +13,7 @@
 #import "TSYFBUserModel.h"
 #import "TSYImageModel.h"
 
-static NSString * const kGraphPath      = @"me?fields=name,picture.width(200).height(200)";
+static NSString * const kGraphPath      = @"?fields=name,picture.width(200).height(200)";
 static NSString * const kNameKey        = @"name";
 static NSString * const kPictureKey     = @"picture";
 static NSString * const kDataKey        = @"data";
@@ -25,7 +25,9 @@ static NSString * const kUrlKey         = @"url";
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    return kGraphPath;
+    TSYFBUserModel *model = self.model;
+    
+    return [model.ID stringByAppendingString:kGraphPath];
 }
 
 #pragma mark -

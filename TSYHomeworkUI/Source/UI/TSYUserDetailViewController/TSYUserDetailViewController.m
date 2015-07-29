@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
+#import <FBSDKLoginKit.h>
+
 #import "TSYUserDetailViewController.h"
 
 #import "TSYFBUserModel.h"
@@ -18,6 +20,12 @@
 
 TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView, mainView)
 
+@interface TSYUserDetailViewController ()
+
+- (void)logout;
+
+@end
+
 @implementation TSYUserDetailViewController
 
 #pragma mark -
@@ -25,6 +33,13 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+                                                               style:UIBarButtonItemStylePlain
+                                                              target:self
+                                                              action:@selector(logout)];
+    
+    self.navigationItem.rightBarButtonItem = button;
     
     self.context = [TSYFacebookUserInfoContext new];
 }
@@ -69,6 +84,15 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
         
         [mainView hideLoadingView];
     });
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)logout {
+    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+    
+    [loginManager logOut];
 }
 
 @end

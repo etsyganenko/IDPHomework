@@ -19,7 +19,6 @@
 @property (nonatomic, strong)   IBOutlet UILabel            *fullNameLabel;
 
 @property (nonatomic, strong)   TSYFBUserModel              *model;
-@property (nonatomic, strong)   TSYFacebookUserInfoContext  *context;
 
 - (void)fillWithModel:(TSYFBUserModel *)model;
 

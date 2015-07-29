@@ -14,6 +14,7 @@
 #import "TSYArrayModel.h"
 #import "TSYFacebookUserFriendsContext.h"
 #import "TSYFriendsViewCell.h"
+#import "TSYUserDetailViewController.h"
 
 #import "UITableView+TSYCategory.h"
 
@@ -58,7 +59,14 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 - (void)        tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    TSYFBUserModel *model = self.model;
+    TSYFBUserModel *selectedModel = model.friends[indexPath.row];
     
+    UINavigationController *navigationController = self.navigationController;
+    TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
+    controller.model = selectedModel;
+    
+    [navigationController pushViewController:controller animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
