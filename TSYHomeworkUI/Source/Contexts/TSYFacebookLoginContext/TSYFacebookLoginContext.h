@@ -11,6 +11,6 @@
 @class TSYFBUserModel;
 
 @interface TSYFacebookLoginContext : TSYContext
-@property (nonatomic, readonly) NSArray         *permissions;
+@property (nonatomic, readonly) NSArray     *permissions;
 
 @end

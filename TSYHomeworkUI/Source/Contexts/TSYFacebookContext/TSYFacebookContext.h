@@ -18,6 +18,11 @@ typedef void(^TSYContextCompletionHandler)(FBSDKGraphRequestConnection *connecti
 @property (nonatomic, readonly) FBSDKGraphRequest               *request;
 @property (nonatomic, readonly) NSString                        *graphPath;
 
+//@property (nonatomic, assign)   CGRect                          pictureSize;
+//@property (nonatomic, assign)   NSDictionary                    *pictureSize;
+@property (nonatomic, assign)   NSUInteger                      pictureHeight;
+@property (nonatomic, assign)   NSUInteger                      pictureWidth;
+
 - (TSYContextCompletionHandler)completionHandler;
 
 @end

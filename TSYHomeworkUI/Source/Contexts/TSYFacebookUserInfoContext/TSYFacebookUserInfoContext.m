@@ -12,19 +12,30 @@
 
 #import "TSYFBUserModel.h"
 #import "TSYImageModel.h"
-#import "TSYConstants.h"
-
-static NSString * const kGraphPath      = @"?fields=name,picture.width(200).height(200)";
+#import "TSYFacebookConstants.h"
 
 @implementation TSYFacebookUserInfoContext
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.pictureHeight = kUserInfoContextPictureSize;
+        self.pictureWidth = kUserInfoContextPictureSize;
+    }
+    
+    return self;
+}
 
 #pragma mark -
 #pragma mark Accessors
 
 - (NSString *)graphPath {
     TSYFBUserModel *model = self.model;
-    
-    return [model.ID stringByAppendingString:kGraphPath];
+
+    return [NSString stringWithFormat:kUserInfoContextGraphPath, model.ID, self.pictureWidth, self.pictureHeight];
 }
 
 #pragma mark -
@@ -33,8 +44,8 @@ static NSString * const kGraphPath      = @"?fields=name,picture.width(200).heig
 - (void)fillModelWithResult:(id)result {
     TSYFBUserModel *model = self.model;
     
-    model.imageUrl = [NSURL URLWithString:result[kFacebookPictureKey][kFacebookDataKey][kFacebookURLKey]];
-    model.name = result[kFacebookNameKey];
+    model.imageUrl = [NSURL URLWithString:result[kPictureKey][kDataKey][kURLKey]];
+    model.name = result[kNameKey];
 }
 
 @end

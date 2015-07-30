@@ -12,11 +12,22 @@
 
 #import "TSYFBUserModel.h"
 #import "TSYArrayModel.h"
-#import "TSYConstants.h"
-
-static NSString * const kGraphPath      = @"/friends?fields=name,picture,id";
+#import "TSYFacebookConstants.h"
 
 @implementation TSYFacebookUserFriendsContext
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.pictureHeight = kUserFriendsContextPictureSize;
+        self.pictureWidth = kUserFriendsContextPictureSize;
+    }
+    
+    return self;
+}
 
 #pragma mark -
 #pragma mark Accessors
@@ -24,7 +35,7 @@ static NSString * const kGraphPath      = @"/friends?fields=name,picture,id";
 - (NSString *)graphPath {
     TSYFBUserModel *model = self.model;
     
-    return [model.ID stringByAppendingString:kGraphPath];
+    return [NSString stringWithFormat:kFriendsContextGraphPath, model.ID, self.pictureWidth, self.pictureHeight];
 }
 
 #pragma mark -
@@ -33,16 +44,16 @@ static NSString * const kGraphPath      = @"/friends?fields=name,picture,id";
 - (void)fillModelWithResult:(id)result {
     TSYFBUserModel *model = self.model;
     TSYArrayModel *friends = model.friends;
-    NSArray *userFriends = result[kFacebookDataKey];
+    NSArray *userFriends = result[kDataKey];
     
     [friends removeAllModels];
     
     for (NSUInteger index = 0; index < userFriends.count; index++) {
         TSYFBUserModel *friend = [TSYFBUserModel new];
 
-        friend.name = userFriends[index][kFacebookNameKey];
-        friend.ID = userFriends[index][kFacebookIDKey];
-        friend.imageUrl = [NSURL URLWithString:userFriends[index][kFacebookPictureKey][kFacebookDataKey][kFacebookURLKey]];
+        friend.name = userFriends[index][kNameKey];
+        friend.ID = userFriends[index][kIDKey];
+        friend.imageUrl = [NSURL URLWithString:userFriends[index][kPictureKey][kDataKey][kURLKey]];
 
         [friends addModel:friend];
     }
