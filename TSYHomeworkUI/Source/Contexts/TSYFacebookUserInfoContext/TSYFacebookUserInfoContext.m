@@ -12,12 +12,9 @@
 
 #import "TSYFBUserModel.h"
 #import "TSYImageModel.h"
+#import "TSYConstants.h"
 
 static NSString * const kGraphPath      = @"?fields=name,picture.width(200).height(200)";
-static NSString * const kNameKey        = @"name";
-static NSString * const kPictureKey     = @"picture";
-static NSString * const kDataKey        = @"data";
-static NSString * const kUrlKey         = @"url";
 
 @implementation TSYFacebookUserInfoContext
 
@@ -36,8 +33,8 @@ static NSString * const kUrlKey         = @"url";
 - (void)fillModelWithResult:(id)result {
     TSYFBUserModel *model = self.model;
     
-    model.imageUrl = [NSURL URLWithString:result[kPictureKey][kDataKey][kUrlKey]];
-    model.name = result[kNameKey];
+    model.imageUrl = [NSURL URLWithString:result[kFacebookPictureKey][kFacebookDataKey][kFacebookURLKey]];
+    model.name = result[kFacebookNameKey];
 }
 
 @end

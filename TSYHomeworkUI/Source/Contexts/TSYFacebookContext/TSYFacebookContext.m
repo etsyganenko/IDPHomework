@@ -10,8 +10,7 @@
 
 #import "TSYMacros.h"
 #import "TSYFBUserModel.h"
-
-static NSString * const kHTTPMethod    = @"GET";
+#import "TSYConstants.h"
 
 @interface TSYFacebookContext ()
 @property (nonatomic, strong) FBSDKGraphRequest   *request;
@@ -31,7 +30,7 @@ static NSString * const kHTTPMethod    = @"GET";
     if ([FBSDKAccessToken currentAccessToken]) {
         self.request = [[FBSDKGraphRequest alloc] initWithGraphPath:self.graphPath
                                                          parameters:nil
-                                                         HTTPMethod:kHTTPMethod];
+                                                         HTTPMethod:kFacebookRequestHTTPMethodGet];
         
         self.connection = [self.request startWithCompletionHandler:[self completionHandler]];
     }

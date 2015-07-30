@@ -173,6 +173,7 @@
 		84A8E1BC1B662A07004B9394 /* TSYFacebookUserInfoContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFacebookUserInfoContext.m; sourceTree = "<group>"; };
 		84A8E1BF1B662DAD004B9394 /* TSYFacebookLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFacebookLoginContext.h; sourceTree = "<group>"; };
 		84A8E1C01B662DAD004B9394 /* TSYFacebookLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFacebookLoginContext.m; sourceTree = "<group>"; };
+		84AA103C1B6A1DC9005E1741 /* TSYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYConstants.h; sourceTree = "<group>"; };
 		84AE8DD71B586537003C808D /* TSYImageModelCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYImageModelCache.h; sourceTree = "<group>"; };
 		84AE8DD81B586537003C808D /* TSYImageModelCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYImageModelCache.m; sourceTree = "<group>"; };
 		84BD0D571B414F9C00349DE5 /* UINib+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+TSYCategory.h"; sourceTree = "<group>"; };
@@ -619,6 +620,14 @@
 			path = TSYFacebookLoginContext;
 			sourceTree = "<group>";
 		};
+		84AA103B1B6A1D93005E1741 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				84AA103C1B6A1DC9005E1741 /* TSYConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		84AE8DD61B586537003C808D /* TSYImageModelCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -677,6 +686,7 @@
 		84BF5F081B32FB0100932154 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				84AA103B1B6A1D93005E1741 /* Constants */,
 				849DAF141B3414CA0034D221 /* TSYMacros */,
 				84BF5F091B32FB0100932154 /* Categories */,
 				84BF5F171B32FB0100932154 /* Classes */,

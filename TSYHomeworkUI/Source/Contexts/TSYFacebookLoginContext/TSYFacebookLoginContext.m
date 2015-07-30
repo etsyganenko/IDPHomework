@@ -13,6 +13,7 @@
 
 #import "TSYFBUserModel.h"
 #import "TSYMacros.h"
+#import "TSYConstants.h"
 
 @interface TSYFacebookLoginContext ()
 @property (nonatomic, strong)   FBSDKLoginManager   *loginManager;
@@ -27,7 +28,7 @@
 #pragma mark Accessors
 
 - (NSArray *)permissions {
-    return @[@"public_profile", @"email", @"user_friends"];
+    return @[kFacebookReadPermissionPublicProfile, kFacebookReadPermissionEmail, kFacebookReadPermissionUserFriends];
 }
 
 #pragma mark -
