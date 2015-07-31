@@ -22,8 +22,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.pictureHeight = kUserInfoContextPictureSize;
-        self.pictureWidth = kUserInfoContextPictureSize;
+        self.pictureSize = CGSizeMake(kUserInfoContextPictureWidth, kUserInfoContextPictureHeight);
     }
     
     return self;
@@ -34,8 +33,13 @@
 
 - (NSString *)graphPath {
     TSYFBUserModel *model = self.model;
+    
+    CGSize pictureSize = self.pictureSize;
+    
+    NSUInteger pictureWidth = pictureSize.width;
+    NSUInteger pictureHeight = pictureSize.height;
 
-    return [NSString stringWithFormat:kUserInfoContextGraphPath, model.ID, self.pictureWidth, self.pictureHeight];
+    return [NSString stringWithFormat:kUserInfoContextGraphPath, model.ID, pictureWidth, pictureHeight];
 }
 
 #pragma mark -
