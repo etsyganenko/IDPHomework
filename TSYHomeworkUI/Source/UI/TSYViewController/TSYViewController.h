@@ -17,4 +17,6 @@
 @property (nonatomic, strong)   TSYContext  *context;
 @property (nonatomic, strong)   id          model;
 
+- (void)logout;
+
 @end
