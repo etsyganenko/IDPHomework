@@ -14,7 +14,8 @@
 
 typedef NS_ENUM(NSUInteger, TSYFBUserModelState) {
     TSYFBUserModelDidLoadID = TSYModelStateCount,
-    TSYFBUserModelDidLoadUserInfo
+    TSYFBUserModelDidLoadUserInfo,
+    TSYFBUserModelDidLoadUserFriends
 };
 
 @protocol TSYFBUserModelObserver <NSObject, NSCoding>
@@ -22,6 +23,7 @@ typedef NS_ENUM(NSUInteger, TSYFBUserModelState) {
 @optional
 - (void)fbUserModelIdDidLoad:(TSYFBUserModel *)model;
 - (void)fbUserModelInfoDidLoad:(TSYFBUserModel *)model;
+- (void)fbUserModelFriendsDidLoad:(TSYFBUserModel *)model;
 
 @end
 

@@ -8,8 +8,6 @@
 
 #import "TSYFacebookContext.h"
 
-@class TSYFBUserModel;
-
 @interface TSYFacebookUserInfoContext : TSYFacebookContext
 
 @end

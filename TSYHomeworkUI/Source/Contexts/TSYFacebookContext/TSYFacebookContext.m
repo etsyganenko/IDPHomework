@@ -41,19 +41,14 @@
     TSYContextCompletionHandler handler = ^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         TSYStrongify(self);
         
-        TSYFBUserModel *model = self.model;
-        if (error) {
-            model.state = TSYModelDidFailLoading;
-            
-            return;
-        }
-        
-        [self fillModelWithResult:result];
-        
-        model.state = TSYModelDidLoad;
+        [self processRequestResult:result error:error];
     };
     
     return handler;
+}
+
+- (void)processRequestResult:(id)result error:(NSError *)error {
+
 }
 
 @end

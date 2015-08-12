@@ -56,9 +56,11 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 }
 
 #pragma mark -
-#pragma mark TSYModelObserver
+#pragma mark TSYFBUserModelObserver
 
-- (void)modelDidLoad:(TSYFBUserModel *)model {
+- (void)fbUserModelIdDidLoad:(TSYFBUserModel *)model {
+//    NSLog(@"%@", NSStringFromSelector(_cmd));
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self showUserProfileIfLoggedInAnimated:NO];
     });

@@ -8,10 +8,12 @@
 
 #import "TSYViewController.h"
 
+#import "TSYFBUserModel.h"
+
 @class TSYFacebookLoginContext;
 @class TSYFBUserModel;
 
-@interface TSYLoginViewController : TSYViewController
+@interface TSYLoginViewController : TSYViewController <TSYFBUserModelObserver>
 
 - (IBAction)onLoginButton:(id)sender;
 - (IBAction)onUserProfileButton:(id)sender;

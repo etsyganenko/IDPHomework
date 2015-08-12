@@ -94,7 +94,10 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
     });
 }
 
-- (void)modelDidLoad:(TSYFBUserModel *)model {
+#pragma mark -
+#pragma mark TSYFBUserModelObserver
+
+- (void)fbUserModelFriendsDidLoad:(TSYFBUserModel *)model {
     TSYFriendsView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{

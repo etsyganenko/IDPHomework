@@ -22,4 +22,7 @@ typedef void(^TSYContextCompletionHandler)(FBSDKGraphRequestConnection *connecti
 
 - (TSYContextCompletionHandler)completionHandler;
 
+// this method must be overloaded in children
+- (void)processRequestResult:(id)result error:(NSError *)error;
+
 @end
