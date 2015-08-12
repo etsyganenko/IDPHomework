@@ -23,23 +23,12 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 @implementation TSYFriendsViewController
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark View Lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     self.context = [TSYFacebookUserFriendsContext new];
-}
-
-#pragma mark -
-#pragma mark View Lifecycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark -
