@@ -18,6 +18,7 @@
 @property (nonatomic, strong)   IBOutlet UILabel        *IDLabel;
 
 @property (nonatomic, strong)   IBOutlet UIButton       *friendsButton;
+@property (nonatomic, strong)   IBOutlet UIButton       *photosButton;
 
 - (void)fillWithModel:(TSYFBUserModel *)model;
 

@@ -59,6 +59,10 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
     [navigationController pushViewController:friendsController animated:YES];
 }
 
+- (IBAction)onPhotosButton:(id)sender {
+    
+}
+
 #pragma mark -
 #pragma mark TSYModelObserver
 

@@ -12,5 +12,6 @@
 @property (nonatomic, strong)       NSString        *ID;  
 
 - (IBAction)onFriendsButton:(id)sender;
+- (IBAction)onPhotosButton:(id)sender;
 
 @end

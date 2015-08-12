@@ -26,8 +26,8 @@ static NSString * const kUserInfoContextGraphPath           = @"%@?fields=name,p
 static NSString * const kPictureWidthKey                    = @"width";
 static NSString * const kPictureHeightKey                   = @"height";
 
-static const NSUInteger kUserInfoContextPictureWidth        = 200;
-static const NSUInteger kUserInfoContextPictureHeight       = 200;
+static const NSUInteger kUserInfoContextPictureWidth        = 320;
+static const NSUInteger kUserInfoContextPictureHeight       = 320;
 
 static const NSUInteger kUserFriendsContextPictureWidth     = 100;
 static const NSUInteger kUserFriendsContextPictureHeight    = 100;
