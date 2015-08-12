@@ -28,6 +28,11 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    TSYFBUserModel *model = [TSYFBUserModel new];
+    model.ID = self.ID;
+    
+    self.model = model;
+    
     self.context = [TSYFacebookUserInfoContext new];
 }
 
@@ -57,7 +62,7 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 #pragma mark -
 #pragma mark TSYFBUserModelObserver
 
-- (void)fbUserModelInfoDidLoad:(TSYFBUserModel *)model {
+- (void)modelDidLoad:(TSYModel *)model {
     TSYUserDetailView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -66,6 +71,16 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
         [mainView hideLoadingView];
     });
 }
+
+//- (void)fbUserModelInfoDidLoad:(TSYFBUserModel *)model {
+//    TSYUserDetailView *mainView = self.mainView;
+//    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [mainView fillWithModel:model];
+//        
+//        [mainView hideLoadingView];
+//    });
+//}
 
 #pragma mark -
 #pragma mark TSYModelObserver

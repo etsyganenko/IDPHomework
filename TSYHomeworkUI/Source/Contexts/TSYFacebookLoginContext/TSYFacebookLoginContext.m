@@ -53,7 +53,7 @@
                                        
                                        [self fillModelWithResult:result];
                                        
-                                       model.state = TSYFBUserModelDidLoadID;
+                                       model.state = TSYModelDidLoad;
                                    }];
 }
 

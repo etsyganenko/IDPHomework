@@ -14,6 +14,7 @@
 @class TSYFBUserModel;
 
 @interface TSYUserDetailViewController : TSYViewController <TSYFBUserModelObserver>
+@property (nonatomic, strong)       NSString        *ID;  
 
 - (IBAction)onFriendsButton:(id)sender;
 

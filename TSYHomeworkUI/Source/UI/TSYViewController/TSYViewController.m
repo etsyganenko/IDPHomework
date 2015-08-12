@@ -74,10 +74,21 @@
     
     [loginManager logOut];
     
-    UINavigationController *controller = self.navigationController;
+//    UINavigationController *controller = self.navigationController;
     TSYLoginViewController *LoginViewController = [TSYLoginViewController new];
     
-    [controller pushViewController:LoginViewController animated:YES];
+//    [controller pushViewController:LoginViewController animated:YES];
+    
+    LoginViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentViewController:LoginViewController animated:YES completion:nil];
+}
+
+#pragma mark -
+#pragma mark TSYModelObserver
+
+- (void)modelDidFailLoading:(TSYModel *)model {
+// show alert
 }
 
 @end

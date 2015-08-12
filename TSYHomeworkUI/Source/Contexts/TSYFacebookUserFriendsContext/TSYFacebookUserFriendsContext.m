@@ -73,8 +73,8 @@
     
     [self fillModelWithResult:result];
     
-//    model.state = TSYModelDidLoad;
-    model.state = TSYFBUserModelDidLoadUserFriends;
+    model.state = TSYModelDidLoad;
+//    model.state = TSYFBUserModelDidLoadUserFriends;
 }
 
 @end

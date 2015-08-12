@@ -34,6 +34,10 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
     [super viewWillAppear:animated];
     
     self.navigationItem.rightBarButtonItem = nil;
+    
+    if (nil == [FBSDKAccessToken currentAccessToken]) {
+        self.mainView.showUserProfile.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,14 +60,10 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 }
 
 #pragma mark -
-#pragma mark TSYFBUserModelObserver
+#pragma mark TSYModelObserver
 
-- (void)fbUserModelIdDidLoad:(TSYFBUserModel *)model {
-//    NSLog(@"%@", NSStringFromSelector(_cmd));
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self showUserProfileIfLoggedInAnimated:NO];
-    });
+- (void)modelDidLoad:(TSYModel *)model {
+    [self showUserProfileIfLoggedInAnimated:NO];
 }
 
 #pragma mark -
@@ -71,12 +71,13 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated {
     TSYFBUserModel *model = self.model;
+    NSString *userID = model.ID;
     
-    if ([FBSDKAccessToken currentAccessToken] && model.ID) {
+    if ([FBSDKAccessToken currentAccessToken] && userID) {
         UINavigationController *navigationController = self.navigationController;
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         
-        controller.model = model;
+        controller.ID = userID;
         
         [navigationController pushViewController:controller animated:animated];
     }
