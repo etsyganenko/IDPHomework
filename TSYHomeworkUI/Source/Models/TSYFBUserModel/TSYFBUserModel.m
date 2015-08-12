@@ -67,15 +67,6 @@
         case TSYModelDidChange:
             return @selector(modelChanged:withObject:);
             
-        case TSYFBUserModelDidLoadID:
-            return @selector(fbUserModelIdDidLoad:);
-            
-        case TSYFBUserModelDidLoadUserInfo:
-            return @selector(fbUserModelInfoDidLoad:);
-            
-        case TSYFBUserModelDidLoadUserFriends:
-            return @selector(fbUserModelFriendsDidLoad:);
-            
         default:
             return [super selectorForState:state];;
     }

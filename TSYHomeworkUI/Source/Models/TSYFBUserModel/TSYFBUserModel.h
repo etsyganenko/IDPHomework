@@ -10,22 +10,6 @@
 
 @class TSYArrayModel;
 @class TSYImageModel;
-@class TSYFBUserModel;
-
-typedef NS_ENUM(NSUInteger, TSYFBUserModelState) {
-    TSYFBUserModelDidLoadID = TSYModelStateCount,
-    TSYFBUserModelDidLoadUserInfo,
-    TSYFBUserModelDidLoadUserFriends
-};
-
-@protocol TSYFBUserModelObserver <NSObject, NSCoding>
-
-@optional
-- (void)fbUserModelIdDidLoad:(TSYFBUserModel *)model;
-- (void)fbUserModelInfoDidLoad:(TSYFBUserModel *)model;
-- (void)fbUserModelFriendsDidLoad:(TSYFBUserModel *)model;
-
-@end
 
 @interface TSYFBUserModel : TSYModel
 @property (nonatomic, strong)       NSString        *ID;
