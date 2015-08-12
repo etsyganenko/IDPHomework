@@ -47,4 +47,29 @@
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
 }
 
+#pragma mark -
+#pragma mark TSYObservableObject
+
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case TSYModelUnloaded:
+            return NULL;
+            
+        case TSYModelWillLoad:
+            return @selector(modelWillLoad:);
+            
+        case TSYModelDidLoad:
+            return @selector(modelDidLoad:);
+            
+        case TSYModelDidFailLoading:
+            return @selector(modelDidFailLoading:);
+            
+        case TSYModelDidChange:
+            return @selector(modelChanged:withObject:);
+            
+        default:
+            return [super selectorForState:state];;
+    }
+}
+
 @end

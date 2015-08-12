@@ -31,3 +31,5 @@ static const NSUInteger kUserInfoContextPictureHeight       = 200;
 
 static const NSUInteger kUserFriendsContextPictureWidth     = 100;
 static const NSUInteger kUserFriendsContextPictureHeight    = 100;
+
+static NSString * const kLogoutButtonTitle                  = @"logout";

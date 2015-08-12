@@ -8,6 +8,8 @@
 
 #import "TSYLoginView.h"
 
+#import "TSYFBUserModel.h"
+
 @implementation TSYLoginView
 
 @end

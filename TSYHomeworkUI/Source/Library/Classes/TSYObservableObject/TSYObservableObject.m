@@ -111,11 +111,13 @@
         return;
     }
     
-    for (id observer in self.observersHashTable	) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector
-                           withObject:self
-                           withObject:object];
+    @synchronized (self) {
+        for (id observer in self.observersHashTable	) {
+            if ([observer respondsToSelector:selector]) {
+                [observer performSelector:selector
+                               withObject:self
+                               withObject:object];
+            }
         }
     }
 }

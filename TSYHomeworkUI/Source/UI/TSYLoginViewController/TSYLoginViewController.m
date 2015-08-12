@@ -33,7 +33,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-//    [self showUserProfileIfLoggedInAnimated:NO];
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,12 +56,21 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 }
 
 #pragma mark -
+#pragma mark TSYModelObserver
+
+- (void)modelDidLoad:(TSYFBUserModel *)model {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self showUserProfileIfLoggedInAnimated:NO];
+    });
+}
+
+#pragma mark -
 #pragma mark Private Methods
 
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated {
     TSYFBUserModel *model = self.model;
     
-    if ([FBSDKAccessToken currentAccessToken]) {
+    if ([FBSDKAccessToken currentAccessToken] && model.ID) {
         UINavigationController *navigationController = self.navigationController;
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         

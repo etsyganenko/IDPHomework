@@ -14,6 +14,7 @@
 #import "TSYLoginViewController.h"
 #import "TSYContext.h"
 #import "TSYModel.h"
+#import "TSYFacebookConstants.h"
 
 @implementation TSYViewController
 
@@ -30,7 +31,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:kLogoutButtonTitle
                                                                style:UIBarButtonItemStylePlain
                                                               target:self
                                                               action:@selector(logout)];
@@ -75,8 +76,6 @@
     
     UINavigationController *controller = self.navigationController;
     TSYLoginViewController *LoginViewController = [TSYLoginViewController new];
-    
-//    BOOL animated = ![LoginViewController isBeingPresented];
     
     [controller pushViewController:LoginViewController animated:YES];
 }
