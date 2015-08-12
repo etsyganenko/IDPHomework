@@ -6,14 +6,18 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "TSYAppDelegate.h"
 
 #import "TSYSquareViewController.h"
 #import "TSYTableViewController.h"
+#import "TSYLoginViewController.h"
 #import "TSYUsers.h"
+#import "TSYModel.h"
+#import "TSYFBUserModel.h"
 
 #import "UIWindow+TSYCategories.h"
-#import "TSYModel.h"
 
 @interface TSYAppDelegate ()
 @property (nonatomic, strong)   TSYUsers    *users;
@@ -24,29 +28,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    BOOL result  = [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+    
     UIWindow *window = [UIWindow window];
     self.window = window;
+    
+    TSYLoginViewController *loginViewController = [TSYLoginViewController new];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
 
-//    window.rootViewController = [TSYSquareViewController new];
-    TSYTableViewController *tableViewController = [TSYTableViewController new];
-    TSYUsers *users = [TSYUsers new];
-    
-    self.users = users;
-    
-    tableViewController.users = users;
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
-
-//    window.rootViewController = tableViewController;
     window.rootViewController = navigationController;
     
     [window makeKeyAndVisible];
     
-    return YES;
+    return result;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    //    [self.users save];
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -58,11 +58,22 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    //    [self.users save];
+
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 @end

@@ -17,6 +17,5 @@
 @interface TSYUsers : TSYArrayModel
 
 - (void)save;
-- (void)saveWithNotification:(id)notification;
 
 @end

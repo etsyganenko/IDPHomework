@@ -16,7 +16,8 @@ typedef NS_ENUM(NSUInteger, TSYModelState) {
     TSYModelWillLoad,
     TSYModelDidLoad,
     TSYModelDidFailLoading,
-    TSYModelDidChange
+    TSYModelDidChange,
+    TSYModelStateCount
 };
 
 @protocol TSYModelObserver <NSObject, NSCoding>

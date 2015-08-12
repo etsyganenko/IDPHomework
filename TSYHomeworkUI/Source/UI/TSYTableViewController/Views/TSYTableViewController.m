@@ -121,6 +121,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
                                    atScrollPosition:UITableViewScrollPositionTop
                                            animated:YES];
 }
+
 #pragma mark -
 #pragma mark UITableViewDelegate
 

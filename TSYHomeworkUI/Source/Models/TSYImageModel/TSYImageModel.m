@@ -18,7 +18,7 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
 
 @interface TSYImageModel ()
 @property (nonatomic, strong)   NSURL                       *url;
-@property (nonatomic, strong)   UIImage                     *image;
+//@property (nonatomic, strong)   UIImage                     *image;
 @property (nonatomic, strong)   NSURLSessionDownloadTask    *downloadTask;
 @property (nonatomic, readonly) TSYImageModelCache          *sharedCache;
 @property (nonatomic, readonly) NSURLSession                *sharedSession;
@@ -27,8 +27,8 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
 
 - (instancetype)initWithURL:(NSURL *)url;
 
-- (BOOL)imageCached;
-- (BOOL)imageVerified;
+- (BOOL)isImageCached;
+- (UIImage *)cachedImage;
 
 - (void)cancel;
 
@@ -115,13 +115,15 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
     NSString *savingPath = self.savingPath;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    if (![self imageCached]) {
+    if (![self isImageCached]) {
         [self performLoadingIfNeeded];
         
         return;
     }
     
-    if (![self imageVerified]) {
+    UIImage *cachedImage = [self cachedImage];
+    
+    if (!cachedImage) {
         [fileManager removeItemAtPath:savingPath
                                 error:nil];
         
@@ -130,7 +132,7 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
         return;
     }
     
-    self.image = [UIImage imageWithContentsOfFile:savingPath];
+    self.image = cachedImage;
     self.state = TSYModelDidLoad;
 }
 
@@ -142,16 +144,14 @@ typedef void(^TSYLoadingCompletionHandler)(id location, id response, id error);
 #pragma mark -
 #pragma mark Private Methods
 
-- (BOOL)imageCached {
+- (BOOL)isImageCached {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     return [fileManager fileExistsAtPath:self.savingPath];
 }
 
-- (BOOL)imageVerified {
-    UIImage *image = [UIImage imageWithContentsOfFile:self.savingPath];
-    
-    return nil != image;
+- (UIImage *)cachedImage {
+    return [UIImage imageWithContentsOfFile:self.savingPath];
 }
 
 - (TSYLoadingCompletionHandler)loadingCompletionHandler {

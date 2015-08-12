@@ -1,5 +1,12 @@
 #Kiwi -> docs
 
+target 'TSYHomeworkUI', exclusive: true do
+	pod 'FBSDKCoreKit'
+	pod 'FBSDKLoginKit'
+	pod 'FBSDKShareKit'
+end
+
+
 target 'TSYHomeworkUITests', exclusive: true do
 	pod 'Kiwi', '~>2.3'
 end
