@@ -19,5 +19,6 @@
 @property (nonatomic, readonly)     NSString        *fullName;
 @property (nonatomic, readonly)     TSYImageModel   *imageModel;
 @property (nonatomic, readonly)     TSYArrayModel   *friends;
+@property (nonatomic, readonly)     TSYArrayModel   *photos;
 
 @end

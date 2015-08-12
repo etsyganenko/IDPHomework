@@ -76,6 +76,7 @@
 		8ADF9A831B7B827D009BBA10 /* TSYPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF9A821B7B827D009BBA10 /* TSYPhotosView.m */; };
 		8ADF9A881B7B8522009BBA10 /* TSYPhotosViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF9A861B7B8522009BBA10 /* TSYPhotosViewCell.m */; };
 		8ADF9A891B7B8522009BBA10 /* TSYPhotosViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF9A871B7B8522009BBA10 /* TSYPhotosViewCell.xib */; };
+		8ADF9A8E1B7B8944009BBA10 /* TSYFacebookUserPhotosContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF9A8D1B7B8944009BBA10 /* TSYFacebookUserPhotosContext.m */; };
 		B66C1EB5621F627838B6B349 /* libPods-TSYHomeworkUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */; };
 /* End PBXBuildFile section */
 
@@ -215,6 +216,8 @@
 		8ADF9A851B7B8522009BBA10 /* TSYPhotosViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYPhotosViewCell.h; sourceTree = "<group>"; };
 		8ADF9A861B7B8522009BBA10 /* TSYPhotosViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYPhotosViewCell.m; sourceTree = "<group>"; };
 		8ADF9A871B7B8522009BBA10 /* TSYPhotosViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYPhotosViewCell.xib; sourceTree = "<group>"; };
+		8ADF9A8C1B7B8944009BBA10 /* TSYFacebookUserPhotosContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFacebookUserPhotosContext.h; sourceTree = "<group>"; };
+		8ADF9A8D1B7B8944009BBA10 /* TSYFacebookUserPhotosContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFacebookUserPhotosContext.m; sourceTree = "<group>"; };
 		C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -454,6 +457,7 @@
 				84A8E1BE1B662DAD004B9394 /* TSYFacebookLoginContext */,
 				84A8E1BA1B662A07004B9394 /* TSYFacebookUserInfoContext */,
 				84E6005E1B67A97C009FF52A /* TSYFacebookUserFriendsContext */,
+				8ADF9A8B1B7B8925009BBA10 /* TSYFacebookUserPhotosContext */,
 			);
 			path = Contexts;
 			sourceTree = "<group>";
@@ -811,6 +815,15 @@
 			path = TSYPhotosViewCell;
 			sourceTree = "<group>";
 		};
+		8ADF9A8B1B7B8925009BBA10 /* TSYFacebookUserPhotosContext */ = {
+			isa = PBXGroup;
+			children = (
+				8ADF9A8C1B7B8944009BBA10 /* TSYFacebookUserPhotosContext.h */,
+				8ADF9A8D1B7B8944009BBA10 /* TSYFacebookUserPhotosContext.m */,
+			);
+			path = TSYFacebookUserPhotosContext;
+			sourceTree = "<group>";
+		};
 		BE30A4A9EDD4073BC4CA38A1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1045,6 +1058,7 @@
 				84E6005D1B67A3B7009FF52A /* TSYFriendsView.m in Sources */,
 				84AE8DD91B586537003C808D /* TSYImageModelCache.m in Sources */,
 				849F4B251B5FAFA400B9DEED /* TSYFriendsViewController.m in Sources */,
+				8ADF9A8E1B7B8944009BBA10 /* TSYFacebookUserPhotosContext.m in Sources */,
 				84A39E6D1B4BD9FD00BFDFB0 /* NSFileManager+TSYCategory.m in Sources */,
 				84A285DC1B39781300D52615 /* TSYObservableObject.m in Sources */,
 				849F4B131B5FAE8E00B9DEED /* TSYViewController.m in Sources */,

@@ -9,7 +9,13 @@
 #import "TSYPhotosViewController.h"
 
 #import "TSYPhotosView.h"
+#import "TSYPhotosViewCell.h"
+#import "TSYFBUserModel.h"
+#import "TSYArrayModel.h"
+#import "TSYFacebookUserPhotosContext.h"
 #import "TSYMacros.h"
+
+#import "UITableView+TSYCategory.h"
 
 @interface TSYPhotosViewController ()
 
@@ -18,6 +24,15 @@
 TSYViewControllerBaseViewProperty(TSYPhotosViewController, TSYPhotosView, mainView)
 
 @implementation TSYPhotosViewController
+
+#pragma mark -
+#pragma mark View Lifecycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.context = [TSYFacebookUserPhotosContext new];
+}
 
 #pragma mark -
 #pragma mark UITableViewDelegate
@@ -40,11 +55,19 @@ TSYViewControllerBaseViewProperty(TSYPhotosViewController, TSYPhotosView, mainVi
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    TSYFBUserModel *model = self.model;
+    
+    return model.photos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    TSYPhotosViewCell *cell = [tableView cellWithClass:[TSYPhotosViewCell class]];
+    TSYFBUserModel *model = self.model;
+    TSYFBUserModel *cellModel = model.photos[indexPath.row];
+    
+    [cell fillWithModel:cellModel];
+    
+    return cell;
 }
 
 @end

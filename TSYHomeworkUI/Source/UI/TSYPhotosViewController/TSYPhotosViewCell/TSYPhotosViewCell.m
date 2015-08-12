@@ -8,14 +8,15 @@
 
 #import "TSYPhotosViewCell.h"
 
+#import "TSYImageModel.h"
+
 @implementation TSYPhotosViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
+#pragma mark -
+#pragma mark Public Methods
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)fillWithModel:(TSYImageModel *)model {
+    [self.photoImageView setImageModel:model];
 }
 
 @end

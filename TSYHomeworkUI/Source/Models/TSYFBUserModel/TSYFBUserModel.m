@@ -14,6 +14,7 @@
 
 @interface TSYFBUserModel ()
 @property (nonatomic, strong)     TSYArrayModel   *friends;
+@property (nonatomic, strong)     TSYArrayModel   *photos;
 
 @end
 
@@ -29,6 +30,7 @@
     self = [super init];
     if (self) {
         self.friends = [TSYArrayModel new];
+        self.photos = [TSYArrayModel new];
     }
     
     return self;

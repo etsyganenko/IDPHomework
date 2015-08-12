@@ -13,15 +13,19 @@ static NSString * const kRequestHTTPMethodGet               = @"GET";
 static NSString * const kReadPermissionEmail                = @"email";
 static NSString * const kReadPermissionPublicProfile        = @"public_profile";
 static NSString * const kReadPermissionUserFriends          = @"user_friends";
+static NSString * const kReadPermissionUserPhotos           = @"user_photos";
 
 static NSString * const kNameKey                            = @"name";
 static NSString * const kIDKey                              = @"id";
 static NSString * const kPictureKey                         = @"picture";
 static NSString * const kDataKey                            = @"data";
 static NSString * const kURLKey                             = @"url";
+static NSString * const kPhotosKey                          = @"photos";
 
 static NSString * const kUserFriendsContextGraphPath        = @"%@/friends?fields=name,picture.width(%lu).height(%lu),id";
 static NSString * const kUserInfoContextGraphPath           = @"%@?fields=name,picture.width(%lu).height(%lu)";
+static NSString * const kUserPhotosContextGraphPath         = @"%@?fields=albums";
+//static NSString * const kUserPhotosContextGraphPath         = @"%@?fields=photos.width(60).height(60)";
 
 static NSString * const kPictureWidthKey                    = @"width";
 static NSString * const kPictureHeightKey                   = @"height";

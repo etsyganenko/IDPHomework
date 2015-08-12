@@ -13,4 +13,6 @@
 @interface TSYPhotosViewCell : UITableViewCell
 @property (nonatomic, strong)   IBOutlet TSYImageView       *photoImageView;
 
+- (void)fillWithModel:(TSYImageModel *)model;
+
 @end

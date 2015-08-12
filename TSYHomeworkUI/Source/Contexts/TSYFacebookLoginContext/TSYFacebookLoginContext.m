@@ -28,7 +28,7 @@
 #pragma mark Accessors
 
 - (NSArray *)permissions {
-    return @[kReadPermissionPublicProfile, kReadPermissionEmail, kReadPermissionUserFriends];
+    return @[kReadPermissionPublicProfile, kReadPermissionEmail, kReadPermissionUserFriends, kReadPermissionUserPhotos];
 }
 
 #pragma mark -
