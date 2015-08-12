@@ -74,6 +74,8 @@
 		8ADF9A7F1B7B825C009BBA10 /* TSYPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF9A7D1B7B825C009BBA10 /* TSYPhotosViewController.m */; };
 		8ADF9A801B7B825C009BBA10 /* TSYPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF9A7E1B7B825C009BBA10 /* TSYPhotosViewController.xib */; };
 		8ADF9A831B7B827D009BBA10 /* TSYPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF9A821B7B827D009BBA10 /* TSYPhotosView.m */; };
+		8ADF9A881B7B8522009BBA10 /* TSYPhotosViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF9A861B7B8522009BBA10 /* TSYPhotosViewCell.m */; };
+		8ADF9A891B7B8522009BBA10 /* TSYPhotosViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF9A871B7B8522009BBA10 /* TSYPhotosViewCell.xib */; };
 		B66C1EB5621F627838B6B349 /* libPods-TSYHomeworkUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +212,9 @@
 		8ADF9A7E1B7B825C009BBA10 /* TSYPhotosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYPhotosViewController.xib; sourceTree = "<group>"; };
 		8ADF9A811B7B827D009BBA10 /* TSYPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYPhotosView.h; sourceTree = "<group>"; };
 		8ADF9A821B7B827D009BBA10 /* TSYPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYPhotosView.m; sourceTree = "<group>"; };
+		8ADF9A851B7B8522009BBA10 /* TSYPhotosViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYPhotosViewCell.h; sourceTree = "<group>"; };
+		8ADF9A861B7B8522009BBA10 /* TSYPhotosViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYPhotosViewCell.m; sourceTree = "<group>"; };
+		8ADF9A871B7B8522009BBA10 /* TSYPhotosViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYPhotosViewCell.xib; sourceTree = "<group>"; };
 		C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -786,6 +791,7 @@
 		8ADF9A7B1B7B8242009BBA10 /* TSYPhotosViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8ADF9A841B7B84FF009BBA10 /* TSYPhotosViewCell */,
 				8ADF9A7C1B7B825C009BBA10 /* TSYPhotosViewController.h */,
 				8ADF9A7D1B7B825C009BBA10 /* TSYPhotosViewController.m */,
 				8ADF9A7E1B7B825C009BBA10 /* TSYPhotosViewController.xib */,
@@ -793,6 +799,16 @@
 				8ADF9A821B7B827D009BBA10 /* TSYPhotosView.m */,
 			);
 			path = TSYPhotosViewController;
+			sourceTree = "<group>";
+		};
+		8ADF9A841B7B84FF009BBA10 /* TSYPhotosViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8ADF9A851B7B8522009BBA10 /* TSYPhotosViewCell.h */,
+				8ADF9A861B7B8522009BBA10 /* TSYPhotosViewCell.m */,
+				8ADF9A871B7B8522009BBA10 /* TSYPhotosViewCell.xib */,
+			);
+			path = TSYPhotosViewCell;
 			sourceTree = "<group>";
 		};
 		BE30A4A9EDD4073BC4CA38A1 /* Pods */ = {
@@ -892,6 +908,7 @@
 			files = (
 				849FB4B51B28E98E0096D0AD /* Images.xcassets in Resources */,
 				84A1C3071B341B4200DC7198 /* TSYTableCell.xib in Resources */,
+				8ADF9A891B7B8522009BBA10 /* TSYPhotosViewCell.xib in Resources */,
 				849F4B261B5FAFA400B9DEED /* TSYFriendsViewController.xib in Resources */,
 				84A196331B321AF900C5CE0E /* TSYTableViewController.xib in Resources */,
 				84A8E1B91B6625CD004B9394 /* TSYUserDetailViewController.xib in Resources */,
@@ -1016,6 +1033,7 @@
 				84A1EFE61B31A2A30037A3B7 /* TSYSquareView.m in Sources */,
 				84A1C3061B341B4200DC7198 /* TSYTableCell.m in Sources */,
 				84A26DF81B3CA4B200812575 /* TSYTableCellMovingPath.m in Sources */,
+				8ADF9A881B7B8522009BBA10 /* TSYPhotosViewCell.m in Sources */,
 				84BF5F191B32FB0100932154 /* NSString+TSYRandomName.m in Sources */,
 				84BD0D5E1B41F74200349DE5 /* NSIndexPath+TSYCategory.m in Sources */,
 				84A1EFE71B31A2A30037A3B7 /* TSYSquareViewController.m in Sources */,
