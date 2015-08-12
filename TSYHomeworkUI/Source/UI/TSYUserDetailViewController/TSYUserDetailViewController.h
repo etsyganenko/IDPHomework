@@ -8,12 +8,7 @@
 
 #import "TSYViewController.h"
 
-#import "TSYFBUserModel.h"
-
-@class TSYFacebookUserInfoContext;
-@class TSYFBUserModel;
-
-@interface TSYUserDetailViewController : TSYViewController <TSYFBUserModelObserver>
+@interface TSYUserDetailViewController : TSYViewController
 @property (nonatomic, strong)       NSString        *ID;  
 
 - (IBAction)onFriendsButton:(id)sender;

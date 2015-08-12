@@ -64,7 +64,7 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
     
     UINavigationController *navigationController = self.navigationController;
     TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
-    controller.model = selectedModel;
+    controller.ID = selectedModel.ID;
     
     [navigationController pushViewController:controller animated:YES];
 }
@@ -94,10 +94,7 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
     });
 }
 
-#pragma mark -
-#pragma mark TSYFBUserModelObserver
-
-- (void)fbUserModelFriendsDidLoad:(TSYFBUserModel *)model {
+- (void)modelDidLoad:(TSYFBUserModel *)model {
     TSYFriendsView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{

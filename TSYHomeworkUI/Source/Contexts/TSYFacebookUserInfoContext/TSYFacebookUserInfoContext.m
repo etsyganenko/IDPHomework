@@ -63,7 +63,6 @@
     [self fillModelWithResult:result];
     
     model.state = TSYModelDidLoad;
-//    model.state = TSYFBUserModelDidLoadUserInfo;
 }
 
 @end

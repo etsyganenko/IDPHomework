@@ -88,7 +88,16 @@
 #pragma mark TSYModelObserver
 
 - (void)modelDidFailLoading:(TSYModel *)model {
-// show alert
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                   message:kAlertMessage
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:kAlertActionTitle
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:nil];
+    [alert addAction:action];
+    
+    [self presentViewController:alert animated:NO completion:nil];
 }
 
 @end

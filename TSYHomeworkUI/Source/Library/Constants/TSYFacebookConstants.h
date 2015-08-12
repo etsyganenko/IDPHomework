@@ -33,3 +33,5 @@ static const NSUInteger kUserFriendsContextPictureWidth     = 100;
 static const NSUInteger kUserFriendsContextPictureHeight    = 100;
 
 static NSString * const kLogoutButtonTitle                  = @"logout";
+static NSString * const kAlertActionTitle                   = @"OK";
+static NSString * const kAlertMessage                       = @"No internet connection";

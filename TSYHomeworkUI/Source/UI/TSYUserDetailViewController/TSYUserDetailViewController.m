@@ -60,9 +60,9 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 }
 
 #pragma mark -
-#pragma mark TSYFBUserModelObserver
+#pragma mark TSYModelObserver
 
-- (void)modelDidLoad:(TSYModel *)model {
+- (void)modelDidLoad:(TSYFBUserModel *)model {
     TSYUserDetailView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -71,19 +71,6 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
         [mainView hideLoadingView];
     });
 }
-
-//- (void)fbUserModelInfoDidLoad:(TSYFBUserModel *)model {
-//    TSYUserDetailView *mainView = self.mainView;
-//    
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [mainView fillWithModel:model];
-//        
-//        [mainView hideLoadingView];
-//    });
-//}
-
-#pragma mark -
-#pragma mark TSYModelObserver
 
 - (void)modelWillLoad:(TSYFBUserModel *)model {
     dispatch_async(dispatch_get_main_queue(), ^{
