@@ -36,7 +36,7 @@
                                                               target:self
                                                               action:@selector(logout)];
     
-    self.navigationItem.rightBarButtonItem = button;
+    self.navigationController.navigationBar.topItem.rightBarButtonItem = button;
 }
 
 #pragma mark -

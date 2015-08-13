@@ -24,14 +24,14 @@ static NSString * const kPhotosKey                          = @"photos";
 
 static NSString * const kUserFriendsContextGraphPath        = @"%@/friends?fields=name,picture.width(%lu).height(%lu),id";
 static NSString * const kUserInfoContextGraphPath           = @"%@?fields=name,picture.width(%lu).height(%lu)";
-static NSString * const kUserPhotosContextGraphPath         = @"%@?fields=albums";
-//static NSString * const kUserPhotosContextGraphPath         = @"%@?fields=photos.width(60).height(60)";
+//static NSString * const kUserPhotosContextGraphPath         = @"%@/albums?fields=photos";
+static NSString * const kUserPhotosContextGraphPath         = @"%@/albums?fields=photos";
 
 static NSString * const kPictureWidthKey                    = @"width";
 static NSString * const kPictureHeightKey                   = @"height";
 
-static const NSUInteger kUserInfoContextPictureWidth        = 320;
-static const NSUInteger kUserInfoContextPictureHeight       = 320;
+static const NSUInteger kUserInfoContextPictureWidth        = 600;
+static const NSUInteger kUserInfoContextPictureHeight       = 600;
 
 static const NSUInteger kUserFriendsContextPictureWidth     = 100;
 static const NSUInteger kUserFriendsContextPictureHeight    = 100;

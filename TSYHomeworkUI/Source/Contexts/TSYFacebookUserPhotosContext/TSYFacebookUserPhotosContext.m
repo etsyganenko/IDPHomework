@@ -31,30 +31,44 @@
     TSYFBUserModel *model = self.model;
     TSYArrayModel *userPhotos = model.photos;
     
-    NSArray *albums = result[@"albums"][@"data"];
+    NSLog(@"result: %@", result);
     
-    for (NSUInteger i = 0; i < albums.count; i++) {
-        NSDictionary *albumsDictionary = albums[i];
+//    NSArray *images = result[@"data"][@"images"];
+    
+    NSArray *data = result[@"data"];
+    
+    for (NSUInteger i = 0; i < data.count; i++) {
+        NSDictionary *dict = data[i];
         
-        NSArray *photos = albumsDictionary[@"photos"][@"data"];
+        NSArray *array = dict[@"images"];
         
-        NSLog(@"photos: %@", result);
-        
-        for (NSUInteger j = 0; j < photos.count; j++) {
-            NSDictionary *photosDictionary = photos[j];
-            
-            NSArray *images = photosDictionary[@"images"];
-            
-            for (NSUInteger k = 0; k < images.count; k++) {
-                NSDictionary *imagesDictionary = images[k];
-                
-                NSURL *url = imagesDictionary[@"source"];
-                TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:url];
-                
-                [userPhotos addModel:imageModel];
-            }
-        }
+//        NSLog(@"dict: %@", dict);
     }
+    
+//    NSLog(@"images: %@", images);
+    
+//    for (NSUInteger i = 0; i < albums.count; i++) {
+//        NSDictionary *albumsDictionary = albums[i];
+//
+//        NSArray *photos = albumsDictionary[@"photos"][@"data"];
+//        
+////        NSLog(@"photos: %@", photos);
+//        
+//        for (NSUInteger j = 0; j < photos.count; j++) {
+//            NSDictionary *photosDictionary = photos[j];
+//            
+//            NSArray *images = photosDictionary[@"images"];
+//            
+//            for (NSUInteger k = 0; k < images.count; k++) {
+//                NSDictionary *imagesDictionary = images[k];
+//                
+//                NSURL *url = imagesDictionary[@"source"];
+//                TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:url];
+//                
+//                [userPhotos addModel:imageModel];
+//            }
+//        }
+//    }
 }
 
 - (void)processRequestResult:(id)result error:(NSError *)error {
