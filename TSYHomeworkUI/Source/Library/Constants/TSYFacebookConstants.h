@@ -24,14 +24,30 @@ static NSString * const kPhotosKey                          = @"photos";
 
 static NSString * const kUserFriendsContextGraphPath        = @"%@/friends?fields=name,picture.width(%lu).height(%lu),id";
 static NSString * const kUserInfoContextGraphPath           = @"%@?fields=name,picture.width(%lu).height(%lu)";
-//static NSString * const kUserPhotosContextGraphPath         = @"%@/albums?fields=photos";
-static NSString * const kUserPhotosContextGraphPath         = @"%@/albums?fields=photos";
+
+
+
+
+//static NSString * const kAlbumCoverPhotoContextGraphPath  = @"342819972451257/photos?fields=images";
+//static NSString * const kAlbumPhotosContextGraphPath      = @"342819972451257/photos?fields=images";
+//static NSString * const kUserAlbumsContextGraphPath       = @"%@/albums?fields=photos";
+
+static NSString * const kAlbumPhotosContextGraphPath         = @"%@/photos?fields=images";
+
+
+
+
+static NSString * const kAlbumIDContextGraphPath            = @"%@/albums?fields=id"; // %@ == userID
+static NSString * const kAlbumCoverPhotoGraphPath           = @"%@?fields=cover_photo"; // %@ == albumID
+static NSString * const kAlbumCoverPhotoIDGraphPath         = @"%@?fields=cover_photo";
+static NSString * const kAlbumImagesIDGraphPath             = @"%@/photos?fields=images"; // %@ == albumID
+
 
 static NSString * const kPictureWidthKey                    = @"width";
 static NSString * const kPictureHeightKey                   = @"height";
 
-static const NSUInteger kUserInfoContextPictureWidth        = 600;
-static const NSUInteger kUserInfoContextPictureHeight       = 600;
+static const NSUInteger kUserInfoContextPictureWidth        = 400;
+static const NSUInteger kUserInfoContextPictureHeight       = 400;
 
 static const NSUInteger kUserFriendsContextPictureWidth     = 100;
 static const NSUInteger kUserFriendsContextPictureHeight    = 100;

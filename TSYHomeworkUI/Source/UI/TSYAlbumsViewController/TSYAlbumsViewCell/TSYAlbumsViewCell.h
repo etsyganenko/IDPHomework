@@ -1,5 +1,5 @@
 //
-//  TSYPhotosViewCell.h
+//  TSYAlbumsViewCell.h
 //  TSYHomeworkUI
 //
 //  Created by Yevgen on 8/12/15.
@@ -10,7 +10,7 @@
 
 #import "TSYImageView.h"
 
-@interface TSYPhotosViewCell : UITableViewCell
+@interface TSYAlbumsViewCell : UITableViewCell
 @property (nonatomic, strong)   IBOutlet TSYImageView       *photoImageView;
 
 - (void)fillWithModel:(TSYImageModel *)model;

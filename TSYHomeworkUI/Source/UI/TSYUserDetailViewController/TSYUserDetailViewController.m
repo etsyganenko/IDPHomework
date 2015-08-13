@@ -16,7 +16,7 @@
 #import "TSYFacebookUserInfoContext.h"
 #import "TSYFacebookUserFriendsContext.h"
 #import "TSYFriendsViewController.h"
-#import "TSYPhotosViewController.h"
+#import "TSYAlbumsViewController.h"
 #import "TSYArrayModel.h"
 
 TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView, mainView)
@@ -61,12 +61,12 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 }
 
 - (IBAction)onPhotosButton:(id)sender {
-    TSYPhotosViewController *photosController = [TSYPhotosViewController new];
+    TSYAlbumsViewController *albumsController = [TSYAlbumsViewController new];
     UINavigationController *navigationController = self.navigationController;
     
-    photosController.model = self.model;
+    albumsController.model = self.model;
     
-    [navigationController pushViewController:photosController animated:YES];
+    [navigationController pushViewController:albumsController animated:YES];
 }
 
 #pragma mark -

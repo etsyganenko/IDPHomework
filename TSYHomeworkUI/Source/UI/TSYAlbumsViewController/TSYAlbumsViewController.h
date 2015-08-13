@@ -1,5 +1,5 @@
 //
-//  TSYPhotosViewController.h
+//  TSYAlbumsViewController.h
 //  TSYHomeworkUI
 //
 //  Created by Yevgen on 8/12/15.
@@ -10,6 +10,6 @@
 
 #import "TSYViewController.h"
 
-@interface TSYPhotosViewController : TSYViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TSYAlbumsViewController : TSYViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

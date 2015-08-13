@@ -1,5 +1,5 @@
 //
-//  TSYPhotosView.h
+//  TSYAlbumsView.h
 //  TSYHomeworkUI
 //
 //  Created by Yevgen on 8/12/15.
@@ -8,7 +8,7 @@
 
 #import "TSYView.h"
 
-@interface TSYPhotosView : TSYView
+@interface TSYAlbumsView : TSYView
 @property (nonatomic, strong)   IBOutlet UITableView    *tableView;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  TSYFacebookUserPhotosContext.h
+//  TSYFacebookAlbumIDContext.h
 //  TSYHomeworkUI
 //
 //  Created by Yevgen on 8/12/15.
@@ -8,6 +8,6 @@
 
 #import "TSYFacebookContext.h"
 
-@interface TSYFacebookUserPhotosContext : TSYFacebookContext
+@interface TSYFacebookAlbumIDContext : TSYFacebookContext
 
 @end

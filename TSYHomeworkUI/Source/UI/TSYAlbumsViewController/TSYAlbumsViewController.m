@@ -1,29 +1,31 @@
 //
-//  TSYPhotosViewController.m
+//  TSYAlbumsViewController.m
 //  TSYHomeworkUI
 //
 //  Created by Yevgen on 8/12/15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYPhotosViewController.h"
+#import "TSYAlbumsViewController.h"
 
-#import "TSYPhotosView.h"
-#import "TSYPhotosViewCell.h"
+#import "TSYAlbumsView.h"
+#import "TSYAlbumsViewCell.h"
 #import "TSYFBUserModel.h"
 #import "TSYArrayModel.h"
-#import "TSYFacebookUserPhotosContext.h"
+#import "TSYImageModel.h"
+#import "TSYFacebookAlbumIDContext.h"
+#import "TSYFacebookAlbumCoverPhotoContext.h"
 #import "TSYMacros.h"
 
 #import "UITableView+TSYCategory.h"
 
-@interface TSYPhotosViewController ()
+@interface TSYAlbumsViewController ()
 
 @end
 
-TSYViewControllerBaseViewProperty(TSYPhotosViewController, TSYPhotosView, mainView)
+TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainView)
 
-@implementation TSYPhotosViewController
+@implementation TSYAlbumsViewController
 
 #pragma mark -
 #pragma mark View Lifecycle
@@ -31,7 +33,7 @@ TSYViewControllerBaseViewProperty(TSYPhotosViewController, TSYPhotosView, mainVi
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.context = [TSYFacebookUserPhotosContext new];
+    self.context = [TSYFacebookAlbumIDContext new];
 }
 
 #pragma mark -
@@ -57,17 +59,30 @@ TSYViewControllerBaseViewProperty(TSYPhotosViewController, TSYPhotosView, mainVi
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     TSYFBUserModel *model = self.model;
     
-    return model.photos.count;
+    return model.albums.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TSYPhotosViewCell *cell = [tableView cellWithClass:[TSYPhotosViewCell class]];
-    TSYFBUserModel *model = self.model;
-    TSYFBUserModel *cellModel = model.photos[indexPath.row];
+    TSYAlbumsViewCell *cell = [tableView cellWithClass:[TSYAlbumsViewCell class]];
     
-    [cell fillWithModel:cellModel];
+    TSYFBUserModel *model = self.model;
+    NSURL *coverPhotoURL = model.coverPhotoURLs[indexPath.row];
+    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:coverPhotoURL];
+    
+    [cell fillWithModel:imageModel];
     
     return cell;
+}
+
+#pragma mark -
+#pragma mark TSYModelObserver
+
+- (void)modelDidLoad:(TSYFBUserModel *)model {
+    NSUInteger albumsCount = model.albumIDs.count;
+    
+    for (NSUInteger index = 0; index < albumsCount; index++) {
+        self.context = [TSYFacebookAlbumCoverPhotoContext new];
+    }
 }
 
 @end
