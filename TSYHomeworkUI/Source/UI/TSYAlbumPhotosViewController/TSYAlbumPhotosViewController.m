@@ -1,31 +1,28 @@
 //
-//  TSYAlbumsViewController.m
+//  TSYAlbumPhotosViewController.m
 //  TSYHomeworkUI
 //
-//  Created by Yevgen on 8/12/15.
+//  Created by Yevgen on 8/13/15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYAlbumsViewController.h"
+#import "TSYAlbumPhotosViewController.h"
 
-#import "TSYAlbumsView.h"
-#import "TSYAlbumsViewCell.h"
+#import "TSYAlbumViewCell.h"
 #import "TSYFBUserModel.h"
-#import "TSYArrayModel.h"
 #import "TSYImageModel.h"
-#import "TSYFacebookAlbumIDContext.h"
-#import "TSYFacebookAlbumCoverPhotoContext.h"
+
 #import "TSYMacros.h"
 
 #import "UITableView+TSYCategory.h"
 
-@interface TSYAlbumsViewController ()
+@interface TSYAlbumPhotosViewController ()
 
 @end
 
-TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainView)
+TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumViewCell, mainView)
 
-@implementation TSYAlbumsViewController
+@implementation TSYAlbumPhotosViewController
 
 #pragma mark -
 #pragma mark View Lifecycle
@@ -33,7 +30,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.context = [TSYFacebookAlbumIDContext new];
+//    self.context = [TSYFacebookAlbumIDContext new];
 }
 
 #pragma mark -
@@ -58,16 +55,21 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     TSYFBUserModel *model = self.model;
+    NSDictionary *photoURLs = model.photoURLs;
+    NSArray *albumPhotoURLs = [photoURLs objectsForKeys:@[self.albumID] notFoundMarker:nil];
     
-    return model.albums.count;
+    return albumPhotoURLs.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TSYAlbumsViewCell *cell = [tableView cellWithClass:[TSYAlbumsViewCell class]];
+    TSYAlbumViewCell *cell = [tableView cellWithClass:[TSYAlbumViewCell class]];
     
     TSYFBUserModel *model = self.model;
-    NSURL *coverPhotoURL = model.coverPhotoURLs[indexPath.row];
-    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:coverPhotoURL];
+    NSDictionary *photoURLs = model.photoURLs;
+    NSArray *albumPhotoURLs = [photoURLs objectsForKeys:@[self.albumID] notFoundMarker:nil];
+    NSURL *photoURL = albumPhotoURLs[indexPath.row];
+    
+    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:photoURL];
     
     [cell fillWithModel:imageModel];
     
