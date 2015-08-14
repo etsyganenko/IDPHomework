@@ -33,8 +33,9 @@
     TSYArrayModel *albums = userModel.albums;
     
     NSArray *data = result[@"data"];
+    NSUInteger albumsCount = data.count;
     
-    for (NSUInteger index = 0; index < data.count; index++) {
+    for (NSUInteger index = 0; index < albumsCount; index++) {
         NSDictionary *dictionary = data[index];
         NSString *albumID = dictionary[@"id"];
         

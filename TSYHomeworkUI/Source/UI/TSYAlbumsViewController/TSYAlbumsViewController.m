@@ -11,6 +11,7 @@
 #import "TSYAlbumsView.h"
 #import "TSYAlbumsViewCell.h"
 #import "TSYFBUserModel.h"
+#import "TSYFBUserAlbumModel.h"
 #import "TSYArrayModel.h"
 #import "TSYImageModel.h"
 #import "TSYFacebookAlbumIDContext.h"
@@ -58,16 +59,19 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     TSYFBUserModel *model = self.model;
-    
-    return model.coverPhotoURLs.count;
+
+    return model.albums.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYAlbumsViewCell *cell = [tableView cellWithClass:[TSYAlbumsViewCell class]];
     
-    TSYFBUserModel *model = self.model;
-    NSURL *coverPhotoURL = model.coverPhotoURLs[indexPath.row];
-    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:coverPhotoURL];
+    TSYFBUserModel *userModel = self.model;
+    TSYFBUserAlbumModel *albumModel = userModel.albums[indexPath.row];
+    
+    NSURL *albumCoverPhotoURL = albumModel.albumCoverPhotoURL;
+    
+    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:albumCoverPhotoURL];
     
     [cell fillWithModel:imageModel];
     
@@ -78,7 +82,13 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 #pragma mark TSYModelObserver
 
 - (void)modelDidLoad:(TSYFBUserModel *)model {
-
+    TSYAlbumsView *mainView = self.mainView;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [mainView hideLoadingView];
+        
+        [mainView.tableView reloadData];
+    });
 }
 
 @end

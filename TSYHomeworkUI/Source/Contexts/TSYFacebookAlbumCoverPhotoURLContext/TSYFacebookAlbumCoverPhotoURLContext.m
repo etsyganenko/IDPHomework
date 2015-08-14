@@ -28,7 +28,10 @@
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    NSLog(@"%@", result[@"source"]);
+    TSYFBUserAlbumModel *albumModel = self.model;
+    NSURL *albumCoverPhotoURL = [NSURL URLWithString:result[@"source"]];
+    
+    albumModel.albumCoverPhotoURL = albumCoverPhotoURL;
 }
 
 - (void)processRequestResult:(id)result error:(NSError *)error {

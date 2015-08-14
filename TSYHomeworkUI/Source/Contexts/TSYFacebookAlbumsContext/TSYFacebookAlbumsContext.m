@@ -17,6 +17,7 @@
 #import "TSYFacebookConstants.h"
 
 @interface TSYFacebookAlbumsContext ()
+@property (nonatomic, assign)   NSUInteger  albumCoverPhotoURLsLoadedCount;
 
 - (void)addFacebookAlbumCoverPhotoContext:(TSYFacebookAlbumCoverPhotoIDContext *)context;
 
@@ -31,6 +32,7 @@
     self = [super initWithModel:model];
     if (self) {
         self.albumCoverPhotoIDContexts = [NSMutableArray array];
+        self.albumCoverPhotoURLContexts = [NSMutableArray array];
         self.albumIDContext = [TSYFacebookAlbumIDContext contextWithModel:model];
     }
     
@@ -83,6 +85,17 @@
         TSYFacebookAlbumCoverPhotoURLContext *context = [TSYFacebookAlbumCoverPhotoURLContext contextWithModel:albumModel];
             
         [self addFacebookAlbumCoverPhotoURLContext:context];
+    }
+    
+    if ([context isMemberOfClass:[TSYFacebookAlbumCoverPhotoURLContext class]]) {
+        self.albumCoverPhotoURLsLoadedCount += 1;
+        
+        TSYFBUserModel *userModel = self.model;
+        NSUInteger albumsCount = userModel.albums.count;
+        
+        if (albumsCount == self.albumCoverPhotoURLsLoadedCount) {
+            userModel.state = TSYModelDidLoad;
+        }
     }
 }
 
