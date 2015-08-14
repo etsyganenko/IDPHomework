@@ -14,6 +14,10 @@
 @interface TSYContext : TSYObservableObject <TSYModelObserver>
 @property (nonatomic, strong)   id    model;
 
++ (instancetype)contextWithModel:(id)model;
+
+- (instancetype)initWithModel:(id)model;
+
 - (void)execute;
 - (void)cancel;
 

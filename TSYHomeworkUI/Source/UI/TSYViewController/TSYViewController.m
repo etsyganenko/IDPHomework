@@ -59,8 +59,6 @@
         _context = context;
         
         if (context) {
-            _context.model = self.model;
-            
             [_context execute];
         }
     }

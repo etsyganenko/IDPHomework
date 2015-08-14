@@ -19,8 +19,8 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithModel:(id)model {
+    self = [super initWithModel:model];
     if (self) {
         self.pictureSize = CGSizeMake(kUserFriendsContextPictureWidth, kUserFriendsContextPictureHeight);
     }

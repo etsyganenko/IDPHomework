@@ -33,7 +33,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.context = [TSYFacebookAlbumCoverPhotoURLContext new];
+    self.context = [TSYFacebookAlbumCoverPhotoURLContext contextWithModel:self.model];
 }
 
 #pragma mark -
@@ -59,7 +59,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     TSYFBUserModel *model = self.model;
     
-    return model.albums.count;
+    return model.coverPhotoURLs.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

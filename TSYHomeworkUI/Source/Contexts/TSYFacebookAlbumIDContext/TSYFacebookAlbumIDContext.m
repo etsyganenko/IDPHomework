@@ -50,7 +50,8 @@
     
     [self fillModelWithResult:result];
     
-    model.state = TSYModelDidLoad;
+//    model.state = TSYModelDidLoad;
+    self.state = TSYModelDidLoad;
 }
 
 @end

@@ -34,7 +34,7 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
     
     self.model = model;
     
-    self.context = [TSYFacebookUserInfoContext new];
+    self.context = [TSYFacebookUserInfoContext contextWithModel:model];
 }
 
 #pragma mark -
@@ -65,7 +65,7 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
     UINavigationController *navigationController = self.navigationController;
     
     albumsController.model = self.model;
-    
+
     [navigationController pushViewController:albumsController animated:YES];
 }
 

@@ -17,10 +17,10 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithModel:(id)model {
+    self = [super initWithModel:model];
     if (self) {
-        self.albumIDContext = [TSYFacebookAlbumIDContext new];
+        self.albumIDContext = [TSYFacebookAlbumIDContext contextWithModel:model];
     }
     
     return self;
@@ -32,11 +32,13 @@
 - (void)setAlbumIDContext:(TSYFacebookAlbumIDContext *)albumIDContext {
     if (_albumIDContext != albumIDContext) {
         [_albumIDContext cancel];
+        [_albumIDContext removeObserver:self];
         
         _albumIDContext = albumIDContext;
         
         if (albumIDContext) {
             _albumIDContext.model = self.model;
+            [_albumIDContext addObserver:self];
             
             [_albumIDContext execute];
         }
@@ -57,22 +59,10 @@
 }
 
 - (void)modelDidLoad:(TSYContext *)context {
-    
-}
-
-#pragma mark -
-#pragma mark TSYObservableObject
-
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case TSYModelDidLoad:
-            return @selector(modelDidLoad:);
-            
-        case TSYModelDidFailLoading:
-            return @selector(modelDidFailLoading:);
-            
-        default:
-            return [super selectorForState:state];;
+    if ([context isMemberOfClass:[TSYFacebookAlbumIDContext class]]) {
+        
+        TSYFBUserModel *model = self.model;
+        NSLog(@"%@", model.albumIDs);
     }
 }
 

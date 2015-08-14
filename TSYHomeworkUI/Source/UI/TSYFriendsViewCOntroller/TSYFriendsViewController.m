@@ -28,7 +28,7 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.context = [TSYFacebookUserFriendsContext new];
+    self.context = [TSYFacebookUserFriendsContext contextWithModel:self.model];
 }
 
 #pragma mark -

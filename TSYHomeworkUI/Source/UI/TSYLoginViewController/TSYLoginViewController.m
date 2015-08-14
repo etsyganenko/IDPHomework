@@ -49,7 +49,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 
 - (IBAction)onLoginButton:(id)sender {
     TSYFBUserModel *model = [TSYFBUserModel new];
-    TSYFacebookLoginContext *context = [TSYFacebookLoginContext new];
+    TSYFacebookLoginContext *context = [TSYFacebookLoginContext contextWithModel:model];
     
     self.model = model;
     self.context = context;
