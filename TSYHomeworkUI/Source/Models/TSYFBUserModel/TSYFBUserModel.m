@@ -32,6 +32,7 @@
         self.friends = [TSYArrayModel new];
         self.photos = [TSYArrayModel new];
         self.albumIDs = [NSMutableArray array];
+        self.albumCoverPhotoIDs = [NSMutableArray array];
     }
     
     return self;

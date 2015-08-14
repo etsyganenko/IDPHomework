@@ -10,7 +10,14 @@
 
 #import "TSYFBUserModel.h"
 #import "TSYFacebookAlbumIDContext.h"
+#import "TSYFacebookAlbumCoverPhotoIDContext.h"
 #import "TSYFacebookConstants.h"
+
+@interface TSYFacebookAlbumCoverPhotoURLContext ()
+
+- (void)addFacebookAlbumCoverPhotoContext:(TSYFacebookAlbumCoverPhotoIDContext *)context;
+
+@end
 
 @implementation TSYFacebookAlbumCoverPhotoURLContext
 
@@ -20,6 +27,7 @@
 - (instancetype)initWithModel:(id)model {
     self = [super initWithModel:model];
     if (self) {
+        self.albumCoverPhotoIDContexts = [NSMutableArray array];
         self.albumIDContext = [TSYFacebookAlbumIDContext contextWithModel:model];
     }
     
@@ -59,11 +67,32 @@
 }
 
 - (void)modelDidLoad:(TSYContext *)context {
-    if ([context isMemberOfClass:[TSYFacebookAlbumIDContext class]]) {
-        
+    if ([context isMemberOfClass:[TSYFacebookAlbumIDContext class]]) {        
         TSYFBUserModel *model = self.model;
-        NSLog(@"%@", model.albumIDs);
+        NSUInteger count = model.albumIDs.count;
+        
+        for (NSUInteger index = 0; index < count; index++) {
+            TSYFacebookAlbumCoverPhotoIDContext *context = [TSYFacebookAlbumCoverPhotoIDContext contextWithModel:model];
+            context.index = index;
+            
+            [self addFacebookAlbumCoverPhotoContext:context];
+        }
     }
+    
+    if ([context isMemberOfClass:[TSYFacebookAlbumCoverPhotoIDContext class]]) {
+        NSLog(@"%@", self.model);
+    }
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)addFacebookAlbumCoverPhotoContext:(TSYFacebookAlbumCoverPhotoIDContext *)context {
+    [self.albumCoverPhotoIDContexts addObject:context];
+    
+    [context addObserver:self];
+        
+    [context execute];
 }
 
 @end

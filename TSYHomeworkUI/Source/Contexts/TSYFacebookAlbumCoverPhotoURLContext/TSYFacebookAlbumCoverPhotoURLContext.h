@@ -9,10 +9,12 @@
 #import "TSYFacebookContext.h"
 
 @class TSYFacebookAlbumIDContext;
+@class TSYFacebookAlbumCoverPhotoIDContext;
 
 @interface TSYFacebookAlbumCoverPhotoURLContext : TSYFacebookContext
-//@property (nonatomic, strong)   NSString                    *albumID;
+@property (nonatomic, strong)   TSYFacebookAlbumIDContext               *albumIDContext;
+@property (nonatomic, strong)   TSYFacebookAlbumCoverPhotoIDContext     *albumCoverPhotoIDContext;
 
-@property (nonatomic, strong)   TSYFacebookAlbumIDContext   *albumIDContext;
+@property (nonatomic, strong)   NSMutableArray                          *albumCoverPhotoIDContexts;
 
 @end
