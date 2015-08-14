@@ -9,6 +9,7 @@
 #import "TSYFacebookAlbumCoverPhotoIDContext.h"
 
 #import "TSYFBUserModel.h"
+#import "TSYFBUserAlbumModel.h"
 
 #import "TSYFacebookConstants.h"
 
@@ -18,9 +19,8 @@
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    TSYFBUserModel *model = self.model;
-    NSUInteger index = self.index;
-    NSString *albumID = model.albumIDs[index];
+    TSYFBUserAlbumModel *albumModel = self.model;
+    NSString *albumID = albumModel.albumID;
     
     return [NSString stringWithFormat:kAlbumCoverPhotoGraphPath, albumID];
 }
@@ -29,30 +29,22 @@
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBUserModel *model = self.model;
-    NSMutableArray *albumCoverPhotoIDs = model.albumCoverPhotoIDs;
-    NSUInteger index = self.index;
+    TSYFBUserAlbumModel *albumModel = self.model;
     
     NSString *albumCoverPhotoID = result[@"cover_photo"][@"id"];
     
-    NSLog(@"albumCoverPhotoID: %@", albumCoverPhotoID);
-    
-    albumCoverPhotoIDs[index] = albumCoverPhotoID;
-    
-    NSLog(@"albumCoverPhotoIDs: %@", model.albumCoverPhotoIDs);
+    albumModel.albumCoverPhotoID = albumCoverPhotoID;
 }
 
 - (void)processRequestResult:(id)result error:(NSError *)error {
-    TSYFBUserModel *model = self.model;
     if (error) {
-        model.state = TSYModelDidFailLoading;
+        self.state = TSYModelDidFailLoading;
         
         return;
     }
     
     [self fillModelWithResult:result];
     
-    //    model.state = TSYModelDidLoad;
     self.state = TSYModelDidLoad;
 }
 

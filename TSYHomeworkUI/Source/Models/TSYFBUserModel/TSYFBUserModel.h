@@ -10,6 +10,7 @@
 
 @class TSYArrayModel;
 @class TSYImageModel;
+@class TSYFBUserAlbumModel;
 
 @interface TSYFBUserModel : TSYModel
 @property (nonatomic, strong)       NSString        *ID;
@@ -21,6 +22,7 @@
 @property (nonatomic, readonly)     TSYImageModel   *imageModel;
 
 @property (nonatomic, readonly)     TSYArrayModel   *friends;
+@property (nonatomic, readonly)     TSYArrayModel   *albums;
 
 @property (nonatomic, strong)       NSMutableArray  *albumIDs;
 @property (nonatomic, strong)       NSMutableArray  *albumCoverPhotoIDs;

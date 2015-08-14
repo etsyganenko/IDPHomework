@@ -14,7 +14,7 @@
 
 @interface TSYFBUserModel ()
 @property (nonatomic, strong)     TSYArrayModel   *friends;
-@property (nonatomic, strong)     TSYArrayModel   *photos;
+@property (nonatomic, strong)     TSYArrayModel   *albums;
 
 @end
 
@@ -30,7 +30,7 @@
     self = [super init];
     if (self) {
         self.friends = [TSYArrayModel new];
-        self.photos = [TSYArrayModel new];
+        self.albums = [TSYArrayModel new];
         self.albumIDs = [NSMutableArray array];
         self.albumCoverPhotoIDs = [NSMutableArray array];
     }

@@ -11,6 +11,7 @@
 #import "TSYFBUserModel.h"
 #import "TSYImageModel.h"
 #import "TSYArrayModel.h"
+#import "TSYFBUserAlbumModel.h"
 #import "TSYFacebookConstants.h"
 
 @implementation TSYFacebookAlbumIDContext
@@ -28,29 +29,31 @@
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBUserModel *model = self.model;
-    NSMutableArray *albumIDs = model.albumIDs;
+    TSYFBUserModel *userModel = self.model;
+    TSYArrayModel *albums = userModel.albums;
     
     NSArray *data = result[@"data"];
     
     for (NSUInteger index = 0; index < data.count; index++) {
         NSDictionary *dictionary = data[index];
-
-        [albumIDs addObject:dictionary[@"id"]];
+        NSString *albumID = dictionary[@"id"];
+        
+        TSYFBUserAlbumModel *album = [TSYFBUserAlbumModel new];
+        album.albumID = albumID;
+        
+        [albums addModel:album];
     }
 }
 
 - (void)processRequestResult:(id)result error:(NSError *)error {
-    TSYFBUserModel *model = self.model;
     if (error) {
-        model.state = TSYModelDidFailLoading;
+        self.state = TSYModelDidFailLoading;
         
         return;
     }
     
     [self fillModelWithResult:result];
     
-//    model.state = TSYModelDidLoad;
     self.state = TSYModelDidLoad;
 }
 

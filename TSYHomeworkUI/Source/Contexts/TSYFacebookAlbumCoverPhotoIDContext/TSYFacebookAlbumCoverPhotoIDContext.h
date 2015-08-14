@@ -9,6 +9,5 @@
 #import "TSYFacebookContext.h"
 
 @interface TSYFacebookAlbumCoverPhotoIDContext : TSYFacebookContext
-@property (nonatomic, assign)   NSUInteger  index;
 
 @end
