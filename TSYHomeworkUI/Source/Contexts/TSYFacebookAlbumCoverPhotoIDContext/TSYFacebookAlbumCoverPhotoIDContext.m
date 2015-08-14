@@ -22,7 +22,7 @@
     TSYFBUserAlbumModel *albumModel = self.model;
     NSString *albumID = albumModel.albumID;
     
-    return [NSString stringWithFormat:kAlbumCoverPhotoGraphPath, albumID];
+    return [NSString stringWithFormat:kAlbumCoverPhotoIDGraphPath, albumID];
 }
 
 #pragma mark -

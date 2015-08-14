@@ -14,7 +14,7 @@
 #import "TSYArrayModel.h"
 #import "TSYImageModel.h"
 #import "TSYFacebookAlbumIDContext.h"
-#import "TSYFacebookAlbumCoverPhotoURLContext.h"
+#import "TSYFacebookAlbumsContext.h"
 #import "TSYMacros.h"
 
 #import "UITableView+TSYCategory.h"
@@ -33,7 +33,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.context = [TSYFacebookAlbumCoverPhotoURLContext contextWithModel:self.model];
+    self.context = [TSYFacebookAlbumsContext contextWithModel:self.model];
 }
 
 #pragma mark -

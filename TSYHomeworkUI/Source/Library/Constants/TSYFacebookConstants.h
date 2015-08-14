@@ -38,8 +38,10 @@ static NSString * const kAlbumPhotosContextGraphPath         = @"%@/photos?field
 
 
 static NSString * const kAlbumIDContextGraphPath            = @"%@/albums?fields=id"; // %@ == userID
-static NSString * const kAlbumCoverPhotoGraphPath           = @"%@?fields=cover_photo"; // %@ == albumID
-static NSString * const kAlbumCoverPhotoIDGraphPath         = @"%@?fields=photos,link";
+static NSString * const kAlbumCoverPhotoIDGraphPath         = @"%@?fields=cover_photo"; // %@ == albumID
+static NSString * const kAlbumCoverPhotoURLGraphPath        = @"%@?fields=source"; // %@ == albumCoverPhotoID
+
+
 static NSString * const kAlbumImagesIDGraphPath             = @"%@/photos?fields=images"; // %@ == albumID
 
 
