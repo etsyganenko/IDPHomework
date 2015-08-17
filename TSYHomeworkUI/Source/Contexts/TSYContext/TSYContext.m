@@ -8,6 +8,11 @@
 
 #import "TSYContext.h"
 
+@interface TSYContext ()
+@property (nonatomic, strong)   NSMutableArray  *contexts;
+
+@end
+
 @implementation TSYContext
 
 #pragma mark -
@@ -21,6 +26,7 @@
     self = [super init];
     if (self) {
         self.model = model;
+        self.contexts = [NSMutableArray array];
     }
     
     return self;
@@ -48,12 +54,14 @@
     
 }
 
-- (void)addContext:(TSYContext *)context toContexts:(NSMutableArray *)contexts {
-    [contexts addObject:context];
-    
-    [context addObserver:self];
-    
-    [context execute];
+- (void)addContext:(TSYContext *)context {
+    if (context) {
+        [self.contexts addObject:context];
+        
+        [context addObserver:self];
+        
+        [context execute];
+    }
 }
 
 #pragma mark -

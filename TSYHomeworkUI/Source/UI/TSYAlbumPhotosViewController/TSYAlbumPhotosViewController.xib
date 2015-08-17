@@ -30,6 +30,9 @@
                 <constraint firstAttribute="bottom" secondItem="u6w-m1-gV9" secondAttribute="bottom" id="dOW-1g-bqe"/>
                 <constraint firstItem="u6w-m1-gV9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gmK-a9-zyO"/>
             </constraints>
+            <connections>
+                <outlet property="tableView" destination="u6w-m1-gV9" id="3pU-AU-jcQ"/>
+            </connections>
         </view>
     </objects>
 </document>

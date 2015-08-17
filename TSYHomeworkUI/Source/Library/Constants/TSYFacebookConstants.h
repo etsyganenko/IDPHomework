@@ -34,6 +34,8 @@ static NSString * const kAlbumNameIDContextGraphPath        = @"%@/albums?fields
 static NSString * const kAlbumCoverPhotoIDGraphPath         = @"%@?fields=cover_photo"; // %@ == albumID
 static NSString * const kAlbumCoverPhotoURLGraphPath        = @"%@?fields=source"; // %@ == albumCoverPhotoID
 
+static NSString * const kAlbumPhotosGraphPath               = @"%@?fields=photos"; // %@ == albumID
+
 static NSString * const kPictureWidthKey                    = @"width";
 static NSString * const kPictureHeightKey                   = @"height";
 

@@ -83,8 +83,9 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
     
     TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:albumCoverPhotoURL];
     
-    [cell fillWithImageModel:imageModel];
-    [cell fillWithAlbumModel:albumModel];
+    albumModel.albumCoverPhoto = imageModel;
+    
+    [cell fillWithModel:albumModel];
     
     return cell;
 }

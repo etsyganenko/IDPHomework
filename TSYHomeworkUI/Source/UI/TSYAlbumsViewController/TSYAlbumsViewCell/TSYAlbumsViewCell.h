@@ -18,7 +18,6 @@
 @property (nonatomic, strong)   IBOutlet UILabel            *albumNameLabel;
 @property (nonatomic, strong)   IBOutlet UILabel            *albumPhotosCountLabel;
 
-- (void)fillWithImageModel:(TSYImageModel *)imageModel;
-- (void)fillWithAlbumModel:(TSYFBUserAlbumModel *)albumModel;
+- (void)fillWithModel:(TSYFBUserAlbumModel *)albumModel;
 
 @end

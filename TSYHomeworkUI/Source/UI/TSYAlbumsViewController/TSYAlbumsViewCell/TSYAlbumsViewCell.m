@@ -16,13 +16,11 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)fillWithImageModel:(TSYImageModel *)imageModel; {
-    [self.photoImageView setImageModel:imageModel];
-}
-
-- (void)fillWithAlbumModel:(TSYFBUserAlbumModel *)albumModel {
+- (void)fillWithModel:(TSYFBUserAlbumModel *)albumModel {
+    TSYImageModel *albumCoverPhoto = albumModel.albumCoverPhoto;
+    
+    self.photoImageView.imageModel = albumCoverPhoto;
     self.albumNameLabel.text = albumModel.albumName;
-//    self.albumPhotosCountLabel.text =
 }
 
 @end

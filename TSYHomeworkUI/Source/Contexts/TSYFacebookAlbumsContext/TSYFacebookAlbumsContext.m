@@ -17,12 +17,7 @@
 #import "TSYFacebookConstants.h"
 
 @interface TSYFacebookAlbumsContext ()
-@property (nonatomic, strong)   TSYFacebookAlbumIDContext   *albumIDContext;
-
-@property (nonatomic, strong)   NSMutableArray              *albumCoverPhotoIDContexts;
-@property (nonatomic, strong)   NSMutableArray              *albumCoverPhotoURLContexts;
-
-@property (nonatomic, assign)   NSUInteger                  loadedURLsCount;
+@property (nonatomic, assign)   NSUInteger  loadedURLsCount;
 
 @end
 
@@ -34,10 +29,9 @@
 - (instancetype)initWithModel:(id)model {
     self = [super initWithModel:model];
     if (self) {
-        self.albumCoverPhotoIDContexts = [NSMutableArray array];
-        self.albumCoverPhotoURLContexts = [NSMutableArray array];
+        TSYFacebookAlbumIDContext *albumIDContext = [TSYFacebookAlbumIDContext contextWithModel:model];
         
-        self.albumIDContext = [TSYFacebookAlbumIDContext contextWithModel:model];
+        [self addContext:albumIDContext];
     }
     
     return self;
@@ -46,21 +40,21 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setAlbumIDContext:(TSYFacebookAlbumIDContext *)albumIDContext {
-    if (_albumIDContext != albumIDContext) {
-        [_albumIDContext cancel];
-        [_albumIDContext removeObserver:self];
-        
-        _albumIDContext = albumIDContext;
-        
-        if (albumIDContext) {
-            _albumIDContext.model = self.model;
-            [_albumIDContext addObserver:self];
-            
-            [_albumIDContext execute];
-        }
-    }
-}
+//- (void)setAlbumIDContext:(TSYFacebookAlbumIDContext *)albumIDContext {
+//    if (_albumIDContext != albumIDContext) {
+//        [_albumIDContext cancel];
+//        [_albumIDContext removeObserver:self];
+//        
+//        _albumIDContext = albumIDContext;
+//        
+//        if (albumIDContext) {
+//            _albumIDContext.model = self.model;
+//            [_albumIDContext addObserver:self];
+//            
+//            [_albumIDContext execute];
+//        }
+//    }
+//}
 
 #pragma mark -
 #pragma mark TSYModelObserver
@@ -79,7 +73,7 @@
             
             TSYFacebookAlbumCoverPhotoIDContext *context = [TSYFacebookAlbumCoverPhotoIDContext contextWithModel:albumModel];
             
-            [self addContext:context toContexts:self.albumCoverPhotoIDContexts];
+            [self addContext:context];
         }
     }
     
@@ -88,7 +82,7 @@
         
         TSYFacebookAlbumCoverPhotoURLContext *context = [TSYFacebookAlbumCoverPhotoURLContext contextWithModel:albumModel];
         
-        [self addContext:context toContexts:self.albumCoverPhotoURLContexts];
+        [self addContext:context];
     }
     
     if ([context isMemberOfClass:[TSYFacebookAlbumCoverPhotoURLContext class]]) {
