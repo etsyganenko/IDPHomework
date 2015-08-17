@@ -21,6 +21,5 @@
 @property (nonatomic, strong)   NSURL                   *albumCoverPhotoURL;
 
 @property (nonatomic, strong)   TSYArrayModel           *photos;
-//@property (nonatomic, strong)   NSMutableDictionary     *photos;
 
 @end

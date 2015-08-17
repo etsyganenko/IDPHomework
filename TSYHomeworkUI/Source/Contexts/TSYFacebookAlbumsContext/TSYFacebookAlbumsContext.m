@@ -64,10 +64,10 @@
 }
 
 - (void)modelDidLoad:(TSYContext *)context {
-    if ([context isMemberOfClass:[TSYFacebookAlbumIDContext class]]) {        
-        TSYFBUserModel *userModel = self.model;
-        NSUInteger albumsCount = userModel.albums.count;
-        
+    TSYFBUserModel *userModel = self.model;
+    NSUInteger albumsCount = userModel.albums.count;
+    
+    if ([context isMemberOfClass:[TSYFacebookAlbumIDContext class]]) {
         for (NSUInteger index = 0; index < albumsCount; index++) {
             TSYFBUserAlbumModel *albumModel = userModel.albums[index];
             
@@ -87,9 +87,6 @@
     
     if ([context isMemberOfClass:[TSYFacebookAlbumCoverPhotoURLContext class]]) {
         self.loadedURLsCount += 1;
-        
-        TSYFBUserModel *userModel = self.model;
-        NSUInteger albumsCount = userModel.albums.count;
         
         if (albumsCount == self.loadedURLsCount) {
             userModel.state = TSYModelDidLoad;

@@ -18,7 +18,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-//        self.photos = [NSMutableDictionary dictionary];
         self.photos = [TSYArrayModel array];
     }
     

@@ -10,14 +10,18 @@
 
 #import "TSYImageModel.h"
 #import "TSYImageView.h"
+#import "TSYFBPhotoModel.h"
 
 @implementation TSYAlbumViewCell
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)fillWithModel:(TSYImageModel *)model {
-    [self.photoImageView setImageModel:model];
+- (void)fillWithModel:(TSYFBPhotoModel *)model {
+    NSURL *photoURL = model.photoURL;
+    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:photoURL];
+    
+    self.photoImageView.imageModel = imageModel;
 }
 
 @end

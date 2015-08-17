@@ -14,6 +14,7 @@
 #import "TSYFBUserAlbumModel.h"
 #import "TSYImageModel.h"
 #import "TSYArrayModel.h"
+#import "TSYFBPhotoModel.h"
 #import "TSYFacebookAlbumPhotosContext.h"
 #import "TSYMacros.h"
 
@@ -61,6 +62,10 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYAlbumViewCell *cell = [tableView cellWithClass:[TSYAlbumViewCell class]];
+    TSYFBUserAlbumModel *albumModel = self.model;
+    TSYFBPhotoModel *photoModel = albumModel.photos[indexPath.row];
+    
+    [cell fillWithModel:photoModel];
 
     return cell;
 }
@@ -68,8 +73,14 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelDidLoad:(TSYFBUserModel *)model {
-
+- (void)modelDidLoad:(TSYFBUserAlbumModel *)model {
+    TSYAlbumPhotosView *mainView = self.mainView;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [mainView hideLoadingView];
+        
+        [mainView.tableView reloadData];
+    });
 }
 
 @end

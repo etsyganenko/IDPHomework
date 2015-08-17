@@ -26,7 +26,11 @@
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
+    TSYFBPhotoModel *photoModel = self.model;
     
+    NSURL *photoURL = [NSURL URLWithString:result[kSourceKey]];
+    
+    photoModel.photoURL = photoURL;
 }
 
 - (void)processRequestResult:(id)result error:(NSError *)error {

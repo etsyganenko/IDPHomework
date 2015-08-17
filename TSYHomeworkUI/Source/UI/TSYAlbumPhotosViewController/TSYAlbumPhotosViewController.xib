@@ -14,12 +14,12 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="u6w-m1-gV9">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="u6w-m1-gV9">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="awj-Oy-zOT"/>
-                        <outlet property="delegate" destination="-1" id="0Lh-il-8n4"/>
+                        <outlet property="dataSource" destination="-1" id="XKB-mI-dNE"/>
+                        <outlet property="delegate" destination="-1" id="UQw-4M-85i"/>
                     </connections>
                 </tableView>
             </subviews>
@@ -31,7 +31,7 @@
                 <constraint firstItem="u6w-m1-gV9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gmK-a9-zyO"/>
             </constraints>
             <connections>
-                <outlet property="tableView" destination="u6w-m1-gV9" id="eel-m3-Qh7"/>
+                <outlet property="tableView" destination="u6w-m1-gV9" id="cL9-aS-IBi"/>
             </connections>
         </view>
     </objects>

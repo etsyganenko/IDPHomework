@@ -6,18 +6,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TSYAlbumViewCell"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="KGk-i7-Jjw" customClass="TSYAlbumViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="121" id="KGk-i7-Jjw" customClass="TSYAlbumViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f34-qo-285" customClass="TSYImageView">
-                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vpp-TM-rWc">
-                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vpp-TM-rWc">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,9 +28,9 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="photoImageView" destination="f34-qo-285" id="EsP-2O-4z6"/>
+                <outlet property="photoImageView" destination="f34-qo-285" id="pit-td-lP0"/>
             </connections>
-            <point key="canvasLocation" x="461" y="367.5"/>
+            <point key="canvasLocation" x="461" y="397.5"/>
         </tableViewCell>
     </objects>
 </document>
