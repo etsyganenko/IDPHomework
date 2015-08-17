@@ -17,10 +17,12 @@
 #import "TSYFacebookConstants.h"
 
 @interface TSYFacebookAlbumsContext ()
-@property (nonatomic, assign)   NSUInteger  albumCoverPhotoURLsLoadedCount;
+@property (nonatomic, strong)   TSYFacebookAlbumIDContext   *albumIDContext;
 
-- (void)addFacebookAlbumCoverPhotoIDContext:(TSYFacebookAlbumCoverPhotoIDContext *)context;
-- (void)addFacebookAlbumCoverPhotoURLContext:(TSYFacebookAlbumCoverPhotoURLContext *)context;
+@property (nonatomic, strong)   NSMutableArray              *albumCoverPhotoIDContexts;
+@property (nonatomic, strong)   NSMutableArray              *albumCoverPhotoURLContexts;
+
+@property (nonatomic, assign)   NSUInteger                  loadedURLsCount;
 
 @end
 
@@ -34,6 +36,7 @@
     if (self) {
         self.albumCoverPhotoIDContexts = [NSMutableArray array];
         self.albumCoverPhotoURLContexts = [NSMutableArray array];
+        
         self.albumIDContext = [TSYFacebookAlbumIDContext contextWithModel:model];
     }
     
@@ -76,7 +79,7 @@
             
             TSYFacebookAlbumCoverPhotoIDContext *context = [TSYFacebookAlbumCoverPhotoIDContext contextWithModel:albumModel];
             
-            [self addFacebookAlbumCoverPhotoIDContext:context];
+            [self addContext:context toContexts:self.albumCoverPhotoIDContexts];
         }
     }
     
@@ -84,39 +87,20 @@
         TSYFBUserAlbumModel *albumModel = context.model;
         
         TSYFacebookAlbumCoverPhotoURLContext *context = [TSYFacebookAlbumCoverPhotoURLContext contextWithModel:albumModel];
-            
-        [self addFacebookAlbumCoverPhotoURLContext:context];
+        
+        [self addContext:context toContexts:self.albumCoverPhotoURLContexts];
     }
     
     if ([context isMemberOfClass:[TSYFacebookAlbumCoverPhotoURLContext class]]) {
-        self.albumCoverPhotoURLsLoadedCount += 1;
+        self.loadedURLsCount += 1;
         
         TSYFBUserModel *userModel = self.model;
         NSUInteger albumsCount = userModel.albums.count;
         
-        if (albumsCount == self.albumCoverPhotoURLsLoadedCount) {
+        if (albumsCount == self.loadedURLsCount) {
             userModel.state = TSYModelDidLoad;
         }
     }
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (void)addFacebookAlbumCoverPhotoIDContext:(TSYFacebookAlbumCoverPhotoIDContext *)context {
-    [self.albumCoverPhotoIDContexts addObject:context];
-    
-    [context addObserver:self];
-        
-    [context execute];
-}
-
-- (void)addFacebookAlbumCoverPhotoURLContext:(TSYFacebookAlbumCoverPhotoURLContext *)context {
-    [self.albumCoverPhotoURLContexts addObject:context];
-    
-    [context addObserver:self];
-    
-    [context execute];
 }
 
 @end

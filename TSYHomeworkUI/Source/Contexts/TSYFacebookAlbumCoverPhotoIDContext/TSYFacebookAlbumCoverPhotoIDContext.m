@@ -31,7 +31,7 @@
 - (void)fillModelWithResult:(id)result {
     TSYFBUserAlbumModel *albumModel = self.model;
     
-    NSString *albumCoverPhotoID = result[@"cover_photo"][@"id"];
+    NSString *albumCoverPhotoID = result[kCoverPhotoKey][kIDKey];
     
     albumModel.albumCoverPhotoID = albumCoverPhotoID;
 }

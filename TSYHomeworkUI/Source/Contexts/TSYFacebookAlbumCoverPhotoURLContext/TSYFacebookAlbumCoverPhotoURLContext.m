@@ -29,7 +29,7 @@
 
 - (void)fillModelWithResult:(id)result {
     TSYFBUserAlbumModel *albumModel = self.model;
-    NSURL *albumCoverPhotoURL = [NSURL URLWithString:result[@"source"]];
+    NSURL *albumCoverPhotoURL = [NSURL URLWithString:result[kSourceKey]];
     
     albumModel.albumCoverPhotoURL = albumCoverPhotoURL;
 }

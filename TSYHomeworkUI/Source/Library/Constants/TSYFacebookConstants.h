@@ -21,29 +21,18 @@ static NSString * const kPictureKey                         = @"picture";
 static NSString * const kDataKey                            = @"data";
 static NSString * const kURLKey                             = @"url";
 static NSString * const kPhotosKey                          = @"photos";
+static NSString * const kCoverPhotoKey                      = @"cover_photo";
+static NSString * const kSourceKey                          = @"source";
 
 static NSString * const kUserFriendsContextGraphPath        = @"%@/friends?fields=name,picture.width(%lu).height(%lu),id";
 static NSString * const kUserInfoContextGraphPath           = @"%@?fields=name,picture.width(%lu).height(%lu)";
 
-
-
-
-//static NSString * const kAlbumCoverPhotoContextGraphPath  = @"342819972451257/photos?fields=images";
-//static NSString * const kAlbumPhotosContextGraphPath      = @"342819972451257/photos?fields=images";
-//static NSString * const kUserAlbumsContextGraphPath       = @"%@/albums?fields=photos";
-
-static NSString * const kAlbumPhotosContextGraphPath         = @"%@/photos?fields=images";
-
-
-
+//static NSString * const kAlbumPhotosContextGraphPath         = @"%@/photos?fields=images";
+//static NSString * const kAlbumImagesIDGraphPath             = @"%@/photos?fields=images"; // %@ == albumID
 
 static NSString * const kAlbumNameIDContextGraphPath        = @"%@/albums?fields=id,name"; // %@ == userID
 static NSString * const kAlbumCoverPhotoIDGraphPath         = @"%@?fields=cover_photo"; // %@ == albumID
 static NSString * const kAlbumCoverPhotoURLGraphPath        = @"%@?fields=source"; // %@ == albumCoverPhotoID
-
-
-static NSString * const kAlbumImagesIDGraphPath             = @"%@/photos?fields=images"; // %@ == albumID
-
 
 static NSString * const kPictureWidthKey                    = @"width";
 static NSString * const kPictureHeightKey                   = @"height";

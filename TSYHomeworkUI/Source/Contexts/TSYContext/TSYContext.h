@@ -23,4 +23,6 @@
 
 - (void)fillModelWithResult:(id)result;
 
+- (void)addContext:(TSYContext *)context toContexts:(NSMutableArray *)contexts;
+
 @end

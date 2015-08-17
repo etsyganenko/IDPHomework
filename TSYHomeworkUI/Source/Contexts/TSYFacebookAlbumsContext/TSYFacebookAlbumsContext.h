@@ -11,9 +11,5 @@
 @class TSYFacebookAlbumIDContext;
 
 @interface TSYFacebookAlbumsContext : TSYContext
-@property (nonatomic, strong)   TSYFacebookAlbumIDContext   *albumIDContext;
-
-@property (nonatomic, strong)   NSMutableArray              *albumCoverPhotoIDContexts;
-@property (nonatomic, strong)   NSMutableArray              *albumCoverPhotoURLContexts;
 
 @end

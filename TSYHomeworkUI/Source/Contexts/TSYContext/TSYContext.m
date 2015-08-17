@@ -48,6 +48,14 @@
     
 }
 
+- (void)addContext:(TSYContext *)context toContexts:(NSMutableArray *)contexts {
+    [contexts addObject:context];
+    
+    [context addObserver:self];
+    
+    [context execute];
+}
+
 #pragma mark -
 #pragma mark TSYObservableObject
 

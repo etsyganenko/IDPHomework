@@ -32,13 +32,13 @@
     TSYFBUserModel *userModel = self.model;
     TSYArrayModel *albums = userModel.albums;
     
-    NSArray *data = result[@"data"];
+    NSArray *data = result[kDataKey];
     NSUInteger albumsCount = data.count;
     
     for (NSUInteger index = 0; index < albumsCount; index++) {
         NSDictionary *dictionary = data[index];
-        NSString *albumID = dictionary[@"id"];
-        NSString *albumName = dictionary[@"name"];
+        NSString *albumID = dictionary[kIDKey];
+        NSString *albumName = dictionary[kNameKey];
         
         TSYFBUserAlbumModel *album = [TSYFBUserAlbumModel new];
         album.albumID = albumID;
