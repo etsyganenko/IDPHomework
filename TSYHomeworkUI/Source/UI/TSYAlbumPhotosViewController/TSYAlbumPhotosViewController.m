@@ -8,6 +8,7 @@
 
 #import "TSYAlbumPhotosViewController.h"
 
+#import "TSYAlbumPhotosView.m"
 #import "TSYAlbumViewCell.h"
 #import "TSYFBUserModel.h"
 #import "TSYImageModel.h"
@@ -20,7 +21,7 @@
 
 @end
 
-TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumViewCell, mainView)
+TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosView, mainView)
 
 @implementation TSYAlbumPhotosViewController
 
@@ -54,26 +55,11 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumViewCell
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    TSYFBUserModel *model = self.model;
-    NSDictionary *photoURLs = model.photoURLs;
-    NSArray *albumPhotoURLs = [photoURLs objectsForKeys:@[self.albumID] notFoundMarker:nil];
-    
-    return albumPhotoURLs.count;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TSYAlbumViewCell *cell = [tableView cellWithClass:[TSYAlbumViewCell class]];
-    
-    TSYFBUserModel *model = self.model;
-    NSDictionary *photoURLs = model.photoURLs;
-    NSArray *albumPhotoURLs = [photoURLs objectsForKeys:@[self.albumID] notFoundMarker:nil];
-    NSURL *photoURL = albumPhotoURLs[indexPath.row];
-    
-    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:photoURL];
-    
-    [cell fillWithModel:imageModel];
-    
-    return cell;
+    return nil;
 }
 
 #pragma mark -

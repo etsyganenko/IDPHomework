@@ -31,8 +31,6 @@
     if (self) {
         self.friends = [TSYArrayModel new];
         self.albums = [TSYArrayModel new];
-        self.albumIDs = [NSMutableArray array];
-        self.albumCoverPhotoIDs = [NSMutableArray array];
     }
     
     return self;

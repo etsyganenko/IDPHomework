@@ -19,7 +19,8 @@
 @interface TSYFacebookAlbumsContext ()
 @property (nonatomic, assign)   NSUInteger  albumCoverPhotoURLsLoadedCount;
 
-- (void)addFacebookAlbumCoverPhotoContext:(TSYFacebookAlbumCoverPhotoIDContext *)context;
+- (void)addFacebookAlbumCoverPhotoIDContext:(TSYFacebookAlbumCoverPhotoIDContext *)context;
+- (void)addFacebookAlbumCoverPhotoURLContext:(TSYFacebookAlbumCoverPhotoURLContext *)context;
 
 @end
 

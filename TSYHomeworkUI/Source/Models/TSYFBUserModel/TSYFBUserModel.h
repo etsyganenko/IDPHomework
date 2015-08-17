@@ -24,10 +24,4 @@
 @property (nonatomic, readonly)     TSYArrayModel   *friends;
 @property (nonatomic, readonly)     TSYArrayModel   *albums;
 
-@property (nonatomic, strong)       NSMutableArray  *albumIDs;
-@property (nonatomic, strong)       NSMutableArray  *albumCoverPhotoIDs;
-
-@property (nonatomic, strong)       NSMutableArray  *coverPhotoURLs;
-@property (nonatomic, strong)       NSDictionary    *photoURLs;
-
 @end

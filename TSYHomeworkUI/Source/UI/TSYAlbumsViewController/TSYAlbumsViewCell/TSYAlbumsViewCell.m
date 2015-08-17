@@ -9,14 +9,20 @@
 #import "TSYAlbumsViewCell.h"
 
 #import "TSYImageModel.h"
+#import "TSYFBUserAlbumModel.h"
 
 @implementation TSYAlbumsViewCell
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)fillWithModel:(TSYImageModel *)model {
-    [self.photoImageView setImageModel:model];
+- (void)fillWithImageModel:(TSYImageModel *)imageModel; {
+    [self.photoImageView setImageModel:imageModel];
+}
+
+- (void)fillWithAlbumModel:(TSYFBUserAlbumModel *)albumModel {
+    self.albumNameLabel.text = albumModel.albumName;
+//    self.albumPhotosCountLabel.text =
 }
 
 @end

@@ -22,7 +22,7 @@
 - (NSString *)graphPath {
     TSYFBUserModel *model = self.model;
     
-    return [NSString stringWithFormat:kAlbumIDContextGraphPath, model.ID];
+    return [NSString stringWithFormat:kAlbumNameIDContextGraphPath, model.ID];
 }
 
 #pragma mark -
@@ -38,9 +38,11 @@
     for (NSUInteger index = 0; index < albumsCount; index++) {
         NSDictionary *dictionary = data[index];
         NSString *albumID = dictionary[@"id"];
+        NSString *albumName = dictionary[@"name"];
         
         TSYFBUserAlbumModel *album = [TSYFBUserAlbumModel new];
         album.albumID = albumID;
+        album.albumName = albumName;
         
         [albums addModel:album];
     }
