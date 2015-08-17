@@ -26,7 +26,18 @@
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-
+    TSYFBUserAlbumModel *albumModel = self.model;
+    NSMutableDictionary *albumPhotos = albumModel.photos;
+    
+    NSArray *photos = result[@"photos"][@"data"];
+    NSUInteger photosCount = photos.count;
+    
+    for (NSUInteger index = 0; index < photosCount; index++) {
+        NSDictionary *data = photos[index];
+        
+        NSLog(@"%@", data);
+        
+    }
 }
 
 - (void)processRequestResult:(id)result error:(NSError *)error {

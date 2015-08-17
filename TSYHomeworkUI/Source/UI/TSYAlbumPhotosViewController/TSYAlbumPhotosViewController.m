@@ -8,18 +8,15 @@
 
 #import "TSYAlbumPhotosViewController.h"
 
-#import "TSYAlbumPhotosView.m"
+#import "TSYAlbumPhotosView.h"
 #import "TSYAlbumViewCell.h"
 #import "TSYFBUserModel.h"
+#import "TSYFBUserAlbumModel.h"
 #import "TSYImageModel.h"
 #import "TSYFacebookAlbumPhotosContext.h"
 #import "TSYMacros.h"
 
 #import "UITableView+TSYCategory.h"
-
-@interface TSYAlbumPhotosViewController ()
-
-@end
 
 TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosView, mainView)
 
@@ -56,11 +53,15 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    TSYFBUserAlbumModel *albumModel = self.model;
+    
+    return albumModel.photos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    TSYAlbumViewCell *cell = [tableView cellWithClass:[TSYAlbumViewCell class]];
+
+    return cell;
 }
 
 #pragma mark -

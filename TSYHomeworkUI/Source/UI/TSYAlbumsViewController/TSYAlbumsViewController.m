@@ -21,10 +21,6 @@
 
 #import "UITableView+TSYCategory.h"
 
-@interface TSYAlbumsViewController ()
-
-@end
-
 TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainView)
 
 @implementation TSYAlbumsViewController

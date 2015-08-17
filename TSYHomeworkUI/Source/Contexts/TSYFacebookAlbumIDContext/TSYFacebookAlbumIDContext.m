@@ -32,6 +32,8 @@
     TSYFBUserModel *userModel = self.model;
     TSYArrayModel *albums = userModel.albums;
     
+    [albums removeAllModels];
+    
     NSArray *data = result[kDataKey];
     NSUInteger albumsCount = data.count;
     
