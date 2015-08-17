@@ -8,6 +8,8 @@
 
 #import "TSYFBUserAlbumModel.h"
 
+#import "TSYArrayModel.h"
+
 @implementation TSYFBUserAlbumModel
 
 #pragma mark -
@@ -16,7 +18,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.photos = [NSMutableDictionary dictionary];
+//        self.photos = [NSMutableDictionary dictionary];
+        self.photos = [TSYArrayModel array];
     }
     
     return self;

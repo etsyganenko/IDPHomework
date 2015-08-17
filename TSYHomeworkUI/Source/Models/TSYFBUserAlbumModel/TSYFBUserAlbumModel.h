@@ -9,6 +9,7 @@
 #import "TSYModel.h"
 
 @class TSYImageModel;
+@class TSYArrayModel;
 
 @interface TSYFBUserAlbumModel : TSYModel
 @property (nonatomic, strong)   NSString                *albumID;
@@ -19,6 +20,7 @@
 @property (nonatomic, strong)   NSString                *albumCoverPhotoID;
 @property (nonatomic, strong)   NSURL                   *albumCoverPhotoURL;
 
-@property (nonatomic, strong)   NSMutableDictionary     *photos;
+@property (nonatomic, strong)   TSYArrayModel           *photos;
+//@property (nonatomic, strong)   NSMutableDictionary     *photos;
 
 @end
