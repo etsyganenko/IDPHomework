@@ -13,6 +13,7 @@
 #import "TSYFBUserModel.h"
 #import "TSYFBUserAlbumModel.h"
 #import "TSYImageModel.h"
+#import "TSYArrayModel.h"
 #import "TSYFacebookAlbumPhotosContext.h"
 #import "TSYMacros.h"
 

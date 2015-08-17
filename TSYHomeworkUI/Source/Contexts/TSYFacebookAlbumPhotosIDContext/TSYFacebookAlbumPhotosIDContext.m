@@ -9,6 +9,8 @@
 #import "TSYFacebookAlbumPhotosIDContext.h"
 
 #import "TSYFBUserAlbumModel.h"
+#import "TSYFBPhotoModel.h"
+#import "TSYArrayModel.h"
 #import "TSYFacebookConstants.h"
 
 @implementation TSYFacebookAlbumPhotosIDContext
@@ -27,16 +29,17 @@
 
 - (void)fillModelWithResult:(id)result {
     TSYFBUserAlbumModel *albumModel = self.model;
-    NSMutableDictionary *albumPhotos = albumModel.photos;
     
-    NSArray *photos = result[@"photos"][@"data"];
+    NSArray *photos = result[kPhotosKey][kDataKey];
     NSUInteger photosCount = photos.count;
     
     for (NSUInteger index = 0; index < photosCount; index++) {
         NSDictionary *data = photos[index];
+        TSYFBPhotoModel *photoModel = [TSYFBPhotoModel new];
         
-        NSLog(@"%@", data);
+        photoModel.photoID = data[kIDKey];
         
+        [albumModel.photos addModel:photoModel];
     }
 }
 

@@ -16,7 +16,6 @@
 @property (nonatomic, strong)   IBOutlet TSYImageView       *photoImageView;
 
 @property (nonatomic, strong)   IBOutlet UILabel            *albumNameLabel;
-@property (nonatomic, strong)   IBOutlet UILabel            *albumPhotosCountLabel;
 
 - (void)fillWithModel:(TSYFBUserAlbumModel *)albumModel;
 
