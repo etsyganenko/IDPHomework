@@ -66,7 +66,7 @@
 - (void)modelDidLoad:(TSYContext *)context {
     TSYFBUserModel *userModel = self.model;
     NSUInteger albumsCount = userModel.albums.count;
-    
+    // fast enumarator
     if ([context isMemberOfClass:[TSYFacebookAlbumIDContext class]]) {
         for (NSUInteger index = 0; index < albumsCount; index++) {
             TSYFBUserAlbumModel *albumModel = userModel.albums[index];

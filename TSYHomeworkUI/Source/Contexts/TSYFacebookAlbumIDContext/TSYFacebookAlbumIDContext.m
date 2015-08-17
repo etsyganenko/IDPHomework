@@ -34,11 +34,9 @@
     
     [albums removeAllModels];
     
-    NSArray *data = result[kDataKey];
-    NSUInteger albumsCount = data.count;
+    NSArray *dataArray = result[kDataKey];
     
-    for (NSUInteger index = 0; index < albumsCount; index++) {
-        NSDictionary *dictionary = data[index];
+    for (NSDictionary *dictionary in dataArray) {
         NSString *albumID = dictionary[kIDKey];
         NSString *albumName = dictionary[kNameKey];
         

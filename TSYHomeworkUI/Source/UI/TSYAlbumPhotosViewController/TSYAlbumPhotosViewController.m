@@ -30,8 +30,16 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    
     self.context = [TSYFacebookAlbumPhotosContext contextWithModel:self.model];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    TSYFBUserAlbumModel *albumModel = self.model;
+    NSString *albumName = albumModel.albumName;
+    
+    self.navigationController.navigationBar.topItem.title = albumName;
 }
 
 #pragma mark -

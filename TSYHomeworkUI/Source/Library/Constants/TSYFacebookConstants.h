@@ -27,6 +27,14 @@ static NSString * const kSourceKey                          = @"source";
 static NSString * const kUserFriendsContextGraphPath        = @"%@/friends?fields=name,picture.width(%lu).height(%lu),id";
 static NSString * const kUserInfoContextGraphPath           = @"%@?fields=name,picture.width(%lu).height(%lu)";
 
+//me/albums?fields=name,id,picture
+//166645287000841/photos?fields=picture
+
+//  1. spinner
+//  2. передавать в cell url, а не модель
+//  3. контекст нотифицирует контроллер, у него есть массив моделей. У контроллера в сеттере массива релоадится таблица
+//  4. вместо for использовать for each
+
 static NSString * const kAlbumNameIDContextGraphPath        = @"%@/albums?fields=id,name"; // %@ == userID
 static NSString * const kAlbumCoverPhotoIDGraphPath         = @"%@?fields=cover_photo"; // %@ == albumID
 static NSString * const kAlbumCoverPhotoURLGraphPath        = @"%@?fields=source"; // %@ == albumCoverPhotoID

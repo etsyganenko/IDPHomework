@@ -37,27 +37,15 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 #pragma mark -
 #pragma mark UITableViewDelegate
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return NO;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return NO;
-}
-
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TSYAlbumPhotosViewController *photosController = [TSYAlbumPhotosViewController new];
-    UINavigationController *navigationController = self.navigationController;
     
     TSYFBUserModel *userModel = self.model;
     TSYFBUserAlbumModel *albumsModel = userModel.albums[indexPath.row];
-    
     photosController.model = albumsModel;
     
-    [navigationController pushViewController:photosController animated:YES];
+    [self.navigationController pushViewController:photosController animated:YES];
 }
 
 #pragma mark -
