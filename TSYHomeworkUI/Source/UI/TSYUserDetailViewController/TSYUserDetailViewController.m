@@ -30,7 +30,7 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
     [super viewWillAppear:animated];
     
     TSYFBUserModel *model = [TSYFBUserModel new];
-    model.ID = self.ID;
+    model.userID = self.userID;
     
     self.model = model;
     

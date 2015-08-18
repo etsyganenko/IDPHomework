@@ -9,14 +9,14 @@
 #import "TSYAlbumsViewCell.h"
 
 #import "TSYImageModel.h"
-#import "TSYFBUserAlbumModel.h"
+#import "TSYFBPhotoAlbumModel.h"
 
 @implementation TSYAlbumsViewCell
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)fillWithModel:(TSYFBUserAlbumModel *)albumModel {
+- (void)fillWithModel:(TSYFBPhotoAlbumModel *)albumModel {
     TSYImageModel *albumCoverPhoto = albumModel.albumCoverPhoto;
     
     self.photoImageView.imageModel = albumCoverPhoto;

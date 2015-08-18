@@ -8,7 +8,7 @@
 
 #import "TSYFacebookAlbumCoverPhotoURLContext.h"
 
-#import "TSYFBUserAlbumModel.h"
+#import "TSYFBPhotoAlbumModel.h"
 
 #import "TSYFacebookConstants.h"
 
@@ -18,7 +18,7 @@
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    TSYFBUserAlbumModel *albumModel = self.model;
+    TSYFBPhotoAlbumModel *albumModel = self.model;
     NSString *albumCoverPhotoID = albumModel.albumCoverPhotoID;
     
     return [NSString stringWithFormat:kAlbumCoverPhotoURLGraphPath, albumCoverPhotoID];
@@ -28,7 +28,7 @@
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBUserAlbumModel *albumModel = self.model;
+    TSYFBPhotoAlbumModel *albumModel = self.model;
     NSURL *albumCoverPhotoURL = [NSURL URLWithString:result[kSourceKey]];
     
     albumModel.albumCoverPhotoURL = albumCoverPhotoURL;

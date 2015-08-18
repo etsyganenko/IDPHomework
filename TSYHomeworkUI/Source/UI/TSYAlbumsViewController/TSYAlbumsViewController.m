@@ -11,7 +11,7 @@
 #import "TSYAlbumsView.h"
 #import "TSYAlbumsViewCell.h"
 #import "TSYFBUserModel.h"
-#import "TSYFBUserAlbumModel.h"
+#import "TSYFBPhotoAlbumModel.h"
 #import "TSYArrayModel.h"
 #import "TSYImageModel.h"
 #import "TSYFacebookAlbumIDContext.h"
@@ -42,7 +42,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
     TSYAlbumPhotosViewController *photosController = [TSYAlbumPhotosViewController new];
     
     TSYFBUserModel *userModel = self.model;
-    TSYFBUserAlbumModel *albumsModel = userModel.albums[indexPath.row];
+    TSYFBPhotoAlbumModel *albumsModel = userModel.albums[indexPath.row];
     photosController.model = albumsModel;
     
     [self.navigationController pushViewController:photosController animated:YES];
@@ -61,7 +61,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
     TSYAlbumsViewCell *cell = [tableView cellWithClass:[TSYAlbumsViewCell class]];
     
     TSYFBUserModel *userModel = self.model;
-    TSYFBUserAlbumModel *albumModel = userModel.albums[indexPath.row];
+    TSYFBPhotoAlbumModel *albumModel = userModel.albums[indexPath.row];
     
     NSURL *albumCoverPhotoURL = albumModel.albumCoverPhotoURL;
     

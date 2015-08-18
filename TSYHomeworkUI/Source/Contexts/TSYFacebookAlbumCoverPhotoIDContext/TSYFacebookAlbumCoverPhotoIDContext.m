@@ -9,7 +9,7 @@
 #import "TSYFacebookAlbumCoverPhotoIDContext.h"
 
 #import "TSYFBUserModel.h"
-#import "TSYFBUserAlbumModel.h"
+#import "TSYFBPhotoAlbumModel.h"
 
 #import "TSYFacebookConstants.h"
 
@@ -19,7 +19,7 @@
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    TSYFBUserAlbumModel *albumModel = self.model;
+    TSYFBPhotoAlbumModel *albumModel = self.model;
     NSString *albumID = albumModel.albumID;
     
     return [NSString stringWithFormat:kAlbumCoverPhotoIDGraphPath, albumID];
@@ -29,7 +29,7 @@
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBUserAlbumModel *albumModel = self.model;
+    TSYFBPhotoAlbumModel *albumModel = self.model;
     
     NSString *albumCoverPhotoID = result[kCoverPhotoKey][kIDKey];
     

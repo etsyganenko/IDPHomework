@@ -17,7 +17,7 @@
 #pragma mark Public Methods
 
 - (void)fillWithModel:(TSYFBUserModel *)model {
-    self.IDLabel.text = model.ID;
+    self.IDLabel.text = model.userID;
     self.fullNameLabel.text = model.name;
     self.userImageView.imageModel = model.imageModel;
 }

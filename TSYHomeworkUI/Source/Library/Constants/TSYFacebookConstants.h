@@ -35,6 +35,11 @@ static NSString * const kUserInfoContextGraphPath           = @"%@?fields=name,p
 //  3. контекст нотифицирует контроллер, у него есть массив моделей. У контроллера в сеттере массива релоадится таблица
 //  4. вместо for использовать for each
 
+static NSString * const kAlbumsContextGraphPath             = @"%@/albums?fields=name,id,picture"; // %@ == userID
+static NSString * const kAlbumPhotosContextGraphPath        = @"%@/photos?fields=picture"; // %@ == albumID
+
+
+
 static NSString * const kAlbumNameIDContextGraphPath        = @"%@/albums?fields=id,name"; // %@ == userID
 static NSString * const kAlbumCoverPhotoIDGraphPath         = @"%@?fields=cover_photo"; // %@ == albumID
 static NSString * const kAlbumCoverPhotoURLGraphPath        = @"%@?fields=source"; // %@ == albumCoverPhotoID

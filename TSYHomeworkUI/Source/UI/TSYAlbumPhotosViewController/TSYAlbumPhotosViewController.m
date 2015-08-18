@@ -11,7 +11,7 @@
 #import "TSYAlbumPhotosView.h"
 #import "TSYAlbumViewCell.h"
 #import "TSYFBUserModel.h"
-#import "TSYFBUserAlbumModel.h"
+#import "TSYFBPhotoAlbumModel.h"
 #import "TSYImageModel.h"
 #import "TSYArrayModel.h"
 #import "TSYFBPhotoModel.h"
@@ -36,7 +36,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    TSYFBUserAlbumModel *albumModel = self.model;
+    TSYFBPhotoAlbumModel *albumModel = self.model;
     NSString *albumName = albumModel.albumName;
     
     self.navigationController.navigationBar.topItem.title = albumName;
@@ -63,14 +63,14 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    TSYFBUserAlbumModel *albumModel = self.model;
+    TSYFBPhotoAlbumModel *albumModel = self.model;
     
     return albumModel.photos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYAlbumViewCell *cell = [tableView cellWithClass:[TSYAlbumViewCell class]];
-    TSYFBUserAlbumModel *albumModel = self.model;
+    TSYFBPhotoAlbumModel *albumModel = self.model;
     TSYFBPhotoModel *photoModel = albumModel.photos[indexPath.row];
     
     [cell fillWithModel:photoModel];
@@ -81,7 +81,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelDidLoad:(TSYFBUserAlbumModel *)model {
+- (void)modelDidLoad:(TSYFBPhotoAlbumModel *)model {
     TSYAlbumPhotosView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{

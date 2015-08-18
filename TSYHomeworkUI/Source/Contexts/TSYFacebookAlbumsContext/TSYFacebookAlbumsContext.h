@@ -8,8 +8,6 @@
 
 #import "TSYFacebookContext.h"
 
-@class TSYFacebookAlbumIDContext;
-
-@interface TSYFacebookAlbumsContext : TSYContext
+@interface TSYFacebookAlbumsContext : TSYFacebookContext
 
 @end

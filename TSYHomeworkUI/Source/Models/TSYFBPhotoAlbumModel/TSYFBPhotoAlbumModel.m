@@ -1,16 +1,16 @@
 //
-//  TSYFBUserAlbumModel.m
+//  TSYFBPhotoAlbumModel.m
 //  TSYHomeworkUI
 //
 //  Created by Yevgen on 8/14/15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYFBUserAlbumModel.h"
+#import "TSYFBPhotoAlbumModel.h"
 
 #import "TSYArrayModel.h"
 
-@implementation TSYFBUserAlbumModel
+@implementation TSYFBPhotoAlbumModel
 
 #pragma mark -
 #pragma mark Initializations and Deallocations

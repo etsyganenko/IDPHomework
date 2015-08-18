@@ -8,7 +8,7 @@
 
 #import "TSYFacebookAlbumPhotosIDContext.h"
 
-#import "TSYFBUserAlbumModel.h"
+#import "TSYFBPhotoAlbumModel.h"
 #import "TSYFBPhotoModel.h"
 #import "TSYArrayModel.h"
 #import "TSYFacebookConstants.h"
@@ -19,7 +19,7 @@
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    TSYFBUserAlbumModel *model = self.model;
+    TSYFBPhotoAlbumModel *model = self.model;
     
     return [NSString stringWithFormat:kAlbumPhotosGraphPath, model.albumID];
 }
@@ -28,7 +28,7 @@
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBUserAlbumModel *albumModel = self.model;
+    TSYFBPhotoAlbumModel *albumModel = self.model;
     
     NSArray *photos = result[kPhotosKey][kDataKey];
     NSUInteger photosCount = photos.count;

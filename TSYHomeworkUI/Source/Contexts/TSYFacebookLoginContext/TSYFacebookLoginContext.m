@@ -60,7 +60,7 @@
 - (void)fillModelWithResult:(FBSDKLoginManagerLoginResult *)result {
     TSYFBUserModel *model = self.model;
     
-    model.ID = result.token.userID;
+    model.userID = result.token.userID;
 }
 
 @end

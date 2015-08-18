@@ -39,7 +39,7 @@
     NSUInteger pictureWidth = pictureSize.width;
     NSUInteger pictureHeight = pictureSize.height;
 
-    return [NSString stringWithFormat:kUserInfoContextGraphPath, model.ID, pictureWidth, pictureHeight];
+    return [NSString stringWithFormat:kUserInfoContextGraphPath, model.userID, pictureWidth, pictureHeight];
 }
 
 #pragma mark -

@@ -11,7 +11,7 @@
 #import "TSYFBUserModel.h"
 #import "TSYImageModel.h"
 #import "TSYArrayModel.h"
-#import "TSYFBUserAlbumModel.h"
+#import "TSYFBPhotoAlbumModel.h"
 #import "TSYFacebookConstants.h"
 
 @implementation TSYFacebookAlbumIDContext
@@ -22,7 +22,7 @@
 - (NSString *)graphPath {
     TSYFBUserModel *model = self.model;
     
-    return [NSString stringWithFormat:kAlbumNameIDContextGraphPath, model.ID];
+    return [NSString stringWithFormat:kAlbumNameIDContextGraphPath, model.userID];
 }
 
 #pragma mark -
@@ -40,7 +40,7 @@
         NSString *albumID = dictionary[kIDKey];
         NSString *albumName = dictionary[kNameKey];
         
-        TSYFBUserAlbumModel *album = [TSYFBUserAlbumModel new];
+        TSYFBPhotoAlbumModel *album = [TSYFBPhotoAlbumModel new];
         album.albumID = albumID;
         album.albumName = albumName;
         

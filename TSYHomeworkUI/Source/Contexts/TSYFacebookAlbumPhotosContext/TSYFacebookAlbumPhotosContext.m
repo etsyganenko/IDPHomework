@@ -8,7 +8,7 @@
 
 #import "TSYFacebookAlbumPhotosContext.h"
 
-#import "TSYFBUserAlbumModel.h"
+#import "TSYFBPhotoAlbumModel.h"
 #import "TSYFBPhotoModel.h"
 #import "TSYArrayModel.h"
 #import "TSYFacebookAlbumPhotosIDContext.h"
@@ -43,7 +43,7 @@
 }
 
 - (void)modelDidLoad:(TSYContext *)context {
-    TSYFBUserAlbumModel *albumModel = self.model;
+    TSYFBPhotoAlbumModel *albumModel = self.model;
     TSYArrayModel *photos = albumModel.photos;
     NSUInteger photosCount = photos.count;
     

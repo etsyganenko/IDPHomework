@@ -1,5 +1,5 @@
 //
-//  TSYFBUserAlbumModel.h
+//  TSYFBPhotoAlbumModel.h
 //  TSYHomeworkUI
 //
 //  Created by Yevgen on 8/14/15.
@@ -11,7 +11,7 @@
 @class TSYImageModel;
 @class TSYArrayModel;
 
-@interface TSYFBUserAlbumModel : TSYModel
+@interface TSYFBPhotoAlbumModel : TSYModel
 @property (nonatomic, strong)   NSString                *albumID;
 @property (nonatomic, strong)   NSString                *albumName;
 

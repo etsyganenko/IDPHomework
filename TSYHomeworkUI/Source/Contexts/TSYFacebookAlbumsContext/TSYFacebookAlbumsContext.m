@@ -9,89 +9,49 @@
 #import "TSYFacebookAlbumsContext.h"
 
 #import "TSYFBUserModel.h"
-#import "TSYFBUserAlbumModel.h"
-#import "TSYArrayModel.h"
-#import "TSYFacebookAlbumIDContext.h"
-#import "TSYFacebookAlbumCoverPhotoIDContext.h"
-#import "TSYFacebookAlbumCoverPhotoURLContext.h"
+#import "TSYFBPhotoAlbumModel.h"
+
 #import "TSYFacebookConstants.h"
-
-@interface TSYFacebookAlbumsContext ()
-@property (nonatomic, assign)   NSUInteger  loadedURLsCount;
-
-@end
 
 @implementation TSYFacebookAlbumsContext
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (instancetype)initWithModel:(id)model {
-    self = [super initWithModel:model];
-    if (self) {
-        TSYFacebookAlbumIDContext *albumIDContext = [TSYFacebookAlbumIDContext contextWithModel:model];
-        
-        [self addContext:albumIDContext];
-    }
-    
-    return self;
-}
-
-#pragma mark -
 #pragma mark Accessors
 
-//- (void)setAlbumIDContext:(TSYFacebookAlbumIDContext *)albumIDContext {
-//    if (_albumIDContext != albumIDContext) {
-//        [_albumIDContext cancel];
-//        [_albumIDContext removeObserver:self];
-//        
-//        _albumIDContext = albumIDContext;
-//        
-//        if (albumIDContext) {
-//            _albumIDContext.model = self.model;
-//            [_albumIDContext addObserver:self];
-//            
-//            [_albumIDContext execute];
-//        }
-//    }
-//}
-
-#pragma mark -
-#pragma mark TSYModelObserver
-
-- (void)modelDidFailLoading:(TSYContext *)context {
+- (NSString *)graphPath {
+    TSYFBUserModel *userModel = self.model;
     
+    return [NSString stringWithFormat:kAlbumsContextGraphPath, userModel.userID];
 }
 
-- (void)modelDidLoad:(TSYContext *)context {
-    TSYFBUserModel *userModel = self.model;
-    NSUInteger albumsCount = userModel.albums.count;
-    // fast enumarator
-    if ([context isMemberOfClass:[TSYFacebookAlbumIDContext class]]) {
-        for (NSUInteger index = 0; index < albumsCount; index++) {
-            TSYFBUserAlbumModel *albumModel = userModel.albums[index];
-            
-            TSYFacebookAlbumCoverPhotoIDContext *context = [TSYFacebookAlbumCoverPhotoIDContext contextWithModel:albumModel];
-            
-            [self addContext:context];
-        }
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)fillModelWithResult:(id)result {
+    NSArray *photoAlbums = result[kDataKey];
+    NSMutableArray *mutablePhotoAlbums = [NSMutableArray array];
+    
+    for (NSDictionary *photoAlbum in photoAlbums) {
+        TSYFBPhotoAlbumModel *photoAlbumModel = [TSYFBPhotoAlbumModel new];
+        
+        photoAlbumModel.albumName = photoAlbum[kNameKey];
+        photoAlbumModel.albumID = photoAlbum[kIDKey];
+        photoAlbumModel.albumCoverPhotoURL = photoAlbum[kPictureKey][kDataKey][kURLKey];
+        
+        [mutablePhotoAlbums addObject:photoAlbumModel];
+    }
+}
+
+- (void)processRequestResult:(id)result error:(NSError *)error {
+    if (error) {
+        self.state = TSYModelDidFailLoading;
+        
+        return;
     }
     
-    if ([context isMemberOfClass:[TSYFacebookAlbumCoverPhotoIDContext class]]) {
-        TSYFBUserAlbumModel *albumModel = context.model;
-        
-        TSYFacebookAlbumCoverPhotoURLContext *context = [TSYFacebookAlbumCoverPhotoURLContext contextWithModel:albumModel];
-        
-        [self addContext:context];
-    }
+    [self fillModelWithResult:result];
     
-    if ([context isMemberOfClass:[TSYFacebookAlbumCoverPhotoURLContext class]]) {
-        self.loadedURLsCount += 1;
-        
-        if (albumsCount == self.loadedURLsCount) {
-            userModel.state = TSYModelDidLoad;
-        }
-    }
+    self.state = TSYModelDidLoad;
 }
 
 @end

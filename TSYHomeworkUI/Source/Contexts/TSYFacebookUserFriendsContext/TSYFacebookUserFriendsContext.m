@@ -32,22 +32,22 @@
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    TSYFBUserModel *model = self.model;
+    TSYFBUserModel *userModel = self.model;
     
     CGSize pictureSize = self.pictureSize;
     
     NSUInteger pictureWidth = pictureSize.width;
     NSUInteger pictureHeight = pictureSize.height;
     
-    return [NSString stringWithFormat:kUserFriendsContextGraphPath, model.ID, pictureWidth, pictureHeight];
+    return [NSString stringWithFormat:kUserFriendsContextGraphPath, userModel.userID, pictureWidth, pictureHeight];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBUserModel *model = self.model;
-    TSYArrayModel *friends = model.friends;
+    TSYFBUserModel *userModel = self.model;
+    TSYArrayModel *friends = userModel.friends;
     NSArray *userFriends = result[kDataKey];
     
     [friends removeAllModels];
@@ -56,7 +56,7 @@
         TSYFBUserModel *friend = [TSYFBUserModel new];
 
         friend.name = userFriends[index][kNameKey];
-        friend.ID = userFriends[index][kIDKey];
+        friend.userID = userFriends[index][kIDKey];
         friend.imageUrl = [NSURL URLWithString:userFriends[index][kPictureKey][kDataKey][kURLKey]];
 
         [friends addModel:friend];

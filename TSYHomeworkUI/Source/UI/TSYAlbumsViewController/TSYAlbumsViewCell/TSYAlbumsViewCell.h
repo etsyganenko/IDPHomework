@@ -10,13 +10,13 @@
 
 #import "TSYImageView.h"
 
-@class TSYFBUserAlbumModel;
+@class TSYFBPhotoAlbumModel;
 
 @interface TSYAlbumsViewCell : UITableViewCell
 @property (nonatomic, strong)   IBOutlet TSYImageView       *photoImageView;
 
 @property (nonatomic, strong)   IBOutlet UILabel            *albumNameLabel;
 
-- (void)fillWithModel:(TSYFBUserAlbumModel *)albumModel;
+- (void)fillWithModel:(TSYFBPhotoAlbumModel *)albumModel;
 
 @end

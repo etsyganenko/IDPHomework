@@ -48,12 +48,12 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 - (void)        tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TSYFBUserModel *model = self.model;
-    TSYFBUserModel *selectedModel = model.friends[indexPath.row];
+    TSYFBUserModel *userModel = self.model;
+    TSYFBUserModel *selectedModel = userModel.friends[indexPath.row];
     
     UINavigationController *navigationController = self.navigationController;
     TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
-    controller.ID = selectedModel.ID;
+    controller.userID = selectedModel.userID;
     
     [navigationController pushViewController:controller animated:YES];
 }
