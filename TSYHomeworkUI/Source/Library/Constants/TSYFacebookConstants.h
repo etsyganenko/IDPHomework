@@ -24,11 +24,9 @@ static NSString * const kDataKey                            = @"data";
 static NSString * const kURLKey                             = @"url";
 static NSString * const kPhotosKey                          = @"photos";
 static NSString * const kCoverPhotoKey                      = @"cover_photo";
-static NSString * const kSourceKey                          = @"source";
 
-static NSString * const kUserFriendsContextGraphPath        = @"%@/friends?fields=first_name,last_name,picture.width(%lu).height(%lu),id";
 static NSString * const kUserInfoContextGraphPath           = @"%@?fields=first_name,last_name,picture.width(%lu).height(%lu)"; // %@ == userID
-
+static NSString * const kUserFriendsContextGraphPath        = @"%@/friends?fields=first_name,last_name,picture.width(%lu).height(%lu),id"; // %@ == userID
 static NSString * const kAlbumsContextGraphPath             = @"%@/albums?fields=name,id,picture"; // %@ == userID
 static NSString * const kAlbumPhotosContextGraphPath        = @"%@/photos?fields=picture"; // %@ == albumID
 

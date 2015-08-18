@@ -26,7 +26,6 @@
     self = [super init];
     if (self) {
         self.model = model;
-        self.contexts = [NSMutableArray array];
     }
     
     return self;
@@ -34,10 +33,6 @@
 
 #pragma mark -
 #pragma mark Class Methods
-
-+ (instancetype)context {
-    return [[self alloc] initWithModel:nil];;
-}
 
 + (instancetype)contextWithModel:(id)model {
     return [[self alloc] initWithModel:model];
@@ -56,16 +51,6 @@
 
 - (void)fillModelWithResult:(id)result {
     
-}
-
-- (void)addContext:(TSYContext *)context {
-    if (context) {
-        [self.contexts addObject:context];
-        
-        [context addObserver:self];
-        
-        [context execute];
-    }
 }
 
 #pragma mark -

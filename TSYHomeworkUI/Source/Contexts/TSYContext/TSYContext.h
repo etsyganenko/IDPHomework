@@ -11,10 +11,9 @@
 #import "TSYObservableObject.h"
 #import "TSYModel.h"
 
-@interface TSYContext : TSYObservableObject <TSYModelObserver>
+@interface TSYContext : TSYObservableObject
 @property (nonatomic, strong)   id    model;
 
-+ (instancetype)context; // model == nil
 + (instancetype)contextWithModel:(id)model;
 
 - (instancetype)initWithModel:(id)model;
@@ -23,7 +22,5 @@
 - (void)cancel;
 
 - (void)fillModelWithResult:(id)result;
-
-- (void)addContext:(TSYContext *)context;
 
 @end
