@@ -45,8 +45,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 #pragma mark -
 #pragma mark UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYAlbumPhotosViewController *photosController = [TSYAlbumPhotosViewController new];
     
     TSYFBUserModel *userModel = self.model;

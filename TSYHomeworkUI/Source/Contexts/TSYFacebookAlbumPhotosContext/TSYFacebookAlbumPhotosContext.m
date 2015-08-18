@@ -12,11 +12,6 @@
 #import "TSYFBPhotoModel.h"
 #import "TSYFacebookConstants.h"
 
-@interface TSYFacebookAlbumPhotosContext ()
-
-
-@end
-
 @implementation TSYFacebookAlbumPhotosContext
 
 #pragma mark -

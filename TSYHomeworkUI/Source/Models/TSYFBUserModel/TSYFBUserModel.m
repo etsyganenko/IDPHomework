@@ -23,8 +23,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.friends = [NSMutableArray array];
-        self.photoAlbums = [NSMutableArray array];
+        self.friends = [NSMutableArray new];
+        self.photoAlbums = [NSMutableArray new];
     }
     
     return self;

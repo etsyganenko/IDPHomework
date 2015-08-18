@@ -49,7 +49,7 @@
         
         _context = context;
         
-        if (context) {
+        if (_context) {
             [_context addObserver:self];
             [_context execute];
         }
