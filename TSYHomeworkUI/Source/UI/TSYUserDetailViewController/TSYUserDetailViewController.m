@@ -16,6 +16,7 @@
 #import "TSYFacebookUserInfoContext.h"
 #import "TSYFacebookUserFriendsContext.h"
 #import "TSYFriendsViewController.h"
+#import "TSYAlbumsViewController.h"
 #import "TSYArrayModel.h"
 
 TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView, mainView)
@@ -28,12 +29,7 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    TSYFBUserModel *model = [TSYFBUserModel new];
-    model.ID = self.ID;
-    
-    self.model = model;
-    
-    self.context = [TSYFacebookUserInfoContext new];
+    self.context = [TSYFacebookUserInfoContext contextWithModel:self.model];
 }
 
 #pragma mark -
@@ -59,20 +55,28 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
     [navigationController pushViewController:friendsController animated:YES];
 }
 
+- (IBAction)onPhotosButton:(id)sender {
+    TSYAlbumsViewController *albumsController = [TSYAlbumsViewController new];
+    
+    albumsController.model = self.model;
+
+    [self.navigationController pushViewController:albumsController animated:YES];
+}
+
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelDidLoad:(TSYFBUserModel *)model {
+- (void)modelDidLoad:(TSYFacebookUserInfoContext *)context {
     TSYUserDetailView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [mainView fillWithModel:model];
+        [mainView fillWithModel:self.model];
         
         [mainView hideLoadingView];
     });
 }
 
-- (void)modelWillLoad:(TSYFBUserModel *)model {
+- (void)modelWillLoad:(TSYFacebookUserInfoContext *)context {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.mainView showLoadingView];
     });

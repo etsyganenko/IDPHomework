@@ -23,23 +23,12 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 @implementation TSYFriendsViewController
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark View Lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.context = [TSYFacebookUserFriendsContext new];
-}
-
-#pragma mark -
-#pragma mark View Lifecycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    self.context = [TSYFacebookUserFriendsContext contextWithModel:self.model];
 }
 
 #pragma mark -
@@ -59,12 +48,12 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 - (void)        tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TSYFBUserModel *model = self.model;
-    TSYFBUserModel *selectedModel = model.friends[indexPath.row];
+    TSYFBUserModel *userModel = self.model;
+    TSYFBUserModel *selectedModel = userModel.friends[indexPath.row];
     
     UINavigationController *navigationController = self.navigationController;
     TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
-    controller.ID = selectedModel.ID;
+    controller.model = selectedModel;
     
     [navigationController pushViewController:controller animated:YES];
 }

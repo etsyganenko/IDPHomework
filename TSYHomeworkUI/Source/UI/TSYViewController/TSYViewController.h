@@ -11,7 +11,6 @@
 #import "TSYModel.h"
 
 @class TSYContext;
-@class TSYModel;
 
 @interface TSYViewController : UIViewController <TSYModelObserver>
 @property (nonatomic, strong)   TSYContext  *context;

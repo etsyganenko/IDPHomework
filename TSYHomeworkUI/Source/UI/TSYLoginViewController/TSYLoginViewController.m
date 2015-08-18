@@ -33,7 +33,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
     
     if (nil == [FBSDKAccessToken currentAccessToken]) {
         self.mainView.showUserProfile.hidden = YES;
@@ -48,11 +48,8 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Interface Handling
 
 - (IBAction)onLoginButton:(id)sender {
-    TSYFBUserModel *model = [TSYFBUserModel new];
-    TSYFacebookLoginContext *context = [TSYFacebookLoginContext new];
-    
-    self.model = model;
-    self.context = context;
+    self.model = [TSYFBUserModel new];
+    self.context = [TSYFacebookLoginContext contextWithModel:self.model];
 }
 
 - (IBAction)onUserProfileButton:(id)sender {
@@ -62,7 +59,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelDidLoad:(TSYModel *)model {
+- (void)modelDidLoad:(TSYFacebookLoginContext *)context {
     [self showUserProfileIfLoggedInAnimated:NO];
 }
 
@@ -70,16 +67,15 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Private Methods
 
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated {
-    TSYFBUserModel *model = self.model;
-    NSString *userID = model.ID;
+    TSYFBUserModel *userModel = self.model;
+    NSString *userID = userModel.userID;
     
     if ([FBSDKAccessToken currentAccessToken] && userID) {
-        UINavigationController *navigationController = self.navigationController;
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         
-        controller.ID = userID;
+        controller.model = userModel;
         
-        [navigationController pushViewController:controller animated:animated];
+        [self.navigationController pushViewController:controller animated:animated];
     }
 }
 

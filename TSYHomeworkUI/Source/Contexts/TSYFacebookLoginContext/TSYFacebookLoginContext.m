@@ -28,7 +28,7 @@
 #pragma mark Accessors
 
 - (NSArray *)permissions {
-    return @[kReadPermissionPublicProfile, kReadPermissionEmail, kReadPermissionUserFriends];
+    return @[kReadPermissionPublicProfile, kReadPermissionEmail, kReadPermissionUserFriends, kReadPermissionUserPhotos];
 }
 
 #pragma mark -
@@ -43,24 +43,22 @@
                                    handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                        TSYStrongify(self);
                                        
-                                       TSYFBUserModel *model = self.model;
-                                       
                                        if (error || result.isCancelled) {
-                                           model.state = TSYModelDidFailLoading;
+                                           self.state = TSYModelDidFailLoading;
                                            
                                            return;
                                        }
                                        
                                        [self fillModelWithResult:result];
                                        
-                                       model.state = TSYModelDidLoad;
+                                       self.state = TSYModelDidLoad;
                                    }];
 }
 
 - (void)fillModelWithResult:(FBSDKLoginManagerLoginResult *)result {
-    TSYFBUserModel *model = self.model;
+    TSYFBUserModel *userModel = self.model;
     
-    model.ID = result.token.userID;
+    userModel.userID = result.token.userID;
 }
 
 @end

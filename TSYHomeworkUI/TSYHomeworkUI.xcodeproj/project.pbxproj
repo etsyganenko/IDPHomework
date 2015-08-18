@@ -71,6 +71,49 @@
 		84E6005D1B67A3B7009FF52A /* TSYFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E6005C1B67A3B7009FF52A /* TSYFriendsView.m */; };
 		84E600611B67A9B1009FF52A /* TSYFacebookUserFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E600601B67A9B1009FF52A /* TSYFacebookUserFriendsContext.m */; };
 		84E600651B67ADE2009FF52A /* TSYFacebookContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E600641B67ADE2009FF52A /* TSYFacebookContext.m */; };
+		8AD8DC6A1B7CA1520013CF63 /* TSYAlbumsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8DC621B7CA1520013CF63 /* TSYAlbumsView.m */; };
+		8AD8DC6D1B7CA1520013CF63 /* TSYAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8DC681B7CA1520013CF63 /* TSYAlbumsViewController.m */; };
+		8AD8DC6E1B7CA1520013CF63 /* TSYAlbumsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AD8DC691B7CA1520013CF63 /* TSYAlbumsViewController.xib */; };
+		8AD8DC731B7CA1890013CF63 /* TSYAlbumsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8DC711B7CA1890013CF63 /* TSYAlbumsViewCell.m */; };
+		8AD8DC741B7CA1890013CF63 /* TSYAlbumsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AD8DC721B7CA1890013CF63 /* TSYAlbumsViewCell.xib */; };
+		8ADD3BE61B7E2DA10023B628 /* TSYFacebookAlbumsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3BE51B7E2DA10023B628 /* TSYFacebookAlbumsContext.m */; };
+		8ADD3BF11B81E4C50023B628 /* TSYFacebookAlbumPhotosContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3BF01B81E4C50023B628 /* TSYFacebookAlbumPhotosContext.m */; };
+		8ADD3C011B81F32D0023B628 /* TSYAlbumPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3BF91B81F32D0023B628 /* TSYAlbumPhotosView.m */; };
+		8ADD3C021B81F32D0023B628 /* TSYAlbumPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3BFB1B81F32D0023B628 /* TSYAlbumPhotosViewController.m */; };
+		8ADD3C031B81F32D0023B628 /* TSYAlbumPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD3BFC1B81F32D0023B628 /* TSYAlbumPhotosViewController.xib */; };
+		8ADD3C041B81F32D0023B628 /* TSYAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3BFF1B81F32D0023B628 /* TSYAlbumViewCell.m */; };
+		8ADD3C051B81F32D0023B628 /* TSYAlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD3C001B81F32D0023B628 /* TSYAlbumViewCell.xib */; };
+		8ADD3C091B81FB980023B628 /* TSYFBPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3C081B81FB980023B628 /* TSYFBPhotoModel.m */; };
+		8ADD3C151B83104F0023B628 /* TSYFBPhotoAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3C141B83104F0023B628 /* TSYFBPhotoAlbumModel.m */; };
+		8ADD3CB21B8377650023B628 /* IDPCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CAB1B8377640023B628 /* IDPCoreDataManager.m */; };
+		8ADD3CB31B8377650023B628 /* NSManagedObject+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CAD1B8377640023B628 /* NSManagedObject+IDPExtensions.m */; };
+		8ADD3CB41B8377650023B628 /* NSManagedObjectContext+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CAF1B8377640023B628 /* NSManagedObjectContext+IDPExtensions.m */; };
+		8ADD3CB51B8377650023B628 /* NSManagedObjectID+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CB11B8377640023B628 /* NSManagedObjectID+IDPExtensions.m */; };
+		8ADD3D051B8377960023B628 /* NSArray+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CBC1B8377960023B628 /* NSArray+IDPExtensions.m */; };
+		8ADD3D061B8377960023B628 /* NSDate+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CBF1B8377960023B628 /* NSDate+IDPExtensions.m */; };
+		8ADD3D071B8377960023B628 /* NSFileManager+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CC21B8377960023B628 /* NSFileManager+IDPExtensions.m */; };
+		8ADD3D091B8377960023B628 /* NSString+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CC81B8377960023B628 /* NSString+IDPExtensions.m */; };
+		8ADD3D0A1B8377960023B628 /* IDPDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CCC1B8377960023B628 /* IDPDispatch.m */; };
+		8ADD3D0B1B8377960023B628 /* IDPKeyPathObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CCF1B8377960023B628 /* IDPKeyPathObserver.m */; };
+		8ADD3D0C1B8377960023B628 /* IDPKVOContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CD21B8377960023B628 /* IDPKVOContext.m */; };
+		8ADD3D0D1B8377960023B628 /* IDPKVOMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CD41B8377960023B628 /* IDPKVOMutableArray.m */; };
+		8ADD3D0E1B8377960023B628 /* IDPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CD71B8377960023B628 /* IDPModel.m */; };
+		8ADD3D0F1B8377960023B628 /* IDPMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CDC1B8377960023B628 /* IDPMutableArray.m */; };
+		8ADD3D101B8377960023B628 /* IDPMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CDF1B8377960023B628 /* IDPMutableDictionary.m */; };
+		8ADD3D111B8377960023B628 /* IDPModelMixin.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CE21B8377960023B628 /* IDPModelMixin.m */; };
+		8ADD3D121B8377960023B628 /* IDPOCContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CE41B8377960023B628 /* IDPOCContext.m */; };
+		8ADD3D131B8377960023B628 /* IDPOCImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CE61B8377960023B628 /* IDPOCImplementation.m */; };
+		8ADD3D141B8377960023B628 /* IDPOCStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CE81B8377960023B628 /* IDPOCStack.m */; };
+		8ADD3D151B8377960023B628 /* NSObject+IDPOCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CEA1B8377960023B628 /* NSObject+IDPOCExtensions.m */; };
+		8ADD3D161B8377960023B628 /* NSObject+IDPOCExtensionsPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CEC1B8377960023B628 /* NSObject+IDPOCExtensionsPrivate.m */; };
+		8ADD3D171B8377960023B628 /* IDPObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CEF1B8377960023B628 /* IDPObservableObject.m */; };
+		8ADD3D181B8377960023B628 /* IDPReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CF21B8377960023B628 /* IDPReference.m */; };
+		8ADD3D191B8377960023B628 /* IDPStrongReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CF41B8377960023B628 /* IDPStrongReference.m */; };
+		8ADD3D1A1B8377960023B628 /* IDPWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CF61B8377960023B628 /* IDPWeakReference.m */; };
+		8ADD3D1B1B8377960023B628 /* IDPRetainingDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CF91B8377960023B628 /* IDPRetainingDictionary.m */; };
+		8ADD3D1C1B8377960023B628 /* IDPWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CFC1B8377960023B628 /* IDPWeakArray.m */; };
+		8ADD3D1D1B8377960023B628 /* IDPMachTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D001B8377960023B628 /* IDPMachTimer.m */; };
+		8ADD3D1E1B8377960023B628 /* IDPMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D031B8377960023B628 /* IDPMath.m */; };
 		B66C1EB5621F627838B6B349 /* libPods-TSYHomeworkUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */; };
 /* End PBXBuildFile section */
 
@@ -202,6 +245,93 @@
 		84E600601B67A9B1009FF52A /* TSYFacebookUserFriendsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFacebookUserFriendsContext.m; sourceTree = "<group>"; };
 		84E600631B67ADE2009FF52A /* TSYFacebookContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFacebookContext.h; sourceTree = "<group>"; };
 		84E600641B67ADE2009FF52A /* TSYFacebookContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFacebookContext.m; sourceTree = "<group>"; };
+		8AD8DC611B7CA1520013CF63 /* TSYAlbumsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAlbumsView.h; sourceTree = "<group>"; };
+		8AD8DC621B7CA1520013CF63 /* TSYAlbumsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAlbumsView.m; sourceTree = "<group>"; };
+		8AD8DC671B7CA1520013CF63 /* TSYAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAlbumsViewController.h; sourceTree = "<group>"; };
+		8AD8DC681B7CA1520013CF63 /* TSYAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAlbumsViewController.m; sourceTree = "<group>"; };
+		8AD8DC691B7CA1520013CF63 /* TSYAlbumsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYAlbumsViewController.xib; sourceTree = "<group>"; };
+		8AD8DC701B7CA1890013CF63 /* TSYAlbumsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAlbumsViewCell.h; sourceTree = "<group>"; };
+		8AD8DC711B7CA1890013CF63 /* TSYAlbumsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAlbumsViewCell.m; sourceTree = "<group>"; };
+		8AD8DC721B7CA1890013CF63 /* TSYAlbumsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYAlbumsViewCell.xib; sourceTree = "<group>"; };
+		8ADD3BE41B7E2DA10023B628 /* TSYFacebookAlbumsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFacebookAlbumsContext.h; sourceTree = "<group>"; };
+		8ADD3BE51B7E2DA10023B628 /* TSYFacebookAlbumsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFacebookAlbumsContext.m; sourceTree = "<group>"; };
+		8ADD3BEF1B81E4C50023B628 /* TSYFacebookAlbumPhotosContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFacebookAlbumPhotosContext.h; sourceTree = "<group>"; };
+		8ADD3BF01B81E4C50023B628 /* TSYFacebookAlbumPhotosContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFacebookAlbumPhotosContext.m; sourceTree = "<group>"; };
+		8ADD3BF81B81F32D0023B628 /* TSYAlbumPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAlbumPhotosView.h; sourceTree = "<group>"; };
+		8ADD3BF91B81F32D0023B628 /* TSYAlbumPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAlbumPhotosView.m; sourceTree = "<group>"; };
+		8ADD3BFA1B81F32D0023B628 /* TSYAlbumPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAlbumPhotosViewController.h; sourceTree = "<group>"; };
+		8ADD3BFB1B81F32D0023B628 /* TSYAlbumPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAlbumPhotosViewController.m; sourceTree = "<group>"; };
+		8ADD3BFC1B81F32D0023B628 /* TSYAlbumPhotosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYAlbumPhotosViewController.xib; sourceTree = "<group>"; };
+		8ADD3BFE1B81F32D0023B628 /* TSYAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYAlbumViewCell.h; sourceTree = "<group>"; };
+		8ADD3BFF1B81F32D0023B628 /* TSYAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYAlbumViewCell.m; sourceTree = "<group>"; };
+		8ADD3C001B81F32D0023B628 /* TSYAlbumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYAlbumViewCell.xib; sourceTree = "<group>"; };
+		8ADD3C071B81FB980023B628 /* TSYFBPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFBPhotoModel.h; sourceTree = "<group>"; };
+		8ADD3C081B81FB980023B628 /* TSYFBPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFBPhotoModel.m; sourceTree = "<group>"; };
+		8ADD3C131B83104F0023B628 /* TSYFBPhotoAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFBPhotoAlbumModel.h; sourceTree = "<group>"; };
+		8ADD3C141B83104F0023B628 /* TSYFBPhotoAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFBPhotoAlbumModel.m; sourceTree = "<group>"; };
+		8ADD3CA81B8377640023B628 /* ActiveRecordKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveRecordKit.h; sourceTree = "<group>"; };
+		8ADD3CAA1B8377640023B628 /* IDPCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPCoreDataManager.h; sourceTree = "<group>"; };
+		8ADD3CAB1B8377640023B628 /* IDPCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPCoreDataManager.m; sourceTree = "<group>"; };
+		8ADD3CAC1B8377640023B628 /* NSManagedObject+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+IDPExtensions.h"; sourceTree = "<group>"; };
+		8ADD3CAD1B8377640023B628 /* NSManagedObject+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+IDPExtensions.m"; sourceTree = "<group>"; };
+		8ADD3CAE1B8377640023B628 /* NSManagedObjectContext+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+IDPExtensions.h"; sourceTree = "<group>"; };
+		8ADD3CAF1B8377640023B628 /* NSManagedObjectContext+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+IDPExtensions.m"; sourceTree = "<group>"; };
+		8ADD3CB01B8377640023B628 /* NSManagedObjectID+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectID+IDPExtensions.h"; sourceTree = "<group>"; };
+		8ADD3CB11B8377640023B628 /* NSManagedObjectID+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectID+IDPExtensions.m"; sourceTree = "<group>"; };
+		8ADD3CB71B8377960023B628 /* FoundationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundationKit.h; sourceTree = "<group>"; };
+		8ADD3CBB1B8377960023B628 /* NSArray+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+IDPExtensions.h"; sourceTree = "<group>"; };
+		8ADD3CBC1B8377960023B628 /* NSArray+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+IDPExtensions.m"; sourceTree = "<group>"; };
+		8ADD3CBE1B8377960023B628 /* NSDate+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+IDPExtensions.h"; sourceTree = "<group>"; };
+		8ADD3CBF1B8377960023B628 /* NSDate+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+IDPExtensions.m"; sourceTree = "<group>"; };
+		8ADD3CC11B8377960023B628 /* NSFileManager+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+IDPExtensions.h"; sourceTree = "<group>"; };
+		8ADD3CC21B8377960023B628 /* NSFileManager+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+IDPExtensions.m"; sourceTree = "<group>"; };
+		8ADD3CC71B8377960023B628 /* NSString+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IDPExtensions.h"; sourceTree = "<group>"; };
+		8ADD3CC81B8377960023B628 /* NSString+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IDPExtensions.m"; sourceTree = "<group>"; };
+		8ADD3CCB1B8377960023B628 /* IDPDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPDispatch.h; sourceTree = "<group>"; };
+		8ADD3CCC1B8377960023B628 /* IDPDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPDispatch.m; sourceTree = "<group>"; };
+		8ADD3CCE1B8377960023B628 /* IDPKeyPathObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPKeyPathObserver.h; sourceTree = "<group>"; };
+		8ADD3CCF1B8377960023B628 /* IDPKeyPathObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPKeyPathObserver.m; sourceTree = "<group>"; };
+		8ADD3CD11B8377960023B628 /* IDPKVOContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPKVOContext.h; sourceTree = "<group>"; };
+		8ADD3CD21B8377960023B628 /* IDPKVOContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPKVOContext.m; sourceTree = "<group>"; };
+		8ADD3CD31B8377960023B628 /* IDPKVOMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPKVOMutableArray.h; sourceTree = "<group>"; };
+		8ADD3CD41B8377960023B628 /* IDPKVOMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPKVOMutableArray.m; sourceTree = "<group>"; };
+		8ADD3CD61B8377960023B628 /* IDPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPModel.h; sourceTree = "<group>"; };
+		8ADD3CD71B8377960023B628 /* IDPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPModel.m; sourceTree = "<group>"; };
+		8ADD3CD81B8377960023B628 /* IDPModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPModelObserver.h; sourceTree = "<group>"; };
+		8ADD3CD91B8377960023B628 /* IDPModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPModelProtocol.h; sourceTree = "<group>"; };
+		8ADD3CDB1B8377960023B628 /* IDPMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPMutableArray.h; sourceTree = "<group>"; };
+		8ADD3CDC1B8377960023B628 /* IDPMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPMutableArray.m; sourceTree = "<group>"; };
+		8ADD3CDE1B8377960023B628 /* IDPMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPMutableDictionary.h; sourceTree = "<group>"; };
+		8ADD3CDF1B8377960023B628 /* IDPMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPMutableDictionary.m; sourceTree = "<group>"; };
+		8ADD3CE11B8377960023B628 /* IDPModelMixin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPModelMixin.h; sourceTree = "<group>"; };
+		8ADD3CE21B8377960023B628 /* IDPModelMixin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPModelMixin.m; sourceTree = "<group>"; };
+		8ADD3CE31B8377960023B628 /* IDPOCContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPOCContext.h; sourceTree = "<group>"; };
+		8ADD3CE41B8377960023B628 /* IDPOCContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPOCContext.m; sourceTree = "<group>"; };
+		8ADD3CE51B8377960023B628 /* IDPOCImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPOCImplementation.h; sourceTree = "<group>"; };
+		8ADD3CE61B8377960023B628 /* IDPOCImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPOCImplementation.m; sourceTree = "<group>"; };
+		8ADD3CE71B8377960023B628 /* IDPOCStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPOCStack.h; sourceTree = "<group>"; };
+		8ADD3CE81B8377960023B628 /* IDPOCStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPOCStack.m; sourceTree = "<group>"; };
+		8ADD3CE91B8377960023B628 /* NSObject+IDPOCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IDPOCExtensions.h"; sourceTree = "<group>"; };
+		8ADD3CEA1B8377960023B628 /* NSObject+IDPOCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IDPOCExtensions.m"; sourceTree = "<group>"; };
+		8ADD3CEB1B8377960023B628 /* NSObject+IDPOCExtensionsPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IDPOCExtensionsPrivate.h"; sourceTree = "<group>"; };
+		8ADD3CEC1B8377960023B628 /* NSObject+IDPOCExtensionsPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IDPOCExtensionsPrivate.m"; sourceTree = "<group>"; };
+		8ADD3CEE1B8377960023B628 /* IDPObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPObservableObject.h; sourceTree = "<group>"; };
+		8ADD3CEF1B8377960023B628 /* IDPObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPObservableObject.m; sourceTree = "<group>"; };
+		8ADD3CF11B8377960023B628 /* IDPReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPReference.h; sourceTree = "<group>"; };
+		8ADD3CF21B8377960023B628 /* IDPReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPReference.m; sourceTree = "<group>"; };
+		8ADD3CF31B8377960023B628 /* IDPStrongReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPStrongReference.h; sourceTree = "<group>"; };
+		8ADD3CF41B8377960023B628 /* IDPStrongReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPStrongReference.m; sourceTree = "<group>"; };
+		8ADD3CF51B8377960023B628 /* IDPWeakReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPWeakReference.h; sourceTree = "<group>"; };
+		8ADD3CF61B8377960023B628 /* IDPWeakReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPWeakReference.m; sourceTree = "<group>"; };
+		8ADD3CF81B8377960023B628 /* IDPRetainingDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPRetainingDictionary.h; sourceTree = "<group>"; };
+		8ADD3CF91B8377960023B628 /* IDPRetainingDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPRetainingDictionary.m; sourceTree = "<group>"; };
+		8ADD3CFB1B8377960023B628 /* IDPWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPWeakArray.h; sourceTree = "<group>"; };
+		8ADD3CFC1B8377960023B628 /* IDPWeakArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPWeakArray.m; sourceTree = "<group>"; };
+		8ADD3CFF1B8377960023B628 /* IDPMachTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPMachTimer.h; sourceTree = "<group>"; };
+		8ADD3D001B8377960023B628 /* IDPMachTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPMachTimer.m; sourceTree = "<group>"; };
+		8ADD3D021B8377960023B628 /* IDPMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPMath.h; sourceTree = "<group>"; };
+		8ADD3D031B8377960023B628 /* IDPMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPMath.m; sourceTree = "<group>"; };
+		8ADD3D041B8377960023B628 /* IDPPropertyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPPropertyMacros.h; sourceTree = "<group>"; };
 		C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -441,6 +571,8 @@
 				84A8E1BE1B662DAD004B9394 /* TSYFacebookLoginContext */,
 				84A8E1BA1B662A07004B9394 /* TSYFacebookUserInfoContext */,
 				84E6005E1B67A97C009FF52A /* TSYFacebookUserFriendsContext */,
+				8ADD3BE31B7E2DA10023B628 /* TSYFacebookAlbumsContext */,
+				8ADD3BEE1B81E4A90023B628 /* TSYFacebookAlbumPhotosContext */,
 			);
 			path = Contexts;
 			sourceTree = "<group>";
@@ -475,6 +607,8 @@
 		84A1EFC91B31678A0037A3B7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8AD8DC601B7CA1520013CF63 /* TSYAlbumsViewController */,
+				8ADD3BF71B81F32D0023B628 /* TSYAlbumPhotosViewController */,
 				849F4B011B5FAB7F00B9DEED /* TSYViewController */,
 				849F4B001B5FAB5300B9DEED /* TSYLoginViewController */,
 				84A8E1B11B6625CD004B9394 /* TSYUserDetailViewController */,
@@ -497,6 +631,8 @@
 			isa = PBXGroup;
 			children = (
 				849F4B301B5FCFF700B9DEED /* TSYFBUserModel */,
+				8ADD3C121B83104F0023B628 /* TSYFBPhotoAlbumModel */,
+				8ADD3C061B81FB7E0023B628 /* TSYFBPhotoModel */,
 				84A146781B55A87700439875 /* TSYArrayModel */,
 				849F68B01B554367007DCFDE /* TSYImageModel */,
 				84A30E6C1B4350F3005F8EA6 /* TSYModel */,
@@ -686,6 +822,8 @@
 		84BF5F081B32FB0100932154 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				8ADD3CA71B8377640023B628 /* ActiveRecordKit */,
+				8ADD3CB61B8377960023B628 /* FoundationKit */,
 				84AA103B1B6A1D93005E1741 /* Constants */,
 				849DAF141B3414CA0034D221 /* TSYMacros */,
 				84BF5F091B32FB0100932154 /* Categories */,
@@ -772,6 +910,341 @@
 				84E600641B67ADE2009FF52A /* TSYFacebookContext.m */,
 			);
 			path = TSYFacebookContext;
+			sourceTree = "<group>";
+		};
+		8AD8DC601B7CA1520013CF63 /* TSYAlbumsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8AD8DC6F1B7CA1890013CF63 /* TSYAlbumsViewCell */,
+				8AD8DC611B7CA1520013CF63 /* TSYAlbumsView.h */,
+				8AD8DC621B7CA1520013CF63 /* TSYAlbumsView.m */,
+				8AD8DC671B7CA1520013CF63 /* TSYAlbumsViewController.h */,
+				8AD8DC681B7CA1520013CF63 /* TSYAlbumsViewController.m */,
+				8AD8DC691B7CA1520013CF63 /* TSYAlbumsViewController.xib */,
+			);
+			path = TSYAlbumsViewController;
+			sourceTree = "<group>";
+		};
+		8AD8DC6F1B7CA1890013CF63 /* TSYAlbumsViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8AD8DC701B7CA1890013CF63 /* TSYAlbumsViewCell.h */,
+				8AD8DC711B7CA1890013CF63 /* TSYAlbumsViewCell.m */,
+				8AD8DC721B7CA1890013CF63 /* TSYAlbumsViewCell.xib */,
+			);
+			path = TSYAlbumsViewCell;
+			sourceTree = "<group>";
+		};
+		8ADD3BE31B7E2DA10023B628 /* TSYFacebookAlbumsContext */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3BE41B7E2DA10023B628 /* TSYFacebookAlbumsContext.h */,
+				8ADD3BE51B7E2DA10023B628 /* TSYFacebookAlbumsContext.m */,
+			);
+			path = TSYFacebookAlbumsContext;
+			sourceTree = "<group>";
+		};
+		8ADD3BEE1B81E4A90023B628 /* TSYFacebookAlbumPhotosContext */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3BEF1B81E4C50023B628 /* TSYFacebookAlbumPhotosContext.h */,
+				8ADD3BF01B81E4C50023B628 /* TSYFacebookAlbumPhotosContext.m */,
+			);
+			path = TSYFacebookAlbumPhotosContext;
+			sourceTree = "<group>";
+		};
+		8ADD3BF71B81F32D0023B628 /* TSYAlbumPhotosViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3BF81B81F32D0023B628 /* TSYAlbumPhotosView.h */,
+				8ADD3BF91B81F32D0023B628 /* TSYAlbumPhotosView.m */,
+				8ADD3BFA1B81F32D0023B628 /* TSYAlbumPhotosViewController.h */,
+				8ADD3BFB1B81F32D0023B628 /* TSYAlbumPhotosViewController.m */,
+				8ADD3BFC1B81F32D0023B628 /* TSYAlbumPhotosViewController.xib */,
+				8ADD3BFD1B81F32D0023B628 /* TSYAlbumViewCell */,
+			);
+			path = TSYAlbumPhotosViewController;
+			sourceTree = "<group>";
+		};
+		8ADD3BFD1B81F32D0023B628 /* TSYAlbumViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3BFE1B81F32D0023B628 /* TSYAlbumViewCell.h */,
+				8ADD3BFF1B81F32D0023B628 /* TSYAlbumViewCell.m */,
+				8ADD3C001B81F32D0023B628 /* TSYAlbumViewCell.xib */,
+			);
+			path = TSYAlbumViewCell;
+			sourceTree = "<group>";
+		};
+		8ADD3C061B81FB7E0023B628 /* TSYFBPhotoModel */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3C071B81FB980023B628 /* TSYFBPhotoModel.h */,
+				8ADD3C081B81FB980023B628 /* TSYFBPhotoModel.m */,
+			);
+			path = TSYFBPhotoModel;
+			sourceTree = "<group>";
+		};
+		8ADD3C121B83104F0023B628 /* TSYFBPhotoAlbumModel */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3C131B83104F0023B628 /* TSYFBPhotoAlbumModel.h */,
+				8ADD3C141B83104F0023B628 /* TSYFBPhotoAlbumModel.m */,
+			);
+			path = TSYFBPhotoAlbumModel;
+			sourceTree = "<group>";
+		};
+		8ADD3CA71B8377640023B628 /* ActiveRecordKit */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CA81B8377640023B628 /* ActiveRecordKit.h */,
+				8ADD3CA91B8377640023B628 /* Shared */,
+			);
+			path = ActiveRecordKit;
+			sourceTree = "<group>";
+		};
+		8ADD3CA91B8377640023B628 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CAA1B8377640023B628 /* IDPCoreDataManager.h */,
+				8ADD3CAB1B8377640023B628 /* IDPCoreDataManager.m */,
+				8ADD3CAC1B8377640023B628 /* NSManagedObject+IDPExtensions.h */,
+				8ADD3CAD1B8377640023B628 /* NSManagedObject+IDPExtensions.m */,
+				8ADD3CAE1B8377640023B628 /* NSManagedObjectContext+IDPExtensions.h */,
+				8ADD3CAF1B8377640023B628 /* NSManagedObjectContext+IDPExtensions.m */,
+				8ADD3CB01B8377640023B628 /* NSManagedObjectID+IDPExtensions.h */,
+				8ADD3CB11B8377640023B628 /* NSManagedObjectID+IDPExtensions.m */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8ADD3CB61B8377960023B628 /* FoundationKit */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CB71B8377960023B628 /* FoundationKit.h */,
+				8ADD3CB81B8377960023B628 /* Shared */,
+			);
+			path = FoundationKit;
+			sourceTree = "<group>";
+		};
+		8ADD3CB81B8377960023B628 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CB91B8377960023B628 /* Categories */,
+				8ADD3CC91B8377960023B628 /* Classes */,
+				8ADD3CFD1B8377960023B628 /* Utilities */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8ADD3CB91B8377960023B628 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CBA1B8377960023B628 /* NSArray */,
+				8ADD3CBD1B8377960023B628 /* NSDate */,
+				8ADD3CC01B8377960023B628 /* NSFileManager */,
+				8ADD3CC61B8377960023B628 /* NSString */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		8ADD3CBA1B8377960023B628 /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CBB1B8377960023B628 /* NSArray+IDPExtensions.h */,
+				8ADD3CBC1B8377960023B628 /* NSArray+IDPExtensions.m */,
+			);
+			path = NSArray;
+			sourceTree = "<group>";
+		};
+		8ADD3CBD1B8377960023B628 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CBE1B8377960023B628 /* NSDate+IDPExtensions.h */,
+				8ADD3CBF1B8377960023B628 /* NSDate+IDPExtensions.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		8ADD3CC01B8377960023B628 /* NSFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CC11B8377960023B628 /* NSFileManager+IDPExtensions.h */,
+				8ADD3CC21B8377960023B628 /* NSFileManager+IDPExtensions.m */,
+			);
+			path = NSFileManager;
+			sourceTree = "<group>";
+		};
+		8ADD3CC61B8377960023B628 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CC71B8377960023B628 /* NSString+IDPExtensions.h */,
+				8ADD3CC81B8377960023B628 /* NSString+IDPExtensions.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		8ADD3CC91B8377960023B628 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CCA1B8377960023B628 /* IDPDispatch */,
+				8ADD3CCD1B8377960023B628 /* IDPKeyPathObserver */,
+				8ADD3CD01B8377960023B628 /* IDPKVOMutableArray */,
+				8ADD3CD51B8377960023B628 /* IDPModels */,
+				8ADD3CDA1B8377960023B628 /* IDPMutableArray */,
+				8ADD3CDD1B8377960023B628 /* IDPMutableDictionary */,
+				8ADD3CE01B8377960023B628 /* IDPObjectCompositionContext */,
+				8ADD3CED1B8377960023B628 /* IDPObservableObject */,
+				8ADD3CF01B8377960023B628 /* IDPReference */,
+				8ADD3CF71B8377960023B628 /* IDPRetainingDictionary */,
+				8ADD3CFA1B8377960023B628 /* IDPWeakArray */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8ADD3CCA1B8377960023B628 /* IDPDispatch */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CCB1B8377960023B628 /* IDPDispatch.h */,
+				8ADD3CCC1B8377960023B628 /* IDPDispatch.m */,
+			);
+			path = IDPDispatch;
+			sourceTree = "<group>";
+		};
+		8ADD3CCD1B8377960023B628 /* IDPKeyPathObserver */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CCE1B8377960023B628 /* IDPKeyPathObserver.h */,
+				8ADD3CCF1B8377960023B628 /* IDPKeyPathObserver.m */,
+			);
+			path = IDPKeyPathObserver;
+			sourceTree = "<group>";
+		};
+		8ADD3CD01B8377960023B628 /* IDPKVOMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CD11B8377960023B628 /* IDPKVOContext.h */,
+				8ADD3CD21B8377960023B628 /* IDPKVOContext.m */,
+				8ADD3CD31B8377960023B628 /* IDPKVOMutableArray.h */,
+				8ADD3CD41B8377960023B628 /* IDPKVOMutableArray.m */,
+			);
+			path = IDPKVOMutableArray;
+			sourceTree = "<group>";
+		};
+		8ADD3CD51B8377960023B628 /* IDPModels */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CD61B8377960023B628 /* IDPModel.h */,
+				8ADD3CD71B8377960023B628 /* IDPModel.m */,
+				8ADD3CD81B8377960023B628 /* IDPModelObserver.h */,
+				8ADD3CD91B8377960023B628 /* IDPModelProtocol.h */,
+			);
+			path = IDPModels;
+			sourceTree = "<group>";
+		};
+		8ADD3CDA1B8377960023B628 /* IDPMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CDB1B8377960023B628 /* IDPMutableArray.h */,
+				8ADD3CDC1B8377960023B628 /* IDPMutableArray.m */,
+			);
+			path = IDPMutableArray;
+			sourceTree = "<group>";
+		};
+		8ADD3CDD1B8377960023B628 /* IDPMutableDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CDE1B8377960023B628 /* IDPMutableDictionary.h */,
+				8ADD3CDF1B8377960023B628 /* IDPMutableDictionary.m */,
+			);
+			path = IDPMutableDictionary;
+			sourceTree = "<group>";
+		};
+		8ADD3CE01B8377960023B628 /* IDPObjectCompositionContext */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CE11B8377960023B628 /* IDPModelMixin.h */,
+				8ADD3CE21B8377960023B628 /* IDPModelMixin.m */,
+				8ADD3CE31B8377960023B628 /* IDPOCContext.h */,
+				8ADD3CE41B8377960023B628 /* IDPOCContext.m */,
+				8ADD3CE51B8377960023B628 /* IDPOCImplementation.h */,
+				8ADD3CE61B8377960023B628 /* IDPOCImplementation.m */,
+				8ADD3CE71B8377960023B628 /* IDPOCStack.h */,
+				8ADD3CE81B8377960023B628 /* IDPOCStack.m */,
+				8ADD3CE91B8377960023B628 /* NSObject+IDPOCExtensions.h */,
+				8ADD3CEA1B8377960023B628 /* NSObject+IDPOCExtensions.m */,
+				8ADD3CEB1B8377960023B628 /* NSObject+IDPOCExtensionsPrivate.h */,
+				8ADD3CEC1B8377960023B628 /* NSObject+IDPOCExtensionsPrivate.m */,
+			);
+			path = IDPObjectCompositionContext;
+			sourceTree = "<group>";
+		};
+		8ADD3CED1B8377960023B628 /* IDPObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CEE1B8377960023B628 /* IDPObservableObject.h */,
+				8ADD3CEF1B8377960023B628 /* IDPObservableObject.m */,
+			);
+			path = IDPObservableObject;
+			sourceTree = "<group>";
+		};
+		8ADD3CF01B8377960023B628 /* IDPReference */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CF11B8377960023B628 /* IDPReference.h */,
+				8ADD3CF21B8377960023B628 /* IDPReference.m */,
+				8ADD3CF31B8377960023B628 /* IDPStrongReference.h */,
+				8ADD3CF41B8377960023B628 /* IDPStrongReference.m */,
+				8ADD3CF51B8377960023B628 /* IDPWeakReference.h */,
+				8ADD3CF61B8377960023B628 /* IDPWeakReference.m */,
+			);
+			path = IDPReference;
+			sourceTree = "<group>";
+		};
+		8ADD3CF71B8377960023B628 /* IDPRetainingDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CF81B8377960023B628 /* IDPRetainingDictionary.h */,
+				8ADD3CF91B8377960023B628 /* IDPRetainingDictionary.m */,
+			);
+			path = IDPRetainingDictionary;
+			sourceTree = "<group>";
+		};
+		8ADD3CFA1B8377960023B628 /* IDPWeakArray */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CFB1B8377960023B628 /* IDPWeakArray.h */,
+				8ADD3CFC1B8377960023B628 /* IDPWeakArray.m */,
+			);
+			path = IDPWeakArray;
+			sourceTree = "<group>";
+		};
+		8ADD3CFD1B8377960023B628 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CFE1B8377960023B628 /* IDPMachTimer */,
+				8ADD3D011B8377960023B628 /* IDPMath */,
+				8ADD3D041B8377960023B628 /* IDPPropertyMacros.h */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8ADD3CFE1B8377960023B628 /* IDPMachTimer */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3CFF1B8377960023B628 /* IDPMachTimer.h */,
+				8ADD3D001B8377960023B628 /* IDPMachTimer.m */,
+			);
+			path = IDPMachTimer;
+			sourceTree = "<group>";
+		};
+		8ADD3D011B8377960023B628 /* IDPMath */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3D021B8377960023B628 /* IDPMath.h */,
+				8ADD3D031B8377960023B628 /* IDPMath.m */,
+			);
+			path = IDPMath;
 			sourceTree = "<group>";
 		};
 		BE30A4A9EDD4073BC4CA38A1 /* Pods */ = {
@@ -870,6 +1343,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				849FB4B51B28E98E0096D0AD /* Images.xcassets in Resources */,
+				8AD8DC6E1B7CA1520013CF63 /* TSYAlbumsViewController.xib in Resources */,
+				8AD8DC741B7CA1890013CF63 /* TSYAlbumsViewCell.xib in Resources */,
+				8ADD3C051B81F32D0023B628 /* TSYAlbumViewCell.xib in Resources */,
 				84A1C3071B341B4200DC7198 /* TSYTableCell.xib in Resources */,
 				849F4B261B5FAFA400B9DEED /* TSYFriendsViewController.xib in Resources */,
 				84A196331B321AF900C5CE0E /* TSYTableViewController.xib in Resources */,
@@ -879,6 +1355,7 @@
 				84A30E6B1B434DD6005F8EA6 /* TSYLoadingView.xib in Resources */,
 				84A285D61B39745B00D52615 /* image.jpg in Resources */,
 				84A1EFE81B31A2A30037A3B7 /* TSYSquareViewController.xib in Resources */,
+				8ADD3C031B81F32D0023B628 /* TSYAlbumPhotosViewController.xib in Resources */,
 				84A0624D1B68EBBF00751FB5 /* TSYFriendsViewCell.xib in Resources */,
 				849FB49F1B28E9460096D0AD /* Info.plist in Resources */,
 				849F4B191B5FAEE800B9DEED /* TSYLoginViewController.xib in Resources */,
@@ -964,8 +1441,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ADD3BF11B81E4C50023B628 /* TSYFacebookAlbumPhotosContext.m in Sources */,
+				8ADD3C151B83104F0023B628 /* TSYFBPhotoAlbumModel.m in Sources */,
 				84A8E1B81B6625CD004B9394 /* TSYUserDetailViewController.m in Sources */,
 				84A196311B321AF900C5CE0E /* TSYTableView.m in Sources */,
+				8ADD3D1D1B8377960023B628 /* IDPMachTimer.m in Sources */,
 				84BD0D591B414F9C00349DE5 /* UINib+TSYCategory.m in Sources */,
 				84A30E6F1B435110005F8EA6 /* TSYModel.m in Sources */,
 				84A30E631B433092005F8EA6 /* NSArray+TSYCategory.m in Sources */,
@@ -973,42 +1453,78 @@
 				84A8E1C11B662DAD004B9394 /* TSYFacebookLoginContext.m in Sources */,
 				849F72421B3C247000869AD4 /* UITableView+TSYCategory.m in Sources */,
 				84BF5F181B32FB0100932154 /* NSString+TSYAlphabet.m in Sources */,
+				8ADD3D1B1B8377960023B628 /* IDPRetainingDictionary.m in Sources */,
+				8ADD3D181B8377960023B628 /* IDPReference.m in Sources */,
+				8ADD3D111B8377960023B628 /* IDPModelMixin.m in Sources */,
+				8ADD3D0A1B8377960023B628 /* IDPDispatch.m in Sources */,
 				84A10F8F1B5657A9007CE765 /* TSYImageView.m in Sources */,
+				8ADD3D071B8377960023B628 /* NSFileManager+IDPExtensions.m in Sources */,
+				8ADD3D0B1B8377960023B628 /* IDPKeyPathObserver.m in Sources */,
 				84A8D3611B64C8730083FE71 /* TSYView.m in Sources */,
+				8ADD3C041B81F32D0023B628 /* TSYAlbumViewCell.m in Sources */,
+				8ADD3D051B8377960023B628 /* NSArray+IDPExtensions.m in Sources */,
+				8ADD3D0C1B8377960023B628 /* IDPKVOContext.m in Sources */,
+				8ADD3D1A1B8377960023B628 /* IDPWeakReference.m in Sources */,
 				849FB4A01B28E9460096D0AD /* main.m in Sources */,
+				8ADD3D131B8377960023B628 /* IDPOCImplementation.m in Sources */,
+				8AD8DC6A1B7CA1520013CF63 /* TSYAlbumsView.m in Sources */,
 				84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */,
 				84A8E1B71B6625CD004B9394 /* TSYUserDetailView.m in Sources */,
+				8ADD3D171B8377960023B628 /* IDPObservableObject.m in Sources */,
 				849F4B181B5FAEE800B9DEED /* TSYLoginViewController.m in Sources */,
 				84BF5F201B33002900932154 /* TSYTableViewCell.m in Sources */,
+				8AD8DC731B7CA1890013CF63 /* TSYAlbumsViewCell.m in Sources */,
+				8ADD3D141B8377960023B628 /* IDPOCStack.m in Sources */,
 				84E600651B67ADE2009FF52A /* TSYFacebookContext.m in Sources */,
 				84BF5F031B32D04400932154 /* TSYUser.m in Sources */,
+				8ADD3CB41B8377650023B628 /* NSManagedObjectContext+IDPExtensions.m in Sources */,
 				849F723A1B3BEBFA00869AD4 /* NSMutableArray+TSYCategory.m in Sources */,
 				84A196321B321AF900C5CE0E /* TSYTableViewController.m in Sources */,
 				84A30E671B434D81005F8EA6 /* TSYLoadingView.m in Sources */,
 				84BD0D611B41FAA400349DE5 /* NSBundle+TSYCategory.m in Sources */,
+				8ADD3C091B81FB980023B628 /* TSYFBPhotoModel.m in Sources */,
+				8ADD3D0F1B8377960023B628 /* IDPMutableArray.m in Sources */,
 				849FB4BE1B28ED760096D0AD /* TSYAppDelegate.m in Sources */,
+				8ADD3D161B8377960023B628 /* NSObject+IDPOCExtensionsPrivate.m in Sources */,
+				8ADD3CB51B8377650023B628 /* NSManagedObjectID+IDPExtensions.m in Sources */,
+				8ADD3D091B8377960023B628 /* NSString+IDPExtensions.m in Sources */,
 				84A0624C1B68EBBF00751FB5 /* TSYFriendsViewCell.m in Sources */,
+				8ADD3CB21B8377650023B628 /* IDPCoreDataManager.m in Sources */,
 				84E600611B67A9B1009FF52A /* TSYFacebookUserFriendsContext.m in Sources */,
+				8ADD3D121B8377960023B628 /* IDPOCContext.m in Sources */,
+				8ADD3D061B8377960023B628 /* NSDate+IDPExtensions.m in Sources */,
+				8ADD3CB31B8377650023B628 /* NSManagedObject+IDPExtensions.m in Sources */,
 				84A8E1BD1B662A07004B9394 /* TSYFacebookUserInfoContext.m in Sources */,
+				8ADD3BE61B7E2DA10023B628 /* TSYFacebookAlbumsContext.m in Sources */,
 				84A1EFE61B31A2A30037A3B7 /* TSYSquareView.m in Sources */,
 				84A1C3061B341B4200DC7198 /* TSYTableCell.m in Sources */,
+				8ADD3D191B8377960023B628 /* IDPStrongReference.m in Sources */,
+				8ADD3C011B81F32D0023B628 /* TSYAlbumPhotosView.m in Sources */,
 				84A26DF81B3CA4B200812575 /* TSYTableCellMovingPath.m in Sources */,
 				84BF5F191B32FB0100932154 /* NSString+TSYRandomName.m in Sources */,
 				84BD0D5E1B41F74200349DE5 /* NSIndexPath+TSYCategory.m in Sources */,
+				8ADD3D101B8377960023B628 /* IDPMutableDictionary.m in Sources */,
 				84A1EFE71B31A2A30037A3B7 /* TSYSquareViewController.m in Sources */,
+				8ADD3D0D1B8377960023B628 /* IDPKVOMutableArray.m in Sources */,
 				849F4B331B5FD01200B9DEED /* TSYFBUserModel.m in Sources */,
 				849F723E1B3BF09200869AD4 /* TSYTableChange.m in Sources */,
+				8ADD3D1E1B8377960023B628 /* IDPMath.m in Sources */,
 				84A1A3471B618C65007C980C /* TSYContext.m in Sources */,
 				84A3336A1B5A5FD500F44720 /* NSURLSession+TSYCategory.m in Sources */,
 				84E6005D1B67A3B7009FF52A /* TSYFriendsView.m in Sources */,
+				8ADD3C021B81F32D0023B628 /* TSYAlbumPhotosViewController.m in Sources */,
 				84AE8DD91B586537003C808D /* TSYImageModelCache.m in Sources */,
+				8ADD3D151B8377960023B628 /* NSObject+IDPOCExtensions.m in Sources */,
 				849F4B251B5FAFA400B9DEED /* TSYFriendsViewController.m in Sources */,
+				8AD8DC6D1B7CA1520013CF63 /* TSYAlbumsViewController.m in Sources */,
 				84A39E6D1B4BD9FD00BFDFB0 /* NSFileManager+TSYCategory.m in Sources */,
 				84A285DC1B39781300D52615 /* TSYObservableObject.m in Sources */,
 				849F4B131B5FAE8E00B9DEED /* TSYViewController.m in Sources */,
 				84BF5F1C1B32FB0100932154 /* UIWindow+TSYCategories.m in Sources */,
+				8ADD3D0E1B8377960023B628 /* IDPModel.m in Sources */,
 				849DAF171B3414CA0034D221 /* TSYMacros.m in Sources */,
 				84A1467B1B55A87700439875 /* TSYArrayModel.m in Sources */,
+				8ADD3D1C1B8377960023B628 /* IDPWeakArray.m in Sources */,
 				849F4B2E1B5FB9C800B9DEED /* TSYLoginView.m in Sources */,
 				84BF5F071B32D09900932154 /* TSYUsers.m in Sources */,
 			);

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TSYAlbumPhotosViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="TSYAlbumPhotosView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="u6w-m1-gV9">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="XKB-mI-dNE"/>
+                        <outlet property="delegate" destination="-1" id="UQw-4M-85i"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="u6w-m1-gV9" secondAttribute="trailing" id="GLH-fl-Iy5"/>
+                <constraint firstItem="u6w-m1-gV9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="U4x-Ny-nRK"/>
+                <constraint firstAttribute="bottom" secondItem="u6w-m1-gV9" secondAttribute="bottom" id="dOW-1g-bqe"/>
+                <constraint firstItem="u6w-m1-gV9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gmK-a9-zyO"/>
+            </constraints>
+            <connections>
+                <outlet property="tableView" destination="u6w-m1-gV9" id="cL9-aS-IBi"/>
+            </connections>
+        </view>
+    </objects>
+</document>

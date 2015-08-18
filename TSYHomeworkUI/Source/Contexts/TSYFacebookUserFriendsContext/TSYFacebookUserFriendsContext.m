@@ -11,7 +11,6 @@
 #import "TSYFacebookUserFriendsContext.h"
 
 #import "TSYFBUserModel.h"
-#import "TSYArrayModel.h"
 #import "TSYFacebookConstants.h"
 
 @implementation TSYFacebookUserFriendsContext
@@ -19,8 +18,8 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithModel:(id)model {
+    self = [super initWithModel:model];
     if (self) {
         self.pictureSize = CGSizeMake(kUserFriendsContextPictureWidth, kUserFriendsContextPictureHeight);
     }
@@ -32,48 +31,37 @@
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    TSYFBUserModel *model = self.model;
+    TSYFBUserModel *userModel = self.model;
     
     CGSize pictureSize = self.pictureSize;
     
     NSUInteger pictureWidth = pictureSize.width;
     NSUInteger pictureHeight = pictureSize.height;
     
-    return [NSString stringWithFormat:kUserFriendsContextGraphPath, model.ID, pictureWidth, pictureHeight];
+    return [NSString stringWithFormat:kUserFriendsContextGraphPath, userModel.userID, pictureWidth, pictureHeight];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBUserModel *model = self.model;
-    TSYArrayModel *friends = model.friends;
-    NSArray *userFriends = result[kDataKey];
+    TSYFBUserModel *userModel = self.model;
+    NSMutableArray *friendModels = userModel.friends;
     
-    [friends removeAllModels];
+    NSArray *friendsArray = result[kDataKey];
     
-    for (NSUInteger index = 0; index < userFriends.count; index++) {
-        TSYFBUserModel *friend = [TSYFBUserModel new];
-
-        friend.name = userFriends[index][kNameKey];
-        friend.ID = userFriends[index][kIDKey];
-        friend.imageUrl = [NSURL URLWithString:userFriends[index][kPictureKey][kDataKey][kURLKey]];
-
-        [friends addModel:friend];
-    }
-}
-
-- (void)processRequestResult:(id)result error:(NSError *)error {
-    TSYFBUserModel *model = self.model;
-    if (error) {
-        model.state = TSYModelDidFailLoading;
+    [friendModels removeAllObjects];
+    
+    for (NSDictionary *friendDictionary in friendsArray) {
+        TSYFBUserModel *friendModel = [TSYFBUserModel new];
         
-        return;
+        friendModel.firstName = friendDictionary[kFirstNameKey];
+        friendModel.lastName = friendDictionary[kLastNameKey];
+        friendModel.userID = friendDictionary[kIDKey];
+        friendModel.imageUrl = [NSURL URLWithString:friendDictionary[kPictureKey][kDataKey][kURLKey]];
+        
+        [friendModels addObject:friendModel];
     }
-    
-    [self fillModelWithResult:result];
-    
-    model.state = TSYModelDidLoad;
 }
 
 @end

@@ -36,31 +36,21 @@
                                                               target:self
                                                               action:@selector(logout)];
     
-    self.navigationItem.rightBarButtonItem = button;
+    self.navigationController.navigationBar.topItem.rightBarButtonItem = button;
 }
 
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setModel:(TSYModel *)model {
-    if (_model != model) {
-        [_model removeObserver:self];
-        
-        _model = model;
-        
-        [_model addObserver:self];
-    }
-}
-
 - (void)setContext:(TSYContext *)context {
     if (_context != context) {
+        [_context removeObserver:self];
         [_context cancel];
         
         _context = context;
         
-        if (context) {
-            _context.model = self.model;
-            
+        if (_context) {
+            [_context addObserver:self];
             [_context execute];
         }
     }

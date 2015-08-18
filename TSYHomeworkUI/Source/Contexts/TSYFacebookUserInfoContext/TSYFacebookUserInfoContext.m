@@ -19,8 +19,8 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithModel:(id)model {
+    self = [super initWithModel:model];
     if (self) {
         self.pictureSize = CGSizeMake(kUserInfoContextPictureWidth, kUserInfoContextPictureHeight);
     }
@@ -39,30 +39,18 @@
     NSUInteger pictureWidth = pictureSize.width;
     NSUInteger pictureHeight = pictureSize.height;
 
-    return [NSString stringWithFormat:kUserInfoContextGraphPath, model.ID, pictureWidth, pictureHeight];
+    return [NSString stringWithFormat:kUserInfoContextGraphPath, model.userID, pictureWidth, pictureHeight];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBUserModel *model = self.model;
+    TSYFBUserModel *userModel = self.model;
     
-    model.imageUrl = [NSURL URLWithString:result[kPictureKey][kDataKey][kURLKey]];
-    model.name = result[kNameKey];
-}
-
-- (void)processRequestResult:(id)result error:(NSError *)error {
-    TSYFBUserModel *model = self.model;
-    if (error) {
-        model.state = TSYModelDidFailLoading;
-        
-        return;
-    }
-    
-    [self fillModelWithResult:result];
-    
-    model.state = TSYModelDidLoad;
+    userModel.imageUrl = [NSURL URLWithString:result[kPictureKey][kDataKey][kURLKey]];
+    userModel.firstName = result[kFirstNameKey];
+    userModel.lastName = result[kLastNameKey];
 }
 
 @end

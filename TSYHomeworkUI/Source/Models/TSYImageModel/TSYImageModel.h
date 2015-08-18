@@ -12,8 +12,7 @@
 
 @interface TSYImageModel : TSYModel
 @property (nonatomic, readonly) NSURL       *url;
-//@property (nonatomic, readonly) UIImage     *image;
-@property (nonatomic, strong) UIImage     *image;
+@property (nonatomic, strong)   UIImage     *image;
 
 + (instancetype)imageModelWithURL:(NSURL *)url;
 

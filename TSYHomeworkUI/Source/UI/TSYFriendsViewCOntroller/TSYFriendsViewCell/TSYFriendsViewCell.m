@@ -16,21 +16,13 @@
 
 @implementation TSYFriendsViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)fillWithModel:(TSYFBUserModel *)model {
-    self.fullNameLabel.text = model.name;
+    self.fullNameLabel.text = model.fullName;
     
-    [self.friendImageView setImageModel:model.imageModel];
+    self.friendImageView.imageModel = model.imageModel;
 }
 
 @end

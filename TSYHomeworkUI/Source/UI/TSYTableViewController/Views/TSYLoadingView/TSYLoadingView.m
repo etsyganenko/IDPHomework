@@ -11,7 +11,7 @@
 #import "TSYView.h"
 #import "UINib+TSYCategory.h"
 
-static const NSTimeInterval TSYLoadingViewAnimationDuration        = 2;
+static const NSTimeInterval TSYLoadingViewAnimationDuration        = 0;
 static const CGFloat        TSYLoadingViewVisibleAlpha             = 1.0;
 static const CGFloat        TSYLoadingViewInvisibleAlpha           = 0.0;
 

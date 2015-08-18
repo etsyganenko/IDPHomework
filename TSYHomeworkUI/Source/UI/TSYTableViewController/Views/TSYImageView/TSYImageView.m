@@ -51,7 +51,7 @@
 
 - (void)modelWillLoad:(TSYImageModel *)imageModel {
     dispatch_async(dispatch_get_main_queue(), ^{
-//        [self showLoadingView];
+        [self showLoadingView];
     });
 }
 

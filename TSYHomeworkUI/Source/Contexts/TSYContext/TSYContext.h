@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TSYContext : NSObject
+#import "TSYObservableObject.h"
+#import "TSYModel.h"
+
+@interface TSYContext : TSYObservableObject
 @property (nonatomic, strong)   id    model;
+
++ (instancetype)contextWithModel:(id)model;
+
+- (instancetype)initWithModel:(id)model;
 
 - (void)execute;
 - (void)cancel;

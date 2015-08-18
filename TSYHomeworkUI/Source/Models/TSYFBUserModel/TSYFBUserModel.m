@@ -12,11 +12,6 @@
 #import "TSYImageModel.h"
 #import "TSYFacebookUserInfoContext.h"
 
-@interface TSYFBUserModel ()
-@property (nonatomic, strong)     TSYArrayModel   *friends;
-
-@end
-
 @implementation TSYFBUserModel
 
 @dynamic imageModel;
@@ -28,7 +23,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.friends = [TSYArrayModel new];
+        self.friends = [NSMutableArray new];
+        self.photoAlbums = [NSMutableArray new];
     }
     
     return self;
@@ -44,7 +40,7 @@
 }
 
 - (NSString *)fullName {
-    return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
+    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
 }
 
 #pragma mark -

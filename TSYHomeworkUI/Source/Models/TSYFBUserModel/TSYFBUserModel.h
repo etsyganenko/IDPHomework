@@ -10,14 +10,18 @@
 
 @class TSYArrayModel;
 @class TSYImageModel;
+@class TSYFBPhotoAlbumModel;
 
 @interface TSYFBUserModel : TSYModel
-@property (nonatomic, strong)       NSString        *ID;
-@property (nonatomic, strong)       NSString        *name;
-@property (nonatomic, strong)       NSString        *surname;
-@property (nonatomic, strong)       NSURL           *imageUrl;
+@property (nonatomic, strong)       NSString        *userID;
+@property (nonatomic, strong)       NSString        *firstName;
+@property (nonatomic, strong)       NSString        *lastName;
 @property (nonatomic, readonly)     NSString        *fullName;
+
+@property (nonatomic, strong)       NSURL           *imageUrl;
 @property (nonatomic, readonly)     TSYImageModel   *imageModel;
-@property (nonatomic, readonly)     TSYArrayModel   *friends;
+
+@property (nonatomic, strong)       NSMutableArray  *friends;
+@property (nonatomic, strong)       NSMutableArray  *photoAlbums;
 
 @end
