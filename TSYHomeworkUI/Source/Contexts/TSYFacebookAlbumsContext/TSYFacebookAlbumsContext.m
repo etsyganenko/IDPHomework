@@ -10,6 +10,7 @@
 
 #import "TSYFBUserModel.h"
 #import "TSYFBPhotoAlbumModel.h"
+#import "TSYArrayModel.h"
 
 #import "TSYFacebookConstants.h"
 
@@ -29,29 +30,19 @@
 
 - (void)fillModelWithResult:(id)result {
     NSArray *photoAlbums = result[kDataKey];
-    NSMutableArray *mutablePhotoAlbums = [NSMutableArray array];
+    
+    TSYFBUserModel *userModel = self.model;
+    TSYArrayModel *photoAlbumModels = userModel.photoAlbums;
     
     for (NSDictionary *photoAlbum in photoAlbums) {
         TSYFBPhotoAlbumModel *photoAlbumModel = [TSYFBPhotoAlbumModel new];
         
         photoAlbumModel.albumName = photoAlbum[kNameKey];
         photoAlbumModel.albumID = photoAlbum[kIDKey];
-        photoAlbumModel.albumCoverPhotoURL = photoAlbum[kPictureKey][kDataKey][kURLKey];
+        photoAlbumModel.albumCoverPhotoURL = [NSURL URLWithString:photoAlbum[kPictureKey][kDataKey][kURLKey]];
         
-        [mutablePhotoAlbums addObject:photoAlbumModel];
+        [photoAlbumModels addModel:photoAlbumModel];
     }
-}
-
-- (void)processRequestResult:(id)result error:(NSError *)error {
-    if (error) {
-        self.state = TSYModelDidFailLoading;
-        
-        return;
-    }
-    
-    [self fillModelWithResult:result];
-    
-    self.state = TSYModelDidLoad;
 }
 
 @end

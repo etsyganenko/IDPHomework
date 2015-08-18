@@ -53,7 +53,7 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
     
     UINavigationController *navigationController = self.navigationController;
     TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
-    controller.userID = selectedModel.userID;
+    controller.model = selectedModel;
     
     [navigationController pushViewController:controller animated:YES];
 }

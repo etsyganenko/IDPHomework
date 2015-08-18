@@ -40,9 +40,6 @@ static NSString * const kAlbumPhotosContextGraphPath        = @"%@/photos?fields
 
 
 
-static NSString * const kAlbumNameIDContextGraphPath        = @"%@/albums?fields=id,name"; // %@ == userID
-static NSString * const kAlbumCoverPhotoIDGraphPath         = @"%@?fields=cover_photo"; // %@ == albumID
-static NSString * const kAlbumCoverPhotoURLGraphPath        = @"%@?fields=source"; // %@ == albumCoverPhotoID
 
 static NSString * const kAlbumPhotosGraphPath               = @"%@?fields=photos"; // %@ == albumID
 static NSString * const kAlbumPhotoURLGraphPath             = @"%@?fields=source"; // %@ == photoID

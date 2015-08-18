@@ -9,7 +9,6 @@
 #import "TSYViewController.h"
 
 @interface TSYUserDetailViewController : TSYViewController
-@property (nonatomic, strong)       NSString        *userID;
 
 - (IBAction)onFriendsButton:(id)sender;
 - (IBAction)onPhotosButton:(id)sender;

@@ -47,33 +47,21 @@
 
 - (void)fillModelWithResult:(id)result {
     TSYFBUserModel *userModel = self.model;
-    TSYArrayModel *friends = userModel.friends;
-    NSArray *userFriends = result[kDataKey];
+    TSYArrayModel *friendModels = userModel.friends;
     
-    [friends removeAllModels];
+    NSArray *friendsArray = result[kDataKey];
     
-    for (NSUInteger index = 0; index < userFriends.count; index++) {
-        TSYFBUserModel *friend = [TSYFBUserModel new];
-
-        friend.name = userFriends[index][kNameKey];
-        friend.userID = userFriends[index][kIDKey];
-        friend.imageUrl = [NSURL URLWithString:userFriends[index][kPictureKey][kDataKey][kURLKey]];
-
-        [friends addModel:friend];
-    }
-}
-
-- (void)processRequestResult:(id)result error:(NSError *)error {
-    TSYFBUserModel *model = self.model;
-    if (error) {
-        model.state = TSYModelDidFailLoading;
+    [friendModels removeAllModels];
+    
+    for (NSDictionary *friendDictionary in friendsArray) {
+        TSYFBUserModel *friendModel = [TSYFBUserModel new];
         
-        return;
+        friendModel.name = friendDictionary[kNameKey];
+        friendModel.userID = friendDictionary[kIDKey];
+        friendModel.imageUrl = [NSURL URLWithString:friendDictionary[kPictureKey][kDataKey][kURLKey]];
+        
+        [friendModels addModel:friendModel];
     }
-    
-    [self fillModelWithResult:result];
-    
-    model.state = TSYModelDidLoad;
 }
 
 @end

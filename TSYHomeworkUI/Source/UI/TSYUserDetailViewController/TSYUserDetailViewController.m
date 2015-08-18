@@ -29,12 +29,7 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    TSYFBUserModel *model = [TSYFBUserModel new];
-    model.userID = self.userID;
-    
-    self.model = model;
-    
-    self.context = [TSYFacebookUserInfoContext contextWithModel:model];
+    self.context = [TSYFacebookUserInfoContext contextWithModel:self.model];
 }
 
 #pragma mark -
@@ -62,30 +57,29 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 
 - (IBAction)onPhotosButton:(id)sender {
     TSYAlbumsViewController *albumsController = [TSYAlbumsViewController new];
-    UINavigationController *navigationController = self.navigationController;
     
     albumsController.model = self.model;
 
-    [navigationController pushViewController:albumsController animated:YES];
+    [self.navigationController pushViewController:albumsController animated:YES];
 }
 
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelDidLoad:(TSYFBUserModel *)model {
+- (void)modelDidLoad:(TSYFacebookUserInfoContext *)context {
     TSYUserDetailView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [mainView fillWithModel:model];
+        [mainView fillWithModel:self.model];
         
         [mainView hideLoadingView];
     });
 }
 
-- (void)modelWillLoad:(TSYFBUserModel *)model {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mainView showLoadingView];
-    });
-}
+//- (void)modelWillLoad:(TSYFacebookUserInfoContext *)context {
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.mainView showLoadingView];
+//    });
+//}
 
 @end

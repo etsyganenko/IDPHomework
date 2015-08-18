@@ -52,17 +52,4 @@
     model.name = result[kNameKey];
 }
 
-- (void)processRequestResult:(id)result error:(NSError *)error {
-    TSYFBUserModel *model = self.model;
-    if (error) {
-        model.state = TSYModelDidFailLoading;
-        
-        return;
-    }
-    
-    [self fillModelWithResult:result];
-    
-    model.state = TSYModelDidLoad;
-}
-
 @end

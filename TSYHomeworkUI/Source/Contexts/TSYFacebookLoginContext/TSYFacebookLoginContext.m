@@ -46,14 +46,14 @@
                                        TSYFBUserModel *model = self.model;
                                        
                                        if (error || result.isCancelled) {
-                                           model.state = TSYModelDidFailLoading;
+                                           self.state = TSYModelDidFailLoading;
                                            
                                            return;
                                        }
                                        
                                        [self fillModelWithResult:result];
                                        
-                                       model.state = TSYModelDidLoad;
+                                       self.state = TSYModelDidLoad;
                                    }];
 }
 

@@ -42,23 +42,15 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setModel:(TSYModel *)model {
-    if (_model != model) {
-        [_model removeObserver:self];
-        
-        _model = model;
-        
-        [_model addObserver:self];
-    }
-}
-
 - (void)setContext:(TSYContext *)context {
     if (_context != context) {
+        [_context removeObserver:self];
         [_context cancel];
         
         _context = context;
         
         if (context) {
+            [_context addObserver:self];
             [_context execute];
         }
     }

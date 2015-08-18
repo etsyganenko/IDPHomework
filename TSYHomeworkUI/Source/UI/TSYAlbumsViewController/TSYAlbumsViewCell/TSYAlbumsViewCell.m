@@ -17,9 +17,10 @@
 #pragma mark Public Methods
 
 - (void)fillWithModel:(TSYFBPhotoAlbumModel *)albumModel {
-    TSYImageModel *albumCoverPhoto = albumModel.albumCoverPhoto;
+    NSURL *albumCoverPhotoURL = albumModel.albumCoverPhotoURL;
+    TSYImageModel *albumCoverPhotoModel = [TSYImageModel imageModelWithURL:albumCoverPhotoURL];
     
-    self.photoImageView.imageModel = albumCoverPhoto;
+    self.photoImageView.imageModel = albumCoverPhotoModel;
     self.albumNameLabel.text = albumModel.albumName;
 }
 

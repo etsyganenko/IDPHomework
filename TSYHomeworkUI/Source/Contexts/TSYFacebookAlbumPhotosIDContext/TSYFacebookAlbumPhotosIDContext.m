@@ -43,16 +43,4 @@
     }
 }
 
-- (void)processRequestResult:(id)result error:(NSError *)error {
-    if (error) {
-        self.state = TSYModelDidFailLoading;
-        
-        return;
-    }
-    
-    [self fillModelWithResult:result];
-    
-    self.state = TSYModelDidLoad;
-}
-
 @end

@@ -14,7 +14,6 @@
 #import "TSYFBPhotoAlbumModel.h"
 #import "TSYArrayModel.h"
 #import "TSYImageModel.h"
-#import "TSYFacebookAlbumIDContext.h"
 #import "TSYFacebookAlbumsContext.h"
 #import "TSYAlbumPhotosViewController.h"
 #import "TSYMacros.h"
@@ -42,8 +41,9 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
     TSYAlbumPhotosViewController *photosController = [TSYAlbumPhotosViewController new];
     
     TSYFBUserModel *userModel = self.model;
-    TSYFBPhotoAlbumModel *albumsModel = userModel.albums[indexPath.row];
-    photosController.model = albumsModel;
+    TSYFBPhotoAlbumModel *photoAlbumModel = userModel.photoAlbums[indexPath.row];
+    
+    photosController.model = photoAlbumModel;
     
     [self.navigationController pushViewController:photosController animated:YES];
 }
@@ -53,23 +53,17 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     TSYFBUserModel *userModel = self.model;
-
-    return userModel.albums.count;
+    
+    return userModel.photoAlbums.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYAlbumsViewCell *cell = [tableView cellWithClass:[TSYAlbumsViewCell class]];
-    
+
     TSYFBUserModel *userModel = self.model;
-    TSYFBPhotoAlbumModel *albumModel = userModel.albums[indexPath.row];
+    TSYFBPhotoAlbumModel *photoAlbumModel = userModel.photoAlbums[indexPath.row];
     
-    NSURL *albumCoverPhotoURL = albumModel.albumCoverPhotoURL;
-    
-    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:albumCoverPhotoURL];
-    
-    albumModel.albumCoverPhoto = imageModel;
-    
-    [cell fillWithModel:albumModel];
+    [cell fillWithModel:photoAlbumModel];
     
     return cell;
 }
@@ -77,7 +71,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelDidLoad:(TSYFBUserModel *)model {
+- (void)modelDidLoad:(TSYFacebookAlbumsContext *)context {
     TSYAlbumsView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{

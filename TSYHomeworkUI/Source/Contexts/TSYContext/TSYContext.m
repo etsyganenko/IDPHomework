@@ -35,6 +35,10 @@
 #pragma mark -
 #pragma mark Class Methods
 
++ (instancetype)context {
+    return [[self alloc] initWithModel:nil];;
+}
+
 + (instancetype)contextWithModel:(id)model {
     return [[self alloc] initWithModel:model];
 }

@@ -48,11 +48,8 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Interface Handling
 
 - (IBAction)onLoginButton:(id)sender {
-    TSYFBUserModel *model = [TSYFBUserModel new];
-    TSYFacebookLoginContext *context = [TSYFacebookLoginContext contextWithModel:model];
-    
-    self.model = model;
-    self.context = context;
+    self.model = [TSYFBUserModel new];
+    self.context = [TSYFacebookLoginContext contextWithModel:self.model];
 }
 
 - (IBAction)onUserProfileButton:(id)sender {
@@ -62,7 +59,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelDidLoad:(TSYModel *)model {
+- (void)modelDidLoad:(TSYFacebookLoginContext *)context {
     [self showUserProfileIfLoggedInAnimated:NO];
 }
 
@@ -74,12 +71,11 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
     NSString *userID = userModel.userID;
     
     if ([FBSDKAccessToken currentAccessToken] && userID) {
-        UINavigationController *navigationController = self.navigationController;
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         
-        controller.userID = userID;
+        controller.model = userModel;
         
-        [navigationController pushViewController:controller animated:animated];
+        [self.navigationController pushViewController:controller animated:animated];
     }
 }
 
