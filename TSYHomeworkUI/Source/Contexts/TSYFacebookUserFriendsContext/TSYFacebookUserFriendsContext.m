@@ -11,7 +11,6 @@
 #import "TSYFacebookUserFriendsContext.h"
 
 #import "TSYFBUserModel.h"
-#import "TSYArrayModel.h"
 #import "TSYFacebookConstants.h"
 
 @implementation TSYFacebookUserFriendsContext
@@ -47,11 +46,11 @@
 
 - (void)fillModelWithResult:(id)result {
     TSYFBUserModel *userModel = self.model;
-    TSYArrayModel *friendModels = userModel.friends;
+    NSMutableArray *friendModels = userModel.friends;
     
     NSArray *friendsArray = result[kDataKey];
     
-    [friendModels removeAllModels];
+    [friendModels removeAllObjects];
     
     for (NSDictionary *friendDictionary in friendsArray) {
         TSYFBUserModel *friendModel = [TSYFBUserModel new];
@@ -61,7 +60,7 @@
         friendModel.userID = friendDictionary[kIDKey];
         friendModel.imageUrl = [NSURL URLWithString:friendDictionary[kPictureKey][kDataKey][kURLKey]];
         
-        [friendModels addModel:friendModel];
+        [friendModels addObject:friendModel];
     }
 }
 

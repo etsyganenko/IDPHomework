@@ -22,7 +22,7 @@
 - (void)fillWithModel:(TSYFBUserModel *)model {
     self.fullNameLabel.text = model.fullName;
     
-    [self.friendImageView setImageModel:model.imageModel];
+    self.friendImageView.imageModel = model.imageModel;
 }
 
 @end

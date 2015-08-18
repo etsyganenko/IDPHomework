@@ -10,7 +10,6 @@
 
 #import "TSYFBPhotoAlbumModel.h"
 #import "TSYFBPhotoModel.h"
-#import "TSYArrayModel.h"
 #import "TSYFacebookConstants.h"
 
 @interface TSYFacebookAlbumPhotosContext ()
@@ -34,7 +33,7 @@
 
 - (void)fillModelWithResult:(id)result {
     TSYFBPhotoAlbumModel *photoAlbumModel = self.model;
-    TSYArrayModel *photoModels = photoAlbumModel.photoModels;
+    NSMutableArray *photoModels = photoAlbumModel.photoModels;
     
     NSArray *photosArray = result[kDataKey];
     
@@ -44,7 +43,7 @@
         photoModel.photoID = photosDictionary[kIDKey];
         photoModel.photoURL = [NSURL URLWithString:photosDictionary[kPictureKey]];
         
-        [photoModels addModel: photoModel];
+        [photoModels addObject:photoModel];
     }
 }
 

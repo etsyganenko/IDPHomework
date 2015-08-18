@@ -8,8 +8,6 @@
 
 #import "TSYFBPhotoAlbumModel.h"
 
-#import "TSYArrayModel.h"
-
 @implementation TSYFBPhotoAlbumModel
 
 #pragma mark -
@@ -18,7 +16,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.photoModels = [TSYArrayModel array];
+        self.photoModels = [NSMutableArray array];
     }
     
     return self;

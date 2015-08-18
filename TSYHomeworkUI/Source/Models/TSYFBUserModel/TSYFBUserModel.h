@@ -21,7 +21,7 @@
 @property (nonatomic, strong)       NSURL           *imageUrl;
 @property (nonatomic, readonly)     TSYImageModel   *imageModel;
 
-@property (nonatomic, readonly)     TSYArrayModel   *friends;
-@property (nonatomic, readonly)     TSYArrayModel   *photoAlbums;
+@property (nonatomic, strong)       NSMutableArray  *friends;
+@property (nonatomic, strong)       NSMutableArray  *photoAlbums;
 
 @end

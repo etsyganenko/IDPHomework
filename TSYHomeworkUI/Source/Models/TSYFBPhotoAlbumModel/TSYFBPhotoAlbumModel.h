@@ -9,13 +9,12 @@
 #import "TSYModel.h"
 
 @class TSYImageModel;
-@class TSYArrayModel;
 
 @interface TSYFBPhotoAlbumModel : TSYModel
 @property (nonatomic, strong)   NSString                *albumID;
 @property (nonatomic, strong)   NSString                *albumName;
 @property (nonatomic, strong)   NSURL                   *albumCoverPhotoURL;
 
-@property (nonatomic, strong)   TSYArrayModel           *photoModels;
+@property (nonatomic, strong)   NSMutableArray          *photoModels;
 
 @end
