@@ -76,10 +76,10 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
     });
 }
 
-//- (void)modelWillLoad:(TSYFacebookUserInfoContext *)context {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self.mainView showLoadingView];
-//    });
-//}
+- (void)modelWillLoad:(TSYFacebookUserInfoContext *)context {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.mainView showLoadingView];
+    });
+}
 
 @end
