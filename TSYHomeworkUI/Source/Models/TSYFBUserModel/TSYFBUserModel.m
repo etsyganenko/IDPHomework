@@ -46,7 +46,7 @@
 }
 
 - (NSString *)fullName {
-    return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
+    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
 }
 
 #pragma mark -

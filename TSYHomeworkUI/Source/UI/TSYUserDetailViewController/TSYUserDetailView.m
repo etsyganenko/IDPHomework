@@ -18,8 +18,13 @@
 
 - (void)fillWithModel:(TSYFBUserModel *)model {
     self.IDLabel.text = model.userID;
-    self.fullNameLabel.text = model.name;
-    self.userImageView.imageModel = model.imageModel;
+    self.fullNameLabel.text = model.fullName;
+    
+    NSURL *imageUrl = model.imageUrl;
+    
+    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:imageUrl];
+    
+    self.userImageView.imageModel = imageModel;
 }
 
 @end

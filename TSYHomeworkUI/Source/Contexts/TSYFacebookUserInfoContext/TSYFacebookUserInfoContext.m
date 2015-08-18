@@ -46,10 +46,11 @@
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBUserModel *model = self.model;
+    TSYFBUserModel *userModel = self.model;
     
-    model.imageUrl = [NSURL URLWithString:result[kPictureKey][kDataKey][kURLKey]];
-    model.name = result[kNameKey];
+    userModel.imageUrl = [NSURL URLWithString:result[kPictureKey][kDataKey][kURLKey]];
+    userModel.firstName = result[kFirstNameKey];
+    userModel.lastName = result[kLastNameKey];
 }
 
 @end

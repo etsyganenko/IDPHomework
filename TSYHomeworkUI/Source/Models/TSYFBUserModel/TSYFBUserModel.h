@@ -14,8 +14,8 @@
 
 @interface TSYFBUserModel : TSYModel
 @property (nonatomic, strong)       NSString        *userID;
-@property (nonatomic, strong)       NSString        *name;
-@property (nonatomic, strong)       NSString        *surname;
+@property (nonatomic, strong)       NSString        *firstName;
+@property (nonatomic, strong)       NSString        *lastName;
 @property (nonatomic, readonly)     NSString        *fullName;
 
 @property (nonatomic, strong)       NSURL           *imageUrl;

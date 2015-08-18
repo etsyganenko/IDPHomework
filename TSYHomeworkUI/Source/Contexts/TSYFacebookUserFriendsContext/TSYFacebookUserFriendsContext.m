@@ -56,7 +56,8 @@
     for (NSDictionary *friendDictionary in friendsArray) {
         TSYFBUserModel *friendModel = [TSYFBUserModel new];
         
-        friendModel.name = friendDictionary[kNameKey];
+        friendModel.firstName = friendDictionary[kFirstNameKey];
+        friendModel.lastName = friendDictionary[kLastNameKey];
         friendModel.userID = friendDictionary[kIDKey];
         friendModel.imageUrl = [NSURL URLWithString:friendDictionary[kPictureKey][kDataKey][kURLKey]];
         

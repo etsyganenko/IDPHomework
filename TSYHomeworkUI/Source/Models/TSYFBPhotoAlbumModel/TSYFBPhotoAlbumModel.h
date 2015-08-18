@@ -14,12 +14,8 @@
 @interface TSYFBPhotoAlbumModel : TSYModel
 @property (nonatomic, strong)   NSString                *albumID;
 @property (nonatomic, strong)   NSString                *albumName;
-
-//@property (nonatomic, strong)   TSYImageModel           *albumCoverPhoto;
-
-//@property (nonatomic, strong)   NSString                *albumCoverPhotoID;
 @property (nonatomic, strong)   NSURL                   *albumCoverPhotoURL;
 
-@property (nonatomic, strong)   TSYArrayModel           *photos;
+@property (nonatomic, strong)   TSYArrayModel           *photoModels;
 
 @end

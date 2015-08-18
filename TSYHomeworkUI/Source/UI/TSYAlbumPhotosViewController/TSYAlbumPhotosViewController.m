@@ -43,17 +43,6 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 }
 
 #pragma mark -
-#pragma mark UITableViewDelegate
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
-}
-
-#pragma mark -
 #pragma mark UITableViewDataSource
 
 - (void)        tableView:(UITableView *)tableView
@@ -65,13 +54,14 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     TSYFBPhotoAlbumModel *albumModel = self.model;
     
-    return albumModel.photos.count;
+    return albumModel.photoModels.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYAlbumViewCell *cell = [tableView cellWithClass:[TSYAlbumViewCell class]];
+    
     TSYFBPhotoAlbumModel *albumModel = self.model;
-    TSYFBPhotoModel *photoModel = albumModel.photos[indexPath.row];
+    TSYFBPhotoModel *photoModel = albumModel.photoModels[indexPath.row];
     
     [cell fillWithModel:photoModel];
 
@@ -81,7 +71,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelDidLoad:(TSYFBPhotoAlbumModel *)model {
+- (void)modelDidLoad:(TSYFacebookAlbumPhotosContext *)context {
     TSYAlbumPhotosView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{

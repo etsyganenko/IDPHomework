@@ -16,6 +16,7 @@
 #import "TSYImageModel.h"
 #import "TSYFacebookAlbumsContext.h"
 #import "TSYAlbumPhotosViewController.h"
+#import "TSYFacebookConstants.h"
 #import "TSYMacros.h"
 
 #import "UITableView+TSYCategory.h"
@@ -31,6 +32,14 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
     [super viewWillAppear:animated];
     
     self.context = [TSYFacebookAlbumsContext contextWithModel:self.model];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    TSYFBUserModel *userModel = self.model;
+    
+    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:kPhotoAlbumsTitle, userModel.firstName];
 }
 
 #pragma mark -

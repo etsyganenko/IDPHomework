@@ -43,8 +43,6 @@
                                    handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                        TSYStrongify(self);
                                        
-                                       TSYFBUserModel *model = self.model;
-                                       
                                        if (error || result.isCancelled) {
                                            self.state = TSYModelDidFailLoading;
                                            
@@ -58,9 +56,9 @@
 }
 
 - (void)fillModelWithResult:(FBSDKLoginManagerLoginResult *)result {
-    TSYFBUserModel *model = self.model;
+    TSYFBUserModel *userModel = self.model;
     
-    model.userID = result.token.userID;
+    userModel.userID = result.token.userID;
 }
 
 @end

@@ -14,6 +14,4 @@
 @property (nonatomic, strong)   NSString        *photoID;
 @property (nonatomic, strong)   NSURL           *photoURL;
 
-@property (nonatomic, strong)   TSYImageModel   *imageModel;
-
 @end

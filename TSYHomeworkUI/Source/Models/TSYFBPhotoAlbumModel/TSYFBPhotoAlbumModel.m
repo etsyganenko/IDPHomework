@@ -18,7 +18,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.photos = [TSYArrayModel array];
+        self.photoModels = [TSYArrayModel array];
     }
     
     return self;

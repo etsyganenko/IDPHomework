@@ -34,6 +34,8 @@
     TSYFBUserModel *userModel = self.model;
     TSYArrayModel *photoAlbumModels = userModel.photoAlbums;
     
+    [photoAlbumModels removeAllModels];
+    
     for (NSDictionary *photoAlbum in photoAlbums) {
         TSYFBPhotoAlbumModel *photoAlbumModel = [TSYFBPhotoAlbumModel new];
         
