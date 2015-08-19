@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="DBFBPhoto" syncable="YES">
-        <attribute name="photoURL" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="DBFBPhoto" representedClassName="DBFBPhoto" syncable="YES">
+        <attribute name="photoID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoURLString" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="photoAlbum" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBFBPhotoAlbum" inverseName="photos" inverseEntity="DBFBPhotoAlbum" syncable="YES"/>
     </entity>
-    <entity name="DBFBPhotoAlbum" syncable="YES">
+    <entity name="DBFBPhotoAlbum" representedClassName="DBFBPhotoAlbum" syncable="YES">
+        <attribute name="albumID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="albumName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="coverPhotoURLString" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DBFBPhoto" inverseName="photoAlbum" inverseEntity="DBFBPhoto" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBFBUser" inverseName="photoAlbums" inverseEntity="DBFBUser" syncable="YES"/>
     </entity>
@@ -13,11 +17,12 @@
         <attribute name="fullName" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DBFBUser" inverseName="friends" inverseEntity="DBFBUser" syncable="YES"/>
         <relationship name="photoAlbums" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DBFBPhotoAlbum" inverseName="user" inverseEntity="DBFBPhotoAlbum" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DBFBUser" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="DBFBPhotoAlbum" positionX="-54" positionY="27" width="128" height="75"/>
-        <element name="DBFBPhoto" positionX="-36" positionY="36" width="128" height="75"/>
+        <element name="DBFBUser" positionX="-803" positionY="-264" width="128" height="133"/>
+        <element name="DBFBPhotoAlbum" positionX="-540" positionY="-387" width="128" height="118"/>
+        <element name="DBFBPhoto" positionX="-279" positionY="-66" width="128" height="88"/>
     </elements>
 </model>
