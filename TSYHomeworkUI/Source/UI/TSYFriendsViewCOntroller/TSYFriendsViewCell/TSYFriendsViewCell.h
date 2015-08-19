@@ -11,15 +11,15 @@
 #import "TSYModel.h"
 
 @class TSYImageView;
-@class TSYFBUserModel;
+@class TSYFBUser;
 @class TSYFacebookUserInfoContext;
 
 @interface TSYFriendsViewCell : UITableViewCell <TSYModelObserver>
 @property (nonatomic, strong)   IBOutlet TSYImageView       *friendImageView;
 @property (nonatomic, strong)   IBOutlet UILabel            *fullNameLabel;
 
-@property (nonatomic, strong)   TSYFBUserModel              *model;
+@property (nonatomic, strong)   TSYFBUser                   *userModel;
 
-- (void)fillWithModel:(TSYFBUserModel *)model;
+- (void)fillWithModel:(TSYFBUser *)userModel;
 
 @end

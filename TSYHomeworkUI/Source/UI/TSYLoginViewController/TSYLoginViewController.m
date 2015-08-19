@@ -15,7 +15,7 @@
 #import "TSYMacros.h"
 #import "TSYFacebookLoginContext.h"
 #import "TSYFacebookUserInfoContext.h"
-#import "TSYFBUserModel.h"
+#import "TSYFBUser.h"
 
 TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView)
 
@@ -68,8 +68,8 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Private Methods
 
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated {
-    TSYFBUserModel *userModel = self.model;
-    NSString *userID = userModel.userID;
+    TSYFBUser *userModel = self.model;
+    NSString *userID = userModel.id;
     
     if ([FBSDKAccessToken currentAccessToken] && userID) {
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];

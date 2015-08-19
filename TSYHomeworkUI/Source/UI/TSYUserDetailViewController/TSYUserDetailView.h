@@ -10,7 +10,7 @@
 
 #import "TSYImageView.h"
 
-@class TSYFBUserModel;
+@class TSYFBUser;
 
 @interface TSYUserDetailView : TSYView
 @property (nonatomic, strong)   IBOutlet TSYImageView   *userImageView;
@@ -20,6 +20,6 @@
 @property (nonatomic, strong)   IBOutlet UIButton       *friendsButton;
 @property (nonatomic, strong)   IBOutlet UIButton       *photosButton;
 
-- (void)fillWithModel:(TSYFBUserModel *)model;
+- (void)fillWithModel:(TSYFBUser *)userModel;
 
 @end

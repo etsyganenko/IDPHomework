@@ -11,10 +11,10 @@
 #import "TSYAlbumPhotosView.h"
 #import "TSYAlbumViewCell.h"
 #import "TSYFBUserModel.h"
-#import "TSYFBPhotoAlbumModel.h"
+#import "TSYFBPhotoAlbum.h"
 #import "TSYImageModel.h"
 #import "TSYArrayModel.h"
-#import "TSYFBPhotoModel.h"
+#import "TSYFBPhoto.h"
 #import "TSYFacebookAlbumPhotosContext.h"
 #import "TSYMacros.h"
 
@@ -36,8 +36,8 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    TSYFBPhotoAlbumModel *albumModel = self.model;
-    NSString *albumName = albumModel.albumName;
+    TSYFBPhotoAlbum *photoAlbumModel = self.model;
+    NSString *albumName = photoAlbumModel.albumName;
     
     self.navigationController.navigationBar.topItem.title = albumName;
 }
@@ -52,16 +52,16 @@ TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosVi
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    TSYFBPhotoAlbumModel *albumModel = self.model;
+    TSYFBPhotoAlbum *photoAlbumModel = self.model;
     
-    return albumModel.photoModels.count;
+    return photoAlbumModel.photos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYAlbumViewCell *cell = [tableView cellWithClass:[TSYAlbumViewCell class]];
     
-    TSYFBPhotoAlbumModel *albumModel = self.model;
-    TSYFBPhotoModel *photoModel = albumModel.photoModels[indexPath.row];
+    TSYFBPhotoAlbum *photoAlbumModel = self.model;
+    TSYFBPhoto *photoModel = photoAlbumModel.photos[indexPath.row];
     
     [cell fillWithModel:photoModel];
 

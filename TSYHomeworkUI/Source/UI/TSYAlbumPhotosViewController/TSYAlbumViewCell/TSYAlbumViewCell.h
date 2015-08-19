@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class TSYImageView;
-@class TSYFBPhotoModel;
+@class TSYFBPhoto;
 
 @interface TSYAlbumViewCell : UITableViewCell
 @property (nonatomic, strong)   IBOutlet TSYImageView       *photoImageView;
 
-- (void)fillWithModel:(TSYFBPhotoModel *)model;
+- (void)fillWithModel:(TSYFBPhoto *)photoModel;
 
 @end

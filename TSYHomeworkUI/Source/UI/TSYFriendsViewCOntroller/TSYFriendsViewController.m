@@ -10,7 +10,7 @@
 
 #import "TSYMacros.h"
 #import "TSYFriendsView.h"
-#import "TSYFBUserModel.h"
+#import "TSYFBUser.h"
 #import "TSYArrayModel.h"
 #import "TSYFacebookUserFriendsContext.h"
 #import "TSYFriendsViewCell.h"
@@ -48,28 +48,28 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 - (void)        tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TSYFBUserModel *userModel = self.model;
-    TSYFBUserModel *selectedModel = userModel.friends[indexPath.row];
+    TSYFBUser *userModel = self.model;
+    TSYFBUser *selectedUserModel = userModel.friends[indexPath.row];
     
     UINavigationController *navigationController = self.navigationController;
     TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
-    controller.model = selectedModel;
+    controller.model = selectedUserModel;
     
     [navigationController pushViewController:controller animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    TSYFBUserModel *model = self.model;
+    TSYFBUser *model = self.model;
 
     return model.friends.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYFriendsViewCell *cell = [tableView cellWithClass:[TSYFriendsViewCell class]];
-    TSYFBUserModel *model = self.model;
-    TSYFBUserModel *cellModel = model.friends[indexPath.row];
+    TSYFBUser *userModel = self.model;
+    TSYFBUser *cellUserModel = userModel.friends[indexPath.row];
     
-    [cell fillWithModel:cellModel];
+    [cell fillWithModel:cellUserModel];
     
     return cell;
 }
@@ -77,13 +77,13 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelWillLoad:(TSYFBUserModel *)model {
+- (void)modelWillLoad:(TSYFacebookUserFriendsContext *)context {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.mainView showLoadingView];
     });
 }
 
-- (void)modelDidLoad:(TSYFBUserModel *)model {
+- (void)modelDidLoad:(TSYFacebookUserFriendsContext *)context {
     TSYFriendsView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{

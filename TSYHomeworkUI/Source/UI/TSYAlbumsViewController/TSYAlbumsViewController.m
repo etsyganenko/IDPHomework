@@ -10,8 +10,8 @@
 
 #import "TSYAlbumsView.h"
 #import "TSYAlbumsViewCell.h"
-#import "TSYFBUserModel.h"
-#import "TSYFBPhotoAlbumModel.h"
+#import "TSYFBUser.h"
+#import "TSYFBPhotoAlbum.h"
 #import "TSYArrayModel.h"
 #import "TSYImageModel.h"
 #import "TSYFacebookAlbumsContext.h"
@@ -37,7 +37,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    TSYFBUserModel *userModel = self.model;
+    TSYFBUser *userModel = self.model;
     
     self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:kPhotoAlbumsTitle, userModel.firstName];
 }
@@ -48,8 +48,8 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYAlbumPhotosViewController *photosController = [TSYAlbumPhotosViewController new];
     
-    TSYFBUserModel *userModel = self.model;
-    TSYFBPhotoAlbumModel *photoAlbumModel = userModel.photoAlbums[indexPath.row];
+    TSYFBUser *userModel = self.model;
+    TSYFBPhotoAlbum *photoAlbumModel = userModel.photoAlbums[indexPath.row];
     
     photosController.model = photoAlbumModel;
     
@@ -60,7 +60,7 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    TSYFBUserModel *userModel = self.model;
+    TSYFBUser *userModel = self.model;
     
     return userModel.photoAlbums.count;
 }
@@ -68,8 +68,8 @@ TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainVi
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TSYAlbumsViewCell *cell = [tableView cellWithClass:[TSYAlbumsViewCell class]];
 
-    TSYFBUserModel *userModel = self.model;
-    TSYFBPhotoAlbumModel *photoAlbumModel = userModel.photoAlbums[indexPath.row];
+    TSYFBUser *userModel = self.model;
+    TSYFBPhotoAlbum *photoAlbumModel = userModel.photoAlbums[indexPath.row];
     
     [cell fillWithModel:photoAlbumModel];
     

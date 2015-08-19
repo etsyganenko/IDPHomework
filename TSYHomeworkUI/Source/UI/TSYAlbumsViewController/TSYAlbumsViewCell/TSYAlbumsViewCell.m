@@ -9,19 +9,19 @@
 #import "TSYAlbumsViewCell.h"
 
 #import "TSYImageModel.h"
-#import "TSYFBPhotoAlbumModel.h"
+#import "TSYFBPhotoAlbum.h"
 
 @implementation TSYAlbumsViewCell
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)fillWithModel:(TSYFBPhotoAlbumModel *)albumModel {
-    NSURL *albumCoverPhotoURL = albumModel.albumCoverPhotoURL;
-    TSYImageModel *albumCoverPhotoModel = [TSYImageModel imageModelWithURL:albumCoverPhotoURL];
+- (void)fillWithModel:(TSYFBPhotoAlbum *)photoAlbumModel {
+    NSURL *albumCoverPhotoURL = photoAlbumModel.coverPhotoURL;
+    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:albumCoverPhotoURL];
     
-    self.photoImageView.imageModel = albumCoverPhotoModel;
-    self.albumNameLabel.text = albumModel.albumName;
+    self.photoImageView.imageModel = imageModel;
+    self.albumNameLabel.text = photoAlbumModel.albumName;
 }
 
 @end

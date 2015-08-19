@@ -10,7 +10,7 @@
 
 #import "TSYUserDetailViewController.h"
 
-#import "TSYFBUserModel.h"
+#import "TSYFBUser.h"
 #import "TSYUserDetailView.h"
 #import "TSYMacros.h"
 #import "TSYFacebookUserInfoContext.h"

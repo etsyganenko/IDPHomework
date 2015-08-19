@@ -115,9 +115,10 @@
 		8ADD3D1D1B8377960023B628 /* IDPMachTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D001B8377960023B628 /* IDPMachTimer.m */; };
 		8ADD3D1E1B8377960023B628 /* IDPMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D031B8377960023B628 /* IDPMath.m */; };
 		8ADD3D221B837ECB0023B628 /* TSYHomework.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D201B837ECB0023B628 /* TSYHomework.xcdatamodeld */; };
-		8ADD3D371B848C1E0023B628 /* DBFBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D361B848C1E0023B628 /* DBFBPhoto.m */; };
-		8ADD3D3A1B848C1F0023B628 /* DBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D391B848C1F0023B628 /* DBUser.m */; };
-		8ADD3D3D1B848C1F0023B628 /* DBFBPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D3C1B848C1F0023B628 /* DBFBPhotoAlbum.m */; };
+		8ADD3D371B848C1E0023B628 /* TSYFBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D361B848C1E0023B628 /* TSYFBPhoto.m */; };
+		8ADD3D3A1B848C1F0023B628 /* TSYFBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D391B848C1F0023B628 /* TSYFBUser.m */; };
+		8ADD3D3D1B848C1F0023B628 /* TSYFBPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D3C1B848C1F0023B628 /* TSYFBPhotoAlbum.m */; };
+		8ADD3D441B84C4D60023B628 /* TSYManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D431B84C4D60023B628 /* TSYManagedObject.m */; };
 		B66C1EB5621F627838B6B349 /* libPods-TSYHomeworkUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */; };
 /* End PBXBuildFile section */
 
@@ -337,12 +338,14 @@
 		8ADD3D031B8377960023B628 /* IDPMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPMath.m; sourceTree = "<group>"; };
 		8ADD3D041B8377960023B628 /* IDPPropertyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPPropertyMacros.h; sourceTree = "<group>"; };
 		8ADD3D211B837ECB0023B628 /* TSYHomework.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TSYHomework.xcdatamodel; sourceTree = "<group>"; };
-		8ADD3D351B848C1E0023B628 /* DBFBPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFBPhoto.h; sourceTree = "<group>"; };
-		8ADD3D361B848C1E0023B628 /* DBFBPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFBPhoto.m; sourceTree = "<group>"; };
-		8ADD3D381B848C1F0023B628 /* DBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUser.h; sourceTree = "<group>"; };
-		8ADD3D391B848C1F0023B628 /* DBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUser.m; sourceTree = "<group>"; };
-		8ADD3D3B1B848C1F0023B628 /* DBFBPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFBPhotoAlbum.h; sourceTree = "<group>"; };
-		8ADD3D3C1B848C1F0023B628 /* DBFBPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFBPhotoAlbum.m; sourceTree = "<group>"; };
+		8ADD3D351B848C1E0023B628 /* TSYFBPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFBPhoto.h; sourceTree = "<group>"; };
+		8ADD3D361B848C1E0023B628 /* TSYFBPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFBPhoto.m; sourceTree = "<group>"; };
+		8ADD3D381B848C1F0023B628 /* TSYFBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFBUser.h; sourceTree = "<group>"; };
+		8ADD3D391B848C1F0023B628 /* TSYFBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFBUser.m; sourceTree = "<group>"; };
+		8ADD3D3B1B848C1F0023B628 /* TSYFBPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYFBPhotoAlbum.h; sourceTree = "<group>"; };
+		8ADD3D3C1B848C1F0023B628 /* TSYFBPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFBPhotoAlbum.m; sourceTree = "<group>"; };
+		8ADD3D421B84C4D60023B628 /* TSYManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYManagedObject.h; sourceTree = "<group>"; };
+		8ADD3D431B84C4D60023B628 /* TSYManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYManagedObject.m; sourceTree = "<group>"; };
 		C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -641,6 +644,7 @@
 		84A1EFDC1B31679B0037A3B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8ADD3D411B84C4D60023B628 /* TSYManagedObject */,
 				8ADD3D1F1B837E610023B628 /* TSYCoreDataModel */,
 				849F4B301B5FCFF700B9DEED /* TSYFBUserModel */,
 				8ADD3C121B83104F0023B628 /* TSYFBPhotoAlbumModel */,
@@ -1263,14 +1267,23 @@
 			isa = PBXGroup;
 			children = (
 				8ADD3D201B837ECB0023B628 /* TSYHomework.xcdatamodeld */,
-				8ADD3D381B848C1F0023B628 /* DBUser.h */,
-				8ADD3D391B848C1F0023B628 /* DBUser.m */,
-				8ADD3D3B1B848C1F0023B628 /* DBFBPhotoAlbum.h */,
-				8ADD3D3C1B848C1F0023B628 /* DBFBPhotoAlbum.m */,
-				8ADD3D351B848C1E0023B628 /* DBFBPhoto.h */,
-				8ADD3D361B848C1E0023B628 /* DBFBPhoto.m */,
+				8ADD3D381B848C1F0023B628 /* TSYFBUser.h */,
+				8ADD3D391B848C1F0023B628 /* TSYFBUser.m */,
+				8ADD3D3B1B848C1F0023B628 /* TSYFBPhotoAlbum.h */,
+				8ADD3D3C1B848C1F0023B628 /* TSYFBPhotoAlbum.m */,
+				8ADD3D351B848C1E0023B628 /* TSYFBPhoto.h */,
+				8ADD3D361B848C1E0023B628 /* TSYFBPhoto.m */,
 			);
 			path = TSYCoreDataModel;
+			sourceTree = "<group>";
+		};
+		8ADD3D411B84C4D60023B628 /* TSYManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3D421B84C4D60023B628 /* TSYManagedObject.h */,
+				8ADD3D431B84C4D60023B628 /* TSYManagedObject.m */,
+			);
+			path = TSYManagedObject;
 			sourceTree = "<group>";
 		};
 		BE30A4A9EDD4073BC4CA38A1 /* Pods */ = {
@@ -1481,11 +1494,11 @@
 				84BF5F181B32FB0100932154 /* NSString+TSYAlphabet.m in Sources */,
 				8ADD3D1B1B8377960023B628 /* IDPRetainingDictionary.m in Sources */,
 				8ADD3D181B8377960023B628 /* IDPReference.m in Sources */,
-				8ADD3D371B848C1E0023B628 /* DBFBPhoto.m in Sources */,
+				8ADD3D371B848C1E0023B628 /* TSYFBPhoto.m in Sources */,
 				8ADD3D111B8377960023B628 /* IDPModelMixin.m in Sources */,
 				8ADD3D0A1B8377960023B628 /* IDPDispatch.m in Sources */,
 				84A10F8F1B5657A9007CE765 /* TSYImageView.m in Sources */,
-				8ADD3D3A1B848C1F0023B628 /* DBUser.m in Sources */,
+				8ADD3D3A1B848C1F0023B628 /* TSYFBUser.m in Sources */,
 				8ADD3D071B8377960023B628 /* NSFileManager+IDPExtensions.m in Sources */,
 				8ADD3D0B1B8377960023B628 /* IDPKeyPathObserver.m in Sources */,
 				84A8D3611B64C8730083FE71 /* TSYView.m in Sources */,
@@ -1497,7 +1510,7 @@
 				8ADD3D131B8377960023B628 /* IDPOCImplementation.m in Sources */,
 				8AD8DC6A1B7CA1520013CF63 /* TSYAlbumsView.m in Sources */,
 				84BF5F1A1B32FB0100932154 /* NSString+TSYRandomString.m in Sources */,
-				8ADD3D3D1B848C1F0023B628 /* DBFBPhotoAlbum.m in Sources */,
+				8ADD3D3D1B848C1F0023B628 /* TSYFBPhotoAlbum.m in Sources */,
 				84A8E1B71B6625CD004B9394 /* TSYUserDetailView.m in Sources */,
 				8ADD3D171B8377960023B628 /* IDPObservableObject.m in Sources */,
 				849F4B181B5FAEE800B9DEED /* TSYLoginViewController.m in Sources */,
@@ -1539,6 +1552,7 @@
 				849F4B331B5FD01200B9DEED /* TSYFBUserModel.m in Sources */,
 				849F723E1B3BF09200869AD4 /* TSYTableChange.m in Sources */,
 				8ADD3D1E1B8377960023B628 /* IDPMath.m in Sources */,
+				8ADD3D441B84C4D60023B628 /* TSYManagedObject.m in Sources */,
 				84A1A3471B618C65007C980C /* TSYContext.m in Sources */,
 				84A3336A1B5A5FD500F44720 /* NSURLSession+TSYCategory.m in Sources */,
 				84E6005D1B67A3B7009FF52A /* TSYFriendsView.m in Sources */,

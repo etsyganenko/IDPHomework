@@ -8,7 +8,7 @@
 
 #import "TSYFriendsViewCell.h"
 
-#import "TSYFBUserModel.h"
+#import "TSYFBUser.h"
 #import "TSYImageView.h"
 #import "TSYFacebookUserInfoContext.h"
 #import "TSYImageModel.h"
@@ -19,10 +19,14 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)fillWithModel:(TSYFBUserModel *)model {
-    self.fullNameLabel.text = model.fullName;
+- (void)fillWithModel:(TSYFBUser *)userModel {
+    self.fullNameLabel.text = userModel.fullName;
     
-    self.friendImageView.imageModel = model.imageModel;
+    NSURL *imageURL = userModel.imageUrl;
+    
+    TSYImageModel *imageModel = [TSYImageModel imageModelWithURL:imageURL];
+    
+    self.friendImageView.imageModel = imageModel;
 }
 
 @end

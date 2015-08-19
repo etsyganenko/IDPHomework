@@ -1,5 +1,5 @@
 //
-//  DBFBPhoto.h
+//  TSYFBPhoto.h
 //  TSYHomeworkUI
 //
 //  Created by Yevgen on 8/19/15.
@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class DBFBPhotoAlbum;
+#import "TSYManagedObject.h"
 
-@interface DBFBPhoto : NSManagedObject
+@class TSYFBPhotoAlbum;
+
+@interface TSYFBPhoto : TSYManagedObject
 @property (nonatomic, strong)   NSURL           *photoURL;
-@property (nonatomic, strong)   NSString        *photoID;
 
-@property (nonatomic, strong)   DBFBPhotoAlbum  *photoAlbum;
+@property (nonatomic, strong)   TSYFBPhotoAlbum  *photoAlbum;
 
 @end

@@ -10,7 +10,7 @@
 
 #import "TSYFacebookUserInfoContext.h"
 
-#import "TSYFBUserModel.h"
+#import "TSYFBUser.h"
 #import "TSYImageModel.h"
 #import "TSYFacebookConstants.h"
 
@@ -32,21 +32,21 @@
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    TSYFBUserModel *model = self.model;
+    TSYFBUser *userModel = self.model;
     
     CGSize pictureSize = self.pictureSize;
     
     NSUInteger pictureWidth = pictureSize.width;
     NSUInteger pictureHeight = pictureSize.height;
 
-    return [NSString stringWithFormat:kUserInfoContextGraphPath, model.userID, pictureWidth, pictureHeight];
+    return [NSString stringWithFormat:kUserInfoContextGraphPath, userModel.id, pictureWidth, pictureHeight];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBUserModel *userModel = self.model;
+    TSYFBUser *userModel = self.model;
     
     userModel.imageUrl = [NSURL URLWithString:result[kPictureKey][kDataKey][kURLKey]];
     userModel.firstName = result[kFirstNameKey];

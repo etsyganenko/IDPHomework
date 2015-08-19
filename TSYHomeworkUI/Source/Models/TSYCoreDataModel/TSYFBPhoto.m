@@ -1,24 +1,23 @@
 //
-//  DBFBPhoto.m
+//  TSYFBPhoto.m
 //  TSYHomeworkUI
 //
 //  Created by Yevgen on 8/19/15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "DBFBPhoto.h"
+#import "TSYFBPhoto.h"
 
-#import "DBFBPhotoAlbum.h"
+#import "TSYFBPhotoAlbum.h"
 
-@interface DBFBPhoto ()
+@interface TSYFBPhoto ()
 @property (nonatomic, strong)   NSString        *photoURLString;
 
 @end
 
-@implementation DBFBPhoto
+@implementation TSYFBPhoto
 
 @dynamic photoURLString;
-@dynamic photoID;
 @dynamic photoAlbum;
 
 #pragma mark -
@@ -29,9 +28,7 @@
 }
 
 - (void)setPhotoURL:(NSURL *)photoURL {
-    self.photoURLString = [NSString stringWithContentsOfURL:photoURL
-                                                   encoding:0
-                                                      error:nil];
+    self.photoURLString = [photoURL absoluteString];
 }
 
 @end

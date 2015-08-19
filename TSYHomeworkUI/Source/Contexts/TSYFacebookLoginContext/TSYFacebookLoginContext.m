@@ -12,8 +12,7 @@
 #import "TSYFacebookLoginContext.h"
 
 #import "ActiveRecordKit.h"
-#import "TSYFBUserModel.h"
-#import "DBUser.h"
+#import "TSYFBUser.h"
 #import "TSYMacros.h"
 #import "TSYFacebookConstants.h"
 
@@ -62,31 +61,31 @@
 }
 
 - (void)fillModelWithResult:(FBSDKLoginManagerLoginResult *)result {
-//    NSString *userID = result.token.userID;
-//    
-////    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == %@", @"userID", userID];
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@", userID];
-//    
-//    NSArray *users = [DBUser fetchEntityWithSortDescriptors:nil
-//                                                  predicate:predicate
-//                                              prefetchPaths:nil];
-//    
-//    if (0 == users.count) {
-//        DBUser *user = [DBUser managedObject];
-//        user.userID = userID;
-//        
-//        self.model = user;
-//        
-//        [user saveManagedObject];
-//    } else {
-//        self.model = [users firstObject];
-//    }
+    NSString *userID = result.token.userID;
     
-    TSYFBUserModel *userModel = [TSYFBUserModel new];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == %@", @"userID", userID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id == %@", userID];
     
-    userModel.userID = result.token.userID;
+    NSArray *users = [TSYFBUser fetchEntityWithSortDescriptors:nil
+                                                  predicate:predicate
+                                              prefetchPaths:nil];
     
-    self.model = userModel;
+    if (0 == users.count) {
+        TSYFBUser *user = [TSYFBUser managedObject];
+        user.id = userID;
+        
+        self.model = user;
+        
+        [user saveManagedObject];
+    } else {
+        self.model = [users firstObject];
+    }
+    
+//    TSYFBUserModel *userModel = [TSYFBUserModel new];
+//    
+//    userModel.userID = result.token.userID;
+//    
+//    self.model = userModel;
 }
 
 @end
