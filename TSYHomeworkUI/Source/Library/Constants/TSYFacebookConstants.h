@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+// почему в БД нельзя создавать поле ID
+// как поменять в БД и не создавать заново модели
+// создать абстрактного родителя с ID и поиском по ID
+// absolute string
+// [IDPCoreDataManager sharedManagerWithMomName:kMOMName] -> в appDelegate
+// почему не работает [NSPredicate predicateWithFormat:@"%@ == %@", @"userID", userID]
+
 static NSString * const kRequestHTTPMethodGet               = @"GET";
 
 static NSString * const kReadPermissionEmail                = @"email";
@@ -43,3 +50,4 @@ static NSString * const kPhotoAlbumsTitle                   = @"%@'s photos";
 static NSString * const kLogoutButtonTitle                  = @"logout";
 static NSString * const kAlertActionTitle                   = @"OK";
 static NSString * const kAlertMessage                       = @"No internet connection";
+static NSString * const kMOMName                            = @"TSYHomework";

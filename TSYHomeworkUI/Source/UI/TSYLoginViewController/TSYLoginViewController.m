@@ -48,8 +48,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Interface Handling
 
 - (IBAction)onLoginButton:(id)sender {
-    self.model = [TSYFBUserModel new];
-    self.context = [TSYFacebookLoginContext contextWithModel:self.model];
+    self.context = [TSYFacebookLoginContext contextWithModel:nil];
 }
 
 - (IBAction)onUserProfileButton:(id)sender {
@@ -60,6 +59,8 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark TSYModelObserver
 
 - (void)modelDidLoad:(TSYFacebookLoginContext *)context {
+    self.model = context.model;
+    
     [self showUserProfileIfLoggedInAnimated:NO];
 }
 

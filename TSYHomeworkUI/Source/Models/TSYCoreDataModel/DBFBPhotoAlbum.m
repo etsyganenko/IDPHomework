@@ -11,6 +11,8 @@
 #import "DBFBPhoto.h"
 #import "DBUser.h"
 
+#import "NSManagedObject+IDPExtensions.h"
+
 @interface DBFBPhotoAlbum ()
 @property (nonatomic, strong)   NSString    *coverPhotoURLString;
 
@@ -35,6 +37,17 @@
     self.coverPhotoURLString = [NSString stringWithContentsOfURL:coverPhotoURL
                                                         encoding:0
                                                            error:nil];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)addPhoto:(DBFBPhoto *)photo {
+    [self setCustomValue:photo forKey:NSStringFromSelector(@selector(photo))];
+}
+
+- (void)removePhoto:(DBFBPhoto *)photo {
+    [self removeCustomValue:photo inMutableSetForKey:NSStringFromSelector(@selector(photo))];
 }
 
 @end

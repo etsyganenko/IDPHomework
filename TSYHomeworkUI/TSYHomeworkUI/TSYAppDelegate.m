@@ -10,12 +10,14 @@
 
 #import "TSYAppDelegate.h"
 
+#import "ActiveRecordKit.h"
 #import "TSYSquareViewController.h"
 #import "TSYTableViewController.h"
 #import "TSYLoginViewController.h"
 #import "TSYUsers.h"
 #import "TSYModel.h"
 #import "TSYFBUserModel.h"
+#import "TSYFacebookConstants.h"
 
 #import "UIWindow+TSYCategories.h"
 
@@ -33,6 +35,8 @@
     
     UIWindow *window = [UIWindow window];
     self.window = window;
+    
+    [IDPCoreDataManager sharedManagerWithMomName:kMOMName];
     
     TSYLoginViewController *loginViewController = [TSYLoginViewController new];
     

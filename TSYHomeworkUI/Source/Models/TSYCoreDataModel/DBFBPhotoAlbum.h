@@ -25,6 +25,9 @@
 
 @interface DBFBPhotoAlbum (CoreDataGeneratedAccessors)
 
+- (void)addPhoto:(DBFBPhoto *)photo;
+- (void)removePhoto:(DBFBPhoto *)photo;
+
 - (void)addPhotosObject:(DBFBPhoto *)value;
 - (void)removePhotosObject:(DBFBPhoto *)value;
 

@@ -11,7 +11,9 @@
 
 #import "TSYFacebookLoginContext.h"
 
+#import "ActiveRecordKit.h"
 #import "TSYFBUserModel.h"
+#import "DBUser.h"
 #import "TSYMacros.h"
 #import "TSYFacebookConstants.h"
 
@@ -43,22 +45,48 @@
                                    handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                        TSYStrongify(self);
                                        
-                                       if (error || result.isCancelled) {
-                                           self.state = TSYModelDidFailLoading;
-                                           
-                                           return;
-                                       }
-                                       
-                                       [self fillModelWithResult:result];
-                                       
-                                       self.state = TSYModelDidLoad;
+                                       [self processRequestResult:result error:error];
                                    }];
 }
 
+- (void)processRequestResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+    if (error || result.isCancelled) {
+        self.state = TSYModelDidFailLoading;
+        
+        return;
+    }
+    
+    [self fillModelWithResult:result];
+    
+    self.state = TSYModelDidLoad;
+}
+
 - (void)fillModelWithResult:(FBSDKLoginManagerLoginResult *)result {
-    TSYFBUserModel *userModel = self.model;
+//    NSString *userID = result.token.userID;
+//    
+////    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == %@", @"userID", userID];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@", userID];
+//    
+//    NSArray *users = [DBUser fetchEntityWithSortDescriptors:nil
+//                                                  predicate:predicate
+//                                              prefetchPaths:nil];
+//    
+//    if (0 == users.count) {
+//        DBUser *user = [DBUser managedObject];
+//        user.userID = userID;
+//        
+//        self.model = user;
+//        
+//        [user saveManagedObject];
+//    } else {
+//        self.model = [users firstObject];
+//    }
+    
+    TSYFBUserModel *userModel = [TSYFBUserModel new];
     
     userModel.userID = result.token.userID;
+    
+    self.model = userModel;
 }
 
 @end
