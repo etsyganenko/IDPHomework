@@ -114,6 +114,7 @@
 		8ADD3D1C1B8377960023B628 /* IDPWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3CFC1B8377960023B628 /* IDPWeakArray.m */; };
 		8ADD3D1D1B8377960023B628 /* IDPMachTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D001B8377960023B628 /* IDPMachTimer.m */; };
 		8ADD3D1E1B8377960023B628 /* IDPMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D031B8377960023B628 /* IDPMath.m */; };
+		8ADD3D221B837ECB0023B628 /* TSYHomework.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D201B837ECB0023B628 /* TSYHomework.xcdatamodeld */; };
 		B66C1EB5621F627838B6B349 /* libPods-TSYHomeworkUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */; };
 /* End PBXBuildFile section */
 
@@ -332,6 +333,7 @@
 		8ADD3D021B8377960023B628 /* IDPMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPMath.h; sourceTree = "<group>"; };
 		8ADD3D031B8377960023B628 /* IDPMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPMath.m; sourceTree = "<group>"; };
 		8ADD3D041B8377960023B628 /* IDPPropertyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPPropertyMacros.h; sourceTree = "<group>"; };
+		8ADD3D211B837ECB0023B628 /* TSYHomework.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TSYHomework.xcdatamodel; sourceTree = "<group>"; };
 		C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -630,6 +632,7 @@
 		84A1EFDC1B31679B0037A3B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8ADD3D1F1B837E610023B628 /* TSYCoreDataModel */,
 				849F4B301B5FCFF700B9DEED /* TSYFBUserModel */,
 				8ADD3C121B83104F0023B628 /* TSYFBPhotoAlbumModel */,
 				8ADD3C061B81FB7E0023B628 /* TSYFBPhotoModel */,
@@ -1247,6 +1250,14 @@
 			path = IDPMath;
 			sourceTree = "<group>";
 		};
+		8ADD3D1F1B837E610023B628 /* TSYCoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD3D201B837ECB0023B628 /* TSYHomework.xcdatamodeld */,
+			);
+			path = TSYCoreDataModel;
+			sourceTree = "<group>";
+		};
 		BE30A4A9EDD4073BC4CA38A1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1499,6 +1510,7 @@
 				84A1EFE61B31A2A30037A3B7 /* TSYSquareView.m in Sources */,
 				84A1C3061B341B4200DC7198 /* TSYTableCell.m in Sources */,
 				8ADD3D191B8377960023B628 /* IDPStrongReference.m in Sources */,
+				8ADD3D221B837ECB0023B628 /* TSYHomework.xcdatamodeld in Sources */,
 				8ADD3C011B81F32D0023B628 /* TSYAlbumPhotosView.m in Sources */,
 				84A26DF81B3CA4B200812575 /* TSYTableCellMovingPath.m in Sources */,
 				84BF5F191B32FB0100932154 /* NSString+TSYRandomName.m in Sources */,
@@ -1724,6 +1736,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8ADD3D201B837ECB0023B628 /* TSYHomework.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8ADD3D211B837ECB0023B628 /* TSYHomework.xcdatamodel */,
+			);
+			currentVersion = 8ADD3D211B837ECB0023B628 /* TSYHomework.xcdatamodel */;
+			path = TSYHomework.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 849FB46B1B28E5C90096D0AD /* Project object */;
 }
