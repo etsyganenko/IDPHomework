@@ -13,13 +13,13 @@
 @class DBUser;
 
 @interface DBFBPhotoAlbum : NSManagedObject
-@property (nonatomic, strong)       NSString    *albumID;
-@property (nonatomic, strong)       NSString    *albumName;
-@property (nonatomic, readonly)     NSString    *coverPhotoURL;
+@property (nonatomic, strong)   NSString    *albumID;
+@property (nonatomic, strong)   NSString    *albumName;
+@property (nonatomic, strong)   NSURL       *coverPhotoURL;
 
-@property (nonatomic, strong)       NSSet       *photos;
+@property (nonatomic, strong)   NSSet       *photos;
 
-@property (nonatomic, strong)       DBUser      *user;
+@property (nonatomic, strong)   DBUser      *user;
 
 @end
 
@@ -27,6 +27,7 @@
 
 - (void)addPhotosObject:(DBFBPhoto *)value;
 - (void)removePhotosObject:(DBFBPhoto *)value;
+
 - (void)addPhotos:(NSSet *)values;
 - (void)removePhotos:(NSSet *)values;
 

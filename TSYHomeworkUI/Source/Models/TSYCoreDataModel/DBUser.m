@@ -20,6 +20,9 @@
 @dynamic photoAlbums;
 @dynamic friends;
 
+#pragma mark -
+#pragma mark Accessors
+
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
 }

@@ -7,6 +7,7 @@
 //
 
 #import "DBFBPhotoAlbum.h"
+
 #import "DBFBPhoto.h"
 #import "DBUser.h"
 
@@ -20,12 +21,20 @@
 @dynamic albumID;
 @dynamic albumName;
 @dynamic coverPhotoURLString;
-@dynamic coverPhotoURL;
 @dynamic photos;
 @dynamic user;
 
+#pragma mark -
+#pragma mark Accessors
+
 - (NSURL *)coverPhotoURL {
     return [NSURL URLWithString:self.coverPhotoURLString];
+}
+
+- (void)setCoverPhotoURL:(NSURL *)coverPhotoURL {
+    self.coverPhotoURLString = [NSString stringWithContentsOfURL:coverPhotoURL
+                                                        encoding:0
+                                                           error:nil];
 }
 
 @end

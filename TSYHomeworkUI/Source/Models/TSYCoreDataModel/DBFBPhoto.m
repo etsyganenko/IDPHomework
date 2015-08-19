@@ -17,13 +17,21 @@
 
 @implementation DBFBPhoto
 
-@dynamic photoURL;
 @dynamic photoURLString;
 @dynamic photoID;
 @dynamic photoAlbum;
 
+#pragma mark -
+#pragma mark Accessors
+
 - (NSURL *)photoURL {
     return [NSURL URLWithString:self.photoURLString];
+}
+
+- (void)setPhotoURL:(NSURL *)photoURL {
+    self.photoURLString = [NSString stringWithContentsOfURL:photoURL
+                                                   encoding:0
+                                                      error:nil];
 }
 
 @end

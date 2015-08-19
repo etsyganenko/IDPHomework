@@ -27,11 +27,13 @@
 
 - (void)addPhotoAlbumsObject:(DBFBPhotoAlbum *)value;
 - (void)removePhotoAlbumsObject:(DBFBPhotoAlbum *)value;
+
 - (void)addPhotoAlbums:(NSSet *)values;
 - (void)removePhotoAlbums:(NSSet *)values;
 
 - (void)addFriendsObject:(DBUser *)value;
 - (void)removeFriendsObject:(DBUser *)value;
+
 - (void)addFriends:(NSSet *)values;
 - (void)removeFriends:(NSSet *)values;
 

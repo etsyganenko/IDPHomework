@@ -12,9 +12,9 @@
 @class DBFBPhotoAlbum;
 
 @interface DBFBPhoto : NSManagedObject
-@property (nonatomic, readonly)     NSURL           *photoURL;
-@property (nonatomic, strong)       NSString        *photoID;
+@property (nonatomic, strong)   NSURL           *photoURL;
+@property (nonatomic, strong)   NSString        *photoID;
 
-@property (nonatomic, strong)       DBFBPhotoAlbum  *photoAlbum;
+@property (nonatomic, strong)   DBFBPhotoAlbum  *photoAlbum;
 
 @end
