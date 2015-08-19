@@ -62,30 +62,19 @@
 
 - (void)fillModelWithResult:(FBSDKLoginManagerLoginResult *)result {
     NSString *userID = result.token.userID;
+
+    TSYFBUser *userModel = [TSYFBUser objectWithID:userID];
     
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == %@", @"userID", userID];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id == %@", userID];
-    
-    NSArray *users = [TSYFBUser fetchEntityWithSortDescriptors:nil
-                                                  predicate:predicate
-                                              prefetchPaths:nil];
-    
-    if (0 == users.count) {
-        TSYFBUser *user = [TSYFBUser managedObject];
-        user.id = userID;
+    if (!userModel) {
+        userModel = [TSYFBUser managedObject];
+        userModel.id = userID;
         
-        self.model = user;
+        self.model = userModel;
         
-        [user saveManagedObject];
+        [userModel saveManagedObject];
     } else {
-        self.model = [users firstObject];
+        self.model = userModel;
     }
-    
-//    TSYFBUserModel *userModel = [TSYFBUserModel new];
-//    
-//    userModel.userID = result.token.userID;
-//    
-//    self.model = userModel;
 }
 
 @end

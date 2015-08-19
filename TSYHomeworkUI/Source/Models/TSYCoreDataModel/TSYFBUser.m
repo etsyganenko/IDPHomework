@@ -12,7 +12,7 @@
 #import "TSYFBUser.h"
 
 @interface TSYFBUser ()
-@property (nonatomic, strong)   NSString    *imageUrlString;
+@property (nonatomic, strong)   NSString    *imageURLString;
 
 @end
 
@@ -23,7 +23,7 @@
 @dynamic fullName;
 @dynamic photoAlbums;
 @dynamic friends;
-@dynamic imageUrlString;
+@dynamic imageURLString;
 
 #pragma mark -
 #pragma mark Accessors
@@ -33,11 +33,11 @@
 }
 
 - (NSURL *)imageUrl {
-    return [NSURL URLWithString:self.imageUrlString];
+    return [NSURL URLWithString:self.imageURLString];
 }
 
 - (void)setImageUrl:(NSURL *)imageUrl {
-    self.imageUrlString = [imageUrl absoluteString];
+    self.imageURLString = [imageUrl absoluteString];
 }
 
 #pragma mark -

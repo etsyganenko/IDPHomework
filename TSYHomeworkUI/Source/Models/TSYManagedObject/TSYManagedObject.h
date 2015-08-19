@@ -11,4 +11,6 @@
 @interface TSYManagedObject : NSManagedObject
 @property (nonatomic, strong)   NSString    *id;
 
++ (instancetype)objectWithID:(NSString *)id;
+
 @end
