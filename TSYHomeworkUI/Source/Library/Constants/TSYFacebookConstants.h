@@ -51,4 +51,4 @@ static NSString * const kLogoutButtonTitle                  = @"logout";
 static NSString * const kAlertActionTitle                   = @"OK";
 static NSString * const kAlertMessage                       = @"No internet connection";
 static NSString * const kMOMName                            = @"TSYHomework";
-static NSString * const kPredicateStringWithID              = @"identifier == %@";
+static NSString * const kPredicateStringWithID              = @"identifier";

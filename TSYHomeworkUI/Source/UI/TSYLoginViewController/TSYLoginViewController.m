@@ -38,6 +38,8 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
     if (nil == [FBSDKAccessToken currentAccessToken]) {
         self.mainView.showUserProfile.hidden = YES;
     }
+    
+    [self showUserProfileIfLoggedInAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,10 +70,14 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Private Methods
 
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated {
-    TSYFBUser *userModel = self.model;
-    NSString *userID = userModel.ID;
+//    TSYFBUser *userModel = self.model;
+//    NSString *userID = userModel.ID;
     
-    if ([FBSDKAccessToken currentAccessToken] && userID) {
+    FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
+    NSString *userID = token.userID;
+    TSYFBUser *userModel = [TSYFBUser objectWithID:userID];
+
+    if (token && userModel) {
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         
         controller.model = userModel;

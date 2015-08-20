@@ -21,17 +21,13 @@
         }
     }
     
-    NSMutableArray *missingObjects = [NSMutableArray new];
-    
     for (id object in currentSet) {
         if (![newSet containsObject:object]) {
-            [missingObjects addObject:object];
+            [mutableCurrentSet removeObject:object];
         }
     }
     
-    [mutableCurrentSet removeObjectsInArray:missingObjects];
-    
-    return [NSOrderedSet orderedSetWithOrderedSet:mutableCurrentSet];
+    return [mutableCurrentSet copy];
 }
 
 @end

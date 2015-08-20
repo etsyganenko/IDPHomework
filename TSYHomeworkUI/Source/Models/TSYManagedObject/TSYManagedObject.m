@@ -18,7 +18,7 @@
 
 @implementation TSYManagedObject
 
-@dynamic ID;
+//@dynamic ID;
 @dynamic identifier;
 
 #pragma mark -
@@ -36,7 +36,7 @@
 #pragma mark Class Methods
 
 + (instancetype)objectWithID:(NSString *)ID {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:kPredicateStringWithID, ID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kPredicateStringWithID, ID];
     
     NSArray *objects = [self fetchEntityWithSortDescriptors:nil
                                                   predicate:predicate

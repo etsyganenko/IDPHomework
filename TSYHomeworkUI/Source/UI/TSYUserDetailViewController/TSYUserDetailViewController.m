@@ -21,26 +21,23 @@
 
 TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView, mainView)
 
+@interface TSYUserDetailViewController ()
+
+- (void)hideBackButtonIfNeeded;
+
+@end
+
 @implementation TSYUserDetailViewController
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark View Lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     self.context = [TSYFacebookUserInfoContext contextWithModel:self.model];
-}
-
-#pragma mark -
-#pragma mark View Lifecycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    
+    [self hideBackButtonIfNeeded];
 }
 
 #pragma mark -
@@ -80,6 +77,21 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.mainView showLoadingView];
     });
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)hideBackButtonIfNeeded {
+    FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
+    NSString *loggedUserID = token.userID;
+    
+    TSYFBUser *user = self.model;
+    NSString *presentedUserID = user.ID;
+    
+    if (loggedUserID == presentedUserID) {
+        self.navigationItem.hidesBackButton = YES;
+    }
 }
 
 @end
