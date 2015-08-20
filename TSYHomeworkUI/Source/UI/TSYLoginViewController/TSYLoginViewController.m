@@ -70,17 +70,14 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 #pragma mark Private Methods
 
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated {
-//    TSYFBUser *userModel = self.model;
-//    NSString *userID = userModel.ID;
-    
     FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
-    NSString *userID = token.userID;
-    TSYFBUser *userModel = [TSYFBUser objectWithID:userID];
+    NSString *loggedUserID = token.userID;
+    TSYFBUser *loggedUserModel = [TSYFBUser objectWithID:loggedUserID];
 
-    if (token && userModel) {
+    if (token && loggedUserModel) {
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];
         
-        controller.model = userModel;
+        controller.model = loggedUserModel;
         
         [self.navigationController pushViewController:controller animated:animated];
     }

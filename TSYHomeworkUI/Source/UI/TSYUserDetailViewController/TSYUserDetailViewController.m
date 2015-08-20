@@ -17,6 +17,7 @@
 #import "TSYFacebookUserFriendsContext.h"
 #import "TSYFriendsViewController.h"
 #import "TSYAlbumsViewController.h"
+#import "TSYLoginViewController.h"
 #import "TSYArrayModel.h"
 
 TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView, mainView)
@@ -36,7 +37,7 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
     [super viewWillAppear:animated];
     
     self.context = [TSYFacebookUserInfoContext contextWithModel:self.model];
-    
+
     [self hideBackButtonIfNeeded];
 }
 
@@ -83,13 +84,11 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 #pragma mark Private Methods
 
 - (void)hideBackButtonIfNeeded {
-    FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
-    NSString *loggedUserID = token.userID;
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    NSUInteger viewControllersCount = viewControllers.count;
+    id previousController = viewControllers[viewControllersCount - 2];
     
-    TSYFBUser *user = self.model;
-    NSString *presentedUserID = user.ID;
-    
-    if (loggedUserID == presentedUserID) {
+    if ([previousController isMemberOfClass:[TSYLoginViewController class]]) {
         self.navigationItem.hidesBackButton = YES;
     }
 }
