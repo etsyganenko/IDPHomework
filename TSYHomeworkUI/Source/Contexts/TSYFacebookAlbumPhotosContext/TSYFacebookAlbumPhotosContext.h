@@ -9,7 +9,5 @@
 #import "TSYFacebookContext.h"
 
 @interface TSYFacebookAlbumPhotosContext : TSYFacebookContext
-@property (nonatomic, strong)       NSString    *albumID;
-@property (nonatomic, readonly)     NSArray     *photos;
 
 @end

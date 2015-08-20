@@ -67,7 +67,7 @@
     
     if (!userModel) {
         userModel = [TSYFBUser managedObject];
-        userModel.id = userID;
+        userModel.ID = userID;
         
         self.model = userModel;
         

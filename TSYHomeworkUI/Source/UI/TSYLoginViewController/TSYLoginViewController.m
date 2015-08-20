@@ -69,7 +69,7 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 
 - (void)showUserProfileIfLoggedInAnimated:(BOOL)animated {
     TSYFBUser *userModel = self.model;
-    NSString *userID = userModel.id;
+    NSString *userID = userModel.ID;
     
     if ([FBSDKAccessToken currentAccessToken] && userID) {
         TSYUserDetailViewController *controller = [TSYUserDetailViewController new];

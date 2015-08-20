@@ -11,15 +11,32 @@
 #import "ActiveRecordKit.h"
 #import "TSYFacebookConstants.h"
 
+@interface TSYManagedObject ()
+@property (nonatomic, strong)   NSString    *identifier;
+
+@end
+
 @implementation TSYManagedObject
 
-@dynamic id;
+@dynamic ID;
+@dynamic identifier;
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSString *)ID {
+    return self.identifier;
+}
+
+- (void)setID:(NSString *)ID {
+    self.identifier = ID;
+}
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)objectWithID:(NSString *)id {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:kPredicateStringWithID, id];
++ (instancetype)objectWithID:(NSString *)ID {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:kPredicateStringWithID, ID];
     
     NSArray *objects = [self fetchEntityWithSortDescriptors:nil
                                                   predicate:predicate

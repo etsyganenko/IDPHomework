@@ -10,8 +10,11 @@
 
 #import "TSYFacebookUserFriendsContext.h"
 
+#import "ActiveRecordKit.h"
 #import "TSYFBUser.h"
 #import "TSYFacebookConstants.h"
+
+#import "NSOrderedSet+TSYCategory.h"
 
 @implementation TSYFacebookUserFriendsContext
 
@@ -38,7 +41,7 @@
     NSUInteger pictureWidth = pictureSize.width;
     NSUInteger pictureHeight = pictureSize.height;
     
-    return [NSString stringWithFormat:kUserFriendsContextGraphPath, userModel.id, pictureWidth, pictureHeight];
+    return [NSString stringWithFormat:kUserFriendsContextGraphPath, userModel.ID, pictureWidth, pictureHeight];
 }
 
 #pragma mark -
@@ -47,41 +50,25 @@
 - (void)fillModelWithResult:(id)result {
     TSYFBUser *userModel = self.model;
     
-    NSOrderedSet *currentFriendsSet = userModel.friends;
-    NSMutableOrderedSet *mutableCurrentFriendsSet = [NSMutableOrderedSet orderedSetWithOrderedSet:currentFriendsSet];
+    NSOrderedSet *currentFriends = userModel.friends;
     
-    NSArray *loadedFriendsArray = result[kDataKey];
-    NSOrderedSet *loadedFriendsSet = [NSOrderedSet orderedSetWithArray:loadedFriendsArray];
+    NSArray *loadedFriends = result[kDataKey];
+    NSMutableOrderedSet *mutableLoadedFriends = [NSMutableOrderedSet new];
     
+    for (NSDictionary *friendDictionary in loadedFriends) {
+        TSYFBUser *friend = [TSYFBUser managedObject];
+        
+        friend.ID = friendDictionary[kIDKey];
+        friend.firstName = friendDictionary[kFirstNameKey];
+        friend.lastName = friendDictionary[kLastNameKey];
+        friend.imageUrl = [NSURL URLWithString:friendDictionary[kPictureKey][kDataKey][kURLKey]];
+        
+        [friend saveManagedObject];
+        
+        [mutableLoadedFriends addObject:friend];
+    }
     
-    
-//    NSMutableArray *friendModels = userModel.friends;
-//    
-//    NSArray *friendsArray = result[kDataKey];
-//    
-//    [friendModels removeAllObjects];
-//    
-//    for (NSDictionary *friendDictionary in friendsArray) {
-//        TSYFBUser *friendModel = [TSYFBUser new];
-//
-//        friendModel.firstName = friendDictionary[kFirstNameKey];
-//        friendModel.lastName = friendDictionary[kLastNameKey];
-//        friendModel.userID = friendDictionary[kIDKey];
-//        friendModel.imageUrl = [NSURL URLWithString:friendDictionary[kPictureKey][kDataKey][kURLKey]];
-//        
-//        [friendModels addObject:friendModel];
-//    }
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (NSOrderedSet *)updatedObjectsSet:(NSOrderedSet *)sourceSet {
-    NSOrderedSet *updatedSet = [NSOrderedSet new];
-    
-    
-    
-    return updatedSet;
+    userModel.friends = [NSOrderedSet updatedOrderedSet:currentFriends withOrderedSet:mutableLoadedFriends];
 }
 
 @end

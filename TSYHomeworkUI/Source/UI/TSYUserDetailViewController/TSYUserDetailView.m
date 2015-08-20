@@ -17,7 +17,7 @@
 #pragma mark Public Methods
 
 - (void)fillWithModel:(TSYFBUser *)userModel {
-    self.IDLabel.text = userModel.id;
+    self.IDLabel.text = userModel.ID;
     self.fullNameLabel.text = userModel.fullName;
     
     NSURL *imageUrl = userModel.imageUrl;

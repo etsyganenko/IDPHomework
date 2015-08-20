@@ -9,8 +9,8 @@
 #import <CoreData/CoreData.h>
 
 @interface TSYManagedObject : NSManagedObject
-@property (nonatomic, strong)   NSString    *id;
+@property (nonatomic, strong)   NSString    *ID;
 
-+ (instancetype)objectWithID:(NSString *)id;
++ (instancetype)objectWithID:(NSString *)ID;
 
 @end

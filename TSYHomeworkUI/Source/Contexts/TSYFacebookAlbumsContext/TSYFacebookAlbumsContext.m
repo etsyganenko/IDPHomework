@@ -8,10 +8,13 @@
 
 #import "TSYFacebookAlbumsContext.h"
 
-#import "TSYFBUserModel.h"
-#import "TSYFBPhotoAlbumModel.h"
-
+#import "ActiveRecordKit.h"
+#import "TSYFBUser.h"
+#import "TSYFBPhotoAlbum.h"
+#import "TSYManagedObject.h"
 #import "TSYFacebookConstants.h"
+
+#import "NSOrderedSet+TSYCategory.h"
 
 @implementation TSYFacebookAlbumsContext
 
@@ -19,31 +22,35 @@
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    TSYFBUserModel *userModel = self.model;
+    TSYFBUser *userModel = self.model;
     
-    return [NSString stringWithFormat:kAlbumsContextGraphPath, userModel.userID];
+    return [NSString stringWithFormat:kAlbumsContextGraphPath, userModel.ID];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    NSArray *photoAlbums = result[kDataKey];
+    TSYFBUser *userModel = self.model;
     
-    TSYFBUserModel *userModel = self.model;
-    NSMutableArray *photoAlbumModels = userModel.photoAlbums;
+    NSOrderedSet *currentPhotoAlbums = userModel.photoAlbums;
     
-    [photoAlbumModels removeAllObjects];
+    NSArray *loadedPhotoAlbums = result[kDataKey];
+    NSMutableOrderedSet *mutableLoadedPhotoAlbums = [NSMutableOrderedSet new];
     
-    for (NSDictionary *photoAlbum in photoAlbums) {
-        TSYFBPhotoAlbumModel *photoAlbumModel = [TSYFBPhotoAlbumModel new];
+    for (NSDictionary *photoAlbum in loadedPhotoAlbums) {
+        TSYFBPhotoAlbum *photoAlbumModel = [TSYFBPhotoAlbum managedObject];
         
         photoAlbumModel.albumName = photoAlbum[kNameKey];
-        photoAlbumModel.albumID = photoAlbum[kIDKey];
-        photoAlbumModel.albumCoverPhotoURL = [NSURL URLWithString:photoAlbum[kPictureKey][kDataKey][kURLKey]];
+        photoAlbumModel.ID = photoAlbum[kIDKey];
+        photoAlbumModel.coverPhotoURL = [NSURL URLWithString:photoAlbum[kPictureKey][kDataKey][kURLKey]];
         
-        [photoAlbumModels addObject:photoAlbumModel];
+        [mutableLoadedPhotoAlbums addObject:photoAlbumModel];
+        
+        [photoAlbumModel saveManagedObject];
     }
+    
+    userModel.photoAlbums = [NSOrderedSet updatedOrderedSet:currentPhotoAlbums withOrderedSet:mutableLoadedPhotoAlbums];
 }
 
 @end

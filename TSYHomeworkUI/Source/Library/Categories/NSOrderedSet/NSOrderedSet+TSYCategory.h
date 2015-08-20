@@ -10,6 +10,7 @@
 
 @interface NSOrderedSet (TSYCategory)
 
-+ (void)updateOrderedSet:(NSOrderedSet *)currentSet withOrderedSet:(NSOrderedSet *)newSet;
++ (NSOrderedSet *)updatedOrderedSet:(NSOrderedSet *)currentSet
+                     withOrderedSet:(NSOrderedSet *)newSet;
 
 @end

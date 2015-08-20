@@ -8,9 +8,13 @@
 
 #import "TSYFacebookAlbumPhotosContext.h"
 
-#import "TSYFBPhotoAlbumModel.h"
-#import "TSYFBPhotoModel.h"
+#import "ActiveRecordKit.h"
+#import "TSYManagedObject.h"
+#import "TSYFBPhotoAlbum.h"
+#import "TSYFBPhoto.h"
 #import "TSYFacebookConstants.h"
+
+#import "NSOrderedSet+TSYCategory.h"
 
 @implementation TSYFacebookAlbumPhotosContext
 
@@ -18,28 +22,34 @@
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    TSYFBPhotoAlbumModel *photoAlbumModel = self.model;
+    TSYFBPhotoAlbum *photoAlbumModel = self.model;
     
-    return [NSString stringWithFormat:kAlbumPhotosContextGraphPath, photoAlbumModel.albumID];
+    return [NSString stringWithFormat:kAlbumPhotosContextGraphPath, photoAlbumModel.ID];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-    TSYFBPhotoAlbumModel *photoAlbumModel = self.model;
-    NSMutableArray *photoModels = photoAlbumModel.photoModels;
+    TSYFBPhotoAlbum *photoAlbum = self.model;
     
-    NSArray *photosArray = result[kDataKey];
+    NSArray *loadedPhotos = result[kDataKey];
     
-    for (NSDictionary *photosDictionary in photosArray) {
-        TSYFBPhotoModel *photoModel = [TSYFBPhotoModel new];
+    NSOrderedSet *currentPhotos = photoAlbum.photos;
+    NSMutableOrderedSet *mutableLoadedPhotos = [NSMutableOrderedSet new];
+    
+    for (NSDictionary *photosDictionary in loadedPhotos) {
+        TSYFBPhoto *photo = [TSYFBPhoto managedObject];
         
-        photoModel.photoID = photosDictionary[kIDKey];
-        photoModel.photoURL = [NSURL URLWithString:photosDictionary[kPictureKey]];
+        photo.ID = photosDictionary[kIDKey];
+        photo.photoURL = [NSURL URLWithString:photosDictionary[kPictureKey]];
         
-        [photoModels addObject:photoModel];
+        [mutableLoadedPhotos addObject:photo];
+        
+        [photo saveManagedObject];
     }
+    
+    photoAlbum.photos = [NSOrderedSet updatedOrderedSet:currentPhotos withOrderedSet:mutableLoadedPhotos];
 }
 
 @end
