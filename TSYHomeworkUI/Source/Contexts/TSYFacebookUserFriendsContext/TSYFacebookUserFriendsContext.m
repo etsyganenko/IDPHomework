@@ -45,7 +45,16 @@
 #pragma mark Public Methods
 
 - (void)fillModelWithResult:(id)result {
-//    TSYFBUser *userModel = self.model;
+    TSYFBUser *userModel = self.model;
+    
+    NSOrderedSet *currentFriendsSet = userModel.friends;
+    NSMutableOrderedSet *mutableCurrentFriendsSet = [NSMutableOrderedSet orderedSetWithOrderedSet:currentFriendsSet];
+    
+    NSArray *loadedFriendsArray = result[kDataKey];
+    NSOrderedSet *loadedFriendsSet = [NSOrderedSet orderedSetWithArray:loadedFriendsArray];
+    
+    
+    
 //    NSMutableArray *friendModels = userModel.friends;
 //    
 //    NSArray *friendsArray = result[kDataKey];
@@ -62,6 +71,17 @@
 //        
 //        [friendModels addObject:friendModel];
 //    }
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (NSOrderedSet *)updatedObjectsSet:(NSOrderedSet *)sourceSet {
+    NSOrderedSet *updatedSet = [NSOrderedSet new];
+    
+    
+    
+    return updatedSet;
 }
 
 @end
