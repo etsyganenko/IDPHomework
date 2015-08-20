@@ -21,8 +21,8 @@
 
 @property (nonatomic, strong)   NSURL           *imageUrl;
 
-@property (nonatomic, strong) 	NSOrderedSet    *photoAlbums;
-@property (nonatomic, strong)   NSOrderedSet    *friends;
+@property (nonatomic, strong)   NSOrderedSet    *photoAlbums;
+@property (nonatomic, readonly) NSOrderedSet    *friends;
 
 - (void)addPhotoAlbum:(TSYFBPhotoAlbum *)photoAlbum;
 - (void)removePhotoAlbum:(TSYFBPhotoAlbum *)photoAlbum;
@@ -30,20 +30,6 @@
 - (void)addFriend:(TSYFBUser *)friend;
 - (void)removeFriend:(TSYFBUser *)friend;
 
-@end
-
-@interface TSYFBUser (CoreDataGeneratedAccessors)
-
-- (void)addPhotoAlbumsObject:(TSYFBPhotoAlbum *)value;
-- (void)removePhotoAlbumsObject:(TSYFBPhotoAlbum *)value;
-
-- (void)addPhotoAlbums:(NSSet *)values;
-- (void)removePhotoAlbums:(NSSet *)values;
-
-- (void)addFriendsObject:(TSYFBUser *)value;
-- (void)removeFriendsObject:(TSYFBUser *)value;
-
-- (void)addFriends:(NSSet *)values;
-- (void)removeFriends:(NSSet *)values;
+- (void)updateFriendsWithArray:(NSArray *)newFriends;
 
 @end

@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-// почему в БД нельзя создавать поле ID
+// проверить новые приватные методы TSYFBUser'а
 // как поменять в БД и не создавать заново модели
-// создать абстрактного родителя с ID и поиском по ID
 // absolute string
-// [IDPCoreDataManager sharedManagerWithMomName:kMOMName] -> в appDelegate
 // почему не работает [NSPredicate predicateWithFormat:@"%@ == %@", @"userID", userID]
 
 static NSString * const kRequestHTTPMethodGet               = @"GET";

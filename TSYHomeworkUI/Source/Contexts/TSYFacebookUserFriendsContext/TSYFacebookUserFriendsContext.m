@@ -50,25 +50,9 @@
 - (void)fillModelWithResult:(id)result {
     TSYFBUser *userModel = self.model;
     
-    NSOrderedSet *currentFriends = userModel.friends;
-    
     NSArray *loadedFriends = result[kDataKey];
-    NSMutableOrderedSet *mutableLoadedFriends = [NSMutableOrderedSet new];
     
-    for (NSDictionary *friendDictionary in loadedFriends) {
-        TSYFBUser *friend = [TSYFBUser managedObject];
-        
-        friend.ID = friendDictionary[kIDKey];
-        friend.firstName = friendDictionary[kFirstNameKey];
-        friend.lastName = friendDictionary[kLastNameKey];
-        friend.imageUrl = [NSURL URLWithString:friendDictionary[kPictureKey][kDataKey][kURLKey]];
-        
-        [friend saveManagedObject];
-        
-        [mutableLoadedFriends addObject:friend];
-    }
-    
-    userModel.friends = [NSOrderedSet updatedOrderedSet:currentFriends withOrderedSet:mutableLoadedFriends];
+    [userModel updateFriendsWithArray:loadedFriends];
 }
 
 @end
