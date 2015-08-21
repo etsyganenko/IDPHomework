@@ -41,7 +41,7 @@
     TSYLoginViewController *loginViewController = [TSYLoginViewController new];
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-
+    
     window.rootViewController = navigationController;
     
     [window makeKeyAndVisible];

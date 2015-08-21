@@ -36,7 +36,7 @@
                                                               target:self
                                                               action:@selector(logout)];
     
-    self.navigationController.navigationBar.topItem.rightBarButtonItem = button;
+    self.navigationItem.rightBarButtonItem = button;
 }
 
 #pragma mark -
@@ -64,14 +64,9 @@
     
     [loginManager logOut];
     
-//    UINavigationController *controller = self.navigationController;
     TSYLoginViewController *LoginViewController = [TSYLoginViewController new];
     
-//    [controller pushViewController:LoginViewController animated:YES];
-    
-    LoginViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
-    [self presentViewController:LoginViewController animated:YES completion:nil];
+    [self.navigationController pushViewController:LoginViewController animated:NO];
 }
 
 #pragma mark -

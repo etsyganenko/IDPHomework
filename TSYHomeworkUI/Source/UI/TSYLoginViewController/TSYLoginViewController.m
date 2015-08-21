@@ -33,7 +33,8 @@ TSYViewControllerBaseViewProperty(TSYLoginViewController, TSYLoginView, mainView
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = YES;
     
     if (nil == [FBSDKAccessToken currentAccessToken]) {
         self.mainView.showUserProfile.hidden = YES;

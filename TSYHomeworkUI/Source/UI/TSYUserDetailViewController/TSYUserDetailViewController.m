@@ -46,11 +46,10 @@ TSYViewControllerBaseViewProperty(TSYUserDetailViewController, TSYUserDetailView
 
 - (IBAction)onFriendsButton:(id)sender {
     TSYFriendsViewController *friendsController = [TSYFriendsViewController new];
-    UINavigationController *navigationController = self.navigationController;
     
     friendsController.model = self.model;
     
-    [navigationController pushViewController:friendsController animated:YES];
+    [self.navigationController pushViewController:friendsController animated:YES];
 }
 
 - (IBAction)onPhotosButton:(id)sender {

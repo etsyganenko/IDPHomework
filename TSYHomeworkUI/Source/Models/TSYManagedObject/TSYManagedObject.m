@@ -18,25 +18,25 @@
 
 @implementation TSYManagedObject
 
-//@dynamic ID;
+@dynamic ID;
 @dynamic identifier;
 
 #pragma mark -
 #pragma mark Accessors
 
 - (NSString *)ID {
-    return self.identifier;
+    return [self valueForKey:NSStringFromSelector(@selector(identifier))];
 }
 
 - (void)setID:(NSString *)ID {
-    self.identifier = ID;
+    [self setValue:ID forKey:NSStringFromSelector(@selector(identifier))];
 }
 
 #pragma mark -
 #pragma mark Class Methods
 
 + (instancetype)objectWithID:(NSString *)ID {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kPredicateStringWithID, ID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kIdentifier, ID];
     
     NSArray *objects = [self fetchEntityWithSortDescriptors:nil
                                                   predicate:predicate
