@@ -49,6 +49,7 @@
 }
 
 - (void)fillWithDictionary:(NSDictionary *)photoAlbumDictionary {
+    self.ID = photoAlbumDictionary[kIDKey];
     self.albumName = photoAlbumDictionary[kNameKey];
     self.coverPhotoURL = [NSURL URLWithString:photoAlbumDictionary[kPictureKey][kDataKey][kURLKey]];
 }

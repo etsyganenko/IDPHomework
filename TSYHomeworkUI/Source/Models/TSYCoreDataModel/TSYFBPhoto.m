@@ -36,6 +36,7 @@
 #pragma mark Public Methods
 
 - (void)fillWithDictionary:(NSDictionary *)photoDictionary {
+    self.ID = photoDictionary[kIDKey];
     self.photoURL = [NSURL URLWithString:photoDictionary[kPictureKey]];
 }
 

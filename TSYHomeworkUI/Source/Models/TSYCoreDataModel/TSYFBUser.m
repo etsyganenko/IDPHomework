@@ -78,6 +78,7 @@
 }
 
 - (void)fillWithDictionary:(NSDictionary *)friendDictionary {
+    self.ID = friendDictionary[kIDKey];
     self.firstName = friendDictionary[kFirstNameKey];
     self.lastName = friendDictionary[kLastNameKey];
     self.imageUrl = [NSURL URLWithString:friendDictionary[kPictureKey][kDataKey][kURLKey]];
