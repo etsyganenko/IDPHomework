@@ -22,14 +22,12 @@
 @property (nonatomic, strong)   NSURL           *imageUrl;
 
 @property (nonatomic, strong)   NSOrderedSet    *photoAlbums;
-@property (nonatomic, readonly) NSOrderedSet    *friends;
+@property (nonatomic, strong)   NSOrderedSet    *friends;
 
 - (void)addPhotoAlbum:(TSYFBPhotoAlbum *)photoAlbum;
 - (void)removePhotoAlbum:(TSYFBPhotoAlbum *)photoAlbum;
 
 - (void)addFriend:(TSYFBUser *)friend;
 - (void)removeFriend:(TSYFBUser *)friend;
-
-- (void)updateFriendsWithArray:(NSArray *)newFriends;
 
 @end

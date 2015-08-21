@@ -32,24 +32,15 @@
 
 - (void)fillModelWithResult:(id)result {
     TSYFBPhotoAlbum *photoAlbum = self.model;
+    NSOrderedSet *photos = photoAlbum.photos;
     
     NSArray *loadedPhotos = result[kDataKey];
     
-    NSOrderedSet *currentPhotos = photoAlbum.photos;
-    NSMutableOrderedSet *mutableLoadedPhotos = [NSMutableOrderedSet new];
+    photoAlbum.photos = [photoAlbum updatedObjects:photos
+                                           ofClass:[TSYFBPhoto class]
+                                       withObjects:loadedPhotos];
     
-    for (NSDictionary *photosDictionary in loadedPhotos) {
-        TSYFBPhoto *photo = [TSYFBPhoto managedObject];
-        
-        photo.ID = photosDictionary[kIDKey];
-        photo.photoURL = [NSURL URLWithString:photosDictionary[kPictureKey]];
-        
-        [mutableLoadedPhotos addObject:photo];
-        
-        [photo saveManagedObject];
-    }
-    
-    photoAlbum.photos = [NSOrderedSet updatedOrderedSet:currentPhotos withOrderedSet:mutableLoadedPhotos];
+    [photoAlbum saveManagedObject];
 }
 
 @end

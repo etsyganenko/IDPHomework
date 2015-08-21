@@ -9,6 +9,7 @@
 #import "TSYFBPhoto.h"
 
 #import "TSYFBPhotoAlbum.h"
+#import "TSYFacebookConstants.h"
 
 @interface TSYFBPhoto ()
 @property (nonatomic, strong)   NSString        *photoURLString;
@@ -29,6 +30,13 @@
 
 - (void)setPhotoURL:(NSURL *)photoURL {
     self.photoURLString = [photoURL absoluteString];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)fillWithDictionary:(NSDictionary *)photoDictionary {
+    self.photoURL = [NSURL URLWithString:photoDictionary[kPictureKey]];
 }
 
 @end

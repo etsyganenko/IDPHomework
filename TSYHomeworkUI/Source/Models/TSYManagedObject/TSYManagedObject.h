@@ -13,4 +13,11 @@
 
 + (instancetype)objectWithID:(NSString *)ID;
 
+// you must overload this method in children
+- (void)fillWithDictionary:(NSDictionary *)friendDictionary;
+
+- (NSOrderedSet *)updatedObjects:(NSOrderedSet *)objects
+                         ofClass:(Class)theClass
+                     withObjects:(NSArray *)newObjects;
+
 @end

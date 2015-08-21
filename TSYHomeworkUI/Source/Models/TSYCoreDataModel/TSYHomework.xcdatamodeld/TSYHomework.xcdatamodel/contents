@@ -18,7 +18,7 @@
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageURLString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="mutableFriends" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TSYFBUser" inverseName="mutableFriends" inverseEntity="TSYFBUser" syncable="YES"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TSYFBUser" inverseName="friends" inverseEntity="TSYFBUser" syncable="YES"/>
         <relationship name="photoAlbums" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TSYFBPhotoAlbum" inverseName="user" inverseEntity="TSYFBPhotoAlbum" syncable="YES"/>
     </entity>
     <elements>

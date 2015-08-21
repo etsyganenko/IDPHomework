@@ -49,10 +49,15 @@
 
 - (void)fillModelWithResult:(id)result {
     TSYFBUser *userModel = self.model;
+    NSOrderedSet *friends = userModel.friends;
     
     NSArray *loadedFriends = result[kDataKey];
     
-    [userModel updateFriendsWithArray:loadedFriends];
+    userModel.friends = [userModel updatedObjects:friends
+                                          ofClass:[TSYFBUser class]
+                                      withObjects:loadedFriends];
+    
+    [userModel saveManagedObject];
 }
 
 @end

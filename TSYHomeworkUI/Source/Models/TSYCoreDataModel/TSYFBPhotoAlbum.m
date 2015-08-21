@@ -10,6 +10,7 @@
 
 #import "TSYFBPhoto.h"
 #import "TSYFBUser.h"
+#import "TSYFacebookConstants.h"
 
 #import "NSManagedObject+IDPExtensions.h"
 
@@ -45,6 +46,11 @@
 
 - (void)removePhoto:(TSYFBPhoto *)photo {
     [self removePhotosObject:photo];
+}
+
+- (void)fillWithDictionary:(NSDictionary *)photoAlbumDictionary {
+    self.albumName = photoAlbumDictionary[kNameKey];
+    self.coverPhotoURL = [NSURL URLWithString:photoAlbumDictionary[kPictureKey][kDataKey][kURLKey]];
 }
 
 @end
