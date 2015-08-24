@@ -47,6 +47,13 @@ TSYBaseViewPropertyGetterSynthesize(TSYTableView, mainView)
 }
 
 #pragma mark -
+#pragma mark Public Methods
+
+- (void)performRefreshing {
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+#pragma mark -
 #pragma mark UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -80,9 +87,7 @@ TSYBaseViewPropertyGetterSynthesize(TSYTableView, mainView)
 #pragma mark Private Methods
 
 - (void)refresh {
-    TSYSleep(kRefreshSleepingTime);
-    
-    [self.mainView.tableView reloadData];
+    [self performRefreshing];
     
     [self.refreshControl endRefreshing];
 }

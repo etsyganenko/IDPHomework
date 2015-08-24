@@ -108,7 +108,6 @@
 		8ADD3D3A1B848C1F0023B628 /* TSYFBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D391B848C1F0023B628 /* TSYFBUser.m */; };
 		8ADD3D3D1B848C1F0023B628 /* TSYFBPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D3C1B848C1F0023B628 /* TSYFBPhotoAlbum.m */; };
 		8ADD3D441B84C4D60023B628 /* TSYManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D431B84C4D60023B628 /* TSYManagedObject.m */; };
-		8ADD3D481B85B9070023B628 /* NSOrderedSet+TSYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D471B85B9070023B628 /* NSOrderedSet+TSYCategory.m */; };
 		8ADD3D5B1B8764570023B628 /* TSYImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D4D1B8764570023B628 /* TSYImageView.m */; };
 		8ADD3D5C1B8764570023B628 /* TSYLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D501B8764570023B628 /* TSYLoadingView.m */; };
 		8ADD3D5D1B8764570023B628 /* TSYLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD3D511B8764570023B628 /* TSYLoadingView.xib */; };
@@ -328,8 +327,6 @@
 		8ADD3D3C1B848C1F0023B628 /* TSYFBPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYFBPhotoAlbum.m; sourceTree = "<group>"; };
 		8ADD3D421B84C4D60023B628 /* TSYManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYManagedObject.h; sourceTree = "<group>"; };
 		8ADD3D431B84C4D60023B628 /* TSYManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYManagedObject.m; sourceTree = "<group>"; };
-		8ADD3D461B85B9070023B628 /* NSOrderedSet+TSYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+TSYCategory.h"; sourceTree = "<group>"; };
-		8ADD3D471B85B9070023B628 /* NSOrderedSet+TSYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOrderedSet+TSYCategory.m"; sourceTree = "<group>"; };
 		8ADD3D4C1B8764570023B628 /* TSYImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYImageView.h; sourceTree = "<group>"; };
 		8ADD3D4D1B8764570023B628 /* TSYImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYImageView.m; sourceTree = "<group>"; };
 		8ADD3D4F1B8764570023B628 /* TSYLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYLoadingView.h; sourceTree = "<group>"; };
@@ -801,7 +798,6 @@
 		84BF5F091B32FB0100932154 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				8ADD3D451B85B8E30023B628 /* NSOrderedSet */,
 				84A333671B5A5F8D00F44720 /* NSURLSession */,
 				84A39E6A1B4BD9E200BFDFB0 /* NSFileManager */,
 				84A30E601B433092005F8EA6 /* NSArray */,
@@ -1232,15 +1228,6 @@
 			path = TSYManagedObject;
 			sourceTree = "<group>";
 		};
-		8ADD3D451B85B8E30023B628 /* NSOrderedSet */ = {
-			isa = PBXGroup;
-			children = (
-				8ADD3D461B85B9070023B628 /* NSOrderedSet+TSYCategory.h */,
-				8ADD3D471B85B9070023B628 /* NSOrderedSet+TSYCategory.m */,
-			);
-			path = NSOrderedSet;
-			sourceTree = "<group>";
-		};
 		8ADD3D491B8764570023B628 /* TSYSimpleTableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1587,7 +1574,6 @@
 				8ADD3D0E1B8377960023B628 /* IDPModel.m in Sources */,
 				849DAF171B3414CA0034D221 /* TSYMacros.m in Sources */,
 				84A1467B1B55A87700439875 /* TSYArrayModel.m in Sources */,
-				8ADD3D481B85B9070023B628 /* NSOrderedSet+TSYCategory.m in Sources */,
 				8ADD3D1C1B8377960023B628 /* IDPWeakArray.m in Sources */,
 				849F4B2E1B5FB9C800B9DEED /* TSYLoginView.m in Sources */,
 				84BF5F071B32D09900932154 /* TSYUsers.m in Sources */,

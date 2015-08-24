@@ -14,8 +14,6 @@
 #import "TSYFBUser.h"
 #import "TSYFacebookConstants.h"
 
-#import "NSOrderedSet+TSYCategory.h"
-
 @implementation TSYFacebookUserFriendsContext
 
 #pragma mark -

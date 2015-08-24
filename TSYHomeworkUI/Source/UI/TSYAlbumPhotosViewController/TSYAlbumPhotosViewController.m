@@ -16,6 +16,7 @@
 #import "TSYFBPhoto.h"
 #import "TSYFacebookAlbumPhotosContext.h"
 #import "TSYMacros.h"
+#import "TSYFacebookConstants.h"
 
 #import "UITableView+TSYCategory.h"
 
@@ -37,6 +38,15 @@
     NSString *albumName = photoAlbumModel.albumName;
     
     self.navigationController.navigationBar.topItem.title = albumName;
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)performRefreshing {
+    self.context = [TSYFacebookAlbumPhotosContext contextWithModel:self.model];
+    
+    TSYSleep(kRefreshSleepingTime);
 }
 
 #pragma mark -

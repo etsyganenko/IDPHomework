@@ -40,6 +40,15 @@
 }
 
 #pragma mark -
+#pragma mark Public Methods
+
+- (void)performRefreshing {
+    self.context = [TSYFacebookAlbumsContext contextWithModel:self.model];
+    
+    TSYSleep(kRefreshSleepingTime);
+}
+
+#pragma mark -
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

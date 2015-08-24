@@ -14,8 +14,6 @@
 #import "TSYManagedObject.h"
 #import "TSYFacebookConstants.h"
 
-#import "NSOrderedSet+TSYCategory.h"
-
 @implementation TSYFacebookAlbumsContext
 
 #pragma mark -

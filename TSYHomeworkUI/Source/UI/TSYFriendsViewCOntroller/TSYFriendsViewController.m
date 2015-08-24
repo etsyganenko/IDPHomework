@@ -15,6 +15,7 @@
 #import "TSYFacebookUserFriendsContext.h"
 #import "TSYFriendsViewCell.h"
 #import "TSYUserDetailViewController.h"
+#import "TSYFacebookConstants.h"
 
 #import "UITableView+TSYCategory.h"
 
@@ -27,6 +28,15 @@
     [super viewWillAppear:animated];
 
     self.context = [TSYFacebookUserFriendsContext contextWithModel:self.model];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)performRefreshing {
+    self.context = [TSYFacebookUserFriendsContext contextWithModel:self.model];
+    
+    TSYSleep(kRefreshSleepingTime);
 }
 
 #pragma mark -

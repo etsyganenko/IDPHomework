@@ -14,4 +14,7 @@
 @property (nonatomic, readonly)     TSYTableView        *mainView;
 @property (nonatomic, strong)       UIRefreshControl    *refreshControl;
 
+// you must overload this method in children
+- (void)performRefreshing;
+
 @end
