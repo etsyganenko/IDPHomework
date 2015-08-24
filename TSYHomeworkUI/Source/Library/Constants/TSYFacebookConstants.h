@@ -45,3 +45,6 @@ static NSString * const kAlertActionTitle                   = @"OK";
 static NSString * const kAlertMessage                       = @"No internet connection";
 static NSString * const kMOMName                            = @"TSYHomework";
 static NSString * const kIdentifier                         = @"id";
+static NSString * const kRefreshString                      = @"updating...";
+
+static const NSUInteger kRefreshSleepingTime                = 2;

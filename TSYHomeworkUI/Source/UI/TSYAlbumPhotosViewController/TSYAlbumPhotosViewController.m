@@ -8,7 +8,6 @@
 
 #import "TSYAlbumPhotosViewController.h"
 
-#import "TSYAlbumPhotosView.h"
 #import "TSYAlbumViewCell.h"
 #import "TSYFBUserModel.h"
 #import "TSYFBPhotoAlbum.h"
@@ -64,19 +63,6 @@
     [cell fillWithModel:photoModel];
 
     return cell;
-}
-
-#pragma mark -
-#pragma mark TSYModelObserver
-
-- (void)modelDidLoad:(TSYFacebookAlbumPhotosContext *)context {
-    TSYAlbumPhotosView *mainView = self.mainView;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [mainView hideLoadingView];
-        
-        [mainView.tableView reloadData];
-    });
 }
 
 @end

@@ -20,8 +20,6 @@
 
 @implementation TSYViewController
 
-//@dynamic mainView;
-
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -45,8 +43,6 @@
 
 #pragma mark -
 #pragma mark Accessors
-
-//TSYBaseViewPropertyGetterSynthesize(TSYView, mainView)
 
 - (void)setContext:(TSYContext *)context {
     if (_context != context) {
@@ -77,12 +73,6 @@
 
 #pragma mark -
 #pragma mark TSYModelObserver
-
-//- (void)modelWillLoad:(TSYContext *)context {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self.mainView showLoadingView];
-//    });
-//}
 
 - (void)modelDidFailLoading:(TSYContext *)context {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil

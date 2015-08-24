@@ -61,23 +61,4 @@
     return cell;
 }
 
-#pragma mark -
-#pragma mark TSYModelObserver
-
-//- (void)modelWillLoad:(TSYFacebookUserFriendsContext *)context {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self.mainView showLoadingView];
-//    });
-//}
-
-//- (void)modelDidLoad:(TSYFacebookUserFriendsContext *)context {
-//    TSYTableView *mainView = self.mainView;
-//    
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [mainView hideLoadingView];
-//        
-//        [mainView.tableView reloadData];
-//    });
-//}
-
 @end

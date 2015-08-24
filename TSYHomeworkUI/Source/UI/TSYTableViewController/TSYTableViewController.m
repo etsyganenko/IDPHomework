@@ -10,6 +10,13 @@
 
 #import "TSYTableView.h"
 #import "TSYMacros.h"
+#import "TSYFacebookConstants.h"
+
+@interface TSYTableViewController ()
+
+- (void)refresh;
+
+@end
 
 @implementation TSYTableViewController
 
@@ -27,8 +34,12 @@ TSYBaseViewPropertyGetterSynthesize(TSYTableView, mainView)
     UIRefreshControl *refreshControl = [UIRefreshControl new];
     
     [refreshControl addTarget:self
-                       action:nil
-             forControlEvents:UIControlEventTouchDragExit];
+                       action:@selector(refresh)
+             forControlEvents:UIControlEventValueChanged];
+    
+    NSMutableAttributedString *refreshString = [[NSMutableAttributedString alloc] initWithString:kRefreshString];
+
+    refreshControl.attributedTitle = refreshString;
     
     self.refreshControl = refreshControl;
     
@@ -49,6 +60,12 @@ TSYBaseViewPropertyGetterSynthesize(TSYTableView, mainView)
 #pragma mark -
 #pragma mark TSYModelObserver
 
+- (void)modelWillLoad:(TSYContext *)context {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.mainView showLoadingView];
+    });
+}
+
 - (void)modelDidLoad:(TSYContext *)context {
     TSYTableView *mainView = self.mainView;
     
@@ -57,6 +74,17 @@ TSYBaseViewPropertyGetterSynthesize(TSYTableView, mainView)
         
         [mainView.tableView reloadData];
     });
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)refresh {
+    TSYSleep(kRefreshSleepingTime);
+    
+    [self.mainView.tableView reloadData];
+    
+    [self.refreshControl endRefreshing];
 }
 
 @end

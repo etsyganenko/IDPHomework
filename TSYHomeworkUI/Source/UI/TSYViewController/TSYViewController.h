@@ -14,7 +14,6 @@
 @class TSYView;
 
 @interface TSYViewController : UIViewController <TSYModelObserver>
-//@property (nonatomic, readonly)     TSYView             *mainView;
 @property (nonatomic, strong)       TSYContext          *context;
 @property (nonatomic, strong)       id                  model;
 
