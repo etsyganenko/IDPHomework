@@ -11,10 +11,12 @@
 #import "TSYModel.h"
 
 @class TSYContext;
+@class TSYView;
 
 @interface TSYViewController : UIViewController <TSYModelObserver>
-@property (nonatomic, strong)   TSYContext  *context;
-@property (nonatomic, strong)   id          model;
+//@property (nonatomic, readonly)     TSYView             *mainView;
+@property (nonatomic, strong)       TSYContext          *context;
+@property (nonatomic, strong)       id                  model;
 
 - (void)logout;
 

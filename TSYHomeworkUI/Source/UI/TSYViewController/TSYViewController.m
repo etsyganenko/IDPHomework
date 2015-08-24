@@ -11,12 +11,16 @@
 
 #import "TSYViewController.h"
 
+#import "TSYView.h"
 #import "TSYLoginViewController.h"
 #import "TSYContext.h"
 #import "TSYModel.h"
+#import "TSYMacros.h"
 #import "TSYFacebookConstants.h"
 
 @implementation TSYViewController
+
+//@dynamic mainView;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -26,7 +30,7 @@
 }
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark View Lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -41,6 +45,8 @@
 
 #pragma mark -
 #pragma mark Accessors
+
+//TSYBaseViewPropertyGetterSynthesize(TSYView, mainView)
 
 - (void)setContext:(TSYContext *)context {
     if (_context != context) {
@@ -72,7 +78,13 @@
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelDidFailLoading:(TSYModel *)model {
+//- (void)modelWillLoad:(TSYContext *)context {
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.mainView showLoadingView];
+//    });
+//}
+
+- (void)modelDidFailLoading:(TSYContext *)context {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
                                                                    message:kAlertMessage
                                                             preferredStyle:UIAlertControllerStyleActionSheet];

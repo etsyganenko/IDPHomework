@@ -1,5 +1,5 @@
 //
-//  TSYTableCell.h
+//  TSYSimpleTableCell.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 17.06.15.
@@ -14,7 +14,7 @@
 @class TSYUser;
 @class TSYImageView;
 
-@interface TSYTableCell : UITableViewCell <TSYModelObserver>
+@interface TSYSimpleTableCell : UITableViewCell <TSYModelObserver>
 @property (nonatomic, strong)   IBOutlet TSYImageView   *userImageView;
 @property (nonatomic, strong)   IBOutlet UILabel        *fullNameLabel;
 

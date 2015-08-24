@@ -11,20 +11,10 @@
 #import "TSYAppDelegate.h"
 
 #import "ActiveRecordKit.h"
-#import "TSYSquareViewController.h"
-#import "TSYTableViewController.h"
 #import "TSYLoginViewController.h"
-#import "TSYUsers.h"
-#import "TSYModel.h"
-#import "TSYFBUserModel.h"
 #import "TSYFacebookConstants.h"
 
 #import "UIWindow+TSYCategories.h"
-
-@interface TSYAppDelegate ()
-@property (nonatomic, strong)   TSYUsers    *users;
-
-@end
 
 @implementation TSYAppDelegate
 

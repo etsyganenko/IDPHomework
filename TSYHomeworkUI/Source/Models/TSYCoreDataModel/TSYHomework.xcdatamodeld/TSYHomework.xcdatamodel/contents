@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="TSYFBPhoto" representedClassName="TSYFBPhoto" syncable="YES">
-        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoURLString" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="photoAlbum" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSYFBPhotoAlbum" inverseName="photos" inverseEntity="TSYFBPhotoAlbum" syncable="YES"/>
     </entity>
     <entity name="TSYFBPhotoAlbum" representedClassName="TSYFBPhotoAlbum" syncable="YES">
         <attribute name="albumName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="coverPhotoURLString" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TSYFBPhoto" inverseName="photoAlbum" inverseEntity="TSYFBPhoto" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSYFBUser" inverseName="photoAlbums" inverseEntity="TSYFBUser" syncable="YES"/>
     </entity>
     <entity name="TSYFBUser" representedClassName="TSYFBUser" syncable="YES">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullName" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageURLString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TSYFBUser" inverseName="friends" inverseEntity="TSYFBUser" syncable="YES"/>
         <relationship name="photoAlbums" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TSYFBPhotoAlbum" inverseName="user" inverseEntity="TSYFBPhotoAlbum" syncable="YES"/>
     </entity>
+    <entity name="TSYPhoto" syncable="YES">
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="photoURLString" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="TSYFBUser" positionX="-864" positionY="-279" width="128" height="148"/>
         <element name="TSYFBPhotoAlbum" positionX="-612" positionY="-271" width="128" height="118"/>
         <element name="TSYFBPhoto" positionX="-335" positionY="-261" width="128" height="88"/>
+        <element name="TSYPhoto" positionX="-621" positionY="-180" width="128" height="75"/>
     </elements>
 </model>

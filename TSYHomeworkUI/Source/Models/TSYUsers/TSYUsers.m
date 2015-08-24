@@ -8,7 +8,7 @@
 
 #import "TSYUsers.h"
 
-#import "TSYTableViewController.h"
+#import "TSYSimpleTableViewController.h"
 #import "TSYTableChange.h"
 #import "TSYTableCellMovingPath.h"
 #import "TSYUser.h"

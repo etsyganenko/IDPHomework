@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TSYViewController.h"
+#import "TSYTableViewController.h"
 
-@interface TSYAlbumsViewController : TSYViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TSYAlbumsViewController : TSYTableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

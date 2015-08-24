@@ -8,7 +8,9 @@
 
 #import "TSYViewController.h"
 
-@interface TSYAlbumPhotosViewController : TSYViewController <UITableViewDelegate, UITableViewDataSource>
+#import "TSYTableViewController.h"
+
+@interface TSYAlbumPhotosViewController : TSYTableViewController
 @property (nonatomic, strong)   NSString    *albumID;
 
 @end

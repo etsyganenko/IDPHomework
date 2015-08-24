@@ -1,5 +1,5 @@
 //
-//  TSYTableView.h
+//  TSYSimpleTableView.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 17.06.15.
@@ -12,7 +12,7 @@
 
 @class TSYUsers;
 
-@interface TSYTableView : TSYView
+@interface TSYSimpleTableView : TSYView
 @property (nonatomic, strong)   IBOutlet UITableView        *tableView;
 
 @property (nonatomic, strong)   IBOutlet UIButton           *addButton;

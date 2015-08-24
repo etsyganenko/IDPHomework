@@ -9,7 +9,7 @@
 #import "TSYFriendsViewController.h"
 
 #import "TSYMacros.h"
-#import "TSYFriendsView.h"
+#import "TSYTableView.h"
 #import "TSYFBUser.h"
 #import "TSYArrayModel.h"
 #import "TSYFacebookUserFriendsContext.h"
@@ -17,8 +17,6 @@
 #import "TSYUserDetailViewController.h"
 
 #import "UITableView+TSYCategory.h"
-
-TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, mainView)
 
 @implementation TSYFriendsViewController
 
@@ -29,17 +27,6 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
     [super viewWillAppear:animated];
 
     self.context = [TSYFacebookUserFriendsContext contextWithModel:self.model];
-}
-
-#pragma mark -
-#pragma mark UITableViewDelegate
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
 }
 
 #pragma mark -
@@ -77,20 +64,20 @@ TSYViewControllerBaseViewProperty(TSYFriendsViewController, TSYFriendsView, main
 #pragma mark -
 #pragma mark TSYModelObserver
 
-- (void)modelWillLoad:(TSYFacebookUserFriendsContext *)context {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mainView showLoadingView];
-    });
-}
+//- (void)modelWillLoad:(TSYFacebookUserFriendsContext *)context {
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.mainView showLoadingView];
+//    });
+//}
 
-- (void)modelDidLoad:(TSYFacebookUserFriendsContext *)context {
-    TSYFriendsView *mainView = self.mainView;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [mainView hideLoadingView];
-        
-        [mainView.tableView reloadData];
-    });
-}
+//- (void)modelDidLoad:(TSYFacebookUserFriendsContext *)context {
+//    TSYTableView *mainView = self.mainView;
+//    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [mainView hideLoadingView];
+//        
+//        [mainView.tableView reloadData];
+//    });
+//}
 
 @end

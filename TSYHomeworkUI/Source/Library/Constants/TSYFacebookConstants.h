@@ -8,11 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-// проверить новые приватные методы TSYFBUser'а
-// как поменять в БД и не создавать заново модели
-// absolute string
-// почему не работает [NSPredicate predicateWithFormat:@"%@ == %@", @"userID", userID]
-
 static NSString * const kRequestHTTPMethodGet               = @"GET";
 
 static NSString * const kReadPermissionEmail                = @"email";
@@ -45,8 +40,8 @@ static const NSUInteger kUserFriendsContextPictureWidth     = 100;
 static const NSUInteger kUserFriendsContextPictureHeight    = 100;
 
 static NSString * const kPhotoAlbumsTitle                   = @"%@'s photos";
-static NSString * const kLogoutButtonTitle                  = @"logout";
+static NSString * const kLogoutButtonTitle                  = @"Logout";
 static NSString * const kAlertActionTitle                   = @"OK";
 static NSString * const kAlertMessage                       = @"No internet connection";
 static NSString * const kMOMName                            = @"TSYHomework";
-static NSString * const kIdentifier                         = @"identifier";
+static NSString * const kIdentifier                         = @"id";

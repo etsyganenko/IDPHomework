@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TSYUserDetailViewController">
@@ -24,11 +25,10 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Jgb-Ze-JP3" secondAttribute="trailing" id="0lb-OI-JF6"/>
+                        <constraint firstAttribute="width" secondItem="yxw-Q9-3Wb" secondAttribute="height" multiplier="1:1" id="63Q-W9-hpi"/>
                         <constraint firstItem="Jgb-Ze-JP3" firstAttribute="leading" secondItem="yxw-Q9-3Wb" secondAttribute="leading" id="98e-zf-jAc"/>
                         <constraint firstAttribute="bottom" secondItem="Jgb-Ze-JP3" secondAttribute="bottom" id="Gi6-4F-vk0"/>
                         <constraint firstItem="Jgb-Ze-JP3" firstAttribute="top" secondItem="yxw-Q9-3Wb" secondAttribute="top" id="Y6f-UW-15d"/>
-                        <constraint firstAttribute="width" constant="320" id="pkx-60-SwX"/>
-                        <constraint firstAttribute="height" constant="320" id="vJ3-2I-itC"/>
                     </constraints>
                     <connections>
                         <outlet property="imageView" destination="Jgb-Ze-JP3" id="i8c-kj-5el"/>

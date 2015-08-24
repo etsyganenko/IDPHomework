@@ -12,24 +12,24 @@
 #import "TSYFacebookConstants.h"
 
 @interface TSYManagedObject ()
-@property (nonatomic, strong)   NSString    *identifier;
+@property (nonatomic, strong)   NSString    *id;
 
 @end
 
 @implementation TSYManagedObject
 
 @dynamic ID;
-@dynamic identifier;
+@dynamic id;
 
 #pragma mark -
 #pragma mark Accessors
 
 - (NSString *)ID {
-    return [self valueForKey:NSStringFromSelector(@selector(identifier))];
+    return [self valueForKey:NSStringFromSelector(@selector(id))];
 }
 
 - (void)setID:(NSString *)ID {
-    [self setValue:ID forKey:NSStringFromSelector(@selector(identifier))];
+    [self setValue:ID forKey:NSStringFromSelector(@selector(id))];
 }
 
 #pragma mark -

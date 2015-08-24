@@ -20,8 +20,6 @@
 
 #import "UITableView+TSYCategory.h"
 
-TSYViewControllerBaseViewProperty(TSYAlbumPhotosViewController, TSYAlbumPhotosView, mainView)
-
 @implementation TSYAlbumPhotosViewController
 
 #pragma mark -

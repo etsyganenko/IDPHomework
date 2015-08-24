@@ -8,6 +8,8 @@
 
 #import "TSYViewController.h"
 
-@interface TSYFriendsViewController : TSYViewController <UITableViewDelegate, UITableViewDataSource>
+#import "TSYTableViewController.h"
+
+@interface TSYFriendsViewController : TSYTableViewController
 
 @end

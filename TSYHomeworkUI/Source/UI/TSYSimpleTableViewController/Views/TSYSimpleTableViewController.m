@@ -1,15 +1,15 @@
 //
-//  TSYTableViewController.m
+//  TSYSimpleTableViewController.m
 //  TSYHomeworkUI
 //
 //  Created by Admin on 17.06.15.
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "TSYTableViewController.h"
+#import "TSYSimpleTableViewController.h"
 
-#import "TSYTableView.h"
-#import "TSYTableCell.h"
+#import "TSYSimpleTableView.h"
+#import "TSYSimpleTableCell.h"
 #import "TSYMacros.h"
 #import "TSYUser.h"
 #import "TSYUsers.h"
@@ -20,9 +20,9 @@
 #import "UITableView+TSYCategory.h"
 #import "NSIndexPath+TSYCategory.h"
 
-TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView)
+TSYViewControllerBaseViewProperty(TSYSimpleTableViewController, TSYSimpleTableView, mainView)
 
-@implementation TSYTableViewController
+@implementation TSYSimpleTableViewController
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -76,7 +76,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 #pragma mark Interface Handling
 
 - (void)hideUpButtonIfNeeded {
-    TSYTableView *mainView = self.mainView;
+    TSYSimpleTableView *mainView = self.mainView;
     UIButton *upButton = mainView.upButton;
     NSIndexPath *indexPath = [[mainView.tableView indexPathsForVisibleRows] firstObject];
 
@@ -107,7 +107,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (IBAction)onButtonEdit:(id)sender {
-    TSYTableView *view = self.mainView;
+    TSYSimpleTableView *view = self.mainView;
     
     [view setEditing:!view.editing animated:YES];
     
@@ -134,7 +134,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (void)    tableView:(UITableView *)tableView
- didEndDisplayingCell:(TSYTableCell *)cell
+ didEndDisplayingCell:(TSYSimpleTableCell *)cell
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.user = nil;
@@ -160,7 +160,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TSYTableCell *cell = [tableView cellWithClass:[TSYTableCell class]];
+    TSYSimpleTableCell *cell = [tableView cellWithClass:[TSYSimpleTableCell class]];
     
     cell.user = self.users[indexPath.row];
     
@@ -200,7 +200,7 @@ TSYViewControllerBaseViewProperty(TSYTableViewController, TSYTableView, mainView
 }
 
 - (void)modelDidLoad:(TSYModel *)model {
-    TSYTableView *mainView = self.mainView;
+    TSYSimpleTableView *mainView = self.mainView;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [mainView hideLoadingView];

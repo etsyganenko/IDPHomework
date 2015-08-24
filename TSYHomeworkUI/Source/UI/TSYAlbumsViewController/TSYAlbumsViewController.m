@@ -21,8 +21,6 @@
 
 #import "UITableView+TSYCategory.h"
 
-TSYViewControllerBaseViewProperty(TSYAlbumsViewController, TSYAlbumsView, mainView)
-
 @implementation TSYAlbumsViewController
 
 #pragma mark -

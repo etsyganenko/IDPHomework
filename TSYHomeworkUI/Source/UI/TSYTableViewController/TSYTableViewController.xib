@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TSYAlbumsViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TSYTableViewController">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -14,26 +14,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zJi-TZ-OAd">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BEA-hd-adW">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="z22-1h-zNF"/>
-                        <outlet property="delegate" destination="-1" id="6FT-ws-aMu"/>
+                        <outlet property="dataSource" destination="-1" id="wYd-4j-L4T"/>
+                        <outlet property="delegate" destination="-1" id="pGd-Tz-fwD"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="zJi-TZ-OAd" secondAttribute="trailing" id="IvZ-J1-Yck"/>
-                <constraint firstItem="zJi-TZ-OAd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PxA-RL-3NE"/>
-                <constraint firstAttribute="bottom" secondItem="zJi-TZ-OAd" secondAttribute="bottom" id="cQN-4f-zMk"/>
-                <constraint firstItem="zJi-TZ-OAd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sjN-de-dYF"/>
-            </constraints>
             <connections>
-                <outlet property="tableView" destination="zJi-TZ-OAd" id="EBq-Kl-2og"/>
+                <outlet property="tableView" destination="BEA-hd-adW" id="6nN-it-n8q"/>
             </connections>
-            <point key="canvasLocation" x="183" y="326"/>
         </view>
     </objects>
 </document>

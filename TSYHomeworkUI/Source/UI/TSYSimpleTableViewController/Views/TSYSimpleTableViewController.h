@@ -1,5 +1,5 @@
 //
-//  TSYTableViewController.h
+//  TSYSimpleTableViewController.h
 //  TSYHomeworkUI
 //
 //  Created by Admin on 17.06.15.
@@ -11,9 +11,9 @@
 #import "TSYUsers.h"
 
 @class TSYUsers;
-@class TSYTableView;
+@class TSYSimpleTableView;
 
-@interface TSYTableViewController : UIViewController<UITableViewDelegate,
+@interface TSYSimpleTableViewController : UIViewController<UITableViewDelegate,
                                                         UITableViewDataSource,
                                                         TSYModelObserver>
 @property (nonatomic, strong)   TSYUsers    *users;
