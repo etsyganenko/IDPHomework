@@ -51,11 +51,17 @@
     if (error) {
         self.state = TSYModelDidFailLoading;
         
+        [self loadFromCache];
+        
         return;
     }
     
     [self fillModelWithResult:result];
     
+    self.state = TSYModelDidLoad;
+}
+
+- (void)loadFromCache {
     self.state = TSYModelDidLoad;
 }
 

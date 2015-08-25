@@ -119,6 +119,7 @@
 		8ADD3D671B8765490023B628 /* TSYTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D651B8765490023B628 /* TSYTableViewController.m */; };
 		8ADD3D681B8765490023B628 /* TSYTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD3D661B8765490023B628 /* TSYTableViewController.xib */; };
 		8ADD3D6B1B87723D0023B628 /* TSYTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D6A1B87723D0023B628 /* TSYTableView.m */; };
+		8ADD3D741B8C65340023B628 /* TSYPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3D731B8C65340023B628 /* TSYPhoto.m */; };
 		B66C1EB5621F627838B6B349 /* libPods-TSYHomeworkUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */; };
 /* End PBXBuildFile section */
 
@@ -345,6 +346,8 @@
 		8ADD3D661B8765490023B628 /* TSYTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSYTableViewController.xib; sourceTree = "<group>"; };
 		8ADD3D691B87723D0023B628 /* TSYTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYTableView.h; sourceTree = "<group>"; };
 		8ADD3D6A1B87723D0023B628 /* TSYTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYTableView.m; sourceTree = "<group>"; };
+		8ADD3D721B8C65340023B628 /* TSYPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSYPhoto.h; sourceTree = "<group>"; };
+		8ADD3D731B8C65340023B628 /* TSYPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSYPhoto.m; sourceTree = "<group>"; };
 		C132934795E0C704DDF4C90D /* libPods-TSYHomeworkUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSYHomeworkUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1209,6 +1212,8 @@
 			isa = PBXGroup;
 			children = (
 				8ADD3D201B837ECB0023B628 /* TSYHomework.xcdatamodeld */,
+				8ADD3D721B8C65340023B628 /* TSYPhoto.h */,
+				8ADD3D731B8C65340023B628 /* TSYPhoto.m */,
 				8ADD3D381B848C1F0023B628 /* TSYFBUser.h */,
 				8ADD3D391B848C1F0023B628 /* TSYFBUser.m */,
 				8ADD3D3B1B848C1F0023B628 /* TSYFBPhotoAlbum.h */,
@@ -1506,6 +1511,7 @@
 				8ADD3D111B8377960023B628 /* IDPModelMixin.m in Sources */,
 				8ADD3D0A1B8377960023B628 /* IDPDispatch.m in Sources */,
 				8ADD3D611B8764570023B628 /* TSYSimpleTableViewController.m in Sources */,
+				8ADD3D741B8C65340023B628 /* TSYPhoto.m in Sources */,
 				8ADD3D3A1B848C1F0023B628 /* TSYFBUser.m in Sources */,
 				8ADD3D071B8377960023B628 /* NSFileManager+IDPExtensions.m in Sources */,
 				8ADD3D0B1B8377960023B628 /* IDPKeyPathObserver.m in Sources */,

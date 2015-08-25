@@ -21,14 +21,15 @@
         <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TSYFBUser" inverseName="friends" inverseEntity="TSYFBUser" syncable="YES"/>
         <relationship name="photoAlbums" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TSYFBPhotoAlbum" inverseName="user" inverseEntity="TSYFBPhotoAlbum" syncable="YES"/>
     </entity>
-    <entity name="TSYPhoto" syncable="YES">
+    <entity name="TSYPhoto" representedClassName="TSYPhoto" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="modifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="photoURLString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="savingPath" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TSYFBUser" positionX="-864" positionY="-279" width="128" height="148"/>
-        <element name="TSYFBPhotoAlbum" positionX="-612" positionY="-271" width="128" height="118"/>
         <element name="TSYFBPhoto" positionX="-335" positionY="-261" width="128" height="88"/>
-        <element name="TSYPhoto" positionX="-621" positionY="-180" width="128" height="75"/>
+        <element name="TSYFBPhotoAlbum" positionX="-612" positionY="-271" width="128" height="118"/>
+        <element name="TSYFBUser" positionX="-864" positionY="-279" width="128" height="148"/>
+        <element name="TSYPhoto" positionX="-621" positionY="-180" width="128" height="90"/>
     </elements>
 </model>

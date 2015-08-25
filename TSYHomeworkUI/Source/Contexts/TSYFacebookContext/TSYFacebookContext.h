@@ -24,4 +24,6 @@ typedef void(^TSYContextCompletionHandler)(FBSDKGraphRequestConnection *connecti
 
 - (void)processRequestResult:(id)result error:(NSError *)error;
 
+- (void)loadFromCache;
+
 @end
