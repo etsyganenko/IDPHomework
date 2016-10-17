@@ -103,4 +103,4 @@ TBTAuthorizationManager.sharedInstance.startAuthorization(onViewController: self
 
 ## License
 
-Alamofire is released under the MIT license. See LICENSE for details.
+Tabata SDK is released under the MIT license. See LICENSE for details.
