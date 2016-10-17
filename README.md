@@ -2,7 +2,6 @@
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [License](#license)
 
 ## Installation
 
@@ -102,7 +101,3 @@ TBTAuthorizationManager.sharedInstance.startAuthorization(onViewController: self
 - `descriptionTextColor`
 - `descriptionTextFont`
 - `horizontalLineColor`
-
-## License
-
-Tabata SDK is released under the MIT license. See LICENSE for details.
