@@ -23,7 +23,7 @@ platform :ios, ‘8.1’
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'TabataSDK'
+    pod 'TabataSDK', :git => 'https://github.com/TabaTa-platform/tabata-ios-sdk.git', :branch => 'develop'
 end
 ```
 
