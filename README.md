@@ -54,7 +54,7 @@ TBTAuthorizationManager.sharedInstance.startAuthorization(onViewController: self
 - `additionalData` - (optional) list of TBTProfileAttribute instances
 - `appearance` - (optional) TBTAppearance instance for UI customization
 
-### Passing additional data
+### Passing additional user profile data
 
 ```swift
 let editableData = TBTProfileAttribute(title: "title", value: "value", type: .Editable)
